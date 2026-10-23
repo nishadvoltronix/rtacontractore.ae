@@ -46,6 +46,39 @@
       }
     });
   }
+  const aboutSection = document.querySelector('.about-shell > .about');
+  if (aboutSection) {
+    const aboutShell = aboutSection.parentElement;
+    const followingSections = aboutSection.nextElementSibling;
+    const stickyMotion = window.matchMedia('(min-height: 551px) and (prefers-reduced-motion: no-preference)');
+    let stickyTop = 0;
+    const headerBottom = () => heroHeader?.getBoundingClientRect().bottom || 0;
+    const updateAboutLayout = () => {
+      // Tall layouts scroll through all their content before the bottom edge pins.
+      stickyTop = Math.min(headerBottom(), window.innerHeight - aboutSection.offsetHeight);
+      aboutSection.style.setProperty('--about-stick-top', `${stickyTop}px`);
+      aboutSection.classList.toggle('is-sticky', stickyMotion.matches);
+    };
+    window.addEventListener('resize', updateAboutLayout);
+    window.addEventListener('pageshow', updateAboutLayout);
+    stickyMotion.addEventListener('change', updateAboutLayout);
+    if ('ResizeObserver' in window) {
+      const aboutObserver = new ResizeObserver(updateAboutLayout);
+      aboutObserver.observe(aboutSection);
+      if (heroHeader) aboutObserver.observe(heroHeader);
+    }
+    aboutSection.addEventListener('focusin', event => {
+      const target = event.target.getBoundingClientRect();
+      const visibleBottom = Math.min(window.innerHeight, followingSections.getBoundingClientRect().top);
+      if (target.top >= headerBottom() + 16 && target.bottom <= visibleBottom) return;
+      const naturalStart = window.scrollY + aboutShell.getBoundingClientRect().top;
+      const localTop = target.top - aboutSection.getBoundingClientRect().top;
+      let revealAt = naturalStart + localTop - headerBottom() - 16;
+      if (aboutSection.classList.contains('is-sticky')) revealAt = Math.min(revealAt, naturalStart - stickyTop);
+      window.scrollTo({ top: Math.max(0, revealAt), behavior: 'instant' });
+    });
+    updateAboutLayout();
+  }
   const backgroundVideo = document.querySelector('[data-sector-video]');
   if (backgroundVideo) {
     const videoToggle = document.querySelector('[data-video-toggle]');

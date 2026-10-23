@@ -25,6 +25,8 @@ Open http://127.0.0.1:4173. Build output is in `website/dist/`; it can be served
 
 CSS, JavaScript, logos, fonts and photographs in `dist/assets` are source assets retained by the build. Do not delete `dist` before building.
 
+The About section pins as the sectors and following content scroll over it. Taller mobile layouts scroll through all About content before pinning. Short viewports and reduced-motion preferences use normal scrolling, and keyboard focus reveals any covered About link.
+
 ## Enquiries
 
 The form validates and prepares an enquiry locally. Visitors review it and choose an email or WhatsApp link; they press send in their own application. It does not claim to submit a lead to a server, store personal details or send messages automatically. Direct telephone, email and WhatsApp links are also available. Without JavaScript, direct contact links remain available and the form's submit action stays disabled.

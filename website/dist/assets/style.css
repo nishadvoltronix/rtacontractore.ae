@@ -86,3 +86,10 @@ section[id]{scroll-margin-top:0}
 .video-toggle:hover{background:#0000008c}
 @media(max-width:540px){.sector-bottom{align-items:flex-start;flex-direction:column;gap:16px}}
 @media(prefers-reduced-motion:reduce){.sector-background video,.video-toggle{display:none}}
+
+/* Keep About in place as the sectors and remaining content scroll over it. */
+.about-shell{position:relative}
+.about{position:relative;min-height:calc(100svh - var(--header-height));display:flex;align-items:center}
+.about.is-sticky{position:sticky;top:var(--about-stick-top);z-index:1}
+.sectors-shell{position:relative;z-index:2;background:var(--cream)}
+@media(max-height:550px),(prefers-reduced-motion:reduce){.about.is-sticky{position:relative;top:auto}}
