@@ -20,17 +20,26 @@
   window.matchMedia('(min-width: 1101px)').addEventListener('change', event => { if(event.matches) setMenu(false); });
   const heroHeader = document.querySelector('.hero-header');
   if (heroHeader) {
-    let headerFrame = 0;
-    const updateHeader = () => {
-      heroHeader.classList.toggle('is-scrolled', window.scrollY > 24);
-      headerFrame = 0;
-    };
-    updateHeader();
-    window.addEventListener('scroll', () => {
-      if (!headerFrame) headerFrame = requestAnimationFrame(updateHeader);
-    }, { passive: true });
     const hero = document.querySelector('.hero');
     const content = document.querySelector('.home-content');
+    let headerFrame = 0;
+    const updateHeader = () => {
+      const contentAtHeader = content && content.getBoundingClientRect().top <= heroHeader.getBoundingClientRect().bottom;
+      heroHeader.classList.toggle('is-scrolled', Boolean(contentAtHeader));
+      headerFrame = 0;
+    };
+    const scheduleHeaderUpdate = () => {
+      if (!headerFrame) headerFrame = requestAnimationFrame(updateHeader);
+    };
+    updateHeader();
+    window.addEventListener('scroll', scheduleHeaderUpdate, { passive: true });
+    window.addEventListener('resize', scheduleHeaderUpdate);
+    window.addEventListener('pageshow', scheduleHeaderUpdate);
+    if ('ResizeObserver' in window) {
+      const headerObserver = new ResizeObserver(scheduleHeaderUpdate);
+      headerObserver.observe(heroHeader);
+      if (hero) headerObserver.observe(hero);
+    }
     hero?.addEventListener('focusin', event => {
       if (content && content.getBoundingClientRect().top < event.target.getBoundingClientRect().bottom) {
         window.scrollTo({ top: 0, behavior: 'instant' });
