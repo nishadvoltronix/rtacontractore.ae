@@ -1,58 +1,38 @@
 {
   "retrievedOn": "2026-10-23",
-  "license": "Unsplash License",
+  "license": "Unsplash License (stock photographs only)",
   "licenseUrl": "https://unsplash.com/license",
   "licenseSummary": "Unsplash permits downloading, modifying and using these photographs for commercial and non-commercial purposes. Attribution is appreciated but not required. Do not resell unmodified images or create a competing image service.",
-  "usageNote": "Licensed stock photography used to illustrate service categories and the Dubai setting. These are not represented as photographs of this contractor's completed projects, employees or equipment. No AI-generated images were used.",
+  "usageNote": "The homepage hero is a supplied image. The remaining images are licensed stock photographs illustrating service categories and Dubai. Imagery is not presented as this contractor's completed projects, employees or equipment.",
   "photos": [
     {
-      "file": "dist/assets/images/dubai-skyline-hero.webp",
-      "width": 1920,
-      "height": 1080,
-      "quality": 78,
-      "bytes": 368996,
-      "downloadUrl": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?fit=crop&crop=focalpoint&fp-x=0.47&fp-y=0.42&w=1920&h=1080&q=78&fm=webp",
-      "photographer": "David Rodrigo",
-      "sourcePage": "https://unsplash.com/photos/burj-khalifa-and-highway-in-dubai-Fr6zexbmjmc",
-      "sourceImage": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c",
-      "alt": "Burj Khalifa and the Downtown Dubai skyline above a highway interchange at sunrise",
-      "location": "Downtown Dubai, Dubai, United Arab Emirates",
-      "publishedOn": "2017-12-05",
-      "suggestedUse": "Homepage hero; real Dubai skyline and road infrastructure photograph, not a VOLTRONIX project",
+      "file": "dist/assets/images/dubai-roadwork-hero.webp",
+      "width": 2067,
+      "height": 761,
+      "bytes": 301090,
+      "sourceType": "supplied",
+      "photographer": "Supplied homepage image",
+      "sourcePage": "/assets/images/dubai-roadwork-hero-original.png",
+      "sourceImage": "/assets/images/dubai-roadwork-hero-original.png",
+      "originalFile": "dist/assets/images/dubai-roadwork-hero-original.png",
+      "originalFilename": "Roadwork Toward Dubai Skyline.png",
+      "alt": "A road construction scene with workers, a yellow road roller and the Dubai skyline",
+      "license": "Supplied for this website by the user; not part of the Unsplash collection",
+      "provenanceNote": "Original creator and photographic authenticity have not been independently verified.",
+      "suggestedUse": "Homepage hero requested by the user",
       "responsiveVariants": {
         "640": {
-          "file": "dist/assets/images/dubai-skyline-hero-640.webp",
+          "file": "dist/assets/images/dubai-roadwork-hero-640.webp",
           "width": 640,
-          "height": 360,
-          "quality": 74,
-          "bytes": 52230,
-          "downloadUrl": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?fit=crop&crop=focalpoint&fp-x=0.47&fp-y=0.42&w=640&h=360&q=74&fm=webp"
+          "height": 236,
+          "bytes": 37160
         },
         "960": {
-          "file": "dist/assets/images/dubai-skyline-hero-960.webp",
+          "file": "dist/assets/images/dubai-roadwork-hero-960.webp",
           "width": 960,
-          "height": 540,
-          "quality": 76,
-          "bytes": 110336,
-          "downloadUrl": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?fit=crop&crop=focalpoint&fp-x=0.47&fp-y=0.42&w=960&h=540&q=76&fm=webp"
+          "height": 353,
+          "bytes": 74704
         }
-      },
-      "mobileVariant": {
-        "file": "dist/assets/images/dubai-skyline-hero-mobile.webp",
-        "width": 960,
-        "height": 1680,
-        "quality": 70,
-        "bytes": 318164,
-        "downloadUrl": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?fit=crop&crop=focalpoint&fp-x=0.47&fp-y=0.42&w=960&h=1680&q=70&fm=webp",
-        "cropNote": "Portrait crop centered on Burj Khalifa with the highway interchange in the foreground"
-      },
-      "mobileAvif": {
-        "file": "dist/assets/images/dubai-skyline-hero-mobile.avif",
-        "width": 640,
-        "height": 1120,
-        "quality": 53,
-        "bytes": 91303,
-        "downloadUrl": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?fit=crop&crop=focalpoint&fp-x=0.47&fp-y=0.42&w=640&h=1120&q=53&fm=avif"
       }
     },
     {

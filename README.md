@@ -21,7 +21,7 @@ Open http://127.0.0.1:4173. Build output is in `website/dist/`; it can be served
 - `website/scripts/build.mjs`: shared layout, home, service, privacy and photography pages; sitemap, robots and JSON-LD.
 - `website/dist/assets/style.css`: responsive visual system.
 - `website/dist/assets/app.js`: accessible mobile navigation and enquiry preparation.
-- `website/photo-sources.json`: real-photo origins, photographer credits and license references.
+- `website/photo-sources.json`: image origins, photographer credits and license references.
 
 CSS, JavaScript, logos, fonts and photographs in `dist/assets` are source assets retained by the build. Do not delete `dist` before building.
 
@@ -54,7 +54,7 @@ The browser check expects the local preview to be running at port 4173 and insta
 
 ## Sources and ownership
 
-Business identity, logo, contact details and founding year: https://voltronix.ae/ (reviewed 23 October 2026). Completed work links go to the company's existing project portfolio. Stock photographs are representative imagery, not claims of VOLTRONIX projects. No AI-generated photography, invented reviews or unverified RTA approval badges are included.
+Business identity, logo, contact details and founding year: https://voltronix.ae/ (reviewed 23 October 2026). Completed work links go to the company's existing project portfolio. Stock photographs are representative imagery, not claims of VOLTRONIX projects. The homepage hero uses the image supplied by the user; its creator and photographic authenticity have not been independently verified. No invented reviews or unverified RTA approval badges are included.
 
 Service research references from the user's shared conversation:
 
@@ -62,6 +62,6 @@ Service research references from the user's shared conversation:
 - https://binhanifgroup.com/services/street-lighting-division/
 - https://alphaislandtech.com/
 
-Original service copy describes enquiry scopes, not competitors' project histories. Real photographs are licensed from Unsplash and individually credited on `/photography/`; Manrope is distributed with its SIL Open Font License.
+Original service copy describes enquiry scopes, not competitors' project histories. Stock photographs are licensed from Unsplash, with the supplied hero image credited separately on `/photography/`; Manrope is distributed with its SIL Open Font License.
 
 The Sites identity is retained in `website/.openai/hosting.json`. This GitHub repository remains the working source; hosted source synchronization uses an isolated publishing checkout so it does not create a nested Git repository here.
