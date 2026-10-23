@@ -108,7 +108,7 @@ async function inspectInteractions(page) {
     check(await menuToggle.getAttribute('aria-expanded') === 'false', 'mobile navigation: closes and exposes collapsed state');
   }
 
-  const faq = page.locator('details').first();
+  const faq = page.locator('#faq .faq-list details').first();
   check(await faq.count() > 0, 'FAQ: native disclosure is available');
   if (await faq.count()) {
     const wasOpen = await faq.evaluate(element => element.open);
