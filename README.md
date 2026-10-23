@@ -25,8 +25,6 @@ Open http://127.0.0.1:4173. Build output is in `website/dist/`; it can be served
 
 CSS, JavaScript, logos, fonts and photographs in `dist/assets` are source assets retained by the build. Do not delete `dist` before building.
 
-The sectors video panel pins after the About section while the remaining sections scroll over it. Tall panels scroll through their full content before pinning. Reduced-motion visitors and short viewports use normal scrolling; video playback pauses when later sections cover it.
-
 ## Enquiries
 
 The form validates and prepares an enquiry locally. Visitors review it and choose an email or WhatsApp link; they press send in their own application. It does not claim to submit a lead to a server, store personal details or send messages automatically. Direct telephone, email and WhatsApp links are also available. Without JavaScript, direct contact links remain available and the form's submit action stays disabled.
@@ -56,7 +54,7 @@ The browser check expects the local preview to be running at port 4173 and insta
 
 ## Sources and ownership
 
-Business identity, logo, contact details and founding year: https://voltronix.ae/ (reviewed 23 October 2026). Completed work links go to the company's existing project portfolio. Stock photographs are representative imagery, not claims of VOLTRONIX projects. The homepage hero and sectors background use image and video assets supplied by the user; their creators and photographic authenticity have not been independently verified. The decorative background video loads when its section comes into view, plays silently, pauses offscreen, and has pause/play controls. Reduced-motion visitors see a still frame. No invented reviews or unverified RTA approval badges are included.
+Business identity, logo, contact details and founding year: https://voltronix.ae/ (reviewed 23 October 2026). Completed work links go to the company's existing project portfolio. Stock photographs are representative imagery, not claims of VOLTRONIX projects. The homepage hero and sectors background use image and video assets supplied by the user; their creators and photographic authenticity have not been independently verified. The current background uses the supplied 1280 x 720 H.264 file without transcoding (approximately 7.57 Mbps video bitrate), with refreshed high-quality poster images. The decorative background video loads when its section comes into view, plays silently, pauses offscreen, and has pause/play controls. Reduced-motion visitors see a still frame. No invented reviews or unverified RTA approval badges are included.
 
 Service research references from the user's shared conversation:
 

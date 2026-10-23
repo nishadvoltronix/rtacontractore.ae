@@ -214,17 +214,20 @@
   ],
   "videos": [
     {
-      "file": "dist/assets/videos/dubai-infrastructure-background.mp4",
+      "file": "dist/assets/videos/dubai-infrastructure-background-hq.mp4",
       "sourceType": "supplied",
-      "originalFilename": "gemini_generated_video_a68f3827.mp4",
+      "originalFilename": "gemini_generated_video_a9e3d957.mp4",
       "width": 1280,
       "height": 720,
-      "durationSeconds": 10.241,
-      "bytes": 1657164,
-      "audio": false,
-      "poster": "dist/assets/images/dubai-infrastructure-video-poster.webp",
+      "durationSeconds": 10.005,
+      "bytes": 9649664,
+      "audio": true,
+      "poster": "dist/assets/images/dubai-infrastructure-video-hq-poster.webp",
       "suggestedUse": "Decorative background for the sectors section, not represented as completed VOLTRONIX work",
-      "license": "Supplied for this website by the user; not part of the Unsplash collection"
+      "license": "Supplied for this website by the user; not part of the Unsplash collection",
+      "playbackMuted": true,
+      "encodingNote": "Original supplied H.264 video copied byte-for-byte without transcoding; approximately 7.57 Mbps video bitrate.",
+      "sourceSHA256": "afca489f9230420648866adab508bd00d9a8e444193aa223e5a7515b50c4e60d"
     }
   ]
 }
