@@ -1,0 +1,10 @@
+node_modules/
+artifacts/
+*.zip
+.DS_Store
+website/.git/
+.sites-checkout/
+.sites-runtime/
+.env
+.env.*
+!.env.example

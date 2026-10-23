@@ -1,0 +1,183 @@
+{
+  "retrievedOn": "2026-10-23",
+  "license": "Unsplash License",
+  "licenseUrl": "https://unsplash.com/license",
+  "licenseSummary": "Unsplash permits downloading, modifying and using these photographs for commercial and non-commercial purposes. Attribution is appreciated but not required. Do not resell unmodified images or create a competing image service.",
+  "usageNote": "Licensed stock photography used to illustrate service categories and the Dubai setting. These are not represented as photographs of this contractor's completed projects, employees or equipment. No AI-generated images were used.",
+  "photos": [
+    {
+      "file": "dist/assets/images/dubai-highway-night.webp",
+      "photographer": "Sam Melchor",
+      "sourcePage": "https://unsplash.com/photos/a-city-street-at-night-with-a-lot-of-lights-T1ugdMvuVqM",
+      "sourceImage": "https://images.unsplash.com/photo-1693946954012-4bbc26cfb6a4",
+      "downloadUrl": "https://images.unsplash.com/photo-1693946954012-4bbc26cfb6a4?fit=crop&w=1920&q=76&fm=webp",
+      "alt": "Warm streetlights illuminate a Dubai highway beside modern city buildings at night",
+      "width": 1920,
+      "height": 1280,
+      "camera": "Sony ILCE-7M4",
+      "publishedOn": "2023-09-05",
+      "suggestedUse": "Homepage hero",
+      "responsiveVariants": {
+        "640": {
+          "file": "dist/assets/images/dubai-highway-night-640.webp",
+          "width": 640,
+          "quality": 75,
+          "bytes": 44842,
+          "downloadUrl": "https://images.unsplash.com/photo-1693946954012-4bbc26cfb6a4?fit=crop&w=640&q=75&fm=webp"
+        },
+        "960": {
+          "file": "dist/assets/images/dubai-highway-night-960.webp",
+          "width": 960,
+          "quality": 78,
+          "bytes": 80856,
+          "downloadUrl": "https://images.unsplash.com/photo-1693946954012-4bbc26cfb6a4?fit=crop&w=960&q=78&fm=webp"
+        }
+      },
+      "quality": 76,
+      "bytes": 225536
+    },
+    {
+      "file": "dist/assets/images/dubai-road-light-trails.webp",
+      "photographer": "Michael Starkie",
+      "sourcePage": "https://unsplash.com/photos/sTOQG-SAFqY",
+      "sourceImage": "https://images.unsplash.com/photo-1703573198169-8116f12327ee",
+      "downloadUrl": "https://images.unsplash.com/photo-1703573198169-8116f12327ee?fit=crop&w=1200&q=82&fm=webp",
+      "alt": "Illuminated highways and long-exposure traffic trails between Dubai towers at night",
+      "width": 1200,
+      "height": 800,
+      "suggestedUse": "Road lighting service imagery",
+      "responsiveVariants": {
+        "640": {
+          "file": "dist/assets/images/dubai-road-light-trails-640.webp",
+          "width": 640,
+          "quality": 75,
+          "bytes": 72130,
+          "downloadUrl": "https://images.unsplash.com/photo-1703573198169-8116f12327ee?fit=crop&w=640&q=75&fm=webp"
+        },
+        "960": {
+          "file": "dist/assets/images/dubai-road-light-trails-960.webp",
+          "width": 960,
+          "quality": 78,
+          "bytes": 137108,
+          "downloadUrl": "https://images.unsplash.com/photo-1703573198169-8116f12327ee?fit=crop&w=960&q=78&fm=webp"
+        }
+      }
+    },
+    {
+      "file": "dist/assets/images/dubai-skyline.webp",
+      "photographer": "David Rodrigo",
+      "sourcePage": "https://unsplash.com/photos/Fr6zexbmjmc",
+      "sourceImage": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c",
+      "downloadUrl": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?fit=crop&w=1200&q=82&fm=webp",
+      "alt": "Dubai skyline with Burj Khalifa and a highway interchange in warm evening light",
+      "width": 1200,
+      "height": 800,
+      "suggestedUse": "Dubai setting and urban infrastructure",
+      "responsiveVariants": {
+        "640": {
+          "file": "dist/assets/images/dubai-skyline-640.webp",
+          "width": 640,
+          "quality": 75,
+          "bytes": 66740,
+          "downloadUrl": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?fit=crop&w=640&q=75&fm=webp"
+        },
+        "960": {
+          "file": "dist/assets/images/dubai-skyline-960.webp",
+          "width": 960,
+          "quality": 78,
+          "bytes": 136168,
+          "downloadUrl": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?fit=crop&w=960&q=78&fm=webp"
+        }
+      }
+    },
+    {
+      "file": "dist/assets/images/electrical-control-panel.webp",
+      "photographer": "Markus Spiske",
+      "sourcePage": "https://unsplash.com/photos/electrical-switch-box-with-circuit-breakers-kK7uPfb2YWU",
+      "sourceImage": "https://images.unsplash.com/photo-1544724569-5f546fd6f2b5",
+      "downloadUrl": "https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?fit=crop&w=1000&q=82&fm=webp",
+      "alt": "Circuit breakers, cable terminals and wiring inside an electrical control cabinet",
+      "width": 1000,
+      "height": 1500,
+      "camera": "Canon EOS 5D Mark III",
+      "publishedOn": "2018-12-13",
+      "location": "Nuremberg, Germany",
+      "suggestedUse": "Electrical installation and maintenance service imagery",
+      "responsiveVariants": {
+        "640": {
+          "file": "dist/assets/images/electrical-control-panel-640.webp",
+          "width": 640,
+          "quality": 75,
+          "bytes": 155662,
+          "downloadUrl": "https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?fit=crop&w=640&q=75&fm=webp"
+        },
+        "960": {
+          "file": "dist/assets/images/electrical-control-panel-960.webp",
+          "width": 960,
+          "quality": 78,
+          "bytes": 271744,
+          "downloadUrl": "https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?fit=crop&w=960&q=78&fm=webp"
+        }
+      }
+    },
+    {
+      "file": "dist/assets/images/roadworks-at-night.webp",
+      "photographer": "Eugene Chystiakov",
+      "sourcePage": "https://unsplash.com/photos/excavator-working-at-construction-site-at-night-Q_kXGvBGWdU",
+      "sourceImage": "https://images.unsplash.com/photo-1762438440425-493d36ae487b",
+      "downloadUrl": "https://images.unsplash.com/photo-1762438440425-493d36ae487b?fit=crop&w=1000&q=82&fm=webp",
+      "alt": "An excavator and safety barriers at a street excavation after dark",
+      "width": 1000,
+      "height": 563,
+      "camera": "Fujifilm X-S20",
+      "publishedOn": "2025-11-06",
+      "suggestedUse": "Representative excavation service imagery; do not label this as a Dubai project",
+      "responsiveVariants": {
+        "640": {
+          "file": "dist/assets/images/roadworks-at-night-640.webp",
+          "width": 640,
+          "quality": 75,
+          "bytes": 57932,
+          "downloadUrl": "https://images.unsplash.com/photo-1762438440425-493d36ae487b?fit=crop&w=640&q=75&fm=webp"
+        },
+        "960": {
+          "file": "dist/assets/images/roadworks-at-night-960.webp",
+          "width": 960,
+          "quality": 78,
+          "bytes": 109008,
+          "downloadUrl": "https://images.unsplash.com/photo-1762438440425-493d36ae487b?fit=crop&w=960&q=78&fm=webp"
+        }
+      }
+    },
+    {
+      "file": "dist/assets/images/street-light-detail.webp",
+      "photographer": "MeSSrro",
+      "sourcePage": "https://unsplash.com/photos/black-street-light-turned-on-during-night-time-LcG-ewY3DLM",
+      "sourceImage": "https://images.unsplash.com/photo-1594028235752-10a0cb865c7c",
+      "downloadUrl": "https://images.unsplash.com/photo-1594028235752-10a0cb865c7c?fit=crop&w=1000&q=82&fm=webp",
+      "alt": "Twin-arm streetlight against a clear teal dusk sky",
+      "width": 1000,
+      "height": 667,
+      "camera": "Nikon D7100",
+      "publishedOn": "2020-07-06",
+      "location": "Tehran, Iran",
+      "suggestedUse": "Representative streetlighting service detail; do not label this as a Dubai project",
+      "responsiveVariants": {
+        "640": {
+          "file": "dist/assets/images/street-light-detail-640.webp",
+          "width": 640,
+          "quality": 75,
+          "bytes": 8890,
+          "downloadUrl": "https://images.unsplash.com/photo-1594028235752-10a0cb865c7c?fit=crop&w=640&q=75&fm=webp"
+        },
+        "960": {
+          "file": "dist/assets/images/street-light-detail-960.webp",
+          "width": 960,
+          "quality": 78,
+          "bytes": 13230,
+          "downloadUrl": "https://images.unsplash.com/photo-1594028235752-10a0cb865c7c?fit=crop&w=960&q=78&fm=webp"
+        }
+      }
+    }
+  ]
+}

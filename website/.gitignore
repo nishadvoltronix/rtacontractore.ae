@@ -1,0 +1,8 @@
+node_modules/
+artifacts/
+*.zip
+.DS_Store
+.sites-runtime/
+.sites-checkout/
+.env
+.env.*
