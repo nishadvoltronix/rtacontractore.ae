@@ -18,6 +18,15 @@
       "publishedOn": "2026-07-09",
       "location": "Geesthacht, Germany",
       "suggestedUse": "Homepage hero; representative licensed road construction photography, not a VOLTRONIX project or Dubai location",
+      "mobileVariant": {
+        "file": "dist/assets/images/road-construction-hero-mobile.webp",
+        "width": 960,
+        "height": 1680,
+        "quality": 65,
+        "bytes": 592734,
+        "downloadUrl": "https://images.unsplash.com/photo-1783582315652-e2e8676f622f?fit=crop&crop=focalpoint&fp-x=0.70&fp-y=0.5&w=960&h=1680&q=65&fm=webp",
+        "cropNote": "Portrait crop centered at 70% of the source width to retain the road roller cab and front drum"
+      },
       "responsiveVariants": {
         "640": {
           "file": "dist/assets/images/road-construction-hero-640.webp",
@@ -37,7 +46,15 @@
         }
       },
       "quality": 68,
-      "bytes": 705538
+      "bytes": 705538,
+      "mobileAvif": {
+        "file": "dist/assets/images/road-construction-hero-mobile.avif",
+        "width": 640,
+        "height": 1120,
+        "quality": 50,
+        "bytes": 187771,
+        "downloadUrl": "https://images.unsplash.com/photo-1783582315652-e2e8676f622f?fit=crop&crop=focalpoint&fp-x=0.70&fp-y=0.5&w=640&h=1120&q=50&fm=avif"
+      }
     },
     {
       "file": "dist/assets/images/dubai-highway-night.webp",

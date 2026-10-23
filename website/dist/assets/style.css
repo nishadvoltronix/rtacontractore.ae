@@ -18,6 +18,7 @@
 /* Full-viewport hero: edge-to-edge photo, transparent header and lower-left copy. */
 .hero{width:100%;max-width:none;min-height:100vh;min-height:100svh;max-height:none;display:block;padding:50svh 0 100px;background:#14201f}
 .hero-image{object-position:center center}
+.hero-media{position:absolute;inset:0;z-index:-3}.hero-media .hero-image{z-index:auto}
 .hero:before{background:linear-gradient(90deg,#091416a6 0%,#09141666 55%,#09141638 100%),linear-gradient(0deg,#08111499 0%,#08111440 65%,#08111440 100%)}
 .hero-content{width:calc(100% - var(--gutter)*2);max-width:1160px;padding:0;margin-inline:auto}
 .hero h1{font-size:clamp(43px,4.1vw,70px);line-height:1.15;letter-spacing:-.045em;font-weight:400;max-width:none}
@@ -32,4 +33,5 @@
 @media(max-width:800px){.hero{padding-top:43svh;padding-bottom:85px}.hero-image{object-position:65% center}.hero h1{font-size:clamp(42px,6.8vw,56px)}.hero-copy{font-size:17px;max-width:560px}.hero-actions{margin-top:27px}}
 @media(max-width:540px){.hero{padding-top:39svh;padding-bottom:76px}.hero-image{object-position:70% center}.hero:before{background:linear-gradient(0deg,#081114c7 0%,#08111466 65%,#08111470 100%)}.hero h1{font-size:clamp(38px,10.7vw,54px);max-width:390px;line-height:1.15}.hero-copy{font-size:15px;max-width:330px;margin-top:20px}.hero-actions{margin-top:28px}.hero-actions .btn{font-size:12px;gap:30px;padding:16px 23px}}
 @media(max-height:550px) and (min-width:541px){.hero{padding-top:180px;padding-bottom:65px}.hero h1{font-size:46px}.hero-copy{font-size:17px}}
+@media(max-width:540px){.hero h1 em{display:block}.hero-image{object-position:center center}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
