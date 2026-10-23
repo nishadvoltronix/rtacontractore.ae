@@ -6,54 +6,53 @@
   "usageNote": "Licensed stock photography used to illustrate service categories and the Dubai setting. These are not represented as photographs of this contractor's completed projects, employees or equipment. No AI-generated images were used.",
   "photos": [
     {
-      "file": "dist/assets/images/road-construction-hero.webp",
-      "photographer": "Wolfgang Weiser",
-      "sourcePage": "https://unsplash.com/photos/road-construction-with-a-red-roller-and-asphalt-paver-EhC9wijoi2s",
-      "sourceImage": "https://images.unsplash.com/photo-1783582315652-e2e8676f622f",
-      "downloadUrl": "https://images.unsplash.com/photo-1783582315652-e2e8676f622f?fit=crop&w=1920&q=68&fm=webp",
-      "alt": "A red road roller and asphalt paving crew working on a road in daylight",
+      "file": "dist/assets/images/dubai-skyline-hero.webp",
       "width": 1920,
       "height": 1080,
-      "camera": "Sony ILCE-7M3",
-      "publishedOn": "2026-07-09",
-      "location": "Geesthacht, Germany",
-      "suggestedUse": "Homepage hero; representative licensed road construction photography, not a VOLTRONIX project or Dubai location",
-      "mobileVariant": {
-        "file": "dist/assets/images/road-construction-hero-mobile.webp",
-        "width": 960,
-        "height": 1680,
-        "quality": 65,
-        "bytes": 592734,
-        "downloadUrl": "https://images.unsplash.com/photo-1783582315652-e2e8676f622f?fit=crop&crop=focalpoint&fp-x=0.70&fp-y=0.5&w=960&h=1680&q=65&fm=webp",
-        "cropNote": "Portrait crop centered at 70% of the source width to retain the road roller cab and front drum"
-      },
+      "quality": 78,
+      "bytes": 368996,
+      "downloadUrl": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?fit=crop&crop=focalpoint&fp-x=0.47&fp-y=0.42&w=1920&h=1080&q=78&fm=webp",
+      "photographer": "David Rodrigo",
+      "sourcePage": "https://unsplash.com/photos/burj-khalifa-and-highway-in-dubai-Fr6zexbmjmc",
+      "sourceImage": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c",
+      "alt": "Burj Khalifa and the Downtown Dubai skyline above a highway interchange at sunrise",
+      "location": "Downtown Dubai, Dubai, United Arab Emirates",
+      "publishedOn": "2017-12-05",
+      "suggestedUse": "Homepage hero; real Dubai skyline and road infrastructure photograph, not a VOLTRONIX project",
       "responsiveVariants": {
         "640": {
-          "file": "dist/assets/images/road-construction-hero-640.webp",
+          "file": "dist/assets/images/dubai-skyline-hero-640.webp",
           "width": 640,
           "height": 360,
-          "quality": 75,
-          "bytes": 94126,
-          "downloadUrl": "https://images.unsplash.com/photo-1783582315652-e2e8676f622f?fit=crop&w=640&q=75&fm=webp"
+          "quality": 74,
+          "bytes": 52230,
+          "downloadUrl": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?fit=crop&crop=focalpoint&fp-x=0.47&fp-y=0.42&w=640&h=360&q=74&fm=webp"
         },
         "960": {
-          "file": "dist/assets/images/road-construction-hero-960.webp",
+          "file": "dist/assets/images/dubai-skyline-hero-960.webp",
           "width": 960,
           "height": 540,
-          "quality": 78,
-          "bytes": 200612,
-          "downloadUrl": "https://images.unsplash.com/photo-1783582315652-e2e8676f622f?fit=crop&w=960&q=78&fm=webp"
+          "quality": 76,
+          "bytes": 110336,
+          "downloadUrl": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?fit=crop&crop=focalpoint&fp-x=0.47&fp-y=0.42&w=960&h=540&q=76&fm=webp"
         }
       },
-      "quality": 68,
-      "bytes": 705538,
+      "mobileVariant": {
+        "file": "dist/assets/images/dubai-skyline-hero-mobile.webp",
+        "width": 960,
+        "height": 1680,
+        "quality": 70,
+        "bytes": 318164,
+        "downloadUrl": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?fit=crop&crop=focalpoint&fp-x=0.47&fp-y=0.42&w=960&h=1680&q=70&fm=webp",
+        "cropNote": "Portrait crop centered on Burj Khalifa with the highway interchange in the foreground"
+      },
       "mobileAvif": {
-        "file": "dist/assets/images/road-construction-hero-mobile.avif",
+        "file": "dist/assets/images/dubai-skyline-hero-mobile.avif",
         "width": 640,
         "height": 1120,
-        "quality": 50,
-        "bytes": 187771,
-        "downloadUrl": "https://images.unsplash.com/photo-1783582315652-e2e8676f622f?fit=crop&crop=focalpoint&fp-x=0.70&fp-y=0.5&w=640&h=1120&q=50&fm=avif"
+        "quality": 53,
+        "bytes": 91303,
+        "downloadUrl": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?fit=crop&crop=focalpoint&fp-x=0.47&fp-y=0.42&w=640&h=1120&q=53&fm=avif"
       }
     },
     {
@@ -117,10 +116,10 @@
     {
       "file": "dist/assets/images/dubai-skyline.webp",
       "photographer": "David Rodrigo",
-      "sourcePage": "https://unsplash.com/photos/Fr6zexbmjmc",
+      "sourcePage": "https://unsplash.com/photos/burj-khalifa-and-highway-in-dubai-Fr6zexbmjmc",
       "sourceImage": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c",
       "downloadUrl": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?fit=crop&w=1200&q=82&fm=webp",
-      "alt": "Dubai skyline with Burj Khalifa and a highway interchange in warm evening light",
+      "alt": "Burj Khalifa and the Downtown Dubai skyline above a highway interchange at sunrise",
       "width": 1200,
       "height": 800,
       "suggestedUse": "Dubai setting and urban infrastructure",
@@ -139,7 +138,9 @@
           "bytes": 136168,
           "downloadUrl": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?fit=crop&w=960&q=78&fm=webp"
         }
-      }
+      },
+      "location": "Downtown Dubai, Dubai, United Arab Emirates",
+      "publishedOn": "2017-12-05"
     },
     {
       "file": "dist/assets/images/electrical-control-panel.webp",
