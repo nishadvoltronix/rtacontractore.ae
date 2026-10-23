@@ -1,23 +1,48 @@
 (() => {
   const toggle = document.querySelector('[data-menu-toggle]');
   const nav = document.querySelector('[data-nav]');
+  const pqMenu = nav?.querySelector('[data-pq-menu]');
+  const pqToggle = pqMenu?.querySelector('summary');
   const setMenu = open => {
     toggle?.setAttribute('aria-expanded', String(open));
     toggle?.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
     nav?.classList.toggle('is-open', open);
     document.body.classList.toggle('menu-open', open);
+    if (!open && pqMenu) pqMenu.open = false;
   };
   toggle?.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
   nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
   document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && pqMenu?.open) {
+      pqMenu.open = false;
+      pqToggle.focus();
+      event.preventDefault();
+      return;
+    }
     if (event.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') { setMenu(false); toggle.focus(); }
     if (event.key === 'Tab' && toggle?.getAttribute('aria-expanded') === 'true') {
-      const links = [...nav.querySelectorAll('a'), toggle];
+      const links = [...nav.querySelectorAll('a, summary')].filter(item => item.getClientRects().length > 0);
+      links.push(toggle);
       if (event.shiftKey && document.activeElement === links[0]) { event.preventDefault(); toggle.focus(); }
       else if (!event.shiftKey && document.activeElement === toggle) { event.preventDefault(); links[0].focus(); }
     }
   });
-  window.matchMedia('(min-width: 1101px)').addEventListener('change', event => { if(event.matches) setMenu(false); });
+  window.matchMedia('(min-width: 1281px)').addEventListener('change', () => setMenu(false));
+  if (pqMenu) {
+    document.addEventListener('click', event => {
+      if (!pqMenu.contains(event.target)) pqMenu.open = false;
+    });
+    pqMenu.addEventListener('focusout', () => {
+      queueMicrotask(() => { if (!pqMenu.contains(document.activeElement)) pqMenu.open = false; });
+    });
+    pqToggle.addEventListener('keydown', event => {
+      if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return;
+      event.preventDefault();
+      pqMenu.open = true;
+      const links = pqMenu.querySelectorAll('a');
+      links[event.key === 'ArrowDown' ? 0 : links.length - 1].focus();
+    });
+  }
   const heroHeader = document.querySelector('.hero-header');
   if (heroHeader) {
     const hero = document.querySelector('.hero');

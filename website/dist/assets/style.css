@@ -60,7 +60,7 @@ section[id]{scroll-margin-top:0}
 .footer-group-links a:hover{text-decoration:underline;text-underline-offset:4px}
 @media(max-width:1100px){.footer-group{grid-template-columns:1fr;gap:18px}.footer-group-copy p{max-width:760px}.footer-group-links{justify-self:start}}
 @media(max-width:540px){.footer-group{gap:16px}.footer-group-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));justify-self:stretch;gap:8px 0}.footer-group-links a{justify-content:flex-start;padding:10px 14px;white-space:normal}.footer-group-links a:nth-child(odd){padding-left:0}.footer-group-links a:nth-child(even){border-right:0}}
-@media(max-width:1100px){
+@media(max-width:1280px){
   :root{--header-height:100px}
   .brand img{width:210px;height:39px}.brand span{font-size:9px}
   .header-inner{gap:20px}.header-cta{margin-left:auto}
@@ -73,6 +73,18 @@ section[id]{scroll-margin-top:0}
   .brand img{width:200px;height:37px}.brand span{font-size:8px;letter-spacing:.19em}
   .header-inner{gap:16px}.header-cta{display:none}.menu-toggle{margin-left:auto}
 }
+/* Pre-qualification disclosure in the desktop and mobile navigation. */
+.nav-pq{position:relative;flex-shrink:0}
+.nav-pq>summary{display:flex;align-items:center;gap:7px;min-height:44px;padding:10px 0;list-style:none;cursor:pointer;font-size:12px;font-weight:600;line-height:1.5;white-space:nowrap}
+.nav-pq>summary::-webkit-details-marker{display:none}
+.nav-pq>summary svg{width:14px;height:14px;transition:transform .2s}
+.nav-pq[open]>summary svg{transform:rotate(180deg)}
+.nav-pq-links{position:absolute;right:0;top:calc(100% + 8px);width:244px;padding:8px;background:#fff;color:#202020;border:1px solid var(--line);border-top:2px solid var(--red);box-shadow:0 12px 32px #0000001a}
+.nav .nav-pq-links a{display:block;padding:13px 14px;min-height:44px;font-size:12px;line-height:1.5;white-space:normal}
+.nav .nav-pq-links a:after{display:none}
+.nav-pq-links a span{display:block;margin-top:4px;font-size:10px;font-weight:400;color:#5b5b5b}
+.nav-pq-links a:hover,.nav-pq-links a:focus-visible{background:var(--cream);color:#b51f25}
+@media(max-width:1280px){.nav-pq>summary{justify-content:space-between;font-size:16px;padding:19px 0;border-bottom:1px solid var(--line);white-space:normal}.nav-pq-links{position:static;width:100%;box-shadow:none;border:0;border-left:2px solid var(--red);margin-block:12px;padding:0 0 0 12px}.nav .nav-pq-links a{border-bottom:0;padding:13px 10px;font-size:13px}}
 @media(max-height:550px),(prefers-reduced-motion:reduce){.hero{position:relative}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
 
