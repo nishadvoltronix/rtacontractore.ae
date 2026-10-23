@@ -119,6 +119,25 @@ section[id]{scroll-margin-top:0}
 .all-services-foot{display:flex;justify-content:space-between;gap:20px;margin-top:13px;font-size:10px;color:var(--muted)}
 @media(max-width:540px){.all-services{padding-block:54px}.all-services-heading{align-items:flex-start;flex-wrap:wrap;gap:20px;margin-bottom:22px}.all-services-heading h2{font-size:34px}.all-services-heading p{font-size:12px}.service-track{gap:16px}.service-track>li{flex-basis:min(78vw,280px)}.service-scroll-controls button{width:44px;height:44px}.all-services-foot{font-size:9px}}
 
+/* Original authority logos, looping continuously with a static scroll fallback. */
+.partners{padding-block:70px;background:#fff;border-block:1px solid var(--line)}
+.partners-heading{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:30px}
+.partners-heading h2{font-size:clamp(32px,3.4vw,48px)}
+.partners-heading p{margin-top:12px;font-size:13px}
+.partners-toggle{flex-shrink:0;min-height:44px;padding:10px 17px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font-size:11px;font-weight:600}
+.partners-toggle:hover{border-color:var(--red);color:#b51f25}
+.partners-window{overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:var(--red) #eee;padding-block:4px 14px}
+.partners-track{display:flex;width:max-content}
+.partners-group{display:flex;flex-shrink:0;gap:20px;list-style:none;margin:0;padding:0 20px 0 0}
+.partner-card{display:flex;align-items:center;justify-content:center;flex:0 0 220px;width:220px;height:116px;padding:14px 18px;background:#fff;border:1px solid var(--line);border-radius:10px}
+.partner-card img{width:100%;height:100%;object-fit:contain}
+.partners-duplicate{display:none}
+.partners.is-animated .partners-window{overflow:hidden;padding-bottom:4px}
+.partners.is-animated .partners-duplicate{display:flex}
+.partners.is-animated .partners-track{animation:partners-scroll 42s linear infinite}
+@keyframes partners-scroll{to{transform:translateX(-50%)}}
+@media(max-width:540px){.partners{padding-block:50px}.partners-heading{align-items:flex-start;flex-wrap:wrap;gap:18px;margin-bottom:22px}.partners-heading p{font-size:12px}.partners-group{gap:16px;padding-right:16px}.partner-card{flex-basis:200px;width:200px;height:106px;padding:12px 16px}}
+
 /* Hero copy layout: bold heading, compact paragraph and rounded actions. */
 .hero-intro{display:flex;align-items:center;padding:calc(var(--header-height) + 48px) 0 76px}
 .hero-intro h1{max-width:900px;font-size:clamp(42px,4.5vw,76px);font-weight:750;line-height:1.1;letter-spacing:-.035em;text-wrap:balance}

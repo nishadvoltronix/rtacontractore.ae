@@ -70,3 +70,5 @@ Service research references from the user's shared conversation:
 Original service copy describes enquiry scopes, not competitors' project histories. Stock photographs are licensed from Unsplash, with the supplied hero image credited separately on `/photography/`; Manrope is distributed with its SIL Open Font License.
 
 The Sites identity is retained in `website/.openai/hosting.json`. This GitHub repository remains the working source; hosted source synchronization uses an isolated publishing checkout so it does not create a nested Git repository here.
+
+The “Our partners” slider before the homepage FAQ displays the seven authority logos from VOLTRONIX's corporate website plus the official Dubai RTA mark. Original asset sources are recorded in `website/partner-logos.json`. The slider pauses on hover, offscreen or via its pause control; reduced-motion and JavaScript-disabled visitors get a manually scrollable row.

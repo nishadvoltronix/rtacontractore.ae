@@ -172,6 +172,51 @@
     else window.addEventListener('resize', updateControls);
     updateControls();
   }
+  const partners = document.querySelector('[data-partners]');
+  if (partners) {
+    const viewport = partners.querySelector('[data-partners-window]');
+    const track = partners.querySelector('[data-partners-track]');
+    const group = partners.querySelector('[data-partners-group]');
+    const button = partners.querySelector('[data-partners-toggle]');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let userPaused = false;
+    let hovered = false;
+    let inView = false;
+    const updatePlayback = () => {
+      track.style.animationPlayState = inView && !document.hidden && !userPaused && !hovered ? 'running' : 'paused';
+      button.textContent = userPaused ? 'Play slider' : 'Pause slider';
+    };
+    const updateLayout = () => {
+      const animate = !reducedMotion.matches && group.scrollWidth > viewport.clientWidth;
+      if (animate && !partners.classList.contains('is-animated')) viewport.scrollLeft = 0;
+      partners.classList.toggle('is-animated', animate);
+      viewport.tabIndex = animate ? -1 : 0;
+      button.hidden = !animate;
+      updatePlayback();
+    };
+    button.addEventListener('click', () => {
+      userPaused = !userPaused;
+      updatePlayback();
+    });
+    viewport.addEventListener('pointerenter', event => {
+      if (event.pointerType === 'mouse') { hovered = true; updatePlayback(); }
+    });
+    viewport.addEventListener('pointerleave', () => { hovered = false; updatePlayback(); });
+    reducedMotion.addEventListener('change', updateLayout);
+    document.addEventListener('visibilitychange', updatePlayback);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(entries => {
+        inView = entries[0].isIntersecting;
+        updatePlayback();
+      }, { threshold: 0.1 }).observe(viewport);
+    } else inView = true;
+    if ('ResizeObserver' in window) {
+      const observer = new ResizeObserver(updateLayout);
+      observer.observe(viewport);
+      observer.observe(group);
+    } else window.addEventListener('resize', updateLayout);
+    updateLayout();
+  }
   const form = document.getElementById('quote-form');
   if(!form) return;
   const service = form.elements.service;

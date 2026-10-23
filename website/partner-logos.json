@@ -1,0 +1,67 @@
+[
+  {
+    "name": "Dubai Roads & Transport Authority (RTA)",
+    "file": "/assets/partners/rta.svg",
+    "width": 201.1,
+    "height": 46.5,
+    "sourcePage": "https://www.rta.ae/wps/portal/rta/ae/home",
+    "imageUrl": "https://www.rta.ae/wps/contenthandler/dav/fs-type1/themes/RTAStaticTheme/rta-assets/svg/sprite.svg#rta",
+    "provenance": "Original #rta symbol extracted from the official RTA header SVG sprite, preserving all path geometry and viewBox. Standalone SVG wrapper uses the official computed header colors: currentColor #e41a14; --color-1 #000."
+  },
+  {
+    "name": "Dubai Municipality",
+    "file": "/assets/partners/dm.png",
+    "width": 720,
+    "height": 345,
+    "sourcePage": "https://voltronix.ae/",
+    "imageUrl": "https://voltronix.ae/wp-content/uploads/2024/07/dm.png"
+  },
+  {
+    "name": "Dubai International Financial Centre (DIFC)",
+    "file": "/assets/partners/difc.png",
+    "width": 720,
+    "height": 345,
+    "sourcePage": "https://voltronix.ae/",
+    "imageUrl": "https://voltronix.ae/wp-content/uploads/2024/07/difc.png"
+  },
+  {
+    "name": "Dubai Civil Defence",
+    "file": "/assets/partners/dcd.png",
+    "width": 720,
+    "height": 345,
+    "sourcePage": "https://voltronix.ae/",
+    "imageUrl": "https://voltronix.ae/wp-content/uploads/2024/07/dcd.png"
+  },
+  {
+    "name": "Trakhees",
+    "file": "/assets/partners/trakhees.png",
+    "width": 720,
+    "height": 345,
+    "sourcePage": "https://voltronix.ae/",
+    "imageUrl": "https://voltronix.ae/wp-content/uploads/2024/07/trakhees.png"
+  },
+  {
+    "name": "Dubai Electricity and Water Authority (DEWA)",
+    "file": "/assets/partners/dewa.png",
+    "width": 720,
+    "height": 345,
+    "sourcePage": "https://voltronix.ae/",
+    "imageUrl": "https://voltronix.ae/wp-content/uploads/2024/07/dewa.png"
+  },
+  {
+    "name": "Dubai Development Authority",
+    "file": "/assets/partners/dda.png",
+    "width": 720,
+    "height": 345,
+    "sourcePage": "https://voltronix.ae/",
+    "imageUrl": "https://voltronix.ae/wp-content/uploads/2024/07/dda.png"
+  },
+  {
+    "name": "Dubai Multi Commodities Centre (DMCC)",
+    "file": "/assets/partners/dubai-multi-commodities-centre.png",
+    "width": 720,
+    "height": 345,
+    "sourcePage": "https://voltronix.ae/",
+    "imageUrl": "https://voltronix.ae/wp-content/uploads/2024/07/dubai-multi-commodities-centre.png"
+  }
+]
