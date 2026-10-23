@@ -86,3 +86,10 @@ section[id]{scroll-margin-top:0}
 .video-toggle:hover{background:#0000008c}
 @media(max-width:540px){.sector-bottom{align-items:flex-start;flex-direction:column;gap:16px}}
 @media(prefers-reduced-motion:reduce){.sector-background video,.video-toggle{display:none}}
+
+/* Pin the video panel while the remaining page scrolls over it. */
+.sectors-shell{position:relative}
+.sectors{min-height:calc(100svh - var(--header-height));display:flex;align-items:center}
+.sectors.is-sticky{position:sticky;top:var(--sector-stick-top);z-index:1}
+.after-sectors{position:relative;z-index:2;background:var(--cream)}
+@media(max-height:550px),(prefers-reduced-motion:reduce){.sectors.is-sticky{position:relative;top:auto}}

@@ -49,24 +49,66 @@
   const backgroundVideo = document.querySelector('[data-sector-video]');
   if (backgroundVideo) {
     const videoToggle = document.querySelector('[data-video-toggle]');
+    const sectorSection = backgroundVideo.closest('.sectors');
+    const sectorShell = sectorSection.closest('.sectors-shell');
+    const followingContent = document.querySelector('.after-sectors');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const stickyMotion = window.matchMedia('(min-height: 551px) and (prefers-reduced-motion: no-preference)');
     let inView = false;
     let userPaused = false;
     let videoFailed = false;
+    let sectorFrame = 0;
+    let stickyTop = 0;
     backgroundVideo.muted = true;
+    const headerBottom = () => heroHeader?.getBoundingClientRect().bottom || 0;
+    const visibleSectorBottom = () => Math.min(window.innerHeight, followingContent?.getBoundingClientRect().top ?? window.innerHeight);
+    const sectorVisible = () => {
+      const rect = sectorSection.getBoundingClientRect();
+      return Math.min(rect.bottom, visibleSectorBottom()) > Math.max(rect.top, headerBottom()) + 1;
+    };
     const updateVideoButton = () => {
       videoToggle.hidden = reducedMotion.matches || videoFailed;
       videoToggle.textContent = backgroundVideo.paused ? 'Play video' : 'Pause video';
     };
     const updateVideo = () => {
-      if (!inView || document.hidden || reducedMotion.matches || userPaused || videoFailed) {
+      if (!inView || !sectorVisible() || document.hidden || reducedMotion.matches || userPaused || videoFailed) {
         backgroundVideo.pause();
       } else {
         if (!backgroundVideo.hasAttribute('src')) backgroundVideo.src = backgroundVideo.dataset.src;
-        backgroundVideo.play().catch(updateVideoButton);
+        if (backgroundVideo.paused) backgroundVideo.play().catch(updateVideoButton);
       }
       updateVideoButton();
     };
+    const updateSectorLayout = () => {
+      // A tall panel scrolls fully into view before its bottom edge pins.
+      stickyTop = Math.min(headerBottom(), window.innerHeight - sectorSection.offsetHeight);
+      sectorSection.style.setProperty('--sector-stick-top', `${stickyTop}px`);
+      sectorSection.classList.toggle('is-sticky', stickyMotion.matches && Boolean(sectorShell && followingContent));
+      updateVideo();
+    };
+    const scheduleSectorVisibility = () => {
+      if (sectorFrame) return;
+      sectorFrame = requestAnimationFrame(() => { sectorFrame = 0; updateVideo(); });
+    };
+    window.addEventListener('scroll', scheduleSectorVisibility, { passive: true });
+    window.addEventListener('resize', updateSectorLayout);
+    window.addEventListener('pageshow', updateSectorLayout);
+    stickyMotion.addEventListener('change', updateSectorLayout);
+    if ('ResizeObserver' in window) {
+      const sectorObserver = new ResizeObserver(updateSectorLayout);
+      sectorObserver.observe(sectorSection);
+      if (heroHeader) sectorObserver.observe(heroHeader);
+    }
+    sectorSection.addEventListener('focusin', event => {
+      if (!sectorShell) return;
+      const target = event.target.getBoundingClientRect();
+      if (target.top >= headerBottom() + 16 && target.bottom <= visibleSectorBottom()) return;
+      const naturalStart = window.scrollY + sectorShell.getBoundingClientRect().top;
+      const localTop = target.top - sectorSection.getBoundingClientRect().top;
+      let revealAt = naturalStart + localTop - headerBottom() - 16;
+      if (sectorSection.classList.contains('is-sticky')) revealAt = Math.min(revealAt, naturalStart - stickyTop);
+      window.scrollTo({ top: Math.max(0, revealAt), behavior: 'instant' });
+    });
     backgroundVideo.addEventListener('playing', () => {
       backgroundVideo.classList.add('is-ready');
       updateVideoButton();
@@ -87,11 +129,12 @@
       new IntersectionObserver(entries => {
         inView = entries[0].isIntersecting;
         updateVideo();
-      }, { threshold: 0.01 }).observe(backgroundVideo.closest('.sectors'));
+      }, { threshold: 0.01 }).observe(sectorSection);
     } else {
       inView = true;
       updateVideo();
     }
+    updateSectorLayout();
   }
   const form = document.getElementById('quote-form');
   if(!form) return;
