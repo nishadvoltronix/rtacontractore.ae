@@ -32,8 +32,13 @@
     document.addEventListener('click', event => {
       if (!pqMenu.contains(event.target)) pqMenu.open = false;
     });
-    pqMenu.addEventListener('focusout', () => {
-      queueMicrotask(() => { if (!pqMenu.contains(document.activeElement)) pqMenu.open = false; });
+    pqMenu.addEventListener('focusout', event => {
+      if (event.relatedTarget) {
+        if (!pqMenu.contains(event.relatedTarget)) pqMenu.open = false;
+      } else {
+        // Wait for native Tab navigation to finish before inspecting focus.
+        setTimeout(() => { if (!pqMenu.contains(document.activeElement)) pqMenu.open = false; }, 0);
+      }
     });
     pqToggle.addEventListener('keydown', event => {
       if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return;
