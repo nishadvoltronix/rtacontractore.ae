@@ -54,7 +54,7 @@ The browser check expects the local preview to be running at port 4173 and insta
 
 ## Sources and ownership
 
-Business identity, logo, contact details and founding year: https://voltronix.ae/ (reviewed 23 October 2026). Completed work links go to the company's existing project portfolio. Stock photographs are representative imagery, not claims of VOLTRONIX projects. The homepage hero uses the image supplied by the user; its creator and photographic authenticity have not been independently verified. No invented reviews or unverified RTA approval badges are included.
+Business identity, logo, contact details and founding year: https://voltronix.ae/ (reviewed 23 October 2026). Completed work links go to the company's existing project portfolio. Stock photographs are representative imagery, not claims of VOLTRONIX projects. The homepage hero and sectors background use image and video assets supplied by the user; their creators and photographic authenticity have not been independently verified. The decorative background video loads when its section comes into view, plays silently, pauses offscreen, and has pause/play controls. Reduced-motion visitors see a still frame. No invented reviews or unverified RTA approval badges are included.
 
 Service research references from the user's shared conversation:
 

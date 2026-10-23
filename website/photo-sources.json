@@ -3,7 +3,7 @@
   "license": "Unsplash License (stock photographs only)",
   "licenseUrl": "https://unsplash.com/license",
   "licenseSummary": "Unsplash permits downloading, modifying and using these photographs for commercial and non-commercial purposes. Attribution is appreciated but not required. Do not resell unmodified images or create a competing image service.",
-  "usageNote": "The homepage hero is a supplied image. The remaining images are licensed stock photographs illustrating service categories and Dubai. Imagery is not presented as this contractor's completed projects, employees or equipment.",
+  "usageNote": "The homepage hero image and sector background video were supplied by the user. The remaining images are licensed stock photographs illustrating service categories and Dubai. Imagery is not presented as this contractor's completed projects, employees or equipment.",
   "photos": [
     {
       "file": "dist/assets/images/dubai-roadwork-hero.webp",
@@ -210,6 +210,21 @@
           "downloadUrl": "https://images.unsplash.com/photo-1594028235752-10a0cb865c7c?fit=crop&w=960&q=78&fm=webp"
         }
       }
+    }
+  ],
+  "videos": [
+    {
+      "file": "dist/assets/videos/dubai-infrastructure-background.mp4",
+      "sourceType": "supplied",
+      "originalFilename": "gemini_generated_video_a68f3827.mp4",
+      "width": 1280,
+      "height": 720,
+      "durationSeconds": 10.241,
+      "bytes": 1657164,
+      "audio": false,
+      "poster": "dist/assets/images/dubai-infrastructure-video-poster.webp",
+      "suggestedUse": "Decorative background for the sectors section, not represented as completed VOLTRONIX work",
+      "license": "Supplied for this website by the user; not part of the Unsplash collection"
     }
   ]
 }

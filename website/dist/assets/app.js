@@ -46,6 +46,53 @@
       }
     });
   }
+  const backgroundVideo = document.querySelector('[data-sector-video]');
+  if (backgroundVideo) {
+    const videoToggle = document.querySelector('[data-video-toggle]');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let inView = false;
+    let userPaused = false;
+    let videoFailed = false;
+    backgroundVideo.muted = true;
+    const updateVideoButton = () => {
+      videoToggle.hidden = reducedMotion.matches || videoFailed;
+      videoToggle.textContent = backgroundVideo.paused ? 'Play video' : 'Pause video';
+    };
+    const updateVideo = () => {
+      if (!inView || document.hidden || reducedMotion.matches || userPaused || videoFailed) {
+        backgroundVideo.pause();
+      } else {
+        if (!backgroundVideo.hasAttribute('src')) backgroundVideo.src = backgroundVideo.dataset.src;
+        backgroundVideo.play().catch(updateVideoButton);
+      }
+      updateVideoButton();
+    };
+    backgroundVideo.addEventListener('playing', () => {
+      backgroundVideo.classList.add('is-ready');
+      updateVideoButton();
+    });
+    backgroundVideo.addEventListener('pause', updateVideoButton);
+    backgroundVideo.addEventListener('error', () => {
+      videoFailed = true;
+      backgroundVideo.classList.remove('is-ready');
+      updateVideoButton();
+    });
+    videoToggle.addEventListener('click', () => {
+      userPaused = !backgroundVideo.paused;
+      updateVideo();
+    });
+    reducedMotion.addEventListener('change', updateVideo);
+    document.addEventListener('visibilitychange', updateVideo);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(entries => {
+        inView = entries[0].isIntersecting;
+        updateVideo();
+      }, { threshold: 0.01 }).observe(backgroundVideo.closest('.sectors'));
+    } else {
+      inView = true;
+      updateVideo();
+    }
+  }
   const form = document.getElementById('quote-form');
   if(!form) return;
   const service = form.elements.service;
