@@ -6,6 +6,40 @@
   "usageNote": "Licensed stock photography used to illustrate service categories and the Dubai setting. These are not represented as photographs of this contractor's completed projects, employees or equipment. No AI-generated images were used.",
   "photos": [
     {
+      "file": "dist/assets/images/road-construction-hero.webp",
+      "photographer": "Wolfgang Weiser",
+      "sourcePage": "https://unsplash.com/photos/road-construction-with-a-red-roller-and-asphalt-paver-EhC9wijoi2s",
+      "sourceImage": "https://images.unsplash.com/photo-1783582315652-e2e8676f622f",
+      "downloadUrl": "https://images.unsplash.com/photo-1783582315652-e2e8676f622f?fit=crop&w=1920&q=68&fm=webp",
+      "alt": "A red road roller and asphalt paving crew working on a road in daylight",
+      "width": 1920,
+      "height": 1080,
+      "camera": "Sony ILCE-7M3",
+      "publishedOn": "2026-07-09",
+      "location": "Geesthacht, Germany",
+      "suggestedUse": "Homepage hero; representative licensed road construction photography, not a VOLTRONIX project or Dubai location",
+      "responsiveVariants": {
+        "640": {
+          "file": "dist/assets/images/road-construction-hero-640.webp",
+          "width": 640,
+          "height": 360,
+          "quality": 75,
+          "bytes": 94126,
+          "downloadUrl": "https://images.unsplash.com/photo-1783582315652-e2e8676f622f?fit=crop&w=640&q=75&fm=webp"
+        },
+        "960": {
+          "file": "dist/assets/images/road-construction-hero-960.webp",
+          "width": 960,
+          "height": 540,
+          "quality": 78,
+          "bytes": 200612,
+          "downloadUrl": "https://images.unsplash.com/photo-1783582315652-e2e8676f622f?fit=crop&w=960&q=78&fm=webp"
+        }
+      },
+      "quality": 68,
+      "bytes": 705538
+    },
+    {
       "file": "dist/assets/images/dubai-highway-night.webp",
       "photographer": "Sam Melchor",
       "sourcePage": "https://unsplash.com/photos/a-city-street-at-night-with-a-lot-of-lights-T1ugdMvuVqM",
