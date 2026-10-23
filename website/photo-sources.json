@@ -1,8 +1,8 @@
 {
   "retrievedOn": "2026-10-23",
-  "license": "Unsplash License (stock photographs only)",
+  "license": "Unsplash License or Creative Commons Attribution 2.0; see individual photograph records",
   "licenseUrl": "https://unsplash.com/license",
-  "licenseSummary": "Unsplash permits downloading, modifying and using these photographs for commercial and non-commercial purposes. Attribution is appreciated but not required. Do not resell unmodified images or create a competing image service.",
+  "licenseSummary": "Stock photographs are used under the Unsplash License except the Dubai signboards photograph, which is CC BY 2.0 and has author, source, license and modification attribution on the photography credits page.",
   "usageNote": "The homepage hero and background video were supplied by the user. Corporate photographs are sourced from linked VOLTRONIX pages. Licensed stock photographs illustrate service environments and are not presented as VOLTRONIX projects.",
   "photos": [
     {
@@ -416,6 +416,223 @@
           "width": 960,
           "height": 1280,
           "bytes": 167354
+        }
+      }
+    },
+    {
+      "file": "dist/assets/images/rta-road-maintenance.webp",
+      "sourceType": "stock",
+      "photographer": "Judy Beth Morris",
+      "sourcePage": "https://unsplash.com/photos/workers-applying-hot-asphalt-with-a-torch-DubvqlTGyXE",
+      "sourceImage": "https://images.unsplash.com/photo-1773118330236-d812832b5b71",
+      "alt": "Close view of workers sealing a cut in an asphalt road surface with heated sealant",
+      "width": 1280,
+      "height": 853,
+      "bytes": 346768,
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "location": "Pocatello, Idaho, USA",
+      "camera": "Canon EOS R5",
+      "modifications": "Resized to WebP and cropped responsively in the layout.",
+      "usageNote": "Representative licensed photograph; not presented as a VOLTRONIX project.",
+      "responsiveVariants": {
+        "640": {
+          "file": "dist/assets/images/rta-road-maintenance-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 99094
+        },
+        "960": {
+          "file": "dist/assets/images/rta-road-maintenance-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 214068
+        }
+      }
+    },
+    {
+      "file": "dist/assets/images/rta-road-works.webp",
+      "sourceType": "stock",
+      "photographer": "Brian J. Tromp",
+      "sourcePage": "https://unsplash.com/photos/workers-paving-a-road-with-an-asphalt-machine-AYak7Oq4Ejw",
+      "sourceImage": "https://images.unsplash.com/photo-1772852331753-fc11e83a7288",
+      "alt": "A road paving crew operates an asphalt machine beside a newly laid road surface",
+      "width": 1280,
+      "height": 720,
+      "bytes": 143218,
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "location": "Not specified by the photographer",
+      "camera": "Sony ILCE-6300",
+      "modifications": "Resized to WebP and cropped responsively in the layout.",
+      "usageNote": "Representative licensed photograph; not presented as a VOLTRONIX project.",
+      "responsiveVariants": {
+        "640": {
+          "file": "dist/assets/images/rta-road-works-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 49564
+        },
+        "960": {
+          "file": "dist/assets/images/rta-road-works-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 96354
+        }
+      }
+    },
+    {
+      "file": "dist/assets/images/rta-earth-works.webp",
+      "sourceType": "stock",
+      "photographer": "EESOFUFFZICH (boukaih)",
+      "sourcePage": "https://unsplash.com/photos/yellow-and-black-excavator-on-brown-sand-during-daytime-bGMyTnSlYvE",
+      "sourceImage": "https://images.unsplash.com/photo-1583024011792-b165975b52f5",
+      "alt": "A yellow tracked excavator stands on dry earth at a construction site",
+      "width": 1280,
+      "height": 720,
+      "bytes": 62742,
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "location": "Not specified by the photographer",
+      "camera": "Canon EOS 700D",
+      "modifications": "Resized to WebP and cropped responsively in the layout.",
+      "usageNote": "Representative licensed photograph; not presented as a VOLTRONIX project.",
+      "responsiveVariants": {
+        "640": {
+          "file": "dist/assets/images/rta-earth-works-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 21830
+        },
+        "960": {
+          "file": "dist/assets/images/rta-earth-works-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 38040
+        }
+      }
+    },
+    {
+      "file": "dist/assets/images/rta-footpath-works.webp",
+      "sourceType": "stock",
+      "photographer": "Denise Jans",
+      "sourcePage": "https://unsplash.com/photos/a-group-of-construction-workers-working-on-a-brick-walkway-TL2nCgQ1hBc",
+      "sourceImage": "https://images.unsplash.com/photo-1654272177889-1dd3b0d6aca2",
+      "alt": "Workers in safety clothing lay and align brick paving along a pedestrian path",
+      "width": 1280,
+      "height": 1920,
+      "bytes": 388676,
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "location": "Groningen, Netherlands",
+      "camera": "Canon EOS 650D",
+      "modifications": "Resized to WebP and cropped responsively in the layout.",
+      "usageNote": "Representative licensed photograph; not presented as a VOLTRONIX project.",
+      "responsiveVariants": {
+        "640": {
+          "file": "dist/assets/images/rta-footpath-works-640.webp",
+          "width": 640,
+          "height": 960,
+          "bytes": 150218
+        },
+        "960": {
+          "file": "dist/assets/images/rta-footpath-works-960.webp",
+          "width": 960,
+          "height": 1440,
+          "bytes": 269484
+        }
+      }
+    },
+    {
+      "file": "dist/assets/images/rta-signboards.webp",
+      "sourceType": "stock",
+      "photographer": "Jay Galvin",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Roadsignsuae.jpg",
+      "sourceImage": "https://upload.wikimedia.org/wikipedia/commons/6/67/Roadsignsuae.jpg",
+      "alt": "Overhead bilingual direction signs above a multi-lane road beside WAFI Mall in Dubai",
+      "width": 1280,
+      "height": 933,
+      "bytes": 187298,
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+      "location": "Oud Metha Street near WAFI Mall, Bur Dubai, Dubai, UAE",
+      "attribution": "Roadsignsuae by Jay Galvin, CC BY 2.0, via Wikimedia Commons. Resized/cropped for this website.",
+      "modifications": "Resized to WebP and cropped responsively in the layout.",
+      "usageNote": "Representative licensed photograph; not presented as a VOLTRONIX project.",
+      "responsiveVariants": {
+        "640": {
+          "file": "dist/assets/images/rta-signboards-640.webp",
+          "width": 640,
+          "height": 467,
+          "bytes": 64714
+        },
+        "960": {
+          "file": "dist/assets/images/rta-signboards-960.webp",
+          "width": 960,
+          "height": 700,
+          "bytes": 113256
+        }
+      }
+    },
+    {
+      "file": "dist/assets/images/rta-landscaping.webp",
+      "sourceType": "stock",
+      "photographer": "ddh. baLd",
+      "sourcePage": "https://unsplash.com/photos/arched-pergolas-with-a-hanging-lamp-over-a-park-walkway-gHZVXnDE3N8",
+      "sourceImage": "https://images.unsplash.com/photo-1782923825115-34d42fed5cd5",
+      "alt": "Paved park walkway beneath an arched pergola beside green lawns and trees in Al Twar Park, Dubai",
+      "width": 1280,
+      "height": 1920,
+      "bytes": 303242,
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "location": "Al Twar Park 1, Dubai, UAE",
+      "camera": "Canon EOS R50",
+      "modifications": "Resized to WebP and cropped responsively in the layout.",
+      "usageNote": "Representative licensed photograph; not presented as a VOLTRONIX project.",
+      "responsiveVariants": {
+        "640": {
+          "file": "dist/assets/images/rta-landscaping-640.webp",
+          "width": 640,
+          "height": 960,
+          "bytes": 107952
+        },
+        "960": {
+          "file": "dist/assets/images/rta-landscaping-960.webp",
+          "width": 960,
+          "height": 1440,
+          "bytes": 184384
+        }
+      }
+    },
+    {
+      "file": "dist/assets/images/rta-bollards-fencing.webp",
+      "sourceType": "stock",
+      "photographer": "Julian Dik",
+      "sourcePage": "https://unsplash.com/photos/black-metal-bollards-7zn6YsZCtfI",
+      "sourceImage": "https://images.unsplash.com/photo-1552057005-dfd9b34fb2f2",
+      "alt": "Black metal bollards separating a paved pedestrian street from vehicle access",
+      "width": 1280,
+      "height": 852,
+      "bytes": 163440,
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "location": "Alicante, Spain",
+      "camera": "Sony SLT-A58",
+      "modifications": "Resized to WebP and cropped responsively in the layout.",
+      "usageNote": "Representative licensed photograph; not presented as a VOLTRONIX project.",
+      "responsiveVariants": {
+        "640": {
+          "file": "dist/assets/images/rta-bollards-fencing-640.webp",
+          "width": 640,
+          "height": 426,
+          "bytes": 55254
+        },
+        "960": {
+          "file": "dist/assets/images/rta-bollards-fencing-960.webp",
+          "width": 960,
+          "height": 639,
+          "bytes": 110420
         }
       }
     }

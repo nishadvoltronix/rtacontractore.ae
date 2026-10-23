@@ -116,30 +116,24 @@ section[id]{scroll-margin-top:0}
 .sectors-shell{position:relative;z-index:2;background:var(--cream)}
 @media(max-height:550px),(prefers-reduced-motion:reduce){.about.is-sticky{position:relative;top:auto}}
 
-/* Compact, manually scrolled service cards before the enquiry section. */
-.all-services{padding-block:76px;background:#fff;border-top:1px solid var(--line)}
-.all-services-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:30px}
-.all-services-heading .eyebrow{margin-bottom:16px}
-.all-services-heading h2{font-size:clamp(32px,3.4vw,48px)}
-.all-services-heading p{font-size:13px;margin-top:16px;max-width:650px}
-.service-scroll-controls{display:flex;gap:10px;flex-shrink:0;padding-bottom:3px}
-.service-scroll-controls button{display:flex;align-items:center;justify-content:center;width:46px;height:46px;padding:0;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--ink);transition:background .2s,color .2s}
-.service-scroll-controls button:hover:not(:disabled){background:var(--red);border-color:var(--red);color:#fff}
-.service-scroll-controls button:disabled{opacity:.35;cursor:default}
-.service-track{display:flex;gap:20px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:var(--red) #e9ede3;list-style:none;margin:0;padding:6px 4px 22px;scroll-padding-inline:4px}
-.service-track>li{flex:0 0 260px;min-width:0;scroll-snap-align:start;display:flex}
-.group-service-card{display:flex;flex-direction:column;width:100%;background:var(--cream);border:1px solid var(--line)}
-.group-service-image{overflow:hidden;aspect-ratio:1.85;background:#e9ede3}
-.group-service-image img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
-.group-service-image img[src*="voltronix-hvac"]{object-position:center 20%}
-.group-service-card:hover .group-service-image img{transform:scale(1.035)}
-.group-service-copy{padding:18px 16px 16px;display:flex;flex-direction:column;flex:1}
-.group-service-copy h3{font-size:17px;line-height:1.3;letter-spacing:-.03em;font-weight:600}
-.group-service-copy p{font-size:11px;line-height:1.8;margin-top:9px;margin-bottom:16px}
-.group-service-link{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:auto;font-size:10px;font-weight:700;color:#b51f25}
-.group-service-link svg{width:16px;height:16px}
-.all-services-foot{display:flex;justify-content:space-between;gap:20px;margin-top:13px;font-size:10px;color:var(--muted)}
-@media(max-width:540px){.all-services{padding-block:54px}.all-services-heading{align-items:flex-start;flex-wrap:wrap;gap:20px;margin-bottom:22px}.all-services-heading h2{font-size:34px}.all-services-heading p{font-size:12px}.service-track{gap:16px}.service-track>li{flex-basis:min(78vw,280px)}.service-scroll-controls button{width:44px;height:44px}.all-services-foot{font-size:9px}}
+/* RTA-related work categories before Our Expertise. */
+.rta-works{padding-block:76px;background:#fff;border-bottom:1px solid var(--line)}
+.rta-works h2{text-align:center;font-size:clamp(32px,3.4vw,48px);margin-bottom:38px}
+.rta-works-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:30px 24px;list-style:none;margin:0;padding:0}
+.rta-works-grid>li{min-width:0}
+.rta-work-card{display:block;text-align:center}
+.rta-work-image{aspect-ratio:1.65;overflow:hidden;border:1px solid var(--red);background:var(--cream)}
+.rta-work-image img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.rta-work-image img[src*="rta-footpath-works"]{object-position:center 62%}
+.rta-work-image img[src*="rta-signboards"]{object-position:center 60%}
+.rta-work-image img[src*="rta-landscaping"]{object-position:center 72%}
+.rta-work-image img[src*="rta-bollards-fencing"]{object-position:center 68%}
+.rta-work-image img[src*="dubai-skyline"]{object-position:center 65%}
+.rta-work-card h3{font-size:15px;line-height:1.45;font-weight:600;letter-spacing:0;margin-top:14px}
+.rta-work-card:hover img{transform:scale(1.035)}
+.rta-work-card:hover h3{color:#b51f25}
+@media(max-width:900px){.rta-works-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 22px}}
+@media(max-width:540px){.rta-works{padding-block:50px}.rta-works h2{margin-bottom:28px}.rta-works-grid{gap:24px 16px}.rta-work-card h3{font-size:12px;margin-top:10px}}
 
 /* Original authority logos, looping continuously with a static scroll fallback. */
 .partners{padding-block:70px;background:#fff;border-block:1px solid var(--line)}

@@ -18,7 +18,7 @@ Open http://127.0.0.1:4173. Build output is in `website/dist/`; it can be served
 
 - `website/site.config.mjs`: business name, published contact details and canonical origin.
 - `website/services.mjs`: six services, detailed scopes and FAQs.
-- `website/group-services.mjs`: the 12 broader VOLTRONIX service groups shown in the horizontal card row before Contact; official division links and concise service descriptions.
+- `website/rta-works.mjs`: the eight RTA-related work categories in the “What We Do” photo grid before Our Expertise.
 - `website/scripts/build.mjs`: shared layout, home, service, privacy and photography pages; sitemap, robots and JSON-LD.
 - `website/dist/assets/style.css`: responsive visual system.
 - `website/dist/assets/app.js`: accessible mobile navigation and enquiry preparation.
@@ -28,7 +28,7 @@ CSS, JavaScript, logos, fonts and photographs in `dist/assets` are source assets
 
 The About section pins as the sectors and following content scroll over it. Taller mobile layouts scroll through all About content before pinning. Short viewports and reduced-motion preferences use normal scrolling, and keyboard focus reveals any covered About link.
 
-The wider service row uses native horizontal scrolling, swipe, arrow buttons and keyboard controls without automatic movement. Cards link to the verified corporate or division pages; the remaining-authorities card opens the local enquiry section. Corporate project/service photographs and licensed stock photos have source records in `website/photo-sources.json` and are credited on `/photography/`.
+The “What We Do” section presents eight RTA-related work categories in a responsive image grid. Each card links to the project enquiry section. Photograph sources and licenses are recorded in `website/photo-sources.json` and credited on `/photography/`.
 
 ## Enquiries
 

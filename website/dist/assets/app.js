@@ -156,52 +156,6 @@
       updateVideo();
     }
   }
-  const serviceCarousel = document.querySelector('[data-service-carousel]');
-  if (serviceCarousel) {
-    const track = serviceCarousel.querySelector('[data-service-track]');
-    const controls = serviceCarousel.querySelector('[data-service-controls]');
-    const previous = controls.querySelector('[data-service-previous]');
-    const next = controls.querySelector('[data-service-next]');
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    let scrollFrame = 0;
-    const updateControls = () => {
-      const maxScroll = track.scrollWidth - track.clientWidth;
-      previous.disabled = track.scrollLeft <= 2;
-      next.disabled = track.scrollLeft >= maxScroll - 2;
-      controls.hidden = maxScroll <= 2;
-      scrollFrame = 0;
-    };
-    const move = direction => {
-      const step = track.firstElementChild.getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap);
-      track.scrollBy({ left: direction * step, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
-    };
-    previous.addEventListener('click', () => move(-1));
-    next.addEventListener('click', () => move(1));
-    track.addEventListener('scroll', () => {
-      if (!scrollFrame) scrollFrame = requestAnimationFrame(updateControls);
-    }, { passive: true });
-    track.addEventListener('keydown', event => {
-      if (event.target !== track) return;
-      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-        event.preventDefault();
-        move(event.key === 'ArrowLeft' ? -1 : 1);
-      } else if (event.key === 'Home' || event.key === 'End') {
-        event.preventDefault();
-        track.scrollTo({ left: event.key === 'Home' ? 0 : track.scrollWidth, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
-      }
-    });
-    track.addEventListener('focusin', event => {
-      const card = event.target.closest('.group-service-card');
-      if (!card) return;
-      const bounds = track.getBoundingClientRect();
-      const rect = card.getBoundingClientRect();
-      if (rect.left < bounds.left) track.scrollBy({ left: rect.left - bounds.left, behavior: 'instant' });
-      else if (rect.right > bounds.right) track.scrollBy({ left: rect.right - bounds.right, behavior: 'instant' });
-    });
-    if ('ResizeObserver' in window) new ResizeObserver(updateControls).observe(track);
-    else window.addEventListener('resize', updateControls);
-    updateControls();
-  }
   const partners = document.querySelector('[data-partners]');
   if (partners) {
     const viewport = partners.querySelector('[data-partners-window]');
