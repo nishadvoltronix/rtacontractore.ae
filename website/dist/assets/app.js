@@ -17,7 +17,26 @@
       else if (!event.shiftKey && document.activeElement === toggle) { event.preventDefault(); links[0].focus(); }
     }
   });
-  window.matchMedia('(min-width: 801px)').addEventListener('change', event => { if(event.matches) setMenu(false); });
+  window.matchMedia('(min-width: 1101px)').addEventListener('change', event => { if(event.matches) setMenu(false); });
+  const heroHeader = document.querySelector('.hero-header');
+  if (heroHeader) {
+    let headerFrame = 0;
+    const updateHeader = () => {
+      heroHeader.classList.toggle('is-scrolled', window.scrollY > 24);
+      headerFrame = 0;
+    };
+    updateHeader();
+    window.addEventListener('scroll', () => {
+      if (!headerFrame) headerFrame = requestAnimationFrame(updateHeader);
+    }, { passive: true });
+    const hero = document.querySelector('.hero');
+    const content = document.querySelector('.home-content');
+    hero?.addEventListener('focusin', event => {
+      if (content && content.getBoundingClientRect().top < event.target.getBoundingClientRect().bottom) {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }
+    });
+  }
   const form = document.getElementById('quote-form');
   if(!form) return;
   const service = form.elements.service;
