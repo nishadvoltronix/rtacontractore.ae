@@ -3,7 +3,7 @@
   "license": "Unsplash License (stock photographs only)",
   "licenseUrl": "https://unsplash.com/license",
   "licenseSummary": "Unsplash permits downloading, modifying and using these photographs for commercial and non-commercial purposes. Attribution is appreciated but not required. Do not resell unmodified images or create a competing image service.",
-  "usageNote": "The homepage hero image and sector background video were supplied by the user. The remaining images are licensed stock photographs illustrating service categories and Dubai. Imagery is not presented as this contractor's completed projects, employees or equipment.",
+  "usageNote": "The homepage hero and background video were supplied by the user. Corporate photographs are sourced from linked VOLTRONIX pages. Licensed stock photographs illustrate service environments and are not presented as VOLTRONIX projects.",
   "photos": [
     {
       "file": "dist/assets/images/dubai-roadwork-hero.webp",
@@ -208,6 +208,214 @@
           "quality": 78,
           "bytes": 13230,
           "downloadUrl": "https://images.unsplash.com/photo-1594028235752-10a0cb865c7c?fit=crop&w=960&q=78&fm=webp"
+        }
+      }
+    },
+    {
+      "file": "dist/assets/images/voltronix-construction.webp",
+      "sourceType": "corporate",
+      "photographer": "VOLTRONIX corporate website",
+      "sourcePage": "https://voltronix.ae/project-portfolio/nedia-ev-parts-trading-llc-dewa-substation-lv-room-project/",
+      "sourceImage": "https://voltronix.ae/wp-content/uploads/2026/08/WhatsApp-Image-2026-08-18-at-2.36.39-PM-1.jpeg",
+      "alt": "A substation building under construction with concrete columns and scaffolding",
+      "width": 1152,
+      "height": 519,
+      "bytes": 132422,
+      "license": "Corporate website source; not part of the Unsplash collection",
+      "responsiveVariants": {
+        "640": {
+          "file": "dist/assets/images/voltronix-construction-640.webp",
+          "width": 640,
+          "height": 288,
+          "bytes": 46660
+        },
+        "960": {
+          "file": "dist/assets/images/voltronix-construction-960.webp",
+          "width": 960,
+          "height": 433,
+          "bytes": 98686
+        }
+      }
+    },
+    {
+      "file": "dist/assets/images/voltronix-switchgear.webp",
+      "sourceType": "corporate",
+      "photographer": "VOLTRONIX corporate website",
+      "sourcePage": "https://voltronix.ae/project-portfolio/electrical-upgrades/",
+      "sourceImage": "https://voltronix.ae/wp-content/uploads/2026/08/IMG_9822-1024x442.jpg",
+      "alt": "Low-voltage switchgear cabinets and cable connections in an electrical room",
+      "width": 1024,
+      "height": 442,
+      "bytes": 65724,
+      "license": "Corporate website source; not part of the Unsplash collection",
+      "responsiveVariants": {
+        "640": {
+          "file": "dist/assets/images/voltronix-switchgear-640.webp",
+          "width": 640,
+          "height": 276,
+          "bytes": 27282
+        },
+        "960": {
+          "file": "dist/assets/images/voltronix-switchgear-960.webp",
+          "width": 960,
+          "height": 414,
+          "bytes": 53028
+        }
+      }
+    },
+    {
+      "file": "dist/assets/images/voltronix-mep.webp",
+      "sourceType": "corporate",
+      "photographer": "VOLTRONIX corporate website",
+      "sourcePage": "https://voltronix.ae/mep/",
+      "sourceImage": "https://voltronix.ae/wp-content/uploads/2024/09/Air-conditioner-unit-mounted-on-a-wall.webp",
+      "alt": "An electrician inspecting wiring and electrical components in a control panel",
+      "width": 1280,
+      "height": 720,
+      "bytes": 100324,
+      "license": "Corporate website source; not part of the Unsplash collection",
+      "responsiveVariants": {
+        "640": {
+          "file": "dist/assets/images/voltronix-mep-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 32778
+        },
+        "960": {
+          "file": "dist/assets/images/voltronix-mep-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 71538
+        }
+      }
+    },
+    {
+      "file": "dist/assets/images/voltronix-plumbing.webp",
+      "sourceType": "corporate",
+      "photographer": "VOLTRONIX corporate website",
+      "sourcePage": "https://voltronix.ae/mep/",
+      "sourceImage": "https://voltronix.ae/wp-content/uploads/2024/09/Expert-Plumbing-Services-in-Dubai.webp",
+      "alt": "A plumber tightening a pipe connection beneath a basin",
+      "width": 1060,
+      "height": 707,
+      "bytes": 43068,
+      "license": "Corporate website source; not part of the Unsplash collection",
+      "responsiveVariants": {
+        "640": {
+          "file": "dist/assets/images/voltronix-plumbing-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 17784
+        },
+        "960": {
+          "file": "dist/assets/images/voltronix-plumbing-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 36088
+        }
+      }
+    },
+    {
+      "file": "dist/assets/images/voltronix-pipework.webp",
+      "sourceType": "corporate",
+      "photographer": "VOLTRONIX corporate website",
+      "sourcePage": "https://voltronix.ae/water-pipelines-and-stations-contracting/",
+      "sourceImage": "https://voltronix.ae/wp-content/uploads/2024/10/Sewage-and-Drainage-Contracting.webp",
+      "alt": "A technician inspecting valves and industrial water pipework",
+      "width": 1280,
+      "height": 853,
+      "bytes": 88828,
+      "license": "Corporate website source; not part of the Unsplash collection",
+      "responsiveVariants": {
+        "640": {
+          "file": "dist/assets/images/voltronix-pipework-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 31454
+        },
+        "960": {
+          "file": "dist/assets/images/voltronix-pipework-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 65598
+        }
+      }
+    },
+    {
+      "file": "dist/assets/images/voltronix-cabling.webp",
+      "sourceType": "stock",
+      "photographer": "Taylor Vick",
+      "sourcePage": "https://unsplash.com/photos/server-room-with-network-cabinets-aWslrFhs1w4",
+      "sourceImage": "https://images.unsplash.com/photo-1564457461758-8ff96e439e83?fm=webp&fit=max&w=1200&q=80",
+      "alt": "Rows of network cabinets and overhead blue communication cables in a datacenter",
+      "width": 1200,
+      "height": 675,
+      "bytes": 183228,
+      "license": "Unsplash License",
+      "responsiveVariants": {
+        "640": {
+          "file": "dist/assets/images/voltronix-cabling-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 54902
+        },
+        "960": {
+          "file": "dist/assets/images/voltronix-cabling-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 112946
+        }
+      }
+    },
+    {
+      "file": "dist/assets/images/voltronix-interior.webp",
+      "sourceType": "stock",
+      "photographer": "S O C I A L . C U T",
+      "sourcePage": "https://unsplash.com/photos/brown-wooden-9-piece-office-table-and-chairs-1RT4txDDAbM",
+      "sourceImage": "https://images.unsplash.com/photo-1571624436279-b272aff752b5?fm=webp&fit=max&w=1200&q=80",
+      "alt": "Contemporary office meeting room with a timber table, chairs, glazing and ceiling lighting",
+      "width": 1200,
+      "height": 799,
+      "bytes": 109604,
+      "license": "Unsplash License",
+      "responsiveVariants": {
+        "640": {
+          "file": "dist/assets/images/voltronix-interior-640.webp",
+          "width": 640,
+          "height": 426,
+          "bytes": 39596
+        },
+        "960": {
+          "file": "dist/assets/images/voltronix-interior-960.webp",
+          "width": 960,
+          "height": 639,
+          "bytes": 74706
+        }
+      }
+    },
+    {
+      "file": "dist/assets/images/voltronix-hvac.webp",
+      "sourceType": "corporate",
+      "photographer": "VOLTRONIX corporate website",
+      "sourcePage": "https://voltronix.ae/project-portfolio/vrf-air-conditioning-system-dip-factory-project/",
+      "sourceImage": "https://voltronix.ae/wp-content/uploads/2025/09/IMG_5138-1.webp",
+      "alt": "Exposed ceiling ductwork, pipework and lighting in a completed commercial interior from the VOLTRONIX VRF project portfolio",
+      "width": 1280,
+      "height": 1707,
+      "bytes": 239072,
+      "license": "Corporate website source; not part of the Unsplash collection",
+      "responsiveVariants": {
+        "640": {
+          "file": "dist/assets/images/voltronix-hvac-640.webp",
+          "width": 640,
+          "height": 853,
+          "bytes": 67500
+        },
+        "960": {
+          "file": "dist/assets/images/voltronix-hvac-960.webp",
+          "width": 960,
+          "height": 1280,
+          "bytes": 167354
         }
       }
     }
