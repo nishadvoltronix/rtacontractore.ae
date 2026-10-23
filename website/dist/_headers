@@ -1,5 +1,8 @@
 /assets/*
   Cache-Control: public, max-age=604800
+/assets/documents/*
+  Content-Type: application/pdf
+  Content-Disposition: inline
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
