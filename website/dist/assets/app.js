@@ -3,18 +3,25 @@
   const nav = document.querySelector('[data-nav]');
   const pqMenu = nav?.querySelector('[data-pq-menu]');
   const pqToggle = pqMenu?.querySelector('summary');
+  let pqCloseTimer;
+  let pqOpenedByHover = false;
+  const closePq = () => {
+    clearTimeout(pqCloseTimer);
+    pqOpenedByHover = false;
+    if (pqMenu) pqMenu.open = false;
+  };
   const setMenu = open => {
     toggle?.setAttribute('aria-expanded', String(open));
     toggle?.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
     nav?.classList.toggle('is-open', open);
     document.body.classList.toggle('menu-open', open);
-    if (!open && pqMenu) pqMenu.open = false;
+    if (!open) closePq();
   };
   toggle?.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
   nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape' && pqMenu?.open) {
-      pqMenu.open = false;
+      closePq();
       pqToggle.focus();
       event.preventDefault();
       return;
@@ -29,15 +36,39 @@
   });
   window.matchMedia('(min-width: 1281px)').addEventListener('change', () => setMenu(false));
   if (pqMenu) {
+    const hoverMenu = matchMedia('(min-width: 1281px) and (hover: hover) and (pointer: fine)');
+    pqMenu.addEventListener('pointerenter', event => {
+      if (event.pointerType !== 'mouse' || !hoverMenu.matches) return;
+      clearTimeout(pqCloseTimer);
+      if (!pqMenu.open) {
+        pqOpenedByHover = true;
+        pqMenu.open = true;
+      }
+    });
+    pqMenu.addEventListener('pointerleave', event => {
+      if (event.pointerType !== 'mouse' || !hoverMenu.matches) return;
+      pqCloseTimer = setTimeout(() => {
+        if (!pqMenu.matches(':hover') && !pqMenu.contains(document.activeElement)) closePq();
+      }, 180);
+    });
+    // Clicking a menu just opened by hover should keep its document links open.
+    pqToggle.addEventListener('click', event => {
+      if (event.detail > 0 && pqOpenedByHover && hoverMenu.matches) {
+        event.preventDefault();
+        pqOpenedByHover = false;
+      }
+    });
+    pqMenu.addEventListener('toggle', () => { if (!pqMenu.open) closePq(); });
+    hoverMenu.addEventListener('change', closePq);
     document.addEventListener('click', event => {
-      if (!pqMenu.contains(event.target)) pqMenu.open = false;
+      if (!pqMenu.contains(event.target)) closePq();
     });
     pqMenu.addEventListener('focusout', event => {
       if (event.relatedTarget) {
-        if (!pqMenu.contains(event.relatedTarget)) pqMenu.open = false;
+        if (!pqMenu.contains(event.relatedTarget)) closePq();
       } else {
         // Wait for native Tab navigation to finish before inspecting focus.
-        setTimeout(() => { if (!pqMenu.contains(document.activeElement)) pqMenu.open = false; }, 0);
+        setTimeout(() => { if (!pqMenu.contains(document.activeElement)) closePq(); }, 0);
       }
     });
     pqToggle.addEventListener('keydown', event => {
