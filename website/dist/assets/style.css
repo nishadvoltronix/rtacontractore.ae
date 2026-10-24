@@ -120,11 +120,11 @@ section[id]{scroll-margin-top:0}
 /* RTA works: a title-first scroll sequence with a complete static fallback. */
 .rta-works{padding-block:76px;background:#fff;border-bottom:1px solid var(--line)}
 .rta-works-heading{margin-bottom:38px}
-.rta-works h2{text-align:center;font-size:clamp(48px,6vw,80px);line-height:1.08;letter-spacing:-.055em;margin:0;transform-origin:center}
+.rta-works h2{text-align:center;font-size:clamp(48px,6vw,80px);line-height:1.08;letter-spacing:-.055em;margin:0}
 .rta-works-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:30px 24px;list-style:none;margin:0;padding:0}
 .rta-works-grid>li{min-width:0}
 .rta-work-card{display:block;text-align:center}
-.rta-work-image{aspect-ratio:1.65;overflow:hidden;border:1px solid var(--red);background:var(--cream)}
+.rta-work-image{aspect-ratio:1.65;overflow:hidden;border:0;background:transparent}
 .rta-work-image img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
 .rta-work-image img[src*="rta-footpath-works"]{object-position:center 62%}
 .rta-work-image img[src*="rta-signboards"]{object-position:center 60%}
@@ -143,8 +143,8 @@ section[id]{scroll-margin-top:0}
 .rta-works.is-pinned{height:var(--works-scroll-height);padding-block:0}
 .rta-works.is-pinned .rta-works-stage{position:sticky;top:var(--works-top);height:var(--works-view-height);background:#fff}
 .is-pinned .rta-works-inner{height:100%;display:flex;flex-direction:column;justify-content:center;padding-block:24px}
-.is-pinned .rta-works-heading{position:relative;z-index:1;margin-bottom:28px}
-.is-pinned .rta-works-heading h2{width:max-content;max-width:100%;margin-inline:auto;font-size:clamp(44px,4vw,60px);will-change:transform}
+.is-pinned .rta-works-heading{position:relative;z-index:1;margin-bottom:28px;font-size:clamp(44px,4vw,60px);height:1.08em;flex-shrink:0}
+.is-pinned .rta-works-heading h2{position:absolute;inset-inline:0;top:0;font-size:inherit;white-space:nowrap}
 .is-pinned .rta-works-grid{gap:24px}
 .is-pinned .rta-works-controls{margin-top:28px}
 .rta-works.is-pinned .rta-works-grid>li,.rta-works.is-flow .rta-works-grid>li{opacity:var(--work-opacity,0);transform:translate3d(0,var(--work-offset,32px),0) scale(var(--work-scale,.97));transform-origin:center bottom;will-change:opacity,transform}

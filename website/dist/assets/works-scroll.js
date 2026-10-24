@@ -19,7 +19,9 @@
   let intro = 0;
   let step = 0;
   let titleOffset = 0;
-  let titleScale = 1;
+  let titleFont = 0;
+  let introFont = 0;
+  let titleHeight = 0;
   let frame = 0;
   let layoutFrame = 0;
   let displayedCount = -1;
@@ -42,7 +44,10 @@
     if (mode === 'pinned') {
       // Leave a short title-only hold before it settles into the grid heading.
       const settle = ease(clamp((distance - viewHeight * .14) / (intro - viewHeight * .14)));
-      title.style.transform = `translate3d(0,${((1 - settle) * titleOffset).toFixed(2)}px,0) scale(${(1 + (titleScale - 1) * (1 - settle)).toFixed(3)})`;
+      // Render the glyphs at their real display size instead of enlarging a composited texture.
+      const fontSize = Math.round(titleFont + (introFont - titleFont) * (1 - settle));
+      title.style.fontSize = `${fontSize}px`;
+      title.style.top = `${Math.round((1 - settle) * titleOffset + (titleHeight - fontSize * 1.08) / 2)}px`;
       cards.forEach((card, index) => {
         if (reveal(card, (distance - intro - index * step) / (step * .72))) count++;
       });
@@ -71,7 +76,8 @@
     layoutFrame = 0;
     section.classList.remove('is-pinned', 'is-flow');
     section.style.removeProperty('--works-scroll-height');
-    title.style.removeProperty('transform');
+    title.style.removeProperty('font-size');
+    title.style.removeProperty('top');
     cards.forEach(card => {
       ['--work-opacity', '--work-offset', '--work-scale'].forEach(property => card.style.removeProperty(property));
       card.style.removeProperty('pointer-events');
@@ -95,7 +101,11 @@
       const distance = intro + cards.length * step + viewHeight * .28;
       section.style.setProperty('--works-scroll-height', `${viewHeight + distance}px`);
       titleOffset = viewHeight / 2 - (heading.offsetTop + heading.offsetHeight / 2);
-      titleScale = Math.min(2.45, (inner.clientWidth - 100) / title.scrollWidth);
+      titleFont = parseFloat(getComputedStyle(heading).fontSize);
+      titleHeight = heading.getBoundingClientRect().height;
+      const text = document.createRange();
+      text.selectNodeContents(title);
+      introFont = titleFont * Math.min(2.45, (heading.clientWidth - 32) / text.getBoundingClientRect().width);
     } else {
       mode = 'flow';
       section.classList.remove('is-pinned');
