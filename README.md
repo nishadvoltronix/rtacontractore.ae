@@ -28,7 +28,7 @@ CSS, JavaScript, logos, fonts and photographs in `dist/assets` are source assets
 
 The About section pins as the sectors and following content scroll over it. Taller mobile layouts scroll through all About content before pinning. Short viewports and reduced-motion preferences use normal scrolling, and keyboard focus reveals any covered About link.
 
-The “What We Do” section presents eight RTA-related work categories in a responsive image grid. Each card links to the project enquiry section. Photograph sources and licenses are recorded in `website/photo-sources.json` and credited on `/photography/`.
+The “What We Do” section opens with a large title, then reveals its eight RTA-related work categories as the visitor scrolls. When the full grid fits below the header, it stays in place while the cards appear one at a time. Smaller screens use a natural scrolling reveal. Reduced-motion preferences, short viewports, and JavaScript-disabled browsers show the complete static grid. Keyboard focus reveals each card, and the desktop sequence includes a direct link to Our Expertise. Each card links to the project enquiry section. The controller is `website/dist/assets/works-scroll.js`; photograph sources and licenses are recorded in `website/photo-sources.json` and credited on `/photography/`.
 
 ## Enquiries
 
@@ -53,6 +53,7 @@ Deploy `website/dist/` at that same origin, verify public access and redirects, 
 ```sh
 npm run check
 npm run test:browser
+npm run test:works
 ```
 
 The browser check expects the local preview to be running at port 4173 and installed Chrome on Windows. It checks desktop/mobile layouts, links, accessibility, images, metadata, the navigation, FAQ accordions and enquiry preparation. Screenshots and reports go to ignored `artifacts/`. It does not send an enquiry.
