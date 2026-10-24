@@ -26,6 +26,14 @@
   let frame = 0;
   let layoutFrame = 0;
   let displayedCount = -1;
+  let scrollDistance = 0;
+  let skippedDistance = 0;
+  let previousY = scrollY;
+  let returnUntil = 0;
+  let touchY = 0;
+
+  const clearReturnIntent = () => { returnUntil = 0; };
+  const setScrollHeight = () => section.style.setProperty('--works-scroll-height', `${viewHeight + scrollDistance - skippedDistance}px`);
 
   const reveal = (card, progress) => {
     // A downward pass can reveal more content; scrolling back never hides it.
@@ -42,14 +50,34 @@
   const update = () => {
     frame = 0;
     if (mode === 'static') return;
-    const bounds = section.getBoundingClientRect();
+    let bounds = section.getBoundingClientRect();
     // Rearm the sequence out of sight, only after returning fully above it.
     // A focused service stays available even when keyboard navigation moves it.
     if (bounds.top >= innerHeight && !grid.contains(document.activeElement)) {
       revealed.clear();
       headingProgress = 0;
+      if (mode === 'pinned' && skippedDistance) {
+        skippedDistance = 0;
+        setScrollHeight();
+      }
     }
-    const distance = top - bounds.top;
+    let distance = top - bounds.top;
+    if (mode === 'pinned' && performance.now() < returnUntil && scrollY < previousY - .5 && distance > 1) {
+      // Remove the already-travelled spacer on an intentional upward scroll.
+      // Matching the scroll correction to the removed height keeps the visible
+      // stage (or content below it) in place without intercepting wheel/touch.
+      const removed = Math.min(distance, scrollDistance - skippedDistance);
+      if (removed > 1) {
+        const nextY = scrollY - removed;
+        skippedDistance += removed;
+        setScrollHeight();
+        scrollTo({ top: nextY, behavior: 'instant' });
+        bounds = section.getBoundingClientRect();
+        distance = top - bounds.top;
+      }
+    }
+    previousY = scrollY;
+    if (mode === 'pinned') distance += skippedDistance;
     let count = 0;
     if (mode === 'pinned') {
       // Leave a short title-only hold before it settles into the grid heading.
@@ -85,6 +113,7 @@
 
   const layout = () => {
     layoutFrame = 0;
+    clearReturnIntent();
     section.classList.remove('is-pinned', 'is-flow');
     section.style.removeProperty('--works-scroll-height');
     title.style.removeProperty('font-size');
@@ -96,6 +125,7 @@
     controls.hidden = true;
     mode = 'static';
     if (!motion.matches) {
+      skippedDistance = 0;
       cards.forEach(card => revealed.set(card, 1));
       headingProgress = 1;
       return;
@@ -115,8 +145,9 @@
       if ([...revealed.values()].some(progress => progress > 0)) headingProgress = 1;
       intro = viewHeight * .68;
       step = Math.max(150, viewHeight * .28);
-      const distance = intro + cards.length * step + viewHeight * .28;
-      section.style.setProperty('--works-scroll-height', `${viewHeight + distance}px`);
+      scrollDistance = intro + cards.length * step + viewHeight * .28;
+      skippedDistance = Math.min(skippedDistance, scrollDistance);
+      setScrollHeight();
       titleOffset = viewHeight / 2 - (heading.offsetTop + heading.offsetHeight / 2);
       titleFont = parseFloat(getComputedStyle(heading).fontSize);
       titleHeight = heading.getBoundingClientRect().height;
@@ -125,11 +156,13 @@
       introFont = titleFont * Math.min(2.45, (heading.clientWidth - 32) / text.getBoundingClientRect().width);
     } else {
       mode = 'flow';
+      skippedDistance = 0;
       section.classList.remove('is-pinned');
       section.classList.add('is-flow');
       controls.hidden = true;
     }
     displayedCount = -1;
+    previousY = scrollY;
     update();
   };
   const scheduleLayout = () => { if (!layoutFrame) layoutFrame = requestAnimationFrame(layout); };
@@ -142,7 +175,7 @@
       const cardBounds = card.getBoundingClientRect();
       if (Number(card.style.getPropertyValue('--work-opacity')) < .99 || cardBounds.top < top || cardBounds.bottom > innerHeight) {
         const start = scrollY + section.getBoundingClientRect().top - top;
-        scrollTo({ top: start + intro + (index + .8) * step, behavior: 'instant' });
+        scrollTo({ top: start + Math.max(0, intro + (index + .8) * step - skippedDistance), behavior: 'instant' });
         update();
       }
     } else {
@@ -151,6 +184,28 @@
       if (bounds.top < top + 16 || bounds.bottom > innerHeight - 16) card.scrollIntoView({ block: 'center', behavior: 'instant' });
     }
   });
+  // Listen for intent only: native scrolling, anchors and Home/End stay in charge.
+  addEventListener('wheel', event => {
+    if (event.ctrlKey || !event.deltaY) return;
+    returnUntil = event.deltaY < 0 ? performance.now() + 700 : 0;
+  }, { passive: true });
+  addEventListener('touchstart', event => {
+    clearReturnIntent();
+    touchY = event.touches[0]?.clientY || 0;
+  }, { passive: true });
+  addEventListener('touchmove', event => {
+    if (event.touches.length !== 1) { clearReturnIntent(); return; }
+    const nextY = event.touches[0].clientY;
+    if (nextY !== touchY) returnUntil = nextY > touchY ? performance.now() + 700 : 0;
+    touchY = nextY;
+  }, { passive: true });
+  addEventListener('keydown', event => {
+    if (event.defaultPrevented || event.target.isContentEditable || event.target.closest?.('input, textarea, select, [role="textbox"]')) return;
+    const upward = ['ArrowUp', 'PageUp'].includes(event.key) || (event.key === ' ' && event.shiftKey);
+    returnUntil = upward ? performance.now() + 700 : 0;
+  });
+  document.addEventListener('click', clearReturnIntent, true);
+  document.addEventListener('focusin', clearReturnIntent, true);
   addEventListener('scroll', schedule, { passive: true });
   addEventListener('resize', scheduleLayout);
   addEventListener('pageshow', scheduleLayout);

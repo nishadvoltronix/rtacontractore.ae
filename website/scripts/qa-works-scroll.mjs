@@ -209,6 +209,67 @@ async function desktopSequence() {
   await context.close();
 }
 
+async function fastReturn() {
+  const { context, page } = await open({ width: 1440, height: 900 });
+  let state = await inspect(page);
+  const expandedHeight = state.section.height;
+  const start = state.y + state.section.top - state.header.bottom;
+  const end = state.y + state.section.bottom - state.height;
+  await page.mouse.move(720, 450);
+  const wheel = async delta => {
+    await page.mouse.wheel(0, delta);
+    await page.waitForTimeout(160);
+    await settled(page);
+    return inspect(page);
+  };
+
+  await scroll(page, end);
+  const complete = await inspect(page);
+  state = await wheel(-120);
+  check(expandedHeight - state.section.height > state.height, 'An upward wheel gesture removes the completed sticky scroll distance');
+  check(sameOpacities(complete, state) && state.cards.every(card => card.visible), 'Fast upward return preserves all completed cards');
+  check(Math.abs(state.stage.top - complete.stage.top) < 3, 'Compacting the timeline keeps the visible grid in the same position');
+  state = await wheel(-300);
+  check(state.stage.top > state.header.bottom + 250 && state.cards.every(card => card.visible), 'The next short upward gesture immediately carries the section toward the bottom of the viewport');
+  await leaveAboveSection(page);
+  state = await inspect(page);
+  check(Math.abs(state.section.height - expandedHeight) < 3 && state.cards.every(card => card.opacity < 0.02), 'Returning fully above the compact section restores its original reveal distance offscreen');
+
+  await scroll(page, start + (end - start) * .5);
+  const partial = await inspect(page);
+  check(partial.cards.some(card => card.visible) && partial.cards.some(card => card.opacity < .02), 'Fast partial return starts with both revealed and unrevealed cards');
+  state = await wheel(-120);
+  check(expandedHeight - state.section.height > state.height * .5 && state.section.height > state.height, 'A partial upward return removes only the traversed part of the timeline');
+  check(sameOpacities(partial, state) && Math.abs(state.stage.top - partial.stage.top) < 3, 'Partial compaction retains card progress without a visible position jump');
+  state = await wheel(-180);
+  check(state.stage.top > state.header.bottom + 150 && sameOpacities(partial, state), 'A partial presentation also leaves its sticky position promptly when scrolling upward');
+  state = await wheel(180);
+  check(sameOpacities(partial, state), 'Changing back to downward scrolling does not hide or restart the retained cards');
+  await scroll(page, state.y + state.section.bottom - state.height);
+  state = await inspect(page);
+  check(state.cards.every(card => card.visible), 'Downward scrolling through the remaining timeline finishes every unrevealed card');
+  await leaveAboveSection(page);
+  await scroll(page, start);
+  state = await inspect(page);
+  check(Math.abs(state.section.height - expandedHeight) < 3 && state.cards.every(card => card.opacity < .02), 'A fresh pass after partial compaction again starts with the title alone');
+
+  await scroll(page, end + state.height * 1.4);
+  const below = await inspect(page);
+  const nextBefore = await page.locator('#services').evaluate(element => element.getBoundingClientRect().top);
+  state = await wheel(-120);
+  const nextAfter = await page.locator('#services').evaluate(element => element.getBoundingClientRect().top);
+  const removedHeight = below.section.height - state.section.height;
+  check(removedHeight > state.height && Math.abs((below.y - state.y) - removedHeight - 120) < 4, 'Upward scrolling from later sections removes the spacer with matching scroll compensation');
+  check(Math.abs(nextAfter - nextBefore - 120) < 4, 'Content below the presentation moves only by the requested upward scroll distance');
+  await page.locator('.footer a[href="#top"]').click();
+  await page.waitForFunction(() => scrollY < 2, undefined, { timeout: 5000 });
+  await settled(page);
+  state = await inspect(page);
+  check(state.y < 2 && await page.evaluate(() => location.hash === '#top'), 'Back to top still completes native anchor navigation after timeline compaction');
+  check(Math.abs(state.section.height - expandedHeight) < 3 && state.cards.every(card => card.opacity < .02), 'Back to top rearms the next downward presentation');
+  await context.close();
+}
+
 async function flowAndFallbacks() {
   for (const viewport of [{ width: 390, height: 844 }, { width: 320, height: 568 }, { width: 768, height: 1024 }, { width: 1366, height: 768 }, { width: 1440, height: 550 }]) {
     const { context, page } = await open(viewport);
@@ -277,6 +338,7 @@ try {
   await mkdir(artifacts, { recursive: true });
   browser = await chromium.launch({ executablePath, headless: true });
   await desktopSequence();
+  await fastReturn();
   await flowAndFallbacks();
   check(errors.length === 0, 'No browser JavaScript errors', errors);
 } catch (error) {
