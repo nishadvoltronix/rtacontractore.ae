@@ -168,12 +168,15 @@ async function flowAndFallbacks() {
     const start = state.y + state.section.top - state.header.bottom;
     const end = state.y + state.section.bottom - state.header.bottom;
     const seen = new Set();
+    let readingOrder = true;
     for (let top = start; top <= end; top += viewport.height / 8) {
       await scroll(page, top);
       state = await inspect(page);
       state.cards.forEach((card, index) => { if (card.visible && card.bottom > state.header.bottom && card.top < viewport.height) seen.add(index); });
+      readingOrder &&= state.cards.every((card, index) => !card.visible || state.cards.slice(0, index).every(previous => previous.visible));
     }
     check(seen.size === 8, `${viewport.width}x${viewport.height}: all eight services can be seen by normal scrolling`, [...seen]);
+    check(readingOrder, `${viewport.width}x${viewport.height}: service reveals follow reading order`);
     check(state.cards.every(card => card.loaded), `${viewport.width}x${viewport.height}: photographs remain loaded`);
     if (viewport.height <= 550) check(!state.pinned && state.cards.every(card => card.visible), 'Short landscape viewport uses the complete static grid');
     if (viewport.width === 390) {

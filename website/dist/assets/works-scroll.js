@@ -50,10 +50,14 @@
       const columns = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
       const gridTop = grid.getBoundingClientRect().top;
       const firstRow = cards[0].offsetTop;
+      const offsets = cards.map(card => card.offsetTop);
+      const rowGaps = offsets.filter((_, index) => index % columns === 0).slice(1).map((offset, index) => offset - offsets[index * columns]);
+      // Finish each row before the next starts, even in a short, wide viewport.
+      const stagger = Math.min(120, innerHeight * .16, Math.min(...rowGaps) / columns);
       cards.forEach((card, index) => {
-        const cardTop = gridTop + card.offsetTop - firstRow;
-        const entry = innerHeight * .85 - cardTop - (index % columns) * Math.min(120, innerHeight * .16);
-        if (reveal(card, forced.has(card) ? 1 : entry / 120)) count++;
+        const cardTop = gridTop + offsets[index] - firstRow;
+        const entry = innerHeight * .85 - cardTop - (index % columns) * stagger;
+        if (reveal(card, forced.has(card) ? 1 : entry / (stagger * .8))) count++;
       });
     }
     if (count !== displayedCount) {
