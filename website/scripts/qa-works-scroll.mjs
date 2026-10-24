@@ -28,6 +28,15 @@ async function scroll(page, top) {
   await settled(page);
 }
 
+async function leaveAboveSection(page) {
+  const state = await inspect(page);
+  await scroll(page, Math.max(0, state.y + state.section.top - state.height - 4));
+}
+
+function sameOpacities(before, after) {
+  return after.cards.every((card, index) => Math.abs(card.opacity - before.cards[index].opacity) < 0.002);
+}
+
 async function inspect(page) {
   return page.evaluate(() => {
     const section = document.querySelector('#rta-works');
@@ -102,12 +111,14 @@ async function desktopSequence() {
   const positions = [];
   let visibleCardsInOrder = true;
   let stageRemainsPinned = true;
+  let partialRevealY;
   for (let sample = 0; sample <= 120; sample++) {
     await scroll(page, start + (end - start) * sample / 120);
     state = await inspect(page);
     const count = state.cards.filter(card => card.visible).length;
     counts.push(count);
     positions.push({ y: state.y, count });
+    if (partialRevealY === undefined && count >= 2 && count < 6 && state.cards.some(card => card.opacity > 0.05 && card.opacity < 0.95)) partialRevealY = state.y;
     visibleCardsInOrder &&= state.cards.every((card, index) => !card.visible || state.cards.slice(0, index).every(previous => previous.visible));
     stageRemainsPinned &&= Math.abs(state.stage.top - state.header.bottom) <= 3;
     if (sample === 60) await page.screenshot({ path: path.join(artifacts, 'mid-reveal-1440.png') });
@@ -120,12 +131,46 @@ async function desktopSequence() {
   check(state.title.height < titleAtStart.height && state.title.top < titleAtStart.top, 'The large title settles into a smaller heading above the grid');
   check(!state.overflow, 'Desktop sequence has no horizontal overflow');
   await page.screenshot({ path: path.join(artifacts, 'completed-1440.png') });
+  const completedTitle = state.title;
   const reverseCounts = [];
+  let headingStaysSettled = true;
   for (let sample = 60; sample >= 0; sample--) {
     await scroll(page, start + (end - start) * sample / 60);
-    reverseCounts.push((await inspect(page)).cards.filter(card => card.visible).length);
+    state = await inspect(page);
+    reverseCounts.push(state.cards.filter(card => card.visible).length);
+    headingStaysSettled &&= Math.abs(state.title.size - completedTitle.size) < 1 && Math.abs(state.title.top - completedTitle.top) < 2;
   }
-  check(reverseCounts[0] === 8 && reverseCounts.at(-1) === 0 && reverseCounts.every((count, i) => !i || count <= reverseCounts[i - 1]), 'Reverse scrolling restores the title without leaving stuck cards', reverseCounts.filter((n, i) => !i || n !== reverseCounts[i - 1]));
+  check(reverseCounts.every(count => count === 8), 'Upward scrolling keeps every completed service card visible', reverseCounts.filter((n, i) => !i || n !== reverseCounts[i - 1]));
+  check(headingStaysSettled, 'Upward scrolling keeps the heading settled above the completed grid');
+  await scroll(page, state.y + state.section.top - state.height + 4);
+  state = await inspect(page);
+  check(state.section.top < state.height && state.cards.every(card => card.visible), 'Cards stay revealed while any part of the section remains in view');
+  await leaveAboveSection(page);
+  state = await inspect(page);
+  check(state.section.top >= state.height && state.cards.every(card => card.opacity < 0.02), 'Leaving fully above the section rearms the next downward reveal offscreen');
+  await scroll(page, start);
+  state = await inspect(page);
+  check(state.cards.every(card => card.opacity < 0.02) && Math.abs(state.title.size - titleAtStart.size) < 1, 'A new downward entry starts again with the large title alone');
+  const replayCounts = [];
+  for (let sample = 0; sample <= 60; sample++) {
+    await scroll(page, start + (end - start) * sample / 60);
+    state = await inspect(page);
+    replayCounts.push(state.cards.filter(card => card.visible).length);
+  }
+  check([...new Set(replayCounts)].join(',') === '0,1,2,3,4,5,6,7,8' && replayCounts.every((count, index) => !index || count >= replayCounts[index - 1]), 'A second downward pass repeats the complete one-by-one reveal', [...new Set(replayCounts)]);
+  await leaveAboveSection(page);
+  await scroll(page, partialRevealY ?? start + (end - start) / 2);
+  const partial = await inspect(page);
+  check(partial.cards.some(card => card.opacity > 0.05 && card.opacity < 0.95) && partial.cards.some(card => card.visible), 'Partial-pass review includes both a revealed card and an unfinished fade');
+  await scroll(page, start);
+  state = await inspect(page);
+  check(sameOpacities(partial, state), 'Reversing midway preserves every card at its reached reveal progress');
+  await scroll(page, start + (partial.y - start) / 2);
+  state = await inspect(page);
+  check(sameOpacities(partial, state), 'Scrolling down again inside the same pass does not reset or replay revealed cards');
+  await scroll(page, end);
+  state = await inspect(page);
+  check(state.cards.every(card => card.visible), 'Continuing beyond the previous position finishes the remaining cards');
   await scroll(page, start);
   const skip = page.locator('#rta-works a[href="#services"]');
   check(await skip.count() === 1, 'A visible link lets visitors skip the scroll presentation');
@@ -135,7 +180,10 @@ async function desktopSequence() {
     const destination = await page.evaluate(() => ({ top: document.querySelector('#services').getBoundingClientRect().top, header: document.querySelector('.header').getBoundingClientRect().bottom, hash: location.hash }));
     check(destination.hash === '#services' && destination.top >= destination.header - 2 && destination.top <= destination.header + 50, 'Skip reaches Our Expertise below the header', destination);
   }
+  await leaveAboveSection(page);
   await scroll(page, start);
+  state = await inspect(page);
+  check(state.cards.every(card => card.opacity < 0.02), 'Keyboard review starts with the service cards hidden on a fresh pass');
   await page.locator('.rta-work-card').first().focus();
   await settled(page);
   for (let index = 0; index < 8; index++) {
@@ -152,6 +200,7 @@ async function desktopSequence() {
   await settled(page);
   state = await inspect(page);
   check(!state.pinned && !state.overflow, 'Resizing to mobile releases the oversized pinned grid');
+  check(state.cards.every(card => card.visible), 'Resizing preserves all cards revealed during the current pass');
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await settled(page);
   state = await inspect(page);
@@ -180,6 +229,29 @@ async function flowAndFallbacks() {
     check(state.cards.every(card => card.loaded), `${viewport.width}x${viewport.height}: photographs remain loaded`);
     if (viewport.height <= 550) check(!state.pinned && state.cards.every(card => card.visible), 'Short landscape viewport uses the complete static grid');
     if (viewport.width === 390) {
+      let mobileReverseVisible = true;
+      for (let top = end; top >= start; top -= viewport.height / 3) {
+        await scroll(page, top);
+        state = await inspect(page);
+        mobileReverseVisible &&= state.cards.every(card => card.visible);
+      }
+      await scroll(page, start);
+      state = await inspect(page);
+      check(state.flow && mobileReverseVisible && state.cards.every(card => card.visible), 'Mobile upward scrolling keeps the completed cards visible');
+      await leaveAboveSection(page);
+      state = await inspect(page);
+      check(state.section.top >= state.height && state.cards.every(card => card.opacity < 0.02), 'Mobile reveal rearms only after returning completely above the section');
+      const replaySeen = new Set();
+      let mobileReplayOrdered = true;
+      for (let top = start; top <= end; top += viewport.height / 8) {
+        await scroll(page, top);
+        state = await inspect(page);
+        state.cards.forEach((card, index) => { if (card.visible && card.bottom > state.header.bottom && card.top < viewport.height) replaySeen.add(index); });
+        mobileReplayOrdered &&= state.cards.every((card, index) => !card.visible || state.cards.slice(0, index).every(previous => previous.visible));
+      }
+      check(replaySeen.size === 8 && mobileReplayOrdered, 'Mobile downward reentry repeats the reveal in reading order');
+      await leaveAboveSection(page);
+      await scroll(page, start);
       await page.locator('.rta-work-card').nth(3).focus();
       await settled(page);
       state = await inspect(page);

@@ -12,7 +12,8 @@
   const motion = matchMedia('(prefers-reduced-motion: no-preference) and (min-height: 551px)');
   const clamp = value => Math.max(0, Math.min(1, value));
   const ease = value => value * value * (3 - 2 * value);
-  const forced = new Set();
+  const revealed = new Map();
+  let headingProgress = 0;
   let mode = 'static';
   let top = 0;
   let viewHeight = 0;
@@ -27,7 +28,10 @@
   let displayedCount = -1;
 
   const reveal = (card, progress) => {
-    const value = ease(clamp(progress));
+    // A downward pass can reveal more content; scrolling back never hides it.
+    const retained = Math.max(revealed.get(card) || 0, clamp(progress));
+    revealed.set(card, retained);
+    const value = ease(retained);
     card.style.setProperty('--work-opacity', value.toFixed(3));
     card.style.setProperty('--work-offset', `${((1 - value) * 36).toFixed(2)}px`);
     card.style.setProperty('--work-scale', (.97 + value * .03).toFixed(3));
@@ -39,11 +43,18 @@
     frame = 0;
     if (mode === 'static') return;
     const bounds = section.getBoundingClientRect();
+    // Rearm the sequence out of sight, only after returning fully above it.
+    // A focused service stays available even when keyboard navigation moves it.
+    if (bounds.top >= innerHeight && !grid.contains(document.activeElement)) {
+      revealed.clear();
+      headingProgress = 0;
+    }
     const distance = top - bounds.top;
     let count = 0;
     if (mode === 'pinned') {
       // Leave a short title-only hold before it settles into the grid heading.
-      const settle = ease(clamp((distance - viewHeight * .14) / (intro - viewHeight * .14)));
+      headingProgress = Math.max(headingProgress, clamp((distance - viewHeight * .14) / (intro - viewHeight * .14)));
+      const settle = ease(headingProgress);
       // Render the glyphs at their real display size instead of enlarging a composited texture.
       const fontSize = Math.round(titleFont + (introFont - titleFont) * (1 - settle));
       title.style.fontSize = `${fontSize}px`;
@@ -62,7 +73,7 @@
       cards.forEach((card, index) => {
         const cardTop = gridTop + offsets[index] - firstRow;
         const entry = innerHeight * .85 - cardTop - (index % columns) * stagger;
-        if (reveal(card, forced.has(card) ? 1 : entry / (stagger * .8))) count++;
+        if (reveal(card, entry / (stagger * .8))) count++;
       });
     }
     if (count !== displayedCount) {
@@ -84,7 +95,11 @@
     });
     controls.hidden = true;
     mode = 'static';
-    if (!motion.matches) return;
+    if (!motion.matches) {
+      cards.forEach(card => revealed.set(card, 1));
+      headingProgress = 1;
+      return;
+    }
 
     top = document.querySelector('.header')?.getBoundingClientRect().height || 0;
     viewHeight = innerHeight - top;
@@ -96,6 +111,8 @@
     const needed = heading.offsetHeight + grid.offsetHeight + controls.offsetHeight + 28 + 28 + 48;
     if (innerWidth > 900 && needed <= viewHeight) {
       mode = 'pinned';
+      // Keep the grid heading settled when returning from a flow/static layout.
+      if ([...revealed.values()].some(progress => progress > 0)) headingProgress = 1;
       intro = viewHeight * .68;
       step = Math.max(150, viewHeight * .28);
       const distance = intro + cards.length * step + viewHeight * .28;
@@ -129,7 +146,6 @@
         update();
       }
     } else {
-      forced.add(card);
       reveal(card, 1);
       const bounds = card.getBoundingClientRect();
       if (bounds.top < top + 16 || bounds.bottom > innerHeight - 16) card.scrollIntoView({ block: 'center', behavior: 'instant' });
