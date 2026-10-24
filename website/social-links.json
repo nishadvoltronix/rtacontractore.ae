@@ -1,0 +1,28 @@
+[
+  {
+    "name": "Facebook",
+    "url": "https://www.facebook.com/voltronixuae",
+    "icon": "facebook.svg"
+  },
+  {
+    "name": "LinkedIn",
+    "url": "https://www.linkedin.com/company/voltronix-uae/",
+    "icon": "linkedin.svg"
+  },
+  {
+    "name": "Instagram",
+    "url": "https://www.instagram.com/vtnxllc",
+    "icon": "instagram.svg"
+  },
+  {
+    "name": "X",
+    "url": "https://x.com/nstsllc",
+    "icon": "x.svg"
+  },
+  {
+    "name": "Pinterest",
+    "url": "https://www.pinterest.com/voltronixs/",
+    "icon": "pinterest.svg",
+    "company": "VOLTRONIX Switchgear"
+  }
+]

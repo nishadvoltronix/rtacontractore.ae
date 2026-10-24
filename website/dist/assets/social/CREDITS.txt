@@ -1,0 +1,5 @@
+Social icons use Font Awesome brand glyphs (Fonticons, Inc.), licensed under CC BY 4.0.
+License: https://creativecommons.org/licenses/by/4.0/
+Source: https://github.com/FortAwesome/Font-Awesome/tree/6.x/svgs/brands
+Facebook, LinkedIn and Instagram paths were obtained from https://voltronix.ae/ and styled with brand colors. Instagram has a gradient background; X uses dark ink for the white footer.
+Profile links verified from voltronix.ae; Pinterest is the Voltronix Switchgear group profile, linking to switchgear.ae.
