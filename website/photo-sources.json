@@ -635,6 +635,110 @@
           "bytes": 110420
         }
       }
+    },
+    {
+      "file": "dist/assets/images/sector-road-street-lighting.webp",
+      "width": 1280,
+      "bytes": 62188,
+      "downloadUrl": "https://images.unsplash.com/flagged/photo-1569396107913-92726a454bee?fit=max&w=1280&q=85&fm=webp",
+      "height": 793,
+      "sourceType": "stock",
+      "photographer": "Naim Ahmed",
+      "sourcePage": "https://unsplash.com/photos/empty-road-with-street-light-at-nighttime-UW2E5TX_4xU",
+      "sourceImage": "https://images.unsplash.com/flagged/photo-1569396107913-92726a454bee",
+      "alt": "A row of illuminated twin-arm streetlights along a highway at night",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "publishedOn": "2019-09-25",
+      "retrievedOn": "2026-10-26",
+      "suggestedUse": "Roads and infrastructure sector card",
+      "usageNote": "Real licensed stock photograph illustrating a lighting environment; not presented as a VOLTRONIX project.",
+      "responsiveVariants": {
+        "640": {
+          "file": "dist/assets/images/sector-road-street-lighting-640.webp",
+          "width": 640,
+          "bytes": 20692,
+          "downloadUrl": "https://images.unsplash.com/flagged/photo-1569396107913-92726a454bee?fit=max&w=640&q=80&fm=webp",
+          "height": 396
+        },
+        "960": {
+          "file": "dist/assets/images/sector-road-street-lighting-960.webp",
+          "width": 960,
+          "bytes": 39530,
+          "downloadUrl": "https://images.unsplash.com/flagged/photo-1569396107913-92726a454bee?fit=max&w=960&q=85&fm=webp",
+          "height": 594
+        }
+      }
+    },
+    {
+      "file": "dist/assets/images/sector-community-street-lighting.webp",
+      "width": 1280,
+      "bytes": 95140,
+      "downloadUrl": "https://images.unsplash.com/photo-1673268256087-7383f2ab84a2?fit=max&w=1280&q=85&fm=webp",
+      "height": 853,
+      "sourceType": "stock",
+      "photographer": "Alexander Fastovets",
+      "sourcePage": "https://unsplash.com/photos/a-city-street-at-night-with-street-lights-oRXqFp301g4",
+      "sourceImage": "https://images.unsplash.com/photo-1673268256087-7383f2ab84a2",
+      "alt": "Streetlight poles illuminate a curved road and adjacent pedestrian pavement at night",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "publishedOn": "2023-01-09",
+      "retrievedOn": "2026-10-26",
+      "location": "Mogilev, Belarus",
+      "suggestedUse": "Communities sector card",
+      "usageNote": "Real licensed stock photograph illustrating a lighting environment; not presented as a VOLTRONIX project.",
+      "responsiveVariants": {
+        "640": {
+          "file": "dist/assets/images/sector-community-street-lighting-640.webp",
+          "width": 640,
+          "bytes": 33698,
+          "downloadUrl": "https://images.unsplash.com/photo-1673268256087-7383f2ab84a2?fit=max&w=640&q=80&fm=webp",
+          "height": 427
+        },
+        "960": {
+          "file": "dist/assets/images/sector-community-street-lighting-960.webp",
+          "width": 960,
+          "bytes": 62648,
+          "downloadUrl": "https://images.unsplash.com/photo-1673268256087-7383f2ab84a2?fit=max&w=960&q=85&fm=webp",
+          "height": 640
+        }
+      }
+    },
+    {
+      "file": "dist/assets/images/sector-pole-mounted-lighting.webp",
+      "width": 1280,
+      "bytes": 34714,
+      "downloadUrl": "https://images.unsplash.com/photo-1681039339992-334c67c32205?fit=max&w=1280&q=85&fm=webp",
+      "height": 1920,
+      "sourceType": "stock",
+      "photographer": "aboodi vesakaran",
+      "sourcePage": "https://unsplash.com/photos/two-street-lights-on-a-pole-against-a-blue-sky-mgNsJcB-ook",
+      "sourceImage": "https://images.unsplash.com/photo-1681039339992-334c67c32205",
+      "alt": "Two rectangular outdoor luminaires mounted on a lighting pole against a blue sky in Dubai",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "publishedOn": "2023-04-09",
+      "retrievedOn": "2026-10-26",
+      "location": "Dubai - United Arab Emirates",
+      "suggestedUse": "Industrial and commercial sector card",
+      "usageNote": "Real licensed stock photograph illustrating a lighting environment; not presented as a VOLTRONIX project.",
+      "responsiveVariants": {
+        "640": {
+          "file": "dist/assets/images/sector-pole-mounted-lighting-640.webp",
+          "width": 640,
+          "bytes": 9262,
+          "downloadUrl": "https://images.unsplash.com/photo-1681039339992-334c67c32205?fit=max&w=640&q=80&fm=webp",
+          "height": 960
+        },
+        "960": {
+          "file": "dist/assets/images/sector-pole-mounted-lighting-960.webp",
+          "width": 960,
+          "bytes": 19302,
+          "downloadUrl": "https://images.unsplash.com/photo-1681039339992-334c67c32205?fit=max&w=960&q=85&fm=webp",
+          "height": 1440
+        }
+      }
     }
   ],
   "videos": [

@@ -17,7 +17,8 @@ Open http://127.0.0.1:4173. Build output is in `website/dist/`; it can be served
 ## Edit
 
 - `website/site.config.mjs`: business name, published contact details and canonical origin.
-- `website/services.mjs`: six services, detailed scopes and FAQs.
+- `website/services.mjs`: six service/enquiry topics with evidence flags and scope FAQs.
+- `website/street-lighting-content.mjs` and `website/templates/street-lighting.mjs`: sourced primary landing-page copy and shared-style template.
 - `website/rta-works.mjs`: the eight RTA-related work categories in the “What We Do” photo grid before Our Expertise.
 - `website/scripts/build.mjs`: shared layout, home, service, privacy and photography pages; sitemap, robots and JSON-LD.
 - `website/dist/assets/style.css`: responsive visual system.
@@ -36,17 +37,31 @@ The form validates and prepares an enquiry locally. Visitors review it and choos
 
 ## SEO and public launch
 
-Nine static pages have unique titles and descriptions, canonicals, social metadata, descriptive image alternatives and internal links. Six service pages include Service and BreadcrumbList JSON-LD, with shared GeneralContractor and WebSite data. A sitemap, robots file, custom 404 page and hosting headers are included. FAQ content is visible HTML; no obsolete FAQ rich-result promises are made.
+The local build now defaults to the verified public origin **https://rtacontractor.ae**. The 24 October 2026 audit found that this public site's existing metadata and sitemap still point to the private Sites preview. This local correction has NOT been deployed. Publishing, GitHub pushes, DNS changes and account submissions require explicit authorization.
 
-The Sites preview is private by default. Private pages cannot be indexed by search engines. Before a public domain launch, connect the intended domain and rebuild with its canonical origin:
+Nine static pages have unique metadata, canonicals, social previews and a connected GeneralContractor / WebSite / WebPage graph. Service entities are limited to the three evidence-backed categories (street lighting, cabling and electrical infrastructure). All six service/enquiry pages have breadcrumbs. High-mast, LED/solar and street-lighting maintenance remain enquiry topics pending specific capability evidence. Useful visible FAQs are included without obsolete FAQ rich-result promises.
+
+The existing /services/street-lighting/ page is the primary landing page. It links the supplied latest RTA certificate and states **Conditionally Prequalified**, road lighting only, tunnel lighting excluded, AED 5,000,000 value limit, registration A025-6513466, expiry 20 October 2029. The owner confirmed this is the latest record; current RTA portal status has not been independently checked. Do not shorten this to blanket RTA approval.
+
+The canonical origin may be overridden for an explicitly intended build. SITE_URL accepts only an HTTPS origin without credentials, a path, query or fragment. In PowerShell:
 
 ```powershell
-$env:SITE_URL = 'https://rtacontractore.ae'
+$env:SITE_URL = 'https://rtacontractor.ae'
 npm run build
 npm run check
 ```
 
-Deploy `website/dist/` at that same origin, verify public access and redirects, and submit its sitemap to the site's Google Search Console property. Public launch, DNS changes and Search Console verification are separate from a private preview. Search ranking and indexing are not guaranteed.
+Remove a temporary override with Remove-Item Env:SITE_URL before rebuilding for the default origin. If publishing a private Sites preview later, set SITE_URL explicitly to that preview origin; do not assume a public SEO build belongs at a preview host. The Sites identity in website/.openai/hosting.json is unchanged.
+
+The local Node preview now redirects existing index.html aliases and missing trailing slashes in one hop with 308. It retains query parameters, handles HEAD and genuine 404s, and displays PDFs inline. These rules do not automatically configure the production static host. Identify the actual host behind Cloudflare and configure HTTPS/apex/path redirects there only after authorization. The www host currently serves a duplicate200 response; production host rules remain pending.
+
+Reports (local project files; excluded from dist):
+
+- [Baseline audit](website/reports/seo-baseline-2026-10-24.html)
+- [Implementation and validation](website/reports/seo-implementation-2026-10-24.html)
+- [Content strategy, indexing, measurement and 30-day plan](website/reports/seo-strategy-2026-10-24.html)
+
+Existing generic robots rules already allow search crawlers. No AI training-policy change, security bypass, analytics token, verification token, llms.txt, indexing submission or production action was added. Search visibility and AI citations are not guaranteed.
 
 ## Verification
 
@@ -54,6 +69,7 @@ Deploy `website/dist/` at that same origin, verify public access and redirects, 
 npm run check
 npm run test:browser
 npm run test:works
+npm run test:http
 ```
 
 The browser check expects the local preview to be running at port 4173 and installed Chrome on Windows. It checks desktop/mobile layouts, links, accessibility, images, metadata, the navigation, FAQ accordions and enquiry preparation. Screenshots and reports go to ignored `artifacts/`. It does not send an enquiry.
@@ -72,4 +88,4 @@ Original service copy describes enquiry scopes, not competitors' project histori
 
 The Sites identity is retained in `website/.openai/hosting.json`. This GitHub repository remains the working source; hosted source synchronization uses an isolated publishing checkout so it does not create a nested Git repository here.
 
-The “Our partners” slider before the homepage FAQ displays the seven authority logos from VOLTRONIX's corporate website plus the official Dubai RTA mark. Original asset sources are recorded in `website/partner-logos.json`. The slider pauses on hover, offscreen or via its pause control; reduced-motion and JavaScript-disabled visitors get a manually scrollable row.
+The “Authority coordination” slider before the homepage FAQ displays the seven authority logos from VOLTRONIX's corporate website plus the official Dubai RTA mark. The heading clarifies that the marks do not imply partnership or endorsement. Original asset sources are recorded in `website/partner-logos.json`. The slider pauses on hover, offscreen or via its pause control; reduced-motion and JavaScript-disabled visitors get a manually scrollable row.

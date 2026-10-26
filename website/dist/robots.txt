@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rta-contractore-dubai.talk2maries.chatgpt.site/sitemap.xml
+Sitemap: https://rtacontractor.ae/sitemap.xml

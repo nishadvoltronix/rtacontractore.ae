@@ -4,6 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { site } from '../site.config.mjs';
 import { services } from '../services.mjs';
+import { streetLightingContent } from '../street-lighting-content.mjs';
 
 const dist = path.resolve(fileURLToPath(new URL('../dist/', import.meta.url)));
 const origin = new URL(site.url).origin;
@@ -89,6 +90,16 @@ try {
         const schema = JSON.parse(block[1]);
         check(schema['@context'] === 'https://schema.org', `${route}: incorrect schema context.`);
         const nodes = schema['@graph'] || [schema];
+        const ids = nodes.map(node => node['@id']);
+        check(ids.every(Boolean) && new Set(ids).size === ids.length, `${route}: graph nodes need unique entity IDs.`);
+        const webPage = nodes.find(node => node['@type'] === 'WebPage');
+        check(webPage?.url === expectedCanonical && webPage?.name === title && webPage?.description === description, `${route}: WebPage must match visible page metadata.`);
+        const references = value => {
+          if (!value || typeof value !== 'object') return;
+          if (Object.keys(value).length === 1 && value['@id']) check(ids.includes(value['@id']), `${route}: dangling schema reference ${value['@id']}.`);
+          Object.values(value).forEach(references);
+        };
+        nodes.forEach(references);
         nodes.forEach(node => {
           [].concat(node['@type'] || []).forEach(type => schemaTypes.add(type));
           for (const property of ['logo', 'image']) {
@@ -96,14 +107,24 @@ try {
           }
           if (node['@type'] === 'GeneralContractor') {
             check(node.name === site.legalName && node.telephone === site.phoneLink && node.email === site.email, `${route}: business structured data has inconsistent contact information.`);
+            check(node.address?.streetAddress === site.streetAddress && node.address?.postOfficeBoxNumber === site.postOfficeBoxNumber && !node.address?.postalCode, `${route}: address must use shared NAP and keep P.O. Box distinct from postal code.`);
+            check(!node.sameAs?.some(url => url.includes('pinterest.com/voltronixs')), `${route}: separate switchgear entity must not be conflated with contracting LLC.`);
+            check(node.image === node.logo, `${route}: representative road imagery must not be used as company evidence.`);
           }
-          if (node['@type'] === 'Service') check(node.url === expectedCanonical, `${route}: Service schema URL does not match its canonical.`);
+          if (node['@type'] === 'Service') {
+            check(node.url === expectedCanonical, `${route}: Service schema URL does not match its canonical.`);
+            check(webPage?.mainEntity?.['@id'] === node['@id'] && node.mainEntityOfPage?.['@id'] === webPage?.['@id'], `${route}: service and page must be connected.`);
+          }
           if (node['@type'] === 'BreadcrumbList') check(node.itemListElement?.at(-1)?.item === expectedCanonical, `${route}: breadcrumb schema does not end at the current page.`);
         });
       } catch (error) { check(false, `${route}: invalid structured data JSON: ${error.message}`); }
     }
-    check(schemaTypes.has('GeneralContractor') && schemaTypes.has('WebSite'), `${route}: missing business or website structured data.`);
-    if (route.startsWith('/services/')) check(schemaTypes.has('Service') && schemaTypes.has('BreadcrumbList'), `${route}: missing service or breadcrumb structured data.`);
+    check(schemaTypes.has('GeneralContractor') && schemaTypes.has('WebSite') && schemaTypes.has('WebPage'), `${route}: missing business, website or webpage structured data.`);
+    if (route.startsWith('/services/')) {
+      const service = services.find(service => route === `/services/${service.slug}/`);
+      check(schemaTypes.has('BreadcrumbList'), `${route}: missing breadcrumb structured data.`);
+      check(schemaTypes.has('Service') === service.verifiedService, `${route}: Service schema must be limited to evidence-backed categories.`);
+    }
     for (const match of html.matchAll(/<(img|script|link|a)\b[^>]*>/gi)) {
       const tag = match[1].toLowerCase();
       const attrs = attributes(match[0]);
@@ -136,6 +157,13 @@ try {
     console.log(`Checked ${route}: metadata, HTML, structured data, and image attributes.`);
   }
   const indexable = routes.map(route => pageData.get(route));
+  const primary = await readFile(path.join(dist, 'services/street-lighting/index.html'), 'utf8');
+  const answer = decode(primary.match(/class="service-answer">([^<]+)/)?.[1] || '');
+  check(answer.split(/\s+/).length >= 40 && answer.split(/\s+/).length <= 70, 'Primary service answer must contain 40–70 words of static HTML.');
+  for (const fact of ['Conditionally Prequalified', 'A025-6513466', 'AED 5,000,000', '20 October 2029', 'tunnel lighting is excluded']) check(primary.includes(fact), `Qualification evidence is missing: ${fact}`);
+  check(primary.includes('href="/assets/documents/rta-approval-pq.pdf"'), 'Primary service must link the actual qualification PDF.');
+  check(!/RTA approved/i.test(pageData.get('/services/street-lighting/').title), 'Conditional qualification must not become a blanket approval title.');
+  for (const faq of streetLightingContent.faqs) check(primary.includes(faq.question.replaceAll('&', '&amp;').replaceAll("'",'&#39;')), 'Buyer FAQ must be present in static HTML: ' + faq.question);
   check(new Set(indexable.map(page => page.title)).size === routes.length, 'Indexable pages must have unique titles.');
   check(new Set(indexable.map(page => page.description)).size === routes.length, 'Indexable pages must have unique meta descriptions.');
 

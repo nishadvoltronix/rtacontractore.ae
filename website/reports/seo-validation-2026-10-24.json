@@ -1,0 +1,482 @@
+{
+  "reportDate": "2026-10-24",
+  "reportTimezone": "Asia/Dubai",
+  "createdAt": "2026-10-24T14:04:49.820Z",
+  "scope": "Local implementation and validation only. No deployment, publication, GitHub push, DNS change, or external account mutation performed for this SEO task.",
+  "testEvidence": {
+    "note": "Final build and suite results were verified by the coordinating agent; the technical audit agent executed the HTTP suite and both preserved performance measurements. Counts represent final passing assertions, not performance or SEO scores.",
+    "localProductionBuild": {
+      "status": "passed",
+      "command": "npm run build"
+    },
+    "staticSeoAndAssetChecks": {
+      "status": "passed",
+      "passed": 1020,
+      "total": 1020,
+      "command": "npm run check"
+    },
+    "browserRegressionAndAccessibility": {
+      "status": "passed",
+      "passed": 202,
+      "total": 202,
+      "command": "npm run test:browser",
+      "notes": "Automated browser interactions, layouts, images, internal links and serious/critical axe checks; not an exhaustive manual accessibility certification."
+    },
+    "worksScrollingRegression": {
+      "status": "passed",
+      "passed": 94,
+      "total": 94,
+      "command": "npm run test:works"
+    },
+    "localHttpRegression": {
+      "status": "passed",
+      "passed": 77,
+      "total": 77,
+      "command": "node website/scripts/qa-http.mjs",
+      "notes": "Isolated ephemeral preview; canonical alias 308s, query preservation, valid and malformed encoded paths, traversal containment, HEAD, PDFs, 404s and MIME types. Does not establish production host redirect behavior."
+    },
+    "javascriptSyntax": {
+      "status": "passed",
+      "passed": 12,
+      "total": 12
+    },
+    "canonicalOriginValidation": {
+      "status": "passed",
+      "passed": 8,
+      "total": 8
+    },
+    "targetedPrimaryPageNoJsLayoutAndContact": {
+      "status": "passed",
+      "passed": 27,
+      "total": 27,
+      "viewports": [
+        320,
+        390,
+        768,
+        1440
+      ],
+      "notes": "Includes final homepage qualification note, no horizontal overflow at mobile width, JavaScript-disabled content and preselected street-lighting enquiry CTA."
+    },
+    "whitespaceDiffCheck": {
+      "status": "passed",
+      "command": "git diff --check"
+    }
+  },
+  "performance": {
+    "baseline": {
+      "measuredAt": "2026-10-24T13:46:02.594Z",
+      "protocol": {
+        "environment": "Local static preview on Windows; installed Google Chrome; simulated mobile, not a physical phone or field measurement",
+        "baseURL": "http://127.0.0.1:4173",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "deviceScaleFactor": 1,
+        "isMobile": true,
+        "hasTouch": true,
+        "runsPerRoute": 3,
+        "cache": "Fresh isolated browser context per run; CDP cache disabled; service workers blocked",
+        "cpuSlowdownMultiplier": 4,
+        "network": {
+          "latencyMs": 150,
+          "downloadBitsPerSecond": 1600000,
+          "uploadBitsPerSecond": 750000,
+          "connectionType": "cellular3g"
+        },
+        "settleAfterLoadMs": 10000,
+        "navigationTimeoutMs": 90000,
+        "motion": "no-preference",
+        "interaction": "No scroll, clicks or taps; initial viewport only",
+        "lcp": "PerformanceObserver largest-contentful-paint, milliseconds from navigation start, sampled after load + 10 seconds",
+        "cls": "Maximum cumulative layout-shift session window excluding recent input; max 5 second window with 1 second gap",
+        "loadedBytes": "CDP Network.loadingFinished encodedDataLength, including encoded HTTP responses; local preview serves uncompressed content",
+        "limitations": "Local lab observation only. No Lighthouse score, field Core Web Vitals verdict, INP measurement, production CDN or real-user claim."
+      },
+      "summary": [
+        {
+          "route": "/",
+          "successfulRuns": 3,
+          "medianLcpMs": 1736,
+          "medianCls": 0,
+          "medianLoadedBytes": 1080148,
+          "totalJsErrors": 0,
+          "totalFailedRequests": 0
+        },
+        {
+          "route": "/services/street-lighting/",
+          "successfulRuns": 3,
+          "medianLcpMs": 1444,
+          "medianCls": 0,
+          "medianLoadedBytes": 201769,
+          "totalJsErrors": 0,
+          "totalFailedRequests": 0
+        }
+      ],
+      "runs": [
+        {
+          "route": "/",
+          "run": 1,
+          "startedAt": "2026-10-24T13:44:39.837Z",
+          "status": 200,
+          "lcpMs": 1768,
+          "lcpElement": "p.hero-copy",
+          "lcpResource": "",
+          "cls": 0,
+          "layoutShifts": [],
+          "domContentLoadedMs": 1709.4000000059605,
+          "loadMs": 5586.600000008941,
+          "sampleAtMs": 15636.90000000596,
+          "loadedBytes": 1080148,
+          "completeRequests": 17,
+          "jsErrors": [],
+          "failedRequests": []
+        },
+        {
+          "route": "/",
+          "run": 2,
+          "startedAt": "2026-10-24T13:44:55.678Z",
+          "status": 200,
+          "lcpMs": 1680,
+          "lcpElement": "p.hero-copy",
+          "lcpResource": "",
+          "cls": 0,
+          "layoutShifts": [],
+          "domContentLoadedMs": 1713.5999999940395,
+          "loadMs": 5634.70000000298,
+          "sampleAtMs": 15682.20000000298,
+          "loadedBytes": 1080148,
+          "completeRequests": 17,
+          "jsErrors": [],
+          "failedRequests": []
+        },
+        {
+          "route": "/",
+          "run": 3,
+          "startedAt": "2026-10-24T13:45:11.575Z",
+          "status": 200,
+          "lcpMs": 1736,
+          "lcpElement": "p.hero-copy",
+          "lcpResource": "",
+          "cls": 0,
+          "layoutShifts": [],
+          "domContentLoadedMs": 1771.7999999970198,
+          "loadMs": 5667,
+          "sampleAtMs": 15719.20000000298,
+          "loadedBytes": 1080148,
+          "completeRequests": 17,
+          "jsErrors": [],
+          "failedRequests": []
+        },
+        {
+          "route": "/services/street-lighting/",
+          "run": 1,
+          "startedAt": "2026-10-24T13:45:27.506Z",
+          "status": 200,
+          "lcpMs": 1488,
+          "lcpElement": "img.",
+          "lcpResource": "http://127.0.0.1:4173/assets/images/dubai-road-light-trails-640.webp",
+          "cls": 0,
+          "layoutShifts": [],
+          "domContentLoadedMs": 1380.7999999970198,
+          "loadMs": 1476,
+          "sampleAtMs": 11507.40000000596,
+          "loadedBytes": 201769,
+          "completeRequests": 8,
+          "jsErrors": [],
+          "failedRequests": []
+        },
+        {
+          "route": "/services/street-lighting/",
+          "run": 2,
+          "startedAt": "2026-10-24T13:45:39.197Z",
+          "status": 200,
+          "lcpMs": 1444,
+          "lcpElement": "img.",
+          "lcpResource": "http://127.0.0.1:4173/assets/images/dubai-road-light-trails-640.webp",
+          "cls": 0,
+          "layoutShifts": [],
+          "domContentLoadedMs": 1400.5,
+          "loadMs": 1420.2000000029802,
+          "sampleAtMs": 11465.300000011921,
+          "loadedBytes": 201769,
+          "completeRequests": 8,
+          "jsErrors": [],
+          "failedRequests": []
+        },
+        {
+          "route": "/services/street-lighting/",
+          "run": 3,
+          "startedAt": "2026-10-24T13:45:50.856Z",
+          "status": 200,
+          "lcpMs": 1420,
+          "lcpElement": "img.",
+          "lcpResource": "http://127.0.0.1:4173/assets/images/dubai-road-light-trails-640.webp",
+          "cls": 0,
+          "layoutShifts": [],
+          "domContentLoadedMs": 1386.7999999970198,
+          "loadMs": 1409.4000000059605,
+          "sampleAtMs": 11454.20000000298,
+          "loadedBytes": 201769,
+          "completeRequests": 8,
+          "jsErrors": [],
+          "failedRequests": []
+        }
+      ]
+    },
+    "final": {
+      "measuredAt": "2026-10-24T14:03:43.958Z",
+      "protocol": {
+        "environment": "Local static preview on Windows; installed Google Chrome; simulated mobile, not a physical phone or field measurement",
+        "baseURL": "http://127.0.0.1:4173",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "deviceScaleFactor": 1,
+        "isMobile": true,
+        "hasTouch": true,
+        "runsPerRoute": 3,
+        "cache": "Fresh isolated browser context per run; CDP cache disabled; service workers blocked",
+        "cpuSlowdownMultiplier": 4,
+        "network": {
+          "latencyMs": 150,
+          "downloadBitsPerSecond": 1600000,
+          "uploadBitsPerSecond": 750000,
+          "connectionType": "cellular3g"
+        },
+        "settleAfterLoadMs": 10000,
+        "navigationTimeoutMs": 90000,
+        "motion": "no-preference",
+        "interaction": "No scroll, clicks or taps; initial viewport only",
+        "lcp": "PerformanceObserver largest-contentful-paint, milliseconds from navigation start, sampled after load + 10 seconds",
+        "cls": "Maximum cumulative layout-shift session window excluding recent input; max 5 second window with 1 second gap",
+        "loadedBytes": "CDP Network.loadingFinished encodedDataLength, including encoded HTTP responses; local preview serves uncompressed content",
+        "limitations": "Local lab observation only. No Lighthouse score, field Core Web Vitals verdict, INP measurement, production CDN or real-user claim."
+      },
+      "summary": [
+        {
+          "route": "/",
+          "successfulRuns": 3,
+          "medianLcpMs": 1692,
+          "medianCls": 0,
+          "medianLoadedBytes": 1082646,
+          "totalJsErrors": 0,
+          "totalFailedRequests": 0
+        },
+        {
+          "route": "/services/street-lighting/",
+          "successfulRuns": 3,
+          "medianLcpMs": 2048,
+          "medianCls": 0,
+          "medianLoadedBytes": 217390,
+          "totalJsErrors": 0,
+          "totalFailedRequests": 0
+        }
+      ],
+      "runs": [
+        {
+          "route": "/",
+          "run": 1,
+          "startedAt": "2026-10-24T14:02:19.297Z",
+          "status": 200,
+          "lcpMs": 1748,
+          "lcpElement": "p.hero-copy",
+          "lcpResource": "",
+          "cls": 0,
+          "layoutShifts": [],
+          "domContentLoadedMs": 1737.5999999940395,
+          "loadMs": 5598,
+          "sampleAtMs": 15652.29999999702,
+          "loadedBytes": 1082646,
+          "completeRequests": 17,
+          "jsErrors": [],
+          "failedRequests": []
+        },
+        {
+          "route": "/",
+          "run": 2,
+          "startedAt": "2026-10-24T14:02:35.176Z",
+          "status": 200,
+          "lcpMs": 1692,
+          "lcpElement": "p.hero-copy",
+          "lcpResource": "",
+          "cls": 0,
+          "layoutShifts": [],
+          "domContentLoadedMs": 1695.4000000059605,
+          "loadMs": 5628.5999999940395,
+          "sampleAtMs": 15676.70000000298,
+          "loadedBytes": 1082646,
+          "completeRequests": 17,
+          "jsErrors": [],
+          "failedRequests": []
+        },
+        {
+          "route": "/",
+          "run": 3,
+          "startedAt": "2026-10-24T14:02:51.060Z",
+          "status": 200,
+          "lcpMs": 1692,
+          "lcpElement": "p.hero-copy",
+          "lcpResource": "",
+          "cls": 0,
+          "layoutShifts": [],
+          "domContentLoadedMs": 1711.300000011921,
+          "loadMs": 5606.300000011921,
+          "sampleAtMs": 15647.800000011921,
+          "loadedBytes": 1082646,
+          "completeRequests": 17,
+          "jsErrors": [],
+          "failedRequests": []
+        },
+        {
+          "route": "/services/street-lighting/",
+          "run": 1,
+          "startedAt": "2026-10-24T14:03:06.895Z",
+          "status": 200,
+          "lcpMs": 2024,
+          "lcpElement": "p.service-answer",
+          "lcpResource": "",
+          "cls": 0,
+          "layoutShifts": [],
+          "domContentLoadedMs": 1981.4000000059605,
+          "loadMs": 2015.2000000029802,
+          "sampleAtMs": 12033.09999999404,
+          "loadedBytes": 217390,
+          "completeRequests": 8,
+          "jsErrors": [],
+          "failedRequests": []
+        },
+        {
+          "route": "/services/street-lighting/",
+          "run": 2,
+          "startedAt": "2026-10-24T14:03:19.102Z",
+          "status": 200,
+          "lcpMs": 2048,
+          "lcpElement": "p.service-answer",
+          "lcpResource": "",
+          "cls": 0,
+          "layoutShifts": [],
+          "domContentLoadedMs": 2034.7999999970198,
+          "loadMs": 2049.5,
+          "sampleAtMs": 12102.79999999702,
+          "loadedBytes": 217390,
+          "completeRequests": 8,
+          "jsErrors": [],
+          "failedRequests": []
+        },
+        {
+          "route": "/services/street-lighting/",
+          "run": 3,
+          "startedAt": "2026-10-24T14:03:31.525Z",
+          "status": 200,
+          "lcpMs": 2160,
+          "lcpElement": "p.service-answer",
+          "lcpResource": "",
+          "cls": 0,
+          "layoutShifts": [],
+          "domContentLoadedMs": 2144.5999999940395,
+          "loadMs": 2158.5,
+          "sampleAtMs": 12197,
+          "loadedBytes": 217390,
+          "completeRequests": 8,
+          "jsErrors": [],
+          "failedRequests": []
+        }
+      ]
+    },
+    "comparison": [
+      {
+        "route": "/",
+        "baselineMedianLcpMs": 1736,
+        "finalMedianLcpMs": 1692,
+        "lcpDifferenceMs": -44,
+        "baselineMedianCls": 0,
+        "finalMedianCls": 0,
+        "baselineMedianEncodedBytes": 1080148,
+        "finalMedianEncodedBytes": 1082646,
+        "encodedBytesDifference": 2498,
+        "baselineLcpElements": [
+          "p.hero-copy"
+        ],
+        "finalLcpElements": [
+          "p.hero-copy"
+        ]
+      },
+      {
+        "route": "/services/street-lighting/",
+        "baselineMedianLcpMs": 1444,
+        "finalMedianLcpMs": 2048,
+        "lcpDifferenceMs": 604,
+        "baselineMedianCls": 0,
+        "finalMedianCls": 0,
+        "baselineMedianEncodedBytes": 201769,
+        "finalMedianEncodedBytes": 217390,
+        "encodedBytesDifference": 15621,
+        "baselineLcpElements": [
+          "img."
+        ],
+        "finalLcpElements": [
+          "p.service-answer"
+        ]
+      }
+    ],
+    "interpretation": [
+      "Both snapshots use the same local runner, viewport, CPU/network simulation and three cold runs per route. Only the final build is compared with the baseline; intermediate samples are excluded.",
+      "Home median observed LCP changed from 1736 ms to 1692 ms. This small difference is within normal lab variability and is not presented as a proven performance improvement.",
+      "Street-lighting median observed LCP increased from 1444 ms to 2048 ms, with 15621 additional encoded bytes. Its LCP element changed from a representative image to the new factual answer paragraph. The expanded content introduces a measurable local cost; no performance improvement is claimed.",
+      "CLS was zero and no JavaScript errors or failed requests were recorded in all six final initial-viewport samples.",
+      "The local preview serves uncompressed content. Production caching, compression, CDN conditions, visitor devices and network routes can produce different results.",
+      "No scrolling or user interaction occurred during performance samples. These measurements do not establish field Core Web Vitals, INP, a Lighthouse score or production performance."
+    ],
+    "reproductionCommand": "node artifacts/seo-audit/measure-performance.mjs artifacts/seo-audit/performance-after.json"
+  },
+  "finalBuildSnapshot": [
+    {
+      "file": "website/dist/index.html",
+      "bytes": 41126,
+      "sha256": "e668ef85b475e541cbc6b5243bd2c7206fa5a9dcbe7bf4e08c79d1885e61d605"
+    },
+    {
+      "file": "website/dist/services/street-lighting/index.html",
+      "bytes": 31791,
+      "sha256": "f4598284caadcf45ef5943b33394d52a669cfb8523efa544174d4d20b1cb5812"
+    },
+    {
+      "file": "website/dist/assets/style.css",
+      "bytes": 41999,
+      "sha256": "631fecd74a181269558d305a974b744a54ea768aac782a6f0fd4fc19537a4082"
+    },
+    {
+      "file": "website/dist/assets/app.js",
+      "bytes": 13512,
+      "sha256": "510bb56fba8c4a5ef8206e66a743d2abf9f100f74072fa6a8b95249b7187bbf4"
+    },
+    {
+      "file": "website/dist/assets/works-scroll.js",
+      "bytes": 9816,
+      "sha256": "a5df00cc6222cb2aff968ce8a384b8b938ec2fb743c75fc23ad068748b31d20f"
+    }
+  ],
+  "notPerformed": {
+    "googleRichResultsTest": "Not run",
+    "schemaMarkupValidator": "Not run",
+    "googleSearchConsoleOwnershipOrUrlSubmission": "Not performed; account access required",
+    "bingWebmasterToolsOwnershipOrUrlSubmission": "Not performed; account access required",
+    "fieldCoreWebVitals": "Unavailable; no CrUX or real-user dataset obtained",
+    "fieldInp": "Not measured",
+    "liveSearchRankingOrCitationValidation": "Not performed",
+    "analyticsInstallation": "Not performed",
+    "productionRedirectOrCdnChanges": "Not performed",
+    "deployment": "Not performed",
+    "githubPush": "Not performed",
+    "dnsChanges": "Not performed"
+  },
+  "followUp": [
+    "Review the local changes and evidence before authorizing any production deployment.",
+    "Identify the origin hosting platform behind Cloudflare and validate public apex/www, HTTP/HTTPS, index.html and trailing-slash redirects separately; local Node behavior is not a production fix.",
+    "After authorized deployment, verify final public canonical URLs, sitemap, robots, JSON-LD, certificate scope and genuine 404 responses.",
+    "Use actual Search Console and Bing Webmaster Tools access for ownership, indexing, crawl and search query measurements.",
+    "Recheck production mobile performance and monitor field data when available; prioritize the expanded service page if its initial-view timing remains higher."
+  ]
+}

@@ -9,7 +9,8 @@
     "preview": "node website/scripts/serve.mjs",
     "check": "node website/scripts/check.mjs",
     "test:browser": "node website/scripts/qa.mjs",
-    "test:works": "node website/scripts/qa-works-scroll.mjs"
+    "test:works": "node website/scripts/qa-works-scroll.mjs",
+    "test:http": "node website/scripts/qa-http.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.0",

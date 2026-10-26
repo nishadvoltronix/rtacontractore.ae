@@ -1,21 +1,18 @@
 /**
- * Original service copy informed by the industry references in README.
- * This content describes project scopes, not completed works or certifications.
+ * Existing enquiry scopes; specialist availability must be confirmed in a quote.
+ * Three documented categories have Service schema. Unverified specialisms retain
+ * their useful enquiry pages without asserting a verified service entity.
  */
+import { streetLightingContent } from './street-lighting-content.mjs';
 export const services = [
   {
     slug: 'street-lighting',
     title: 'Street lighting',
     shortTitle: 'Street lighting',
-    description: 'Street lighting installation for roads, communities and public spaces in Dubai and the UAE, with coordinated poles, luminaires and controls.',
-    intro: 'Well-planned lighting makes a place easier to navigate after dark. Bring the poles, luminaires, electrical connections and controls together in one clearly defined installation scope, from a community access road to a wider infrastructure development.',
-    scope: [
-      'Review of lighting layouts, site conditions and installation requirements',
-      'Pole foundations, erection and luminaire installation',
-      'Cable routes, connections and lighting control interfaces',
-      'Coordination with surrounding civil and infrastructure works',
-      'Inspection, testing and handover documentation',
-    ],
+    verifiedService: true,
+    description: 'Road lighting and electrical cabling enquiries in Dubai, supported by conditional RTA prequalification and project-specific approval coordination.',
+    intro: streetLightingContent.directAnswer,
+    scope: streetLightingContent.sections[0].bullets,
     considerations: 'The right scope starts with the intended use of the road or space. Mounting height, pole spacing, pedestrian activity, nearby properties and access for future maintenance all influence the installation. Share the consultant drawings and project specifications to establish a practical starting point.',
     faqs: [
       {
@@ -34,6 +31,7 @@ export const services = [
   },
   {
     slug: 'underground-cabling',
+    verifiedService: true,
     title: 'Underground cabling',
     shortTitle: 'Underground cabling',
     description: 'Underground electrical cabling and LV network installation for Dubai infrastructure, including cable routes, ducts, terminations and testing.',
@@ -63,9 +61,10 @@ export const services = [
   },
   {
     slug: 'high-mast-area-lighting',
+    verifiedService: false,
     title: 'High-mast & area lighting',
     shortTitle: 'High-mast lighting',
-    description: 'High-mast and area lighting scopes for yards, car parks, sports facilities and large outdoor spaces across Dubai and the UAE.',
+    description: 'Prepare a high-mast or area lighting enquiry for a Dubai site. Discuss design, access and equipment requirements, and confirm specialist scope with VOLTRONIX.',
     intro: 'Large outdoor spaces need considered light distribution. Define a coordinated lighting installation for car parks, logistics yards, sports areas and open spaces, with attention to visibility, neighbouring areas and long-term access.',
     scope: [
       'Review of area layouts and lighting design requirements',
@@ -92,9 +91,10 @@ export const services = [
   },
   {
     slug: 'led-solar-lighting',
+    verifiedService: false,
     title: 'LED & solar lighting',
     shortTitle: 'LED & solar lighting',
-    description: 'LED lighting upgrades and solar lighting project scopes in Dubai and the UAE, considering light quality, controls and maintenance requirements.',
+    description: 'Prepare an LED upgrade or solar lighting enquiry in Dubai. Review site conditions, controls and maintenance needs, then confirm the available project scope.',
     intro: 'Choose lighting around the way a place is used. From an LED luminaire upgrade to a standalone solar installation, assess the existing infrastructure, operating hours and site conditions before defining the right equipment and controls.',
     scope: [
       'Review of existing luminaires and lighting requirements',
@@ -121,9 +121,10 @@ export const services = [
   },
   {
     slug: 'lighting-maintenance',
+    verifiedService: false,
     title: 'Lighting maintenance',
     shortTitle: 'Lighting maintenance',
-    description: 'Planned street lighting maintenance and fault repair scopes for Dubai and UAE developments, covering luminaires, poles, cables and controls.',
+    description: 'Discuss a lighting maintenance enquiry in Dubai with VOLTRONIX. Share asset details and faults to confirm the scope, access needs and service availability.',
     intro: 'Keep lighting assets serviceable with a maintenance plan that reflects their condition and use. Combine routine inspections with a clear approach to faults, replacement components and records, whether for a single development or a wider lighting network.',
     scope: [
       'Visual inspections of lighting assets and accessible equipment',
@@ -150,6 +151,7 @@ export const services = [
   },
   {
     slug: 'electrical-infrastructure',
+    verifiedService: true,
     title: 'Electrical infrastructure',
     shortTitle: 'Electrical infrastructure',
     description: 'Electrical infrastructure installation scopes for Dubai and UAE developments, including LV distribution, lighting panels, earthing and testing.',
