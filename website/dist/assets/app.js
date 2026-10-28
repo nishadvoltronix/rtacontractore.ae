@@ -1,43 +1,4 @@
 (() => {
-  // Keep WhatsApp's delay; the assistant launcher is visible in the initial HTML.
-  const whatsappContact = document.querySelector('.floating-contact');
-  const assistantContact = document.querySelector('.assistant-contact');
-  const assistantEmbed = document.getElementById('ai-assistant-embed');
-  if (whatsappContact) window.setTimeout(() => { whatsappContact.hidden = false; }, 4000);
-  const source = assistantEmbed?.content.querySelector('script');
-  if (source) {
-    const script = document.createElement('script');
-    for (const { name, value } of source.attributes) script.setAttribute(name, value);
-    script.addEventListener('load', () => {
-      const widget = document.getElementById('talk2maries-widget');
-      const api = window.Talk2MariesWidget;
-      if (!widget?.shadowRoot || !api?.open) return;
-      widget.hidden = true;
-      // v1 auto-anchors beside WhatsApp even with bottom-right configured.
-      // Keep its panel and label on the right while retaining its viewport sizing.
-      const alignment = document.createElement('style');
-      alignment.textContent = `
-        :host { left: auto !important; right: 20px !important; }
-        .panel { left: auto !important; right: 20px !important; max-width: calc(100vw - 40px); }
-        .launcher-label { left: auto !important; right: 69px !important; }
-        @media (max-width: 540px) {
-          .panel { right: 8px !important; max-width: calc(100vw - 16px); }
-        }
-      `;
-      widget.shadowRoot.append(alignment);
-      const showAssistant = () => {
-        widget.hidden = false;
-        if (assistantContact) assistantContact.hidden = true;
-      };
-      // Reveal the styled launcher only; the visitor opens the popup by clicking it.
-      // Keep the fallback link until the provider's fixed layout is ready.
-      const stylesheet = widget.shadowRoot.querySelector('link[rel="stylesheet"]');
-      if (stylesheet && !stylesheet.sheet) stylesheet.addEventListener('load', showAssistant, { once: true });
-      else showAssistant();
-    }, { once: true });
-    // The direct assistant link remains available if the provider script fails.
-    document.body.append(script);
-  }
   const toggle = document.querySelector('[data-menu-toggle]');
   const nav = document.querySelector('[data-nav]');
   const pqMenu = nav?.querySelector('[data-pq-menu]');

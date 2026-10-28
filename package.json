@@ -11,6 +11,7 @@
     "test:browser": "node website/scripts/qa.mjs",
     "test:works": "node website/scripts/qa-works-scroll.mjs",
     "test:primary": "node website/scripts/qa-primary.mjs",
+    "test:contacts": "node website/scripts/qa-contact-widgets.mjs",
     "test:local": "node website/scripts/qa-local.mjs",
     "test:safety": "node --test website/scripts/qa-local-safety.test.mjs",
     "test:static": "node --test website/scripts/static-readiness.test.mjs",

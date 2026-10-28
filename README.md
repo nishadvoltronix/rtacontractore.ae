@@ -23,6 +23,7 @@ Open http://127.0.0.1:4173. Build output is in `website/dist/`; it can be served
 - `website/scripts/build.mjs`: shared layout, home, service, privacy and photography pages; sitemap, robots and JSON-LD.
 - `website/dist/assets/style.css`: responsive visual system.
 - `website/dist/assets/app.js`: accessible mobile navigation and section interactions.
+- `website/dist/assets/contact-widgets.js`: immediate AI launcher, embedded popup loading/retry and WhatsApp timing.
 - `website/photo-sources.json`: image origins, photographer credits and license references.
 
 CSS, JavaScript, logos, fonts and photographs in `dist/assets` are source assets retained by the build. Do not delete `dist` before building.
@@ -37,7 +38,7 @@ The “What We Do” section opens with a large title, then reveals its eight RT
 
 The contact section embeds Zoho CRM form `5653678000076526082` using the supplied WebFormServeServlet script. Visitors submit their contact details directly to Zoho CRM for VOLTRONIX. Keep the embed script synchronous and inside the contact section so Zoho inserts the form at the correct position. Edit its fields in Zoho CRM. Direct telephone, email and WhatsApp links remain available if JavaScript is disabled or the form cannot load.
 
-The Talk to Maries AI button appears immediately on each page, on the right as a red circular button with the `talk2maries` label, matching voltronix.ae. Its launcher is included in the initial HTML while the widget loads. The floating WhatsApp link appears on the left after four seconds. The assistant panel opens only when the visitor clicks its button. The supplied widget is configured in the `ai-assistant-embed` template in `website/scripts/build.mjs`; `app.js` loads it immediately and corrects its automatic WhatsApp anchoring. Opening the panel does not start voice recording. Visitors start voice themselves and must grant microphone permission. The generated permissions policy allows microphone access for the Talk2Maries iframe. If its script cannot load, the right-hand link opens Talk2Maries directly. Local browser suites stub the provider script and do not start an assistant conversation.
+The Talk to Maries AI button appears immediately on each page, on the right as a red circular button with the `talk2maries` label, matching voltronix.ae. The green WhatsApp button appears at bottom-left after four seconds. The AI button opens a popup within the page; an early click shows a loading panel and opens the embedded assistant when ready. Loading failures offer an in-page retry instead of navigating elsewhere. The supplied widget is configured in the `ai-assistant-embed` template in `website/scripts/build.mjs`; the early `contact-widgets.js` controller selects its explicit `data-maries-widget` marker so Cloudflare-injected scripts cannot replace it. The same right-side positioning anchor used by AC Experts keeps the assistant 20px from the side and 96px above the bottom, independently of WhatsApp. Opening the panel does not start voice recording. Visitors start voice themselves and must grant microphone permission. The generated permissions policy allows microphone access for the Talk2Maries iframe. Local browser suites stub the provider script and do not start an assistant conversation.
 
 ## SEO and public launch
 
@@ -81,6 +82,7 @@ Existing generic robots rules already allow search crawlers. No AI training-poli
 ```sh
 npm run check
 npm run test:browser
+npm run test:contacts
 npm run test:works
 npm run test:http
 npm run test:discovery
