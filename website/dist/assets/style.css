@@ -228,7 +228,7 @@ section[id]{scroll-margin-top:0}
 .floating-contact{left:20px;bottom:20px;width:60px;height:60px;background:#25d366;border:0;color:#fff;box-shadow:0 6px 8px 2px #00000026}
 .floating-contact svg{width:38px;height:38px;stroke-width:1.7}
 .floating-contact:hover{background:#1fb85a;color:#fff}
-#maries-widget-anchor{position:fixed;right:max(20px,env(safe-area-inset-right));bottom:calc(24px + env(safe-area-inset-bottom));width:58px;height:58px;pointer-events:none}
+#maries-widget-anchor{position:fixed;right:max(20px,env(safe-area-inset-right));bottom:calc(24px + env(safe-area-inset-bottom));width:58px;height:58px;padding-bottom:env(safe-area-inset-bottom);pointer-events:none}
 .assistant-contact{right:max(20px,env(safe-area-inset-right));bottom:calc(96px + env(safe-area-inset-bottom))}
 .assistant-loading-panel{position:fixed;right:20px;bottom:calc(96px + env(safe-area-inset-bottom));z-index:2147483001;width:380px;max-width:calc(100vw - 40px);max-height:calc(100dvh - 116px);overflow:auto;padding:22px;border:1px solid #e4dfd9;border-radius:20px;background:#faf8f5;color:#252a2b;box-shadow:0 20px 60px #18202433,0 4px 14px #18202415}
 .assistant-panel-header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-bottom:16px;border-bottom:1px solid #e4dfd9}
@@ -238,3 +238,7 @@ section[id]{scroll-margin-top:0}
 .assistant-loading-panel>.btn{min-height:44px;width:100%;border-radius:9px;background:#cf3540}
 @media(max-width:768px){.floating-contact{left:16px;bottom:16px}}
 @media(max-width:540px){.assistant-loading-panel{right:8px;width:calc(100vw - 16px);max-width:calc(100vw - 16px);padding:18px;border-radius:16px}}
+/* Match the corporate site's compact desktop chat and tablet/mobile layout. */
+#titlediv.zsiq_cnt,#simple-chat-button--text{display:none!important}
+html:not([data-salesiq-opened]) :is(.zls-sptwndw,#siqiframe,#zsiq_chat_wrap,#siq_chatwindow){visibility:hidden!important;pointer-events:none!important}
+@media(max-width:1024px){.zsiq_floatmain,.zls-sptwndw,#siqiframe,[data-id="zsalesiq"],#zsiq_float.zsiq-float,#zsiq_chat_wrap,#siq_chatwindow{display:none!important;visibility:hidden!important;pointer-events:none!important}}

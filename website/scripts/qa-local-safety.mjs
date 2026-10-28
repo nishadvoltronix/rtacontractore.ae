@@ -3,6 +3,7 @@ import path from 'node:path';
 
 export const zohoFormScriptURL = 'https://crm.zoho.com/crm/WebFormServeServlet?rid=4a995d1dee720c5b6831db70b39b0a532c0dfc50bc1af0df096e4a0bb393b1700dc07123d2c4b2bbd7afcb451e94fffagid8975efd73106954c9ab7e9dd572d0dd16b145d6266d7b3f5fc81726240eb8ef4&script=$sYG';
 export const mariesWidgetScriptURL = 'https://talk2maries.com/widget/v1/voice-widget.js?v=1.0.1';
+export const salesIQScriptURL = 'https://salesiq.zohopublic.com/widget?wc=siq6c7caf10ab5558239b53ad29eb5d9801ab28f7cdd7b035124a54dee0b79f78f5e53880139d0b43526df2e43b1a0a42e3';
 
 // Literal loopback addresses avoid DNS resolution or a production URL supplied
 // accidentally through a shell's saved QA_BASE_URL.
@@ -70,6 +71,10 @@ export async function createLocalContext(browser, baseURL, options, blockedReque
     // assistant or initiating its bootstrap request or a voice conversation.
     if (request.url() === mariesWidgetScriptURL && request.method() === 'GET' && request.resourceType() === 'script') {
       await route.fulfill({ status: 200, contentType: 'application/javascript', body: '/* Maries widget intentionally stubbed for local QA. */' });
+      return;
+    }
+    if (request.url() === salesIQScriptURL && request.method() === 'GET' && request.resourceType() === 'script') {
+      await route.fulfill({ status: 200, contentType: 'application/javascript', body: '/* SalesIQ widget intentionally stubbed for local QA. */' });
       return;
     }
     try {
