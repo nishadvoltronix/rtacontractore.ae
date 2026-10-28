@@ -10,7 +10,14 @@
     "check": "node website/scripts/check.mjs",
     "test:browser": "node website/scripts/qa.mjs",
     "test:works": "node website/scripts/qa-works-scroll.mjs",
-    "test:http": "node website/scripts/qa-http.mjs"
+    "test:primary": "node website/scripts/qa-primary.mjs",
+    "test:local": "node website/scripts/qa-local.mjs",
+    "test:safety": "node --test website/scripts/qa-local-safety.test.mjs",
+    "test:static": "node --test website/scripts/static-readiness.test.mjs",
+    "test:http": "node website/scripts/qa-http.mjs",
+    "test:redirects": "node website/scripts/qa-redirects.mjs",
+    "test:discovery": "node --test website/scripts/qa-discovery.test.mjs",
+    "audit:discovery": "node website/scripts/qa-discovery.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.0",

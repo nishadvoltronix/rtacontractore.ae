@@ -1,0 +1,927 @@
+{
+  "schemaVersion": 1,
+  "reportType": "Web-search discovery sample and pending ChatGPT Search visibility baseline",
+  "date": "2026-10-26",
+  "timezone": "Asia/Dubai",
+  "samplingWindow": {
+    "startedAt": "2026-10-26T10:20:25+04:00",
+    "endedAt": "2026-10-26T10:22:12+04:00",
+    "individualCallTimestamps": null
+  },
+  "targetDomain": "rtacontractor.ae",
+  "relatedCorporateDomain": "voltronix.ae",
+  "method": {
+    "tool": "web.run search_query",
+    "calls": 5,
+    "queriesPerCall": 1,
+    "responseLength": "long",
+    "domainFilter": null,
+    "recencyFilter": null,
+    "language": "English query text",
+    "region": null,
+    "searchProvider": null,
+    "interface": "Codex tool-based web search; not the ChatGPT consumer Search interface",
+    "modelDisplayName": null,
+    "accountPersonalization": null,
+    "ipGeolocation": null,
+    "resultScope": "All result headings and URLs exposed by each tool response were retained. Returned sequence is a tool-output order, not an organic ranking.",
+    "sourceEvidence": "The query calls and returned results are recorded in the task conversation. This JSON retains the observed titles/URLs and brief analyst summaries, not full copyrighted page text."
+  },
+  "summary": {
+    "webSearchSampleStatus": "PASS",
+    "rtacontractorReturnedInQueries": 0,
+    "voltronixReturnedInQueries": 0,
+    "queryCount": 5,
+    "chatgptSearchCitationStatus": "NOT VERIFIED",
+    "chatgptCitationRate": null,
+    "chatgptRecommendationRate": null,
+    "interpretation": "Neither domain appeared in the result URL sets returned by these five tool calls. This is a narrow discovery observation; it does not establish non-indexing, ranking, absence from ChatGPT Search, or a zero ChatGPT citation rate.",
+    "limits": [
+      "No independent fresh ChatGPT Search answer was generated or inspected.",
+      "Search location, underlying provider, personalization and result coverage are unknown.",
+      "Search-result pages and contractor claims were not individually fact-checked by this sample; their presence is not qualification verification or endorsement.",
+      "Some query results are irrelevant or potentially misleading. In particular, a title claiming an official UAE platform does not verify the authority of uaesupremecouncil.org; do not use that result as official evidence.",
+      "The five calls were made within one research task, not five fresh consumer conversations."
+    ]
+  },
+  "queries": [
+    {
+      "id": "Q1",
+      "exactQuery": "RTA approved street light contractor in Dubai",
+      "searchSettings": {
+        "search_query": [
+          {
+            "q": "RTA approved street light contractor in Dubai"
+          }
+        ],
+        "response_length": "long"
+      },
+      "sampleDate": "2026-10-26",
+      "timestamp": null,
+      "timestampNote": "Call occurred within the recorded sampling window; exact per-call timestamps were not exposed.",
+      "webSearch": {
+        "status": "PASS",
+        "resultCount": 17,
+        "rtacontractorAppeared": false,
+        "rtacontractorUrls": [],
+        "voltronixAppeared": false,
+        "voltronixUrls": [],
+        "otherDomains": [
+          "imperial-uae.com",
+          "rta.ae",
+          "dlp.dubai.gov.ae",
+          "mediaoffice.ae",
+          "kurrant.com",
+          "almanader.ae",
+          "heroncontracting.ae",
+          "fraterlighting.com",
+          "binhanifgroup.com",
+          "centaur.ae",
+          "netmagmedia.s3.amazonaws.com",
+          "visitdubai.com",
+          "dewa.gov.ae"
+        ],
+        "contextSummary": "The returned set mixed contractor marketing pages, authority service and project information, supplier pages and project lists. Imperial, Bin Hanif and Centaur appeared; no target-domain result URL appeared in this sample.",
+        "returnedResults": [
+          {
+            "returnedSequence": 1,
+            "title": "Imperial Electromechanical Services LLC | Dubai Road Lighting & Electrical Contractors",
+            "url": "https://www.imperial-uae.com/?p=459",
+            "host": "www.imperial-uae.com"
+          },
+          {
+            "returnedSequence": 2,
+            "title": "Promotion - Roads & Transport Authority",
+            "url": "https://rta.ae/wps/portal/rta/ae/home/promotion/smart-street-lighting",
+            "host": "rta.ae"
+          },
+          {
+            "returnedSequence": 3,
+            "title": "Executive Council Resolution No. (45) Of 2013 Concerning Provision Of Electricity Through The Street Lighting Network Of The Roads And Transport Authority",
+            "url": "https://dlp.dubai.gov.ae/Legislation%20Reference/2013/Executive%20Council%20Resolution%20No.%20%2845%29%20of%202013.html",
+            "host": "dlp.dubai.gov.ae"
+          },
+          {
+            "returnedSequence": 4,
+            "title": "Imperial Electromechanical Services LLC – Electro-Mechanical / Street Lighting Contractors in UAE",
+            "url": "https://imperial-uae.com/",
+            "host": "imperial-uae.com"
+          },
+          {
+            "returnedSequence": 5,
+            "title": "Executive Council Resolution No. (45) of 2013",
+            "url": "https://rta.ae/wps/wcm/connect/rta/b45319df-0ced-4fbd-b68f-c22e6134d793/%D9%82%D8%B1%D8%A7%D8%B1%2B%D8%A7%D9%84%D9%85%D8%AC%D9%84%D8%B3%2B%D8%A7%D9%84%D8%AA%D9%86%D9%81%D9%8A%D8%B0%D9%8A%2B%D8%B1%D9%82%D9%85%2B45%2B%D9%84%D8%B3%D9%86%D8%A92013.pdf?CACHEID=b45319df-0ced-4fbd-b68f-c22e6134d793&MOD=AJPERES",
+            "host": "rta.ae"
+          },
+          {
+            "returnedSequence": 6,
+            "title": "Service Details - Roads & Transport Authority",
+            "url": "https://rta.ae/wps/portal/rta/ae/home/rta-services/service-details?serviceId=316",
+            "host": "rta.ae"
+          },
+          {
+            "returnedSequence": 7,
+            "title": "RTA awards AED278m contract for streetlighting project spanning 40 districts",
+            "url": "https://mediaoffice.ae/en/news/2024/january/02-01/rta-streetlighting-project",
+            "host": "mediaoffice.ae"
+          },
+          {
+            "returnedSequence": 8,
+            "title": "Carrew & Bennett partners with e-Lighto and Kurrant for Dubai's Streetlighting PPP design - Kurrant",
+            "url": "https://kurrant.com/case-studies/kurrant-dubai-smart-streetlighting-ppp-design/",
+            "host": "kurrant.com"
+          },
+          {
+            "returnedSequence": 9,
+            "title": "Service Details - Roads & Transport Authority",
+            "url": "https://www.rta.ae/wps/portal/rta/ae/home/rta-services/service-details?serviceId=322",
+            "host": "www.rta.ae"
+          },
+          {
+            "returnedSequence": 10,
+            "title": "AMRCE — RTA Approved Road Contractor Dubai | Asphalt & Infrastructure",
+            "url": "https://www.almanader.ae/",
+            "host": "www.almanader.ae"
+          },
+          {
+            "returnedSequence": 11,
+            "title": "RTA Approval - Heron Contracting",
+            "url": "https://heroncontracting.ae/approvals/rta-approval-dubai/",
+            "host": "heroncontracting.ae"
+          },
+          {
+            "returnedSequence": 12,
+            "title": "STREET LIGHTS | Frater Lighting - AW Rostamani",
+            "url": "https://www.fraterlighting.com/street-light",
+            "host": "www.fraterlighting.com"
+          },
+          {
+            "returnedSequence": 13,
+            "title": "Binhanif - List of projects",
+            "url": "https://binhanifgroup.com/binhanif/project-list.html",
+            "host": "binhanifgroup.com"
+          },
+          {
+            "returnedSequence": 14,
+            "title": "Street Lighting & Industrial",
+            "url": "https://www.centaur.ae/wp-content/uploads/2023/04/SL-Uploads.pdf",
+            "host": "www.centaur.ae"
+          },
+          {
+            "returnedSequence": 15,
+            "title": "Layout 1",
+            "url": "https://netmagmedia.s3.amazonaws.com/uploads/2020/04/2020-ADF0405-DI-lo.pdf",
+            "host": "netmagmedia.s3.amazonaws.com"
+          },
+          {
+            "returnedSequence": 16,
+            "title": "4.1 Purpose",
+            "url": "https://www.visitdubai.com/-/media/Files/invest-in-dubai/rta-manuals/out-of-home-new-manual-from-rta.pdf",
+            "host": "www.visitdubai.com"
+          },
+          {
+            "returnedSequence": 17,
+            "title": "Transmission Power Division",
+            "url": "https://www.dewa.gov.ae/-/media/Files/PDF/inf_NOC_SG.ashx",
+            "host": "www.dewa.gov.ae"
+          }
+        ]
+      },
+      "chatgptSearch": {
+        "status": "NOT VERIFIED",
+        "performed": false,
+        "exactPrompt": "RTA approved street light contractor in Dubai",
+        "testedAt": null,
+        "uiModel": null,
+        "location": null,
+        "accountState": null,
+        "memoryAndPersonalizationState": null,
+        "searchEnabled": null,
+        "freshConversation": null,
+        "answerText": null,
+        "answerRecordPath": null,
+        "shareUrl": null,
+        "citationLinks": null,
+        "rtacontractorCited": null,
+        "rtacontractorCitedUrls": null,
+        "voltronixCited": null,
+        "voltronixCitedUrls": null,
+        "competitorCitationLinks": null,
+        "recommendationContext": null,
+        "reason": "An independent ChatGPT Search answer/citation run was unavailable in the tools used for this sample. Web-search source results must not be relabeled as consumer ChatGPT answer citations."
+      }
+    },
+    {
+      "id": "Q2",
+      "exactQuery": "RTA street lighting contractor Dubai",
+      "searchSettings": {
+        "search_query": [
+          {
+            "q": "RTA street lighting contractor Dubai"
+          }
+        ],
+        "response_length": "long"
+      },
+      "sampleDate": "2026-10-26",
+      "timestamp": null,
+      "timestampNote": "Call occurred within the recorded sampling window; exact per-call timestamps were not exposed.",
+      "webSearch": {
+        "status": "PASS",
+        "resultCount": 17,
+        "rtacontractorAppeared": false,
+        "rtacontractorUrls": [],
+        "voltronixAppeared": false,
+        "voltronixUrls": [],
+        "otherDomains": [
+          "rta.ae",
+          "imperial-uae.com",
+          "mediaoffice.ae",
+          "linkedin.com",
+          "binhanifgroup.com",
+          "ae.linkedin.com",
+          "taimages.ognnews.com",
+          "dlp.dubai.gov.ae",
+          "gerabenergy.com",
+          "grc-uae.com",
+          "arargroup.com",
+          "centaur.ae",
+          "reddit.com"
+        ],
+        "contextSummary": "The returned set included RTA project material, contractor service/project pages and supporting industry material. Imperial, Bin Hanif, Gulbaz and Centaur appeared; no target-domain result URL appeared in this sample.",
+        "returnedResults": [
+          {
+            "returnedSequence": 1,
+            "title": "Promotion - Roads & Transport Authority",
+            "url": "https://rta.ae/wps/portal/rta/ae/home/promotion/smart-street-lighting",
+            "host": "rta.ae"
+          },
+          {
+            "returnedSequence": 2,
+            "title": "Imperial Electromechanical Services LLC | Dubai Road Lighting & Electrical Contractors",
+            "url": "https://www.imperial-uae.com/?p=459",
+            "host": "www.imperial-uae.com"
+          },
+          {
+            "returnedSequence": 3,
+            "title": "Imperial Electromechanical Services LLC – Electro-Mechanical / Street Lighting Contractors in UAE",
+            "url": "https://imperial-uae.com/",
+            "host": "imperial-uae.com"
+          },
+          {
+            "returnedSequence": 4,
+            "title": "RTA awards AED278m contract for streetlighting project spanning 40 districts",
+            "url": "https://mediaoffice.ae/en/news/2024/january/02-01/rta-streetlighting-project",
+            "host": "mediaoffice.ae"
+          },
+          {
+            "returnedSequence": 5,
+            "title": "Roads and Transport Authority hiring Senior Engineer-Lighting &Traffic Systems Maintenance (UAE National ) in Dubai, United Arab Emirates | LinkedIn",
+            "url": "https://www.linkedin.com/jobs/view/4438087693/",
+            "host": "www.linkedin.com"
+          },
+          {
+            "returnedSequence": 6,
+            "title": "Street Lighting Division – Binhanif Group",
+            "url": "https://binhanifgroup.com/services/street-lighting-division/",
+            "host": "binhanifgroup.com"
+          },
+          {
+            "returnedSequence": 7,
+            "title": "Binhanif - Streetlight Division",
+            "url": "https://binhanifgroup.com/binhanif/streetlight-division.html",
+            "host": "binhanifgroup.com"
+          },
+          {
+            "returnedSequence": 8,
+            "title": "‏#هيئة_الطرق_و_المواصلات #دبي #rta‏ | ‏Roads and Transport Authority‏",
+            "url": "https://ae.linkedin.com/posts/road-and-transport-authority_%D9%87%D9%8A%D8%A6%D8%A9%D8%A7%D9%84%D8%B7%D8%B1%D9%82%D9%88%D8%A7%D9%84%D9%85%D9%88%D8%A7%D8%B5%D9%84%D8%A7%D8%AA-%D8%AF%D8%A8%D9%8A-rta-activity-7313989019783061504-ua3Y",
+            "host": "ae.linkedin.com"
+          },
+          {
+            "returnedSequence": 9,
+            "title": "RTA awards sustainable streetlighting contracts in Dubai",
+            "url": "https://taimages.ognnews.com/news/CONS_417383.html",
+            "host": "taimages.ognnews.com"
+          },
+          {
+            "returnedSequence": 10,
+            "title": "Executive Council Resolution No. (45) Of 2013 Concerning Provision Of Electricity Through The Street Lighting Network Of The Roads And Transport Authority",
+            "url": "https://dlp.dubai.gov.ae/Legislation%20Reference/2013/Executive%20Council%20Resolution%20No.%20%2845%29%20of%202013.html",
+            "host": "dlp.dubai.gov.ae"
+          },
+          {
+            "returnedSequence": 11,
+            "title": "Public Infrastructure Solar Lighting Solutions - Gerab Energy System",
+            "url": "https://www.gerabenergy.com/industries/infrastructure/",
+            "host": "www.gerabenergy.com"
+          },
+          {
+            "returnedSequence": 12,
+            "title": "Gulbaz Road Contracting L.L.C | Projects",
+            "url": "https://grc-uae.com/projects/",
+            "host": "grc-uae.com"
+          },
+          {
+            "returnedSequence": 13,
+            "title": "INTRODUCTION",
+            "url": "https://arargroup.com/wp-content/uploads/2020/08/Lastest-Brochure-1.pdf",
+            "host": "arargroup.com"
+          },
+          {
+            "returnedSequence": 14,
+            "title": "Executive Council Resolution No. (45) of 2013",
+            "url": "https://rta.ae/wps/wcm/connect/rta/b45319df-0ced-4fbd-b68f-c22e6134d793/%D9%82%D8%B1%D8%A7%D8%B1%2B%D8%A7%D9%84%D9%85%D8%AC%D9%84%D8%B3%2B%D8%A7%D9%84%D8%AA%D9%86%D9%81%D9%8A%D8%B0%D9%8A%2B%D8%B1%D9%82%D9%85%2B45%2B%D9%84%D8%B3%D9%86%D8%A92013.pdf?CACHEID=b45319df-0ced-4fbd-b68f-c22e6134d793&MOD=AJPERES",
+            "host": "rta.ae"
+          },
+          {
+            "returnedSequence": 15,
+            "title": "Street Lighting & Industrial",
+            "url": "https://www.centaur.ae/wp-content/uploads/2023/04/SL-Uploads.pdf",
+            "host": "www.centaur.ae"
+          },
+          {
+            "returnedSequence": 16,
+            "title": "Project Details.xlsx",
+            "url": "https://www.centaur.ae/wp-content/uploads/2019/11/complete-project-details.pdf",
+            "host": "www.centaur.ae"
+          },
+          {
+            "returnedSequence": 17,
+            "title": "Sleepless in Dubai. All night construction.",
+            "url": "https://www.reddit.com/r/dubai/comments/1iskyev",
+            "host": "www.reddit.com"
+          }
+        ]
+      },
+      "chatgptSearch": {
+        "status": "NOT VERIFIED",
+        "performed": false,
+        "exactPrompt": "RTA street lighting contractor Dubai",
+        "testedAt": null,
+        "uiModel": null,
+        "location": null,
+        "accountState": null,
+        "memoryAndPersonalizationState": null,
+        "searchEnabled": null,
+        "freshConversation": null,
+        "answerText": null,
+        "answerRecordPath": null,
+        "shareUrl": null,
+        "citationLinks": null,
+        "rtacontractorCited": null,
+        "rtacontractorCitedUrls": null,
+        "voltronixCited": null,
+        "voltronixCitedUrls": null,
+        "competitorCitationLinks": null,
+        "recommendationContext": null,
+        "reason": "An independent ChatGPT Search answer/citation run was unavailable in the tools used for this sample. Web-search source results must not be relabeled as consumer ChatGPT answer citations."
+      }
+    },
+    {
+      "id": "Q3",
+      "exactQuery": "Street lighting installation contractor Dubai",
+      "searchSettings": {
+        "search_query": [
+          {
+            "q": "Street lighting installation contractor Dubai"
+          }
+        ],
+        "response_length": "long"
+      },
+      "sampleDate": "2026-10-26",
+      "timestamp": null,
+      "timestampNote": "Call occurred within the recorded sampling window; exact per-call timestamps were not exposed.",
+      "webSearch": {
+        "status": "PASS",
+        "resultCount": 18,
+        "rtacontractorAppeared": false,
+        "rtacontractorUrls": [],
+        "voltronixAppeared": false,
+        "voltronixUrls": [],
+        "otherDomains": [
+          "imperial-uae.com",
+          "alrasef.com",
+          "yellowpages-uae.com",
+          "powerglobedxb.com",
+          "binhanifgroup.com",
+          "primeeleuae.com",
+          "alphaislandtech.com",
+          "concordstars.com",
+          "theoneem.com",
+          "arargroup.com",
+          "centaur.ae",
+          "maxservices.adwea.ae",
+          "espica.lighting"
+        ],
+        "contextSummary": "The returned set emphasized service pages, project references, suppliers and a directory. Imperial, Al Rasef, Power Globe, Bin Hanif, Prime Electrical and other contractors appeared; no target-domain result URL appeared in this sample.",
+        "returnedResults": [
+          {
+            "returnedSequence": 1,
+            "title": "Imperial Electromechanical Services LLC – Electro-Mechanical / Street Lighting Contractors in UAE",
+            "url": "https://imperial-uae.com/",
+            "host": "imperial-uae.com"
+          },
+          {
+            "returnedSequence": 2,
+            "title": "Al Rasef Contracting L.L.C",
+            "url": "https://www.alrasef.com/ProjectDetails.aspx?id=8",
+            "host": "www.alrasef.com"
+          },
+          {
+            "returnedSequence": 3,
+            "title": "Street Lighting in UAE & Dubai | Leading Suppliers & Manufacturers",
+            "url": "https://www.yellowpages-uae.com/uae/dubai/street-lighting",
+            "host": "www.yellowpages-uae.com"
+          },
+          {
+            "returnedSequence": 4,
+            "title": "Street Lighting Works -",
+            "url": "https://powerglobedxb.com/service/street-lighting-works/",
+            "host": "powerglobedxb.com"
+          },
+          {
+            "returnedSequence": 5,
+            "title": "Street Lighting Division – Binhanif Group",
+            "url": "https://binhanifgroup.com/services/street-lighting-division/",
+            "host": "binhanifgroup.com"
+          },
+          {
+            "returnedSequence": 6,
+            "title": "PRIME ELECTRICAL CONTRACTING | ELECTRICAL CONTRACTING WORKS | Prime Electrical Contracting Company L.L.C - Beirut Street - Dubai - United Arab Emirates",
+            "url": "https://www.primeeleuae.com/",
+            "host": "www.primeeleuae.com"
+          },
+          {
+            "returnedSequence": 7,
+            "title": "Imperial Electromechanical Services LLC | Dubai Road Lighting & Electrical Contractors",
+            "url": "https://www.imperial-uae.com/?p=459",
+            "host": "www.imperial-uae.com"
+          },
+          {
+            "returnedSequence": 8,
+            "title": "Binhanif - List of projects",
+            "url": "https://binhanifgroup.com/binhanif/project-list.html",
+            "host": "binhanifgroup.com"
+          },
+          {
+            "returnedSequence": 9,
+            "title": "Al Rasef Contracting L.L.C",
+            "url": "https://www.alrasef.com/projects-by-category.aspx?id=5",
+            "host": "www.alrasef.com"
+          },
+          {
+            "returnedSequence": 10,
+            "title": "Binhanif - Streetlight Division",
+            "url": "https://binhanifgroup.com/binhanif/streetlight-division.html",
+            "host": "binhanifgroup.com"
+          },
+          {
+            "returnedSequence": 11,
+            "title": "Al Barsha South – alphaislandtech",
+            "url": "https://alphaislandtech.com/al-barsha-south",
+            "host": "alphaislandtech.com"
+          },
+          {
+            "returnedSequence": 12,
+            "title": "Excavation Contractors - Road Construction Company in Dubai, UAE",
+            "url": "https://concordstars.com/service/main-road-street-lighting-contracting/",
+            "host": "concordstars.com"
+          },
+          {
+            "returnedSequence": 13,
+            "title": "THE ONE ELECTROMECHANICAL INSTALLATION LLC",
+            "url": "https://theoneem.com/profile.pdf",
+            "host": "theoneem.com"
+          },
+          {
+            "returnedSequence": 14,
+            "title": "Table of Contents",
+            "url": "https://www.theoneem.com/profile.pdf",
+            "host": "www.theoneem.com"
+          },
+          {
+            "returnedSequence": 15,
+            "title": "INTRODUCTION",
+            "url": "https://arargroup.com/wp-content/uploads/2020/08/Lastest-Brochure-1.pdf",
+            "host": "arargroup.com"
+          },
+          {
+            "returnedSequence": 16,
+            "title": "Street Lighting & Industrial",
+            "url": "https://www.centaur.ae/wp-content/uploads/2023/04/SL-Uploads.pdf",
+            "host": "www.centaur.ae"
+          },
+          {
+            "returnedSequence": 17,
+            "title": "APPROVED CONTRACTORS LIST",
+            "url": "https://maxservices.adwea.ae/doclinks/REPORTS/ADWEA_APPROVED_CONTRACTORS_LIST.pdf",
+            "host": "maxservices.adwea.ae"
+          },
+          {
+            "returnedSequence": 18,
+            "title": "STREET LIGHTING",
+            "url": "https://espica.lighting/wp-content/uploads/2025/07/Street-Lighting-Brochure.pdf",
+            "host": "espica.lighting"
+          }
+        ]
+      },
+      "chatgptSearch": {
+        "status": "NOT VERIFIED",
+        "performed": false,
+        "exactPrompt": "Street lighting installation contractor Dubai",
+        "testedAt": null,
+        "uiModel": null,
+        "location": null,
+        "accountState": null,
+        "memoryAndPersonalizationState": null,
+        "searchEnabled": null,
+        "freshConversation": null,
+        "answerText": null,
+        "answerRecordPath": null,
+        "shareUrl": null,
+        "citationLinks": null,
+        "rtacontractorCited": null,
+        "rtacontractorCitedUrls": null,
+        "voltronixCited": null,
+        "voltronixCitedUrls": null,
+        "competitorCitationLinks": null,
+        "recommendationContext": null,
+        "reason": "An independent ChatGPT Search answer/citation run was unavailable in the tools used for this sample. Web-search source results must not be relabeled as consumer ChatGPT answer citations."
+      }
+    },
+    {
+      "id": "Q4",
+      "exactQuery": "Dubai road lighting and electrical infrastructure contractor",
+      "searchSettings": {
+        "search_query": [
+          {
+            "q": "Dubai road lighting and electrical infrastructure contractor"
+          }
+        ],
+        "response_length": "long"
+      },
+      "sampleDate": "2026-10-26",
+      "timestamp": null,
+      "timestampNote": "Call occurred within the recorded sampling window; exact per-call timestamps were not exposed.",
+      "webSearch": {
+        "status": "PASS",
+        "resultCount": 18,
+        "rtacontractorAppeared": false,
+        "rtacontractorUrls": [],
+        "voltronixAppeared": false,
+        "voltronixUrls": [],
+        "otherDomains": [
+          "grc-uae.com",
+          "imperial-uae.com",
+          "alphaislandtech.com",
+          "binhanifgroup.com",
+          "arargroup.com",
+          "centaur.ae",
+          "facadelightingdubai.com",
+          "almanader.ae",
+          "primeeleuae.com",
+          "concordstars.com",
+          "dewa.gov.ae",
+          "falaconstructions.com",
+          "alnasruae.com",
+          "vetoroadcontracting.ae"
+        ],
+        "contextSummary": "The returned set emphasized electrical infrastructure and street-lighting service/project pages. Gulbaz, Imperial, Alpha Island, Bin Hanif, ARAR and other contractors appeared; no target-domain result URL appeared in this sample.",
+        "returnedResults": [
+          {
+            "returnedSequence": 1,
+            "title": "Gulbaz Road Contracting L.L.C | Projects",
+            "url": "https://grc-uae.com/projects/",
+            "host": "grc-uae.com"
+          },
+          {
+            "returnedSequence": 2,
+            "title": "Imperial Electromechanical Services LLC – Electro-Mechanical / Street Lighting Contractors in UAE",
+            "url": "https://imperial-uae.com/",
+            "host": "imperial-uae.com"
+          },
+          {
+            "returnedSequence": 3,
+            "title": "Al Barsha South – alphaislandtech",
+            "url": "https://alphaislandtech.com/al-barsha-south",
+            "host": "alphaislandtech.com"
+          },
+          {
+            "returnedSequence": 4,
+            "title": "Imperial Electromechanical Services LLC | Dubai Road Lighting & Electrical Contractors",
+            "url": "https://www.imperial-uae.com/?p=459",
+            "host": "www.imperial-uae.com"
+          },
+          {
+            "returnedSequence": 5,
+            "title": "Street Lighting Division – Binhanif Group",
+            "url": "https://binhanifgroup.com/services/street-lighting-division/",
+            "host": "binhanifgroup.com"
+          },
+          {
+            "returnedSequence": 6,
+            "title": "ARAR Utility Company L.L.C — EPC Electrical & Power Solutions in Dubai",
+            "url": "https://arargroup.com/utility/",
+            "host": "arargroup.com"
+          },
+          {
+            "returnedSequence": 7,
+            "title": "Street Lighting & Industrial",
+            "url": "https://www.centaur.ae/wp-content/uploads/2023/04/SL-Uploads.pdf",
+            "host": "www.centaur.ae"
+          },
+          {
+            "returnedSequence": 8,
+            "title": "Binhanif - List of projects",
+            "url": "https://binhanifgroup.com/binhanif/project-list.html",
+            "host": "binhanifgroup.com"
+          },
+          {
+            "returnedSequence": 9,
+            "title": "Electrical Contractor Dubai | Lighting & Power Installation",
+            "url": "https://facadelightingdubai.com/services/electrical-contracting/",
+            "host": "facadelightingdubai.com"
+          },
+          {
+            "returnedSequence": 10,
+            "title": "AMRCE — RTA Approved Road Contractor Dubai | Asphalt & Infrastructure",
+            "url": "https://www.almanader.ae/",
+            "host": "www.almanader.ae"
+          },
+          {
+            "returnedSequence": 11,
+            "title": "PRIME ELECTRICAL CONTRACTING | ELECTRICAL CONTRACTING WORKS | Prime Electrical Contracting Company L.L.C - Beirut Street - Dubai - United Arab Emirates",
+            "url": "https://www.primeeleuae.com/",
+            "host": "www.primeeleuae.com"
+          },
+          {
+            "returnedSequence": 12,
+            "title": "Excavation Contractors - Road Construction Company in Dubai, UAE",
+            "url": "https://concordstars.com/service/main-road-street-lighting-contracting/",
+            "host": "concordstars.com"
+          },
+          {
+            "returnedSequence": 13,
+            "title": "List of Eligible shams dubai consultant and contractor",
+            "url": "https://www.dewa.gov.ae/images/smartinitiatives/Shams_Dubai_Consultants_and_Contractor_list.pdf",
+            "host": "www.dewa.gov.ae"
+          },
+          {
+            "returnedSequence": 14,
+            "title": "Road Contracting & Infrastructure | FALA Road Contracting L.L.C. | FALA Group",
+            "url": "https://falaconstructions.com/road-contracting",
+            "host": "falaconstructions.com"
+          },
+          {
+            "returnedSequence": 15,
+            "title": "DUBAI WORLD CENTRAL RESIDENTIAL DISTRICT",
+            "url": "https://www.alnasruae.com/_assets/documentation/project_doc/updated_pdf_sept_2016/Dubai%20South%20-%20Full%20Infrastructure%20%20%28SIF%29.pdf",
+            "host": "www.alnasruae.com"
+          },
+          {
+            "returnedSequence": 16,
+            "title": "List of companies enrolled with DEWA as \"Electrical & DRRG Solar PV\" Consultant and Contractors for the Shams Dubai program",
+            "url": "https://www.dewa.gov.ae/~/media/Files/Consultants%20and%20Contractors/Shams%20Dubai%20Consultants%20and%20Contractor%20list%2020161127.ashx",
+            "host": "www.dewa.gov.ae"
+          },
+          {
+            "returnedSequence": 17,
+            "title": "Introducti",
+            "url": "https://vetoroadcontracting.ae/wp-content/themes/VetoRoad-Contracting/pdf/Profile_VetoRoadConst_R03.pdf",
+            "host": "vetoroadcontracting.ae"
+          },
+          {
+            "returnedSequence": 18,
+            "title": "OUR CLIENTS",
+            "url": "https://www.primeeleuae.com/_files/ugd/bfc269_40d02c251dce4be888271503b08edcc7.pdf",
+            "host": "www.primeeleuae.com"
+          }
+        ]
+      },
+      "chatgptSearch": {
+        "status": "NOT VERIFIED",
+        "performed": false,
+        "exactPrompt": "Dubai road lighting and electrical infrastructure contractor",
+        "testedAt": null,
+        "uiModel": null,
+        "location": null,
+        "accountState": null,
+        "memoryAndPersonalizationState": null,
+        "searchEnabled": null,
+        "freshConversation": null,
+        "answerText": null,
+        "answerRecordPath": null,
+        "shareUrl": null,
+        "citationLinks": null,
+        "rtacontractorCited": null,
+        "rtacontractorCitedUrls": null,
+        "voltronixCited": null,
+        "voltronixCitedUrls": null,
+        "competitorCitationLinks": null,
+        "recommendationContext": null,
+        "reason": "An independent ChatGPT Search answer/citation run was unavailable in the tools used for this sample. Web-search source results must not be relabeled as consumer ChatGPT answer citations."
+      }
+    },
+    {
+      "id": "Q5",
+      "exactQuery": "How to verify an RTA street-lighting contractor in Dubai",
+      "searchSettings": {
+        "search_query": [
+          {
+            "q": "How to verify an RTA street-lighting contractor in Dubai"
+          }
+        ],
+        "response_length": "long"
+      },
+      "sampleDate": "2026-10-26",
+      "timestamp": null,
+      "timestampNote": "Call occurred within the recorded sampling window; exact per-call timestamps were not exposed.",
+      "webSearch": {
+        "status": "PASS",
+        "resultCount": 18,
+        "rtacontractorAppeared": false,
+        "rtacontractorUrls": [],
+        "voltronixAppeared": false,
+        "voltronixUrls": [],
+        "otherDomains": [
+          "dm.gov.ae",
+          "uaesupremecouncil.org",
+          "dubailand.gov.ae",
+          "rta.ae",
+          "mediaoffice.ae",
+          "contractorpass.ae",
+          "alqaroroads.com",
+          "imperial-uae.com",
+          "mofa.gov.ae",
+          "noc.rta.ae",
+          "visitdubai.com",
+          "centaur.ae",
+          "dewa.gov.ae",
+          "reddit.com"
+        ],
+        "contextSummary": "The returned set mixed municipal/business verification, project NOC information, government service pages, contractor claims and irrelevant pages. Neither a VOLTRONIX qualification record nor a target-domain result URL appeared. Municipal or business licensing material is not proof of RTA street-lighting prequalification.",
+        "returnedResults": [
+          {
+            "returnedSequence": 1,
+            "title": "Consultants, Contractors and Suppliers Data",
+            "url": "https://www.dm.gov.ae/municipality-business/consultants-contractors-and-suppliers-data/",
+            "host": "www.dm.gov.ae"
+          },
+          {
+            "returnedSequence": 2,
+            "title": "Consultants, Contractors and Suppliers Data",
+            "url": "https://www.dm.gov.ae/municipality-business/planning-and-construction/consultants-contractors-and-suppliers-data-3/",
+            "host": "www.dm.gov.ae"
+          },
+          {
+            "returnedSequence": 3,
+            "title": "Verify business licences | The Official Platform of the UAE Government",
+            "url": "https://www.uaesupremecouncil.org/en/information-and-services/business/important-digital-services/inquire-about-licences-names-and-activities.html",
+            "host": "www.uaesupremecouncil.org"
+          },
+          {
+            "returnedSequence": 4,
+            "title": "Dubai Land Department -",
+            "url": "https://dubailand.gov.ae/en/developer-book/main-phases/pre-development-stage",
+            "host": "dubailand.gov.ae"
+          },
+          {
+            "returnedSequence": 5,
+            "title": "Executive Council Resolution No. (45) of 2013",
+            "url": "https://rta.ae/wps/wcm/connect/rta/b45319df-0ced-4fbd-b68f-c22e6134d793/%D9%82%D8%B1%D8%A7%D8%B1%2B%D8%A7%D9%84%D9%85%D8%AC%D9%84%D8%B3%2B%D8%A7%D9%84%D8%AA%D9%86%D9%81%D9%8A%D8%B0%D9%8A%2B%D8%B1%D9%82%D9%85%2B45%2B%D9%84%D8%B3%D9%86%D8%A92013.pdf?CACHEID=b45319df-0ced-4fbd-b68f-c22e6134d793&MOD=AJPERES",
+            "host": "rta.ae"
+          },
+          {
+            "returnedSequence": 6,
+            "title": "Dubai Land Department - Verify License and Permits",
+            "url": "https://dubailand.gov.ae/en/eservices/validate-real-estate-licenses-and-permits/",
+            "host": "dubailand.gov.ae"
+          },
+          {
+            "returnedSequence": 7,
+            "title": "RTA launches digital platform to issue clearance certificates for infrastructure works in Dubai",
+            "url": "https://mediaoffice.ae/en/news/2021/april/25-04/rta-launches-digital-platform-to-issue-clearance-certificates",
+            "host": "mediaoffice.ae"
+          },
+          {
+            "returnedSequence": 8,
+            "title": "Dubai Municipality Services",
+            "url": "https://www.dm.gov.ae/dubai-municipality-services/",
+            "host": "www.dm.gov.ae"
+          },
+          {
+            "returnedSequence": 9,
+            "title": "Service Details - Roads & Transport Authority",
+            "url": "https://www.rta.ae/wps/portal/rta/ae/home/rta-services/service-details?serviceId=322",
+            "host": "www.rta.ae"
+          },
+          {
+            "returnedSequence": 10,
+            "title": "Verify Contractor Compliance Dubai | Law No. 7 Check",
+            "url": "https://contractorpass.ae/verify",
+            "host": "contractorpass.ae"
+          },
+          {
+            "returnedSequence": 11,
+            "title": "Navy Yellow Modern Elegant Company Profile Booklet",
+            "url": "https://alqaroroads.com/wp-content/uploads/2023/11/QRC-Profile-PreQualification-V1.3_web2.pdf",
+            "host": "alqaroroads.com"
+          },
+          {
+            "returnedSequence": 12,
+            "title": "Imperial Electromechanical Services LLC | Dubai Road Lighting & Electrical Contractors",
+            "url": "https://www.imperial-uae.com/?p=459",
+            "host": "www.imperial-uae.com"
+          },
+          {
+            "returnedSequence": 13,
+            "title": "UAE Embassy in Singapore-FAQS",
+            "url": "https://www.mofa.gov.ae/Missions/Singapore/Contact-Us/FAQS",
+            "host": "www.mofa.gov.ae"
+          },
+          {
+            "returnedSequence": 14,
+            "title": "RTA eNOC",
+            "url": "https://noc.rta.ae/RTAeNOCNew/",
+            "host": "noc.rta.ae"
+          },
+          {
+            "returnedSequence": 15,
+            "title": "4.1 Purpose",
+            "url": "https://www.visitdubai.com/-/media/Files/invest-in-dubai/rta-manuals/out-of-home-new-manual-from-rta.pdf",
+            "host": "www.visitdubai.com"
+          },
+          {
+            "returnedSequence": 16,
+            "title": "Street Lighting & Industrial",
+            "url": "https://www.centaur.ae/wp-content/uploads/2023/04/SL-Uploads.pdf",
+            "host": "www.centaur.ae"
+          },
+          {
+            "returnedSequence": 17,
+            "title": "Transmission Power Division",
+            "url": "https://www.dewa.gov.ae/-/media/Files/PDF/inf_NOC_SG.ashx",
+            "host": "www.dewa.gov.ae"
+          },
+          {
+            "returnedSequence": 18,
+            "title": "Bright building next door",
+            "url": "https://www.reddit.com/r/dubai/comments/1rw9lvv/bright_building_next_door/",
+            "host": "www.reddit.com"
+          }
+        ]
+      },
+      "chatgptSearch": {
+        "status": "NOT VERIFIED",
+        "performed": false,
+        "exactPrompt": "How to verify an RTA street-lighting contractor in Dubai",
+        "testedAt": null,
+        "uiModel": null,
+        "location": null,
+        "accountState": null,
+        "memoryAndPersonalizationState": null,
+        "searchEnabled": null,
+        "freshConversation": null,
+        "answerText": null,
+        "answerRecordPath": null,
+        "shareUrl": null,
+        "citationLinks": null,
+        "rtacontractorCited": null,
+        "rtacontractorCitedUrls": null,
+        "voltronixCited": null,
+        "voltronixCitedUrls": null,
+        "competitorCitationLinks": null,
+        "recommendationContext": null,
+        "reason": "An independent ChatGPT Search answer/citation run was unavailable in the tools used for this sample. Web-search source results must not be relabeled as consumer ChatGPT answer citations."
+      }
+    }
+  ],
+  "repeatProtocol": {
+    "frequency": "Weekly for four weeks and after a separately approved production release; no schedule or external automation has been created.",
+    "proposedDatesAsiaDubai": [
+      "2026-11-02",
+      "2026-11-09",
+      "2026-11-16",
+      "2026-11-23"
+    ],
+    "webSearch": [
+      "Use the same five exact queries without adding the company/domain, domain filters or leading recommendation instructions.",
+      "Run one query per call with the same response length; record the tool, provider/location if exposed, settings, timestamp and full returned URL list.",
+      "Append a new dated sample; do not overwrite the baseline or compare differing methods as rankings."
+    ],
+    "chatgptSearch": [
+      "Use a fresh conversation for each exact prompt. Record date/time with Asia/Dubai offset, visible model/version, Search mode, interface, account state, region and memory/personalization settings. Keep those conditions consistent.",
+      "Do not seed the target site, company name, certificate or desired answer in the prompt. Use the exact query shown for Q1-Q5.",
+      "Save the complete answer and visible citation/source links with a screenshot or export and conversation link when allowed. Record mentions separately from citations, recommendations and unsupported approval wording.",
+      "Capture rtacontractor.ae and voltronix.ae separately. Record each cited URL, competitor citation URL and the sentence/context in which the business appears.",
+      "Use null/NOT VERIFIED when no run occurred or citation evidence cannot be inspected. Use false/empty arrays only for an actually inspected answer showing no target citation.",
+      "Treat results as samples that may vary across runs, models and locations. No rank or inclusion guarantee follows from a sample."
+    ],
+    "measurement": [
+      "With authorized analytics/log access, inspect aggregate referrals and landing requests containing utm_source=chatgpt.com; this tag is a signal, not proof against spoofing.",
+      "Distinguish human referral visits, contact clicks, locally prepared enquiries and confirmed qualified leads.",
+      "Correlate OAI-SearchBot log requests with the current official published IP ranges and request evidence; a user-agent string alone is insufficient.",
+      "Avoid collecting or exposing personal details, enquiry text, credentials or tokens in reports. No analytics or logs were accessed for this baseline."
+    ]
+  }
+}

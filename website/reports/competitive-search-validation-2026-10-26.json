@@ -1,0 +1,1776 @@
+{
+  "recordedAt": "2026-10-26T06:49:15.685Z",
+  "task": "Competitive search audit and local navigation/enquiry improvements",
+  "startingHead": "f8ddd327f072e4e577140196d08c1fdc8492330a",
+  "startingPendingFiles": 11,
+  "pendingFiles": 25,
+  "localOnly": true,
+  "publicationActions": [],
+  "tests": {
+    "build": {
+      "status": "PASS",
+      "pages": 9,
+      "plus404": true,
+      "sitemap": true,
+      "robots": true,
+      "command": "node website/scripts/build.mjs",
+      "evidence": "Actual command stdout in current task"
+    },
+    "static": {
+      "status": "PASS",
+      "passed": 1037,
+      "failed": 0,
+      "assetReferences": 71,
+      "command": "node website/scripts/check.mjs",
+      "evidence": "Actual command stdout in current task"
+    },
+    "browser": {
+      "status": "PASS",
+      "passed": 206,
+      "failed": 0,
+      "checkedAt": "2026-10-26T06:44:46.643Z",
+      "artifact": "artifacts/competitive-search-2026-10-26/browser/qa-report.json"
+    },
+    "scroll": {
+      "status": "PASS",
+      "passed": 94,
+      "failed": 0,
+      "artifact": "artifacts/competitive-search-2026-10-26/scroll/qa-report.json"
+    },
+    "targeted": {
+      "status": "PASS",
+      "pass": 328,
+      "fail": 0,
+      "startedAt": "2026-10-26T06:44:23.221Z",
+      "finishedAt": "2026-10-26T06:44:51.622Z",
+      "viewports": [
+        1440,
+        390,
+        320
+      ],
+      "javaScript": [
+        true,
+        false
+      ],
+      "sentMessages": false,
+      "errors": [],
+      "artifact": "artifacts/competitive-search-2026-10-26/targeted/results.json",
+      "runner": "artifacts/competitive-search-2026-10-26/targeted/validate-primary.mjs"
+    },
+    "http": {
+      "status": "PASS",
+      "passed": 77,
+      "failed": 0,
+      "command": "node website/scripts/qa-http.mjs",
+      "server": "isolated current Node server",
+      "evidence": "Actual command stdout in current task"
+    },
+    "discoveryUnit": {
+      "status": "PASS",
+      "passed": 6,
+      "failed": 0,
+      "command": "node --test website/scripts/qa-discovery.test.mjs",
+      "evidence": "Actual Node test runner stdout in current task"
+    },
+    "syntax": [
+      {
+        "file": "website/scripts/build.mjs",
+        "exitCode": 0,
+        "output": ""
+      },
+      {
+        "file": "website/templates/street-lighting.mjs",
+        "exitCode": 0,
+        "output": ""
+      },
+      {
+        "file": "website/street-lighting-content.mjs",
+        "exitCode": 0,
+        "output": ""
+      }
+    ],
+    "hygiene": {
+      "exitCode": 0,
+      "output": ""
+    }
+  },
+  "browserExecution": [
+    {
+      "name": "browser",
+      "script": "qa.mjs",
+      "startedAt": "2026-10-26T06:44:13.436Z",
+      "finishedAt": "2026-10-26T06:44:46.701Z",
+      "exitCode": 0,
+      "baseURL": "http://127.0.0.1:54035"
+    },
+    {
+      "name": "scroll",
+      "script": "qa-works-scroll.mjs",
+      "startedAt": "2026-10-26T06:44:46.702Z",
+      "finishedAt": "2026-10-26T06:45:15.721Z",
+      "exitCode": 0,
+      "baseURL": "http://127.0.0.1:54035"
+    }
+  ],
+  "production": {
+    "startedAt": "2026-10-26T06:43:33.888Z",
+    "finishedAt": "2026-10-26T06:43:42.137Z",
+    "counts": {
+      "PASS": 130,
+      "FAIL": 6,
+      "BLOCKED": 0,
+      "NOT VERIFIED": 7
+    },
+    "checks": [
+      {
+        "status": "PASS",
+        "check": "ordinary robots: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary: robots MIME",
+        "evidence": "text/plain"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary: OAI-SearchBot policy /",
+        "evidence": {
+          "status": "PASS",
+          "reason": "allow: /",
+          "group": "*"
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary: OAI-SearchBot policy /services/street-lighting/",
+        "evidence": {
+          "status": "PASS",
+          "reason": "allow: /",
+          "group": "*"
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary: robots sitemap reference",
+        "evidence": "Expected public /sitemap.xml"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary sitemap: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary: sitemap canonical set",
+        "evidence": [
+          "https://rtacontractor.ae/",
+          "https://rtacontractor.ae/services/street-lighting/",
+          "https://rtacontractor.ae/services/underground-cabling/",
+          "https://rtacontractor.ae/services/high-mast-area-lighting/",
+          "https://rtacontractor.ae/services/led-solar-lighting/",
+          "https://rtacontractor.ae/services/lighting-maintenance/",
+          "https://rtacontractor.ae/services/electrical-infrastructure/",
+          "https://rtacontractor.ae/privacy/",
+          "https://rtacontractor.ae/photography/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/street-lighting/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/street-lighting/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/street-lighting/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/services/street-lighting/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/street-lighting/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/street-lighting/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage",
+            "Service",
+            "BreadcrumbList"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/street-lighting/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/street-lighting/: documented qualification facts present",
+        "evidence": {
+          "facts": [
+            "Conditionally Prequalified",
+            "A025-6513466",
+            "5,000,000",
+            "20 October 2029",
+            "road lighting",
+            "tunnel lighting"
+          ],
+          "note": "Presence check, not certificate authentication or a comprehensive claim review."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/street-lighting/: static FAQ presence",
+        "evidence": {
+          "faqCount": 8,
+          "expected": 8,
+          "scope": "Actual faq-list disclosures with static summary and answer; navigation excluded"
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/street-lighting/: static direct answer and company",
+        "evidence": {
+          "answerWords": 56,
+          "faqCount": 8,
+          "staticCompanyName": true
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/underground-cabling/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/underground-cabling/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/underground-cabling/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/services/underground-cabling/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/underground-cabling/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/underground-cabling/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage",
+            "Service",
+            "BreadcrumbList"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/underground-cabling/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/electrical-infrastructure/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/electrical-infrastructure/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/electrical-infrastructure/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/services/electrical-infrastructure/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/electrical-infrastructure/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/electrical-infrastructure/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage",
+            "Service",
+            "BreadcrumbList"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/electrical-infrastructure/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/high-mast-area-lighting/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/high-mast-area-lighting/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/high-mast-area-lighting/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/services/high-mast-area-lighting/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/high-mast-area-lighting/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/high-mast-area-lighting/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage",
+            "BreadcrumbList"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/high-mast-area-lighting/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/led-solar-lighting/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/led-solar-lighting/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/led-solar-lighting/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/services/led-solar-lighting/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/led-solar-lighting/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/led-solar-lighting/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage",
+            "BreadcrumbList"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/led-solar-lighting/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/lighting-maintenance/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/lighting-maintenance/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/lighting-maintenance/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/services/lighting-maintenance/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/lighting-maintenance/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/lighting-maintenance/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage",
+            "BreadcrumbList"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/lighting-maintenance/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /privacy/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /privacy/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /privacy/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/privacy/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /privacy/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /privacy/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /privacy/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /photography/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /photography/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /photography/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/photography/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /photography/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /photography/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /photography/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "NOT VERIFIED",
+        "check": "ordinary: Cloudflare email rewrite",
+        "evidence": {
+          "pages": 9,
+          "path": "/cdn-cgi/l/email-protection",
+          "note": "Observed edge-injected contact target; contact behavior requires a browser test. Not classified as an unknown content page."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled robots: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled: robots MIME",
+        "evidence": "text/plain"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled: OAI-SearchBot policy /",
+        "evidence": {
+          "status": "PASS",
+          "reason": "allow: /",
+          "group": "*"
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled: OAI-SearchBot policy /services/street-lighting/",
+        "evidence": {
+          "status": "PASS",
+          "reason": "allow: /",
+          "group": "*"
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled: robots sitemap reference",
+        "evidence": "Expected public /sitemap.xml"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled sitemap: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled: sitemap canonical set",
+        "evidence": [
+          "https://rtacontractor.ae/",
+          "https://rtacontractor.ae/services/street-lighting/",
+          "https://rtacontractor.ae/services/underground-cabling/",
+          "https://rtacontractor.ae/services/high-mast-area-lighting/",
+          "https://rtacontractor.ae/services/led-solar-lighting/",
+          "https://rtacontractor.ae/services/lighting-maintenance/",
+          "https://rtacontractor.ae/services/electrical-infrastructure/",
+          "https://rtacontractor.ae/privacy/",
+          "https://rtacontractor.ae/photography/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/street-lighting/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/street-lighting/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/street-lighting/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/services/street-lighting/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/street-lighting/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/street-lighting/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage",
+            "Service",
+            "BreadcrumbList"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/street-lighting/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/street-lighting/: documented qualification facts present",
+        "evidence": {
+          "facts": [
+            "Conditionally Prequalified",
+            "A025-6513466",
+            "5,000,000",
+            "20 October 2029",
+            "road lighting",
+            "tunnel lighting"
+          ],
+          "note": "Presence check, not certificate authentication or a comprehensive claim review."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/street-lighting/: static FAQ presence",
+        "evidence": {
+          "faqCount": 8,
+          "expected": 8,
+          "scope": "Actual faq-list disclosures with static summary and answer; navigation excluded"
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/street-lighting/: static direct answer and company",
+        "evidence": {
+          "answerWords": 56,
+          "faqCount": 8,
+          "staticCompanyName": true
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/underground-cabling/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/underground-cabling/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/underground-cabling/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/services/underground-cabling/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/underground-cabling/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/underground-cabling/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage",
+            "Service",
+            "BreadcrumbList"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/underground-cabling/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/electrical-infrastructure/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/electrical-infrastructure/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/electrical-infrastructure/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/services/electrical-infrastructure/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/electrical-infrastructure/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/electrical-infrastructure/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage",
+            "Service",
+            "BreadcrumbList"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/electrical-infrastructure/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/high-mast-area-lighting/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/high-mast-area-lighting/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/high-mast-area-lighting/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/services/high-mast-area-lighting/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/high-mast-area-lighting/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/high-mast-area-lighting/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage",
+            "BreadcrumbList"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/high-mast-area-lighting/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/led-solar-lighting/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/led-solar-lighting/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/led-solar-lighting/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/services/led-solar-lighting/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/led-solar-lighting/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/led-solar-lighting/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage",
+            "BreadcrumbList"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/led-solar-lighting/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/lighting-maintenance/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/lighting-maintenance/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/lighting-maintenance/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/services/lighting-maintenance/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/lighting-maintenance/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/lighting-maintenance/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage",
+            "BreadcrumbList"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/lighting-maintenance/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /privacy/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /privacy/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /privacy/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/privacy/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /privacy/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /privacy/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /privacy/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /photography/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /photography/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /photography/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/photography/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /photography/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /photography/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /photography/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "NOT VERIFIED",
+        "check": "oaiLabelled: Cloudflare email rewrite",
+        "evidence": {
+          "pages": 9,
+          "path": "/cdn-cgi/l/email-protection",
+          "note": "Observed edge-injected contact target; contact behavior requires a browser test. Not classified as an unknown content page."
+        }
+      },
+      {
+        "status": "FAIL",
+        "check": "Canonical redirect /index.html",
+        "evidence": {
+          "status": 200,
+          "location": null,
+          "expected": "https://rtacontractor.ae/"
+        }
+      },
+      {
+        "status": "FAIL",
+        "check": "Canonical redirect /services/street-lighting",
+        "evidence": {
+          "status": 301,
+          "location": "http://rtacontractor.ae:3100/services/street-lighting/",
+          "expected": "https://rtacontractor.ae/services/street-lighting/"
+        }
+      },
+      {
+        "status": "FAIL",
+        "check": "Canonical redirect /services/street-lighting?audit=discovery",
+        "evidence": {
+          "status": 301,
+          "location": "http://rtacontractor.ae:3100/services/street-lighting/?audit=discovery",
+          "expected": "https://rtacontractor.ae/services/street-lighting/?audit=discovery"
+        }
+      },
+      {
+        "status": "FAIL",
+        "check": "Canonical redirect /services/street-lighting/index.html",
+        "evidence": {
+          "status": 200,
+          "location": null,
+          "expected": "https://rtacontractor.ae/services/street-lighting/"
+        }
+      },
+      {
+        "status": "FAIL",
+        "check": "Canonical redirect /services/underground-cabling",
+        "evidence": {
+          "status": 301,
+          "location": "http://rtacontractor.ae:3100/services/underground-cabling/",
+          "expected": "https://rtacontractor.ae/services/underground-cabling/"
+        }
+      },
+      {
+        "status": "FAIL",
+        "check": "Canonical redirect https://www.rtacontractor.ae/",
+        "evidence": {
+          "status": 200,
+          "location": null,
+          "expected": "https://rtacontractor.ae/"
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "OpenAI published searchbot IP manifest: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "Published crawler IP manifest available",
+        "evidence": {
+          "creationTime": "2026-01-02T11:00:00.000000",
+          "prefixCount": 39,
+          "sha256": "81806b1665e9bbbc5e0f307b847ad34f7027abc19e0d2d5d3eca1864bf361be6",
+          "source": "https://openai.com/searchbot.json",
+          "note": "Fetched for review only; no addresses used or installed as an allowlist."
+        }
+      },
+      {
+        "status": "NOT VERIFIED",
+        "check": "Genuine OpenAI crawler access and WAF/origin access logs",
+        "evidence": "Outside unauthenticated local-origin HTTP probing"
+      },
+      {
+        "status": "NOT VERIFIED",
+        "check": "Production firewall/CDN configuration",
+        "evidence": "Outside unauthenticated local-origin HTTP probing"
+      },
+      {
+        "status": "NOT VERIFIED",
+        "check": "Search Console/Bing account ownership and index coverage",
+        "evidence": "Outside unauthenticated local-origin HTTP probing"
+      },
+      {
+        "status": "NOT VERIFIED",
+        "check": "ChatGPT recommendation or citation inclusion",
+        "evidence": "Outside unauthenticated local-origin HTTP probing"
+      },
+      {
+        "status": "NOT VERIFIED",
+        "check": "Current RTA portal qualification status",
+        "evidence": "Outside unauthenticated local-origin HTTP probing"
+      }
+    ],
+    "responses": [
+      {
+        "label": "ordinary robots",
+        "url": "https://rtacontractor.ae/robots.txt",
+        "status": 200,
+        "contentType": "text/plain",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 70,
+        "sha256": "21ae1e5f9e24c640b6e8d9bedc0d4df021553a835bd2f63d48db8f813eb982a3"
+      },
+      {
+        "label": "ordinary sitemap",
+        "url": "https://rtacontractor.ae/sitemap.xml",
+        "status": 200,
+        "contentType": "text/xml",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 732,
+        "sha256": "9c217040dd940d084905b25e16df102787ae72675cbcaf13d9c20790a2c725db"
+      },
+      {
+        "label": "ordinary /",
+        "url": "https://rtacontractor.ae/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 41965,
+        "sha256": "0c975ea3adbfa909b155fa218dad32c7cfeec9d9faee7160248eacaee525e274"
+      },
+      {
+        "label": "ordinary /services/street-lighting/",
+        "url": "https://rtacontractor.ae/services/street-lighting/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 32528,
+        "sha256": "495ea5cc2c5b50f6902f3101860e8e54a16e51ab7551523976249efc825a8814"
+      },
+      {
+        "label": "ordinary /services/underground-cabling/",
+        "url": "https://rtacontractor.ae/services/underground-cabling/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 19272,
+        "sha256": "97b9463521b36c6f663eb36ad0d10801092a4aea5a808cc13bcf9dd9de488a07"
+      },
+      {
+        "label": "ordinary /services/electrical-infrastructure/",
+        "url": "https://rtacontractor.ae/services/electrical-infrastructure/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 19468,
+        "sha256": "48834eba61ff9307fec16a314b182d72b471a8d012f902d83dad81f34c72b181"
+      },
+      {
+        "label": "ordinary /services/high-mast-area-lighting/",
+        "url": "https://rtacontractor.ae/services/high-mast-area-lighting/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 18800,
+        "sha256": "f9f449d78a60ac77dfd3c1bffa66a344889e3b5da709d6672b2ec0b756a990fa"
+      },
+      {
+        "label": "ordinary /services/led-solar-lighting/",
+        "url": "https://rtacontractor.ae/services/led-solar-lighting/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 18782,
+        "sha256": "a36821cb92a80cac4e2c7e8d84cfc0559222cb9c4b78d3edfe8a3a39f6d1671a"
+      },
+      {
+        "label": "ordinary /services/lighting-maintenance/",
+        "url": "https://rtacontractor.ae/services/lighting-maintenance/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 18776,
+        "sha256": "f2336dcb49b73abd024c794b1a6be10d4529ef0c2415020c118754a96a93d340"
+      },
+      {
+        "label": "ordinary /privacy/",
+        "url": "https://rtacontractor.ae/privacy/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 12417,
+        "sha256": "1f8ecd47161671dad97055bc52c220a1f5eeaabd683071b0941da8a0692ff7f1"
+      },
+      {
+        "label": "ordinary /photography/",
+        "url": "https://rtacontractor.ae/photography/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 20101,
+        "sha256": "01d93601dc212e9bcda737231c0d613145222c0b23babb3e1f483c937320daab"
+      },
+      {
+        "label": "oaiLabelled robots",
+        "url": "https://rtacontractor.ae/robots.txt",
+        "status": 200,
+        "contentType": "text/plain",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 70,
+        "sha256": "21ae1e5f9e24c640b6e8d9bedc0d4df021553a835bd2f63d48db8f813eb982a3"
+      },
+      {
+        "label": "oaiLabelled sitemap",
+        "url": "https://rtacontractor.ae/sitemap.xml",
+        "status": 200,
+        "contentType": "text/xml",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 732,
+        "sha256": "9c217040dd940d084905b25e16df102787ae72675cbcaf13d9c20790a2c725db"
+      },
+      {
+        "label": "oaiLabelled /",
+        "url": "https://rtacontractor.ae/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 41965,
+        "sha256": "076ea78602fa153418266de96a054df6200e6952e7754c517460387f3d7b87dc"
+      },
+      {
+        "label": "oaiLabelled /services/street-lighting/",
+        "url": "https://rtacontractor.ae/services/street-lighting/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 32528,
+        "sha256": "db6deb0d338967396ee6690d42cae1b97a83f443796f025773d7533a01db3e97"
+      },
+      {
+        "label": "oaiLabelled /services/underground-cabling/",
+        "url": "https://rtacontractor.ae/services/underground-cabling/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 19272,
+        "sha256": "b048116e4188ba7c5c89f858999d5d8509656f47fd1e8a52cdad9f4e4b1d3ba3"
+      },
+      {
+        "label": "oaiLabelled /services/electrical-infrastructure/",
+        "url": "https://rtacontractor.ae/services/electrical-infrastructure/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 19468,
+        "sha256": "69053f5798232b57af97473f8ea0b6d6824c9ddd4afe5bd77c5a69bdac9544c6"
+      },
+      {
+        "label": "oaiLabelled /services/high-mast-area-lighting/",
+        "url": "https://rtacontractor.ae/services/high-mast-area-lighting/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 18800,
+        "sha256": "70e0ddf961a1668cd060dc35e8531c4b79020d78a2566e1ac9538b1e93d33642"
+      },
+      {
+        "label": "oaiLabelled /services/led-solar-lighting/",
+        "url": "https://rtacontractor.ae/services/led-solar-lighting/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 18782,
+        "sha256": "a36018499a6ce0d780c17933eaf1dca3996b53af535097567b0c056fe6f1f4d4"
+      },
+      {
+        "label": "oaiLabelled /services/lighting-maintenance/",
+        "url": "https://rtacontractor.ae/services/lighting-maintenance/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 18776,
+        "sha256": "1b0452ac636622b1e87c14eff5cde01b052a1f3022c53867b7ed2c040df7ecd6"
+      },
+      {
+        "label": "oaiLabelled /privacy/",
+        "url": "https://rtacontractor.ae/privacy/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 12417,
+        "sha256": "d2d00eb65f46cf79da9ec0090e3d37c511503a48e2d78b2e2f5c8cc36420de9b"
+      },
+      {
+        "label": "oaiLabelled /photography/",
+        "url": "https://rtacontractor.ae/photography/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 20101,
+        "sha256": "ed48d9627222af760a655a97fd35479fcb58ae5e3ec6caeb64f2603298c91c40"
+      },
+      {
+        "label": "redirect",
+        "url": "https://rtacontractor.ae/index.html",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null
+      },
+      {
+        "label": "redirect",
+        "url": "https://rtacontractor.ae/services/street-lighting",
+        "status": 301,
+        "contentType": "text/html",
+        "location": "http://rtacontractor.ae:3100/services/street-lighting/",
+        "robotsHeader": null
+      },
+      {
+        "label": "redirect",
+        "url": "https://rtacontractor.ae/services/street-lighting?audit=discovery",
+        "status": 301,
+        "contentType": "text/html",
+        "location": "http://rtacontractor.ae:3100/services/street-lighting/?audit=discovery",
+        "robotsHeader": null
+      },
+      {
+        "label": "redirect",
+        "url": "https://rtacontractor.ae/services/street-lighting/index.html",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null
+      },
+      {
+        "label": "redirect",
+        "url": "https://rtacontractor.ae/services/underground-cabling",
+        "status": 301,
+        "contentType": "text/html",
+        "location": "http://rtacontractor.ae:3100/services/underground-cabling/",
+        "robotsHeader": null
+      },
+      {
+        "label": "redirect",
+        "url": "https://www.rtacontractor.ae/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null
+      },
+      {
+        "label": "OpenAI published searchbot IP manifest",
+        "url": "https://openai.com/searchbot.json",
+        "status": 200,
+        "contentType": "application/json; charset=utf-8",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 2080,
+        "sha256": "81806b1665e9bbbc5e0f307b847ad34f7027abc19e0d2d5d3eca1864bf361be6"
+      }
+    ],
+    "limits": "Workstation diagnostic UAs are not authenticated OpenAI crawler egress. No WAF/log/account access or production changes."
+  },
+  "outputComparison": [
+    {
+      "file": "website/dist/404.html",
+      "schemaUnchanged": true,
+      "titleUnchanged": true,
+      "onlyStylesheetVersionChanged": true
+    },
+    {
+      "file": "website/dist/index.html",
+      "schemaUnchanged": true,
+      "titleUnchanged": true,
+      "onlyStylesheetVersionChanged": true
+    },
+    {
+      "file": "website/dist/photography/index.html",
+      "schemaUnchanged": true,
+      "titleUnchanged": true,
+      "onlyStylesheetVersionChanged": true
+    },
+    {
+      "file": "website/dist/privacy/index.html",
+      "schemaUnchanged": true,
+      "titleUnchanged": true,
+      "onlyStylesheetVersionChanged": true
+    },
+    {
+      "file": "website/dist/services/electrical-infrastructure/index.html",
+      "schemaUnchanged": true,
+      "titleUnchanged": true,
+      "onlyStylesheetVersionChanged": true
+    },
+    {
+      "file": "website/dist/services/high-mast-area-lighting/index.html",
+      "schemaUnchanged": true,
+      "titleUnchanged": true,
+      "onlyStylesheetVersionChanged": true
+    },
+    {
+      "file": "website/dist/services/led-solar-lighting/index.html",
+      "schemaUnchanged": true,
+      "titleUnchanged": true,
+      "onlyStylesheetVersionChanged": true
+    },
+    {
+      "file": "website/dist/services/lighting-maintenance/index.html",
+      "schemaUnchanged": true,
+      "titleUnchanged": true,
+      "onlyStylesheetVersionChanged": true
+    },
+    {
+      "file": "website/dist/services/street-lighting/index.html",
+      "schemaUnchanged": true,
+      "titleUnchanged": true,
+      "onlyStylesheetVersionChanged": null
+    },
+    {
+      "file": "website/dist/services/underground-cabling/index.html",
+      "schemaUnchanged": true,
+      "titleUnchanged": true,
+      "onlyStylesheetVersionChanged": true
+    }
+  ],
+  "exactQuerySample": {
+    "query": "RTA APPROVED STREET LIGHT CONTRACTOR IN DUBAI",
+    "recordedAtUTC": "2026-10-26 06:45:12 UTC",
+    "method": "web search tool single-query returned-source sample; not consumer ChatGPT Search or a controlled Google SERP",
+    "region": null,
+    "modelOrEngine": null,
+    "returnedURLs": [
+      "https://www.imperial-uae.com/?p=459",
+      "https://rta.ae/wps/portal/rta/ae/home/promotion/smart-street-lighting",
+      "https://dlp.dubai.gov.ae/Legislation%20Reference/2013/Executive%20Council%20Resolution%20No.%20%2845%29%20of%202013.html",
+      "https://imperial-uae.com/",
+      "https://rta.ae/wps/wcm/connect/rta/b45319df-0ced-4fbd-b68f-c22e6134d793/%D9%82%D8%B1%D8%A7%D8%B1%2B%D8%A7%D9%84%D9%85%D8%AC%D9%84%D8%B3%2B%D8%A7%D9%84%D8%AA%D9%86%D9%81%D9%8A%D8%B0%D9%8A%2B%D8%B1%D9%82%D9%85%2B45%2B%D9%84%D8%B3%D9%86%D8%A92013.pdf?CACHEID=b45319df-0ced-4fbd-b68f-c22e6134d793&MOD=AJPERES",
+      "https://rta.ae/wps/portal/rta/ae/home/rta-services/service-details?serviceId=316",
+      "https://mediaoffice.ae/en/news/2024/january/02-01/rta-streetlighting-project",
+      "https://kurrant.com/case-studies/kurrant-dubai-smart-streetlighting-ppp-design/",
+      "https://www.rta.ae/wps/portal/rta/ae/home/rta-services/service-details?serviceId=322",
+      "https://www.almanader.ae/",
+      "https://heroncontracting.ae/approvals/rta-approval-dubai/",
+      "https://www.fraterlighting.com/street-light",
+      "https://binhanifgroup.com/binhanif/project-list.html",
+      "https://www.centaur.ae/wp-content/uploads/2023/04/SL-Uploads.pdf",
+      "https://netmagmedia.s3.amazonaws.com/uploads/2020/04/2020-ADF0405-DI-lo.pdf",
+      "https://www.visitdubai.com/-/media/Files/invest-in-dubai/rta-manuals/out-of-home-new-manual-from-rta.pdf",
+      "https://www.dewa.gov.ae/-/media/Files/PDF/inf_NOC_SG.ashx"
+    ],
+    "targetDomainObserved": false,
+    "corporateDomainObserved": false,
+    "googlePosition": null,
+    "chatgptCited": null,
+    "chatgptCitedURLs": null,
+    "limitations": "Result order is not an organic ranking. Missing domains in this returned set do not establish non-indexing or zero ChatGPT citations. Existing five-prompt baseline remains separate."
+  },
+  "repeatedTestSet": "chatgpt-visibility-baseline-2026-10-26.json",
+  "measurements": {
+    "googleIndexed": null,
+    "bingIndexed": null,
+    "googleExactQueryPosition": null,
+    "keywordImpressions": null,
+    "keywordClicks": null,
+    "receivedEnquiries": null,
+    "qualifiedLeads": null,
+    "chatgptReferralVisits": null,
+    "chatgptConsumerCitations": null,
+    "accountStatus": "NOT VERIFIED: earlier same-day connector discovery required reauthentication; no account data accessed",
+    "integrationScan": "No matching GSC/Bing verification tags, common analytics tags or sendBeacon found in inspected site source/generated pages; does not disprove DNS verification/server-side tracking",
+    "performance": "Earlier 26 October local medians 1968ms home /1632ms primary predate this patch; no fresh performance measurement claimed"
+  },
+  "preservation": {
+    "priorPendingFiles": [
+      {
+        "file": "README.md",
+        "sha256": "cc7c537a9ef74f467ca9e6ac6cdccf01d0d75a977e0d84accbdddbe22556be97"
+      },
+      {
+        "file": "package.json",
+        "sha256": "efd4bf3fcfc8ecd3982d37ea2261c78b908af5c879146852dffb2bb21385a714"
+      },
+      {
+        "file": "website/dist/services/street-lighting/index.html",
+        "sha256": "46f881429168fbe019fc295024e8752e4fea71c54eca7dd85170cf73ff3e74ca"
+      },
+      {
+        "file": "website/scripts/qa-works-scroll.mjs",
+        "sha256": "038ecf9bfb2c137c59e6d7a9facca677641b6f041e6f2d51cc02081895554f9b"
+      },
+      {
+        "file": "website/scripts/qa.mjs",
+        "sha256": "31e6f94ea0bcc27df81fe43fff60106d1849a6798f3560209617bb47e8bc82c5"
+      },
+      {
+        "file": "website/street-lighting-content.mjs",
+        "sha256": "20cad459cc75ce3ad5cbfd5858b57caf69f925fd6f5e286e4f7535e3d322fe73"
+      },
+      {
+        "file": "website/reports/chatgpt-discovery-2026-10-26.html",
+        "sha256": "b260e31e262b433325fcffa7367abce8813518744739e7c769e22ae40e0cc40d"
+      },
+      {
+        "file": "website/reports/chatgpt-discovery-validation-2026-10-26.json",
+        "sha256": "bb73d967177f26f7cc59954842287e6079483ca594aab03c92324c77c5e48a4f"
+      },
+      {
+        "file": "website/reports/chatgpt-visibility-baseline-2026-10-26.json",
+        "sha256": "270097b507531eaafbba4e6597f82bdddec9b8a2fa37e3faf482a2e5e87f9519"
+      },
+      {
+        "file": "website/scripts/qa-discovery.mjs",
+        "sha256": "17a134b352e897ce2a0d0fc8afc2c8d8e9ec4e25aa3dbd873b454ff7c2b9db65"
+      },
+      {
+        "file": "website/scripts/qa-discovery.test.mjs",
+        "sha256": "0ae22b452f10ffc898013fed0000943258af4a35c084a78bda4422357ca8edf3"
+      }
+    ],
+    "otherHtmlChanges": "Nine other generated HTML files differ from HEAD only by shared stylesheet cache version.",
+    "unchanged": "Titles and JSON-LD on all 10 HTML pages; robots/sitemap; PDFs/media/fonts/client JS/dependencies/lockfiles",
+    "protectedHistoricalReports": "Earlier discovery and SEO reports remain historical snapshots, not overwritten"
+  },
+  "files": [
+    {
+      "file": "README.md",
+      "gitState": "modified",
+      "presentInStartingDiff": true,
+      "changedSinceTaskStart": true,
+      "bytes": 10536,
+      "sha256": "be367de035a46273643adb25a3d2b22ccabb358e87f7138e0de822de285c4aeb"
+    },
+    {
+      "file": "package.json",
+      "gitState": "modified",
+      "presentInStartingDiff": true,
+      "changedSinceTaskStart": false,
+      "bytes": 716,
+      "sha256": "efd4bf3fcfc8ecd3982d37ea2261c78b908af5c879146852dffb2bb21385a714"
+    },
+    {
+      "file": "website/dist/404.html",
+      "gitState": "modified",
+      "presentInStartingDiff": false,
+      "changedSinceTaskStart": true,
+      "bytes": 10261,
+      "sha256": "7c0dba0133309c8ef10556158c6829aa084af3e419a78cb2d3e0086d28fab811"
+    },
+    {
+      "file": "website/dist/assets/style.css",
+      "gitState": "modified",
+      "presentInStartingDiff": false,
+      "changedSinceTaskStart": true,
+      "bytes": 42443,
+      "sha256": "d520a0b9dbb16afec6aee5ad63a0bd2a5069107bf6066091d992777e0fd1a69d"
+    },
+    {
+      "file": "website/dist/index.html",
+      "gitState": "modified",
+      "presentInStartingDiff": false,
+      "changedSinceTaskStart": true,
+      "bytes": 41228,
+      "sha256": "f7e654e3f161d44d324015845e6f76b160c528dd02216bfec1f6801b722833b5"
+    },
+    {
+      "file": "website/dist/photography/index.html",
+      "gitState": "modified",
+      "presentInStartingDiff": false,
+      "changedSinceTaskStart": true,
+      "bytes": 19495,
+      "sha256": "dfd5dc3af981e988a10c4cbba6fe4cc23543cb5b39d27810d56fcdc450a3e752"
+    },
+    {
+      "file": "website/dist/privacy/index.html",
+      "gitState": "modified",
+      "presentInStartingDiff": false,
+      "changedSinceTaskStart": true,
+      "bytes": 11549,
+      "sha256": "68f22ee035d24e85c0133fe7afe1d2c9a15d2a23ae6b121b62af5da3889090a4"
+    },
+    {
+      "file": "website/dist/services/electrical-infrastructure/index.html",
+      "gitState": "modified",
+      "presentInStartingDiff": false,
+      "changedSinceTaskStart": true,
+      "bytes": 18862,
+      "sha256": "0cbb5db68f11649ddd724eab3f1f2ede17d39ba93e373b50c690d791e8a32c67"
+    },
+    {
+      "file": "website/dist/services/high-mast-area-lighting/index.html",
+      "gitState": "modified",
+      "presentInStartingDiff": false,
+      "changedSinceTaskStart": true,
+      "bytes": 18194,
+      "sha256": "04c38e4a6914ddafcb0805296db170d112c49b3d37d701d1b6d213f8c31ce174"
+    },
+    {
+      "file": "website/dist/services/led-solar-lighting/index.html",
+      "gitState": "modified",
+      "presentInStartingDiff": false,
+      "changedSinceTaskStart": true,
+      "bytes": 18176,
+      "sha256": "545b365288934269f0a7bb607bc2bce6ef72d09480555eeddb409b742ff2df17"
+    },
+    {
+      "file": "website/dist/services/lighting-maintenance/index.html",
+      "gitState": "modified",
+      "presentInStartingDiff": false,
+      "changedSinceTaskStart": true,
+      "bytes": 18170,
+      "sha256": "80c387bffac88f26af2cf1964c5b88ecb4caff71ce4de652f803705ce8bf98a5"
+    },
+    {
+      "file": "website/dist/services/street-lighting/index.html",
+      "gitState": "modified",
+      "presentInStartingDiff": true,
+      "changedSinceTaskStart": true,
+      "bytes": 32901,
+      "sha256": "ea364052746249a62725abfa8dc83d89e460d7835419ede0537a02a58d084c62"
+    },
+    {
+      "file": "website/dist/services/underground-cabling/index.html",
+      "gitState": "modified",
+      "presentInStartingDiff": false,
+      "changedSinceTaskStart": true,
+      "bytes": 18666,
+      "sha256": "7e74b55147f39cf57699833ebe022853ccc252b92683160bad86c29d53f9e511"
+    },
+    {
+      "file": "website/reports/chatgpt-discovery-2026-10-26.html",
+      "gitState": "untracked",
+      "presentInStartingDiff": true,
+      "changedSinceTaskStart": false,
+      "bytes": 22899,
+      "sha256": "b260e31e262b433325fcffa7367abce8813518744739e7c769e22ae40e0cc40d"
+    },
+    {
+      "file": "website/reports/chatgpt-discovery-validation-2026-10-26.json",
+      "gitState": "untracked",
+      "presentInStartingDiff": true,
+      "changedSinceTaskStart": false,
+      "bytes": 97343,
+      "sha256": "bb73d967177f26f7cc59954842287e6079483ca594aab03c92324c77c5e48a4f"
+    },
+    {
+      "file": "website/reports/chatgpt-visibility-baseline-2026-10-26.json",
+      "gitState": "untracked",
+      "presentInStartingDiff": true,
+      "changedSinceTaskStart": false,
+      "bytes": 40885,
+      "sha256": "270097b507531eaafbba4e6597f82bdddec9b8a2fa37e3faf482a2e5e87f9519"
+    },
+    {
+      "file": "website/reports/competitive-search-2026-10-26.html",
+      "gitState": "untracked",
+      "presentInStartingDiff": false,
+      "changedSinceTaskStart": true,
+      "bytes": 23899,
+      "sha256": "fb4d63e80914af450a4388db3a66b797a7158c8fdabab365468dddda9c33f73c"
+    },
+    {
+      "file": "website/reports/competitive-search-validation-2026-10-26.json",
+      "gitState": "untracked",
+      "presentInStartingDiff": false,
+      "changedSinceTaskStart": true,
+      "bytes": null,
+      "sha256": null
+    },
+    {
+      "file": "website/scripts/build.mjs",
+      "gitState": "modified",
+      "presentInStartingDiff": false,
+      "changedSinceTaskStart": true,
+      "bytes": 34710,
+      "sha256": "d5d10b308b313e28c3ecaaaec60db7c08b9a69c3a5bb9a38acfbfc1f9eedd182"
+    },
+    {
+      "file": "website/scripts/qa-discovery.mjs",
+      "gitState": "untracked",
+      "presentInStartingDiff": true,
+      "changedSinceTaskStart": false,
+      "bytes": 14828,
+      "sha256": "17a134b352e897ce2a0d0fc8afc2c8d8e9ec4e25aa3dbd873b454ff7c2b9db65"
+    },
+    {
+      "file": "website/scripts/qa-discovery.test.mjs",
+      "gitState": "untracked",
+      "presentInStartingDiff": true,
+      "changedSinceTaskStart": false,
+      "bytes": 2931,
+      "sha256": "0ae22b452f10ffc898013fed0000943258af4a35c084a78bda4422357ca8edf3"
+    },
+    {
+      "file": "website/scripts/qa-works-scroll.mjs",
+      "gitState": "modified",
+      "presentInStartingDiff": true,
+      "changedSinceTaskStart": false,
+      "bytes": 22042,
+      "sha256": "038ecf9bfb2c137c59e6d7a9facca677641b6f041e6f2d51cc02081895554f9b"
+    },
+    {
+      "file": "website/scripts/qa.mjs",
+      "gitState": "modified",
+      "presentInStartingDiff": true,
+      "changedSinceTaskStart": false,
+      "bytes": 13105,
+      "sha256": "31e6f94ea0bcc27df81fe43fff60106d1849a6798f3560209617bb47e8bc82c5"
+    },
+    {
+      "file": "website/street-lighting-content.mjs",
+      "gitState": "modified",
+      "presentInStartingDiff": true,
+      "changedSinceTaskStart": true,
+      "bytes": 13752,
+      "sha256": "c5887f5bd5526c810e608477049cf6865480e1936eb3093e3fe5ee1f63d21d4f"
+    },
+    {
+      "file": "website/templates/street-lighting.mjs",
+      "gitState": "modified",
+      "presentInStartingDiff": false,
+      "changedSinceTaskStart": true,
+      "bytes": 6227,
+      "sha256": "e70fb8ad731d9e601fd34d4e9320c0872c0a10b89f53acb891a04ff6db51e753"
+    }
+  ],
+  "selfHashNote": "This validation file is included in the manifest with null size/hash to avoid circular self-hashing. Raw artifacts are ignored and remain available in this workspace."
+}

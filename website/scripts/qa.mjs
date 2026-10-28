@@ -2,15 +2,17 @@ import { chromium } from '@playwright/test';
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { localQAOrigin, localArtifacts, createLocalContext, localLinkResponse, zohoFormScriptURL } from './qa-local-safety.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const artifacts = path.join(root, 'artifacts');
-const baseURL = new URL(process.env.QA_BASE_URL || 'http://127.0.0.1:4173');
+const artifacts = await localArtifacts(root, process.env.QA_ARTIFACTS_DIR, 'artifacts');
+const baseURL = localQAOrigin(process.env.QA_BASE_URL || 'http://127.0.0.1:4173');
 const executablePath = process.env.QA_CHROME_PATH || 'C:/Program Files/Google/Chrome/Application/chrome.exe';
 const results = [];
 const browserErrors = [];
 const internalLinks = new Set();
 const pageIds = new Map();
+const blockedRequests = [];
 
 function check(condition, name, details = '') {
   results.push({ status: condition ? 'pass' : 'fail', name, ...(details ? { details } : {}) });
@@ -116,43 +118,16 @@ async function inspectInteractions(page) {
     check(await faq.evaluate(element => element.open) !== wasOpen, 'FAQ: summary toggles the answer');
   }
 
-  const form = page.locator('#quote-form');
-  check(await form.count() === 1, 'quote form: available');
-  if (!await form.count()) return;
-  const controls = {
-    name: 'Website QA — test only',
-    email: 'qa@example.com',
-    phone: '+971501234567',
-    message: 'TEST ONLY. Checking quote preparation locally; do not submit or contact this address.',
-  };
-  for (const [name, value] of Object.entries(controls)) {
-    const input = form.locator(`[name="${name}"]`);
-    check(await input.count() === 1, `quote form: ${name} field is available`);
-    if (await input.count()) await input.fill(value);
+  const script = page.locator('#contact .zoho-form-embed script#formScript5653678000076526082');
+  check(await script.count() === 1 && await page.locator('#formScript5653678000076526082').count() === 1, 'Zoho form: embed installed once in contact section');
+  if (await script.count() === 1) {
+    check(await script.getAttribute('src') === zohoFormScriptURL, 'Zoho form: exact supplied embed URL');
+    check(await script.evaluate(element => !element.hasAttribute('async') && !element.hasAttribute('defer')), 'Zoho form: embed retains synchronous loading');
   }
-  const service = form.locator('[name="service"]');
-  check(await service.count() === 1, 'quote form: service field is available');
-  if (await service.count()) {
-    const tag = await service.evaluate(element => element.tagName);
-    if (tag === 'SELECT') {
-      const option = await service.locator('option').evaluateAll(options => options.find(option => option.value && !option.disabled)?.value);
-      if (option) await service.selectOption(option);
-    } else {
-      await service.fill('Road and infrastructure works');
-    }
-  }
-  const consent = form.locator('input[type="checkbox"]');
-  check(await consent.count() > 0, 'quote form: consent control is available');
-  for (const input of await consent.all()) await input.check();
-  check(await form.evaluate(element => element.checkValidity()), 'quote form: completed brief passes browser validation');
-  await form.locator('button[type="submit"], input[type="submit"]').first().click();
-  const result = page.locator('#quote-result');
-  await result.waitFor({ state: 'visible', timeout: 5_000 });
-  const text = (await result.innerText()).trim();
-  check(text.length > 20, 'quote form: prepares a visible result', text);
-  const resultContent = await result.evaluate(element => `${element.textContent} ${[...element.querySelectorAll('a[href]')].map(anchor => decodeURIComponent(anchor.href)).join(' ')} ${[...element.querySelectorAll('textarea, input')].map(input => input.value).join(' ')}`);
-  check(/qa@example\.com|Website QA|TEST ONLY/i.test(resultContent), 'quote form: prepared brief includes entered details');
-  await page.screenshot({ path: path.join(artifacts, 'quote-prepared-mobile.png'), fullPage: true, animations: 'disabled' });
+  check(await page.locator('#quote-form, #quote-result').count() === 0, 'Zoho form: legacy enquiry preparation removed');
+  check(await page.locator('#contact .contact-form a[href="mailto:info@voltronix.ae"]').first().isVisible(), 'Zoho form: direct email fallback visible');
+  check(await page.locator('#contact .contact-form a[href="/privacy/"]').first().isVisible(), 'Zoho form: privacy notice linked');
+  await page.screenshot({ path: path.join(artifacts, 'zoho-embed-fallback-mobile.png'), fullPage: true, animations: 'disabled' });
 }
 
 await mkdir(artifacts, { recursive: true });
@@ -165,11 +140,11 @@ try {
     check(false, 'accessibility: @axe-core/playwright is installed', 'Install the development dependency to run required accessibility checks.');
   }
   browser = await chromium.launch({ executablePath, headless: true });
-  const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, reducedMotion: 'reduce' });
+  const context = await createLocalContext(browser, baseURL, { viewport: { width: 1440, height: 1000 }, reducedMotion: 'reduce' }, blockedRequests);
   const page = await context.newPage();
   page.on('pageerror', error => browserErrors.push(error.message));
   page.on('console', message => { if (message.type() === 'error') browserErrors.push(message.text()); });
-  // Preparing a brief is authorized for this test; invoking communication applications is not.
+  // Inspect the embed and fallback links without submitting or opening contact applications.
   await context.addInitScript(() => {
     window.open = () => null;
     document.addEventListener('click', event => {
@@ -180,9 +155,10 @@ try {
   const home = await inspectPage(page, '/', 'desktop', AxeBuilder);
   const servicePaths = [...new Set(home.hrefs.map(href => localURL(href)?.pathname).filter(pathname => pathname && /^\/services\/[^/]+\/?$/.test(pathname)))].sort();
   check(servicePaths.length === 6, 'navigation: six distinct service detail pages', JSON.stringify(servicePaths));
+  const secondaryPaths = [...servicePaths, '/privacy/', '/photography/'];
   const titles = [home.title];
   const descriptions = [home.description];
-  for (const pathname of servicePaths) {
+  for (const pathname of secondaryPaths) {
     const inspection = await inspectPage(page, pathname, 'desktop', AxeBuilder);
     titles.push(inspection.title);
     descriptions.push(inspection.description);
@@ -191,7 +167,7 @@ try {
   check(new Set(descriptions).size === descriptions.length, 'SEO: every page has a unique meta description');
 
   await page.setViewportSize({ width: 390, height: 844 });
-  for (const pathname of ['/', ...servicePaths]) await inspectPage(page, pathname, 'mobile', AxeBuilder);
+  for (const pathname of ['/', ...secondaryPaths]) await inspectPage(page, pathname, 'mobile', AxeBuilder);
   await inspectInteractions(page);
 
   const checkedURLs = new Map();
@@ -201,20 +177,22 @@ try {
     const fragment = url.hash;
     url.hash = '';
     if (!checkedURLs.has(url.href)) {
-      const response = await context.request.get(url.href);
+      const response = await localLinkResponse(context, url.href, baseURL);
       checkedURLs.set(url.href, response.status());
       check(response.status() === 200, `internal link: ${url.pathname}${url.search} returns 200`, String(response.status()));
+      await response.dispose();
     }
     if (fragment && fragment !== '#' && pageIds.has(url.pathname)) {
       check(pageIds.get(url.pathname).has(decodeURIComponent(fragment.slice(1))), `internal anchor: ${url.pathname}${fragment} exists`);
     }
   }
   check(browserErrors.length === 0, 'browser: no JavaScript or console errors', [...new Set(browserErrors)].join('\n'));
+  check(blockedRequests.length === 0, 'browser: no external requests, unexpected redirects or WebSockets', JSON.stringify(blockedRequests));
 } catch (error) {
   check(false, 'QA runner completed', error.stack || String(error));
 } finally {
   if (browser) await browser.close();
-  const report = { baseURL: baseURL.href, checkedAt: new Date().toISOString(), passed: results.filter(result => result.status === 'pass').length, failed: results.filter(result => result.status === 'fail').length, results };
+  const report = { baseURL: baseURL.href, checkedAt: new Date().toISOString(), passed: results.filter(result => result.status === 'pass').length, failed: results.filter(result => result.status === 'fail').length, blockedRequests, results, limits: ['Zoho embed is stubbed locally; checks cover script placement and fallback links, not live CRM rendering or delivery. No enquiry is submitted.'] };
   await writeFile(path.join(artifacts, 'qa-report.json'), `${JSON.stringify(report, null, 2)}\n`);
   console.log(`\nQA complete: ${report.passed} passed, ${report.failed} failed. Report and screenshots: ${artifacts}`);
   process.exitCode = report.failed ? 1 : 0;

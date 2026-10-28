@@ -1,0 +1,1535 @@
+{
+  "recordedAt": "2026-10-26T08:02:19.597Z",
+  "status": {
+    "localCandidate": "PASS",
+    "localFailures": 0,
+    "manualReview": "READY",
+    "productionDeployment": "BLOCKED",
+    "currentProduction": "NOT VERIFIED"
+  },
+  "scope": "Strictly local only; no external/production requests or changes",
+  "previousProductionEvidence": {
+    "report": "website/reports/redirect-readiness-validation-2026-10-26.json",
+    "recordedAt": "2026-10-26T07:27:51.058Z",
+    "lastObservedRedirectFailures": 6,
+    "refreshedThisTask": false
+  },
+  "counts": {
+    "static": {
+      "pass": 1310,
+      "fail": 0,
+      "assets": 72
+    },
+    "unit": {
+      "pass": 21,
+      "fail": 0,
+      "cases": 21,
+      "discovery": 6,
+      "staticReadiness": 9,
+      "localSafety": 6
+    },
+    "http": {
+      "pass": 95,
+      "fail": 0
+    },
+    "browser": {
+      "pass": 254,
+      "fail": 0,
+      "pages": 9,
+      "viewports": [
+        "1440x1000",
+        "390x844"
+      ]
+    },
+    "scroll": {
+      "pass": 95,
+      "fail": 0
+    },
+    "interaction": {
+      "pass": 329,
+      "fail": 0,
+      "widths": [
+        1440,
+        390,
+        320
+      ],
+      "javaScript": [
+        true,
+        false
+      ]
+    },
+    "nginx": {
+      "pass": 2414,
+      "fail": 0,
+      "responses": 1429,
+      "engine": "Actual Nginx 1.24.0 on Windows; HTTP and TLS loopback sockets"
+    },
+    "syntax": {
+      "pass": 22,
+      "fail": 0
+    }
+  },
+  "build": {
+    "status": "PASS",
+    "indexablePages": 9,
+    "custom404": true
+  },
+  "syntaxFiles": [
+    "website\\rta-works.mjs",
+    "website\\scripts\\build.mjs",
+    "website\\scripts\\check.mjs",
+    "website\\scripts\\qa-discovery.mjs",
+    "website\\scripts\\qa-discovery.test.mjs",
+    "website\\scripts\\qa-http.mjs",
+    "website\\scripts\\qa-local-safety.mjs",
+    "website\\scripts\\qa-local-safety.test.mjs",
+    "website\\scripts\\qa-local.mjs",
+    "website\\scripts\\qa-primary.mjs",
+    "website\\scripts\\qa-redirects.mjs",
+    "website\\scripts\\qa-works-scroll.mjs",
+    "website\\scripts\\qa.mjs",
+    "website\\scripts\\serve.mjs",
+    "website\\scripts\\static-readiness.mjs",
+    "website\\scripts\\static-readiness.test.mjs",
+    "website\\services.mjs",
+    "website\\site.config.mjs",
+    "website\\street-lighting-content.mjs",
+    "website\\templates\\street-lighting.mjs",
+    "website\\dist\\assets\\app.js",
+    "website\\dist\\assets\\works-scroll.js"
+  ],
+  "unconfigured": {
+    "lint": "NOT CONFIGURED: no lint command or configuration",
+    "types": "NOT CONFIGURED: plain JavaScript project, no TypeScript configuration"
+  },
+  "finalSuite": {
+    "artifact": "artifacts/local-completion-2026-10-26/final-suite/results.json",
+    "sha256": "c1b0696be9bb73e036c9ca4f8c1fcd143a49da759a020beae69f88b86f4f3d34",
+    "startedAt": "2026-10-26T07:56:48.470Z",
+    "status": "PASS",
+    "steps": [
+      {
+        "name": "build",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "website/scripts/build.mjs"
+        ],
+        "startedAt": "2026-10-26T07:56:48.470Z",
+        "log": "build.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:56:48.659Z",
+        "status": "PASS"
+      },
+      {
+        "name": "static",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "website/scripts/check.mjs"
+        ],
+        "startedAt": "2026-10-26T07:56:48.662Z",
+        "log": "static.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:56:48.953Z",
+        "status": "PASS"
+      },
+      {
+        "name": "syntax-1",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "--check",
+          "website\\rta-works.mjs"
+        ],
+        "startedAt": "2026-10-26T07:56:48.957Z",
+        "log": "syntax-1.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:56:49.058Z",
+        "status": "PASS"
+      },
+      {
+        "name": "syntax-2",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "--check",
+          "website\\scripts\\build.mjs"
+        ],
+        "startedAt": "2026-10-26T07:56:49.059Z",
+        "log": "syntax-2.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:56:49.172Z",
+        "status": "PASS"
+      },
+      {
+        "name": "syntax-3",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "--check",
+          "website\\scripts\\check.mjs"
+        ],
+        "startedAt": "2026-10-26T07:56:49.173Z",
+        "log": "syntax-3.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:56:49.282Z",
+        "status": "PASS"
+      },
+      {
+        "name": "syntax-4",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "--check",
+          "website\\scripts\\qa-discovery.mjs"
+        ],
+        "startedAt": "2026-10-26T07:56:49.284Z",
+        "log": "syntax-4.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:56:49.387Z",
+        "status": "PASS"
+      },
+      {
+        "name": "syntax-5",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "--check",
+          "website\\scripts\\qa-discovery.test.mjs"
+        ],
+        "startedAt": "2026-10-26T07:56:49.391Z",
+        "log": "syntax-5.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:56:49.483Z",
+        "status": "PASS"
+      },
+      {
+        "name": "syntax-6",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "--check",
+          "website\\scripts\\qa-http.mjs"
+        ],
+        "startedAt": "2026-10-26T07:56:49.484Z",
+        "log": "syntax-6.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:56:49.584Z",
+        "status": "PASS"
+      },
+      {
+        "name": "syntax-7",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "--check",
+          "website\\scripts\\qa-local-safety.mjs"
+        ],
+        "startedAt": "2026-10-26T07:56:49.586Z",
+        "log": "syntax-7.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:56:49.693Z",
+        "status": "PASS"
+      },
+      {
+        "name": "syntax-8",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "--check",
+          "website\\scripts\\qa-local-safety.test.mjs"
+        ],
+        "startedAt": "2026-10-26T07:56:49.694Z",
+        "log": "syntax-8.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:56:49.800Z",
+        "status": "PASS"
+      },
+      {
+        "name": "syntax-9",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "--check",
+          "website\\scripts\\qa-local.mjs"
+        ],
+        "startedAt": "2026-10-26T07:56:49.802Z",
+        "log": "syntax-9.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:56:49.914Z",
+        "status": "PASS"
+      },
+      {
+        "name": "syntax-10",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "--check",
+          "website\\scripts\\qa-primary.mjs"
+        ],
+        "startedAt": "2026-10-26T07:56:49.916Z",
+        "log": "syntax-10.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:56:50.017Z",
+        "status": "PASS"
+      },
+      {
+        "name": "syntax-11",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "--check",
+          "website\\scripts\\qa-redirects.mjs"
+        ],
+        "startedAt": "2026-10-26T07:56:50.019Z",
+        "log": "syntax-11.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:56:50.117Z",
+        "status": "PASS"
+      },
+      {
+        "name": "syntax-12",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "--check",
+          "website\\scripts\\qa-works-scroll.mjs"
+        ],
+        "startedAt": "2026-10-26T07:56:50.118Z",
+        "log": "syntax-12.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:56:50.216Z",
+        "status": "PASS"
+      },
+      {
+        "name": "syntax-13",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "--check",
+          "website\\scripts\\qa.mjs"
+        ],
+        "startedAt": "2026-10-26T07:56:50.218Z",
+        "log": "syntax-13.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:56:50.323Z",
+        "status": "PASS"
+      },
+      {
+        "name": "syntax-14",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "--check",
+          "website\\scripts\\serve.mjs"
+        ],
+        "startedAt": "2026-10-26T07:56:50.324Z",
+        "log": "syntax-14.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:56:50.438Z",
+        "status": "PASS"
+      },
+      {
+        "name": "syntax-15",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "--check",
+          "website\\scripts\\static-readiness.mjs"
+        ],
+        "startedAt": "2026-10-26T07:56:50.440Z",
+        "log": "syntax-15.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:56:50.545Z",
+        "status": "PASS"
+      },
+      {
+        "name": "syntax-16",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "--check",
+          "website\\scripts\\static-readiness.test.mjs"
+        ],
+        "startedAt": "2026-10-26T07:56:50.546Z",
+        "log": "syntax-16.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:56:50.650Z",
+        "status": "PASS"
+      },
+      {
+        "name": "syntax-17",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "--check",
+          "website\\services.mjs"
+        ],
+        "startedAt": "2026-10-26T07:56:50.651Z",
+        "log": "syntax-17.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:56:50.753Z",
+        "status": "PASS"
+      },
+      {
+        "name": "syntax-18",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "--check",
+          "website\\site.config.mjs"
+        ],
+        "startedAt": "2026-10-26T07:56:50.755Z",
+        "log": "syntax-18.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:56:50.886Z",
+        "status": "PASS"
+      },
+      {
+        "name": "syntax-19",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "--check",
+          "website\\street-lighting-content.mjs"
+        ],
+        "startedAt": "2026-10-26T07:56:50.887Z",
+        "log": "syntax-19.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:56:50.984Z",
+        "status": "PASS"
+      },
+      {
+        "name": "syntax-20",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "--check",
+          "website\\templates\\street-lighting.mjs"
+        ],
+        "startedAt": "2026-10-26T07:56:50.986Z",
+        "log": "syntax-20.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:56:51.079Z",
+        "status": "PASS"
+      },
+      {
+        "name": "syntax-21",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "--check",
+          "website\\dist\\assets\\app.js"
+        ],
+        "startedAt": "2026-10-26T07:56:51.081Z",
+        "log": "syntax-21.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:56:51.195Z",
+        "status": "PASS"
+      },
+      {
+        "name": "syntax-22",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "--check",
+          "website\\dist\\assets\\works-scroll.js"
+        ],
+        "startedAt": "2026-10-26T07:56:51.196Z",
+        "log": "syntax-22.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:56:51.303Z",
+        "status": "PASS"
+      },
+      {
+        "name": "unit",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "--test",
+          "website/scripts/qa-discovery.test.mjs",
+          "website/scripts/qa-local-safety.test.mjs",
+          "website/scripts/static-readiness.test.mjs"
+        ],
+        "startedAt": "2026-10-26T07:56:51.305Z",
+        "log": "unit.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:56:53.519Z",
+        "status": "PASS"
+      },
+      {
+        "name": "http",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "website/scripts/qa-http.mjs"
+        ],
+        "startedAt": "2026-10-26T07:56:53.521Z",
+        "log": "http.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:56:54.035Z",
+        "status": "PASS"
+      },
+      {
+        "name": "browser",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "website/scripts/qa.mjs"
+        ],
+        "startedAt": "2026-10-26T07:56:54.210Z",
+        "log": "browser.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:57:36.211Z",
+        "status": "PASS"
+      },
+      {
+        "name": "scroll",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "website/scripts/qa-works-scroll.mjs"
+        ],
+        "startedAt": "2026-10-26T07:57:36.213Z",
+        "log": "scroll.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:58:04.566Z",
+        "status": "PASS"
+      },
+      {
+        "name": "interaction",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "website/scripts/qa-primary.mjs"
+        ],
+        "startedAt": "2026-10-26T07:58:04.568Z",
+        "log": "interaction.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:58:35.077Z",
+        "status": "PASS"
+      },
+      {
+        "name": "nginx",
+        "command": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "website/scripts/qa-redirects.mjs",
+          "--nginx",
+          "G:\\rtacontroctore.ae\\artifacts\\redirect-readiness-2026-10-26\\tools\\nginx-1.24.0\\nginx.exe",
+          "--openssl",
+          "C:\\Program Files\\Git\\usr\\bin\\openssl.exe",
+          "--output",
+          "G:\\rtacontroctore.ae\\artifacts\\local-completion-2026-10-26\\final-suite\\nginx"
+        ],
+        "startedAt": "2026-10-26T07:58:35.079Z",
+        "log": "nginx.log",
+        "signal": null,
+        "exitCode": 0,
+        "finishedAt": "2026-10-26T07:59:06.933Z",
+        "status": "PASS"
+      }
+    ],
+    "scope": "Local build, syntax, unit, static, HTTP, browser, scroll, interaction and real Nginx tests. No public diagnostic or production connection.",
+    "unavailableChecks": {
+      "lint": "NOT CONFIGURED: no lint command or configuration",
+      "types": "NOT CONFIGURED: plain JavaScript project, no TypeScript configuration"
+    },
+    "syntaxModules": [
+      "website\\rta-works.mjs",
+      "website\\scripts\\build.mjs",
+      "website\\scripts\\check.mjs",
+      "website\\scripts\\qa-discovery.mjs",
+      "website\\scripts\\qa-discovery.test.mjs",
+      "website\\scripts\\qa-http.mjs",
+      "website\\scripts\\qa-local-safety.mjs",
+      "website\\scripts\\qa-local-safety.test.mjs",
+      "website\\scripts\\qa-local.mjs",
+      "website\\scripts\\qa-primary.mjs",
+      "website\\scripts\\qa-redirects.mjs",
+      "website\\scripts\\qa-works-scroll.mjs",
+      "website\\scripts\\qa.mjs",
+      "website\\scripts\\serve.mjs",
+      "website\\scripts\\static-readiness.mjs",
+      "website\\scripts\\static-readiness.test.mjs",
+      "website\\services.mjs",
+      "website\\site.config.mjs",
+      "website\\street-lighting-content.mjs",
+      "website\\templates\\street-lighting.mjs",
+      "website\\dist\\assets\\app.js",
+      "website\\dist\\assets\\works-scroll.js"
+    ],
+    "previewOrigin": "http://127.0.0.1:51701",
+    "nginxCounts": {
+      "PASS": 2414,
+      "FAIL": 0
+    },
+    "previewStopped": true,
+    "finishedAt": "2026-10-26T07:59:06.969Z"
+  },
+  "networkGuards": {
+    "browserUnexpectedBlocks": [],
+    "scrollUnexpectedBlocks": [],
+    "interactionUnexpectedBlocks": [],
+    "actualTwoOriginFixture": "PASS; second loopback server receives zero direct or redirected requests",
+    "publicRequests": 0
+  },
+  "browserErrors": {
+    "browser": [],
+    "scroll": [],
+    "interaction": []
+  },
+  "nginx": {
+    "counts": {
+      "PASS": 2414,
+      "FAIL": 0
+    },
+    "responses": 1429,
+    "version": "nginx version: nginx/1.24.0\r\nbuilt by cl 16.00.30319.01 for 80x86\r\nbuilt with OpenSSL 1.1.1t  7 Feb 2023\r\nTLS SNI support enabled\r\nconfigure arguments: --with-cc=cl --builddir=objs.msvc8 --with-debug --prefix= --conf-path=conf/nginx.conf --pid-path=logs/nginx.pid --http-log-path=logs/access.log --error-log-path=logs/error.log --sbin-path=nginx.exe --http-client-body-temp-path=temp/client_body_temp --http-proxy-temp-path=temp/proxy_temp --http-fastcgi-temp-path=temp/fastcgi_temp --http-scgi-temp-path=temp/scgi_temp --http-uwsgi-temp-path=temp/uwsgi_temp --with-cc-opt=-DFD_SETSIZE=1024 --with-pcre=objs.msvc8/lib/pcre2-10.39 --with-zlib=objs.msvc8/lib/zlib-1.2.13 --with-http_v2_module --with-http_realip_module --with-http_addition_module --with-http_sub_module --with-http_dav_module --with-http_stub_status_module --with-http_flv_module --with-http_mp4_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_auth_request_module --with-http_random_index_module --with-http_secure_link_module --with-http_slice_module --with-mail --with-stream --with-openssl=objs.msvc8/lib/openssl-1.1.1t --with-openssl-opt='no-asm no-tests -D_WIN32_WINNT=0x0501' --with-http_ssl_module --with-mail_ssl_module --with-stream_ssl_module",
+    "snippets": [
+      {
+        "file": "website/hosting/nginx/rtacontractor-http.conf",
+        "sha256": "8b2d73759f751792d7000899b6d3f80b8b209e4c12b9f9854d5eec97cf835b65",
+        "exactCopy": true
+      },
+      {
+        "file": "website/hosting/nginx/rtacontractor-server.conf",
+        "sha256": "45967791ccf6fbea545eca4c238cdbd21b6d392b22bc6f9df2742a0b1976e8e1",
+        "exactCopy": true
+      },
+      {
+        "file": "website/hosting/nginx/rtacontractor-trusted-proxies.conf",
+        "sha256": "33d06f9095d66a22151f0965665da99ceea989c3367f3c1a8220c6b9831f9e42",
+        "exactCopy": false,
+        "testOnlyAppend": "127.0.0.1 1;",
+        "executedSha256": "999d4197002d0744f9e3cee64c8152970c648fe48efebcbacd922914a50c8504"
+      }
+    ],
+    "originalSix": [
+      {
+        "request": "/index.html",
+        "historicalProduction": "200; no redirect",
+        "required": "https://rtacontractor.ae/",
+        "actualLocal": "308 to required location, terminal 200 after one hop, GET and HEAD",
+        "status": "PASS"
+      },
+      {
+        "request": "/services/street-lighting",
+        "historicalProduction": "301 to HTTP host with port 3100",
+        "required": "https://rtacontractor.ae/services/street-lighting/",
+        "actualLocal": "308 to required location, terminal 200 after one hop, GET and HEAD",
+        "status": "PASS"
+      },
+      {
+        "request": "/services/street-lighting?audit=discovery",
+        "historicalProduction": "301 to HTTP host with port 3100; query retained",
+        "required": "https://rtacontractor.ae/services/street-lighting/?audit=discovery",
+        "actualLocal": "308 to required location, terminal 200 after one hop, GET and HEAD",
+        "status": "PASS"
+      },
+      {
+        "request": "/services/street-lighting/index.html",
+        "historicalProduction": "200; no redirect",
+        "required": "https://rtacontractor.ae/services/street-lighting/",
+        "actualLocal": "308 to required location, terminal 200 after one hop, GET and HEAD",
+        "status": "PASS"
+      },
+      {
+        "request": "/services/underground-cabling",
+        "historicalProduction": "301 to HTTP host with port 3100",
+        "required": "https://rtacontractor.ae/services/underground-cabling/",
+        "actualLocal": "308 to required location, terminal 200 after one hop, GET and HEAD",
+        "status": "PASS"
+      },
+      {
+        "request": "https://www.rtacontractor.ae/",
+        "historicalProduction": "200; no redirect",
+        "required": "https://rtacontractor.ae/",
+        "actualLocal": "308 to required location, terminal 200 after one hop, GET and HEAD",
+        "status": "PASS"
+      }
+    ],
+    "artifact": "artifacts/local-completion-2026-10-26/final-suite/nginx/results.json",
+    "sha256": "347c420900795471fc540361067efff2715212c181d764738c7f328bb079016e"
+  },
+  "preservation": {
+    "startingHead": "f8ddd327f072e4e577140196d08c1fdc8492330a",
+    "currentHead": "f8ddd327f072e4e577140196d08c1fdc8492330a",
+    "taskStartingPendingFiles": 32,
+    "unchangedPendingFiles": 27,
+    "pendingFiles": [
+      {
+        "file": "website/hosting/nginx/rtacontractor-http.conf",
+        "bytes": 1867,
+        "sha256": "8b2d73759f751792d7000899b6d3f80b8b209e4c12b9f9854d5eec97cf835b65",
+        "currentSha256": "8b2d73759f751792d7000899b6d3f80b8b209e4c12b9f9854d5eec97cf835b65",
+        "unchanged": true,
+        "intentionallyChanged": false
+      },
+      {
+        "file": "website/hosting/nginx/rtacontractor-server.conf",
+        "bytes": 708,
+        "sha256": "45967791ccf6fbea545eca4c238cdbd21b6d392b22bc6f9df2742a0b1976e8e1",
+        "currentSha256": "45967791ccf6fbea545eca4c238cdbd21b6d392b22bc6f9df2742a0b1976e8e1",
+        "unchanged": true,
+        "intentionallyChanged": false
+      },
+      {
+        "file": "website/hosting/nginx/rtacontractor-trusted-proxies.conf",
+        "bytes": 508,
+        "sha256": "33d06f9095d66a22151f0965665da99ceea989c3367f3c1a8220c6b9831f9e42",
+        "currentSha256": "33d06f9095d66a22151f0965665da99ceea989c3367f3c1a8220c6b9831f9e42",
+        "unchanged": true,
+        "intentionallyChanged": false
+      },
+      {
+        "file": "website/reports/chatgpt-discovery-2026-10-26.html",
+        "bytes": 22899,
+        "sha256": "b260e31e262b433325fcffa7367abce8813518744739e7c769e22ae40e0cc40d",
+        "currentSha256": "b260e31e262b433325fcffa7367abce8813518744739e7c769e22ae40e0cc40d",
+        "unchanged": true,
+        "intentionallyChanged": false
+      },
+      {
+        "file": "website/reports/chatgpt-discovery-validation-2026-10-26.json",
+        "bytes": 97343,
+        "sha256": "bb73d967177f26f7cc59954842287e6079483ca594aab03c92324c77c5e48a4f",
+        "currentSha256": "bb73d967177f26f7cc59954842287e6079483ca594aab03c92324c77c5e48a4f",
+        "unchanged": true,
+        "intentionallyChanged": false
+      },
+      {
+        "file": "website/reports/chatgpt-visibility-baseline-2026-10-26.json",
+        "bytes": 40885,
+        "sha256": "270097b507531eaafbba4e6597f82bdddec9b8a2fa37e3faf482a2e5e87f9519",
+        "currentSha256": "270097b507531eaafbba4e6597f82bdddec9b8a2fa37e3faf482a2e5e87f9519",
+        "unchanged": true,
+        "intentionallyChanged": false
+      },
+      {
+        "file": "website/reports/competitive-search-2026-10-26.html",
+        "bytes": 23899,
+        "sha256": "fb4d63e80914af450a4388db3a66b797a7158c8fdabab365468dddda9c33f73c",
+        "currentSha256": "fb4d63e80914af450a4388db3a66b797a7158c8fdabab365468dddda9c33f73c",
+        "unchanged": true,
+        "intentionallyChanged": false
+      },
+      {
+        "file": "website/reports/competitive-search-validation-2026-10-26.json",
+        "bytes": 61221,
+        "sha256": "482d22cb00acf2e01049d2b064020f7485a871d81880086be30249e63d5323ae",
+        "currentSha256": "482d22cb00acf2e01049d2b064020f7485a871d81880086be30249e63d5323ae",
+        "unchanged": true,
+        "intentionallyChanged": false
+      },
+      {
+        "file": "website/reports/redirect-readiness-2026-10-26.html",
+        "bytes": 20166,
+        "sha256": "9acc14ecc293f4510ece61a99a6fd7b36a4f5c958521129ec0a0c8bf1522656d",
+        "currentSha256": "9acc14ecc293f4510ece61a99a6fd7b36a4f5c958521129ec0a0c8bf1522656d",
+        "unchanged": true,
+        "intentionallyChanged": false
+      },
+      {
+        "file": "website/reports/redirect-readiness-validation-2026-10-26.json",
+        "bytes": 549815,
+        "sha256": "5fe147ec969eaf08a8cb10f400a7f5d27e4c5c1e6b5ec7c730ebcf72e89babc9",
+        "currentSha256": "5fe147ec969eaf08a8cb10f400a7f5d27e4c5c1e6b5ec7c730ebcf72e89babc9",
+        "unchanged": true,
+        "intentionallyChanged": false
+      },
+      {
+        "file": "website/scripts/qa-discovery.mjs",
+        "bytes": 14828,
+        "sha256": "17a134b352e897ce2a0d0fc8afc2c8d8e9ec4e25aa3dbd873b454ff7c2b9db65",
+        "currentSha256": "17a134b352e897ce2a0d0fc8afc2c8d8e9ec4e25aa3dbd873b454ff7c2b9db65",
+        "unchanged": true,
+        "intentionallyChanged": false
+      },
+      {
+        "file": "website/scripts/qa-discovery.test.mjs",
+        "bytes": 2931,
+        "sha256": "0ae22b452f10ffc898013fed0000943258af4a35c084a78bda4422357ca8edf3",
+        "currentSha256": "0ae22b452f10ffc898013fed0000943258af4a35c084a78bda4422357ca8edf3",
+        "unchanged": true,
+        "intentionallyChanged": false
+      },
+      {
+        "file": "website/scripts/qa-redirects.mjs",
+        "bytes": 21199,
+        "sha256": "78e59431c9d66c8d35708b727970c72cf56dba883a22d8739221a19877a05422",
+        "currentSha256": "9d9904df0d02130149f14b33a62d780dd3462dabb78483992d81b53ff3635ac3",
+        "unchanged": false,
+        "intentionallyChanged": true
+      },
+      {
+        "file": "README.md",
+        "bytes": 11697,
+        "sha256": "44bf0ad33226b68ce48f303ed5d19d004d9c6baeae870523ad5e699334c0bfef",
+        "currentSha256": "460082cc13fcfd239b815e100e671718846da8c6602d656d5b4a2dc6a3fdd22f",
+        "unchanged": false,
+        "intentionallyChanged": true
+      },
+      {
+        "file": "package.json",
+        "bytes": 779,
+        "sha256": "6df8af46dbf23dcc9935c50664c7eda1e8cdca853418899363f49855cefc98c3",
+        "currentSha256": "44e9d1cf76953c644acd52ff73d2e5a44d06919746b1c56889314f704a014f27",
+        "unchanged": false,
+        "intentionallyChanged": true
+      },
+      {
+        "file": "website/dist/404.html",
+        "bytes": 10261,
+        "sha256": "7c0dba0133309c8ef10556158c6829aa084af3e419a78cb2d3e0086d28fab811",
+        "currentSha256": "7c0dba0133309c8ef10556158c6829aa084af3e419a78cb2d3e0086d28fab811",
+        "unchanged": true,
+        "intentionallyChanged": false
+      },
+      {
+        "file": "website/dist/assets/style.css",
+        "bytes": 42443,
+        "sha256": "d520a0b9dbb16afec6aee5ad63a0bd2a5069107bf6066091d992777e0fd1a69d",
+        "currentSha256": "d520a0b9dbb16afec6aee5ad63a0bd2a5069107bf6066091d992777e0fd1a69d",
+        "unchanged": true,
+        "intentionallyChanged": false
+      },
+      {
+        "file": "website/dist/index.html",
+        "bytes": 41228,
+        "sha256": "f7e654e3f161d44d324015845e6f76b160c528dd02216bfec1f6801b722833b5",
+        "currentSha256": "f7e654e3f161d44d324015845e6f76b160c528dd02216bfec1f6801b722833b5",
+        "unchanged": true,
+        "intentionallyChanged": false
+      },
+      {
+        "file": "website/dist/photography/index.html",
+        "bytes": 19495,
+        "sha256": "dfd5dc3af981e988a10c4cbba6fe4cc23543cb5b39d27810d56fcdc450a3e752",
+        "currentSha256": "dfd5dc3af981e988a10c4cbba6fe4cc23543cb5b39d27810d56fcdc450a3e752",
+        "unchanged": true,
+        "intentionallyChanged": false
+      },
+      {
+        "file": "website/dist/privacy/index.html",
+        "bytes": 11549,
+        "sha256": "68f22ee035d24e85c0133fe7afe1d2c9a15d2a23ae6b121b62af5da3889090a4",
+        "currentSha256": "68f22ee035d24e85c0133fe7afe1d2c9a15d2a23ae6b121b62af5da3889090a4",
+        "unchanged": true,
+        "intentionallyChanged": false
+      },
+      {
+        "file": "website/dist/services/electrical-infrastructure/index.html",
+        "bytes": 18862,
+        "sha256": "0cbb5db68f11649ddd724eab3f1f2ede17d39ba93e373b50c690d791e8a32c67",
+        "currentSha256": "0cbb5db68f11649ddd724eab3f1f2ede17d39ba93e373b50c690d791e8a32c67",
+        "unchanged": true,
+        "intentionallyChanged": false
+      },
+      {
+        "file": "website/dist/services/high-mast-area-lighting/index.html",
+        "bytes": 18194,
+        "sha256": "04c38e4a6914ddafcb0805296db170d112c49b3d37d701d1b6d213f8c31ce174",
+        "currentSha256": "04c38e4a6914ddafcb0805296db170d112c49b3d37d701d1b6d213f8c31ce174",
+        "unchanged": true,
+        "intentionallyChanged": false
+      },
+      {
+        "file": "website/dist/services/led-solar-lighting/index.html",
+        "bytes": 18176,
+        "sha256": "545b365288934269f0a7bb607bc2bce6ef72d09480555eeddb409b742ff2df17",
+        "currentSha256": "545b365288934269f0a7bb607bc2bce6ef72d09480555eeddb409b742ff2df17",
+        "unchanged": true,
+        "intentionallyChanged": false
+      },
+      {
+        "file": "website/dist/services/lighting-maintenance/index.html",
+        "bytes": 18170,
+        "sha256": "80c387bffac88f26af2cf1964c5b88ecb4caff71ce4de652f803705ce8bf98a5",
+        "currentSha256": "80c387bffac88f26af2cf1964c5b88ecb4caff71ce4de652f803705ce8bf98a5",
+        "unchanged": true,
+        "intentionallyChanged": false
+      },
+      {
+        "file": "website/dist/services/street-lighting/index.html",
+        "bytes": 32901,
+        "sha256": "ea364052746249a62725abfa8dc83d89e460d7835419ede0537a02a58d084c62",
+        "currentSha256": "ea364052746249a62725abfa8dc83d89e460d7835419ede0537a02a58d084c62",
+        "unchanged": true,
+        "intentionallyChanged": false
+      },
+      {
+        "file": "website/dist/services/underground-cabling/index.html",
+        "bytes": 18666,
+        "sha256": "7e74b55147f39cf57699833ebe022853ccc252b92683160bad86c29d53f9e511",
+        "currentSha256": "7e74b55147f39cf57699833ebe022853ccc252b92683160bad86c29d53f9e511",
+        "unchanged": true,
+        "intentionallyChanged": false
+      },
+      {
+        "file": "website/scripts/build.mjs",
+        "bytes": 34710,
+        "sha256": "d5d10b308b313e28c3ecaaaec60db7c08b9a69c3a5bb9a38acfbfc1f9eedd182",
+        "currentSha256": "d5d10b308b313e28c3ecaaaec60db7c08b9a69c3a5bb9a38acfbfc1f9eedd182",
+        "unchanged": true,
+        "intentionallyChanged": false
+      },
+      {
+        "file": "website/scripts/qa-http.mjs",
+        "bytes": 9576,
+        "sha256": "6d6400e5fe61d7f7baf3d604690c10ca61228f4398239c9267ee7018292008e0",
+        "currentSha256": "6d6400e5fe61d7f7baf3d604690c10ca61228f4398239c9267ee7018292008e0",
+        "unchanged": true,
+        "intentionallyChanged": false
+      },
+      {
+        "file": "website/scripts/qa-works-scroll.mjs",
+        "bytes": 22042,
+        "sha256": "038ecf9bfb2c137c59e6d7a9facca677641b6f041e6f2d51cc02081895554f9b",
+        "currentSha256": "6edd79b7c41a7eaafdb7eff1d4d9170c76729105024deb9f62e14a816d930fe9",
+        "unchanged": false,
+        "intentionallyChanged": true
+      },
+      {
+        "file": "website/scripts/qa.mjs",
+        "bytes": 13105,
+        "sha256": "31e6f94ea0bcc27df81fe43fff60106d1849a6798f3560209617bb47e8bc82c5",
+        "currentSha256": "caf00bf0eedc868f7ce347882c97c93ddc43acd2d966bb227abbdf1579d981b9",
+        "unchanged": false,
+        "intentionallyChanged": true
+      },
+      {
+        "file": "website/street-lighting-content.mjs",
+        "bytes": 13752,
+        "sha256": "c5887f5bd5526c810e608477049cf6865480e1936eb3093e3fe5ee1f63d21d4f",
+        "currentSha256": "c5887f5bd5526c810e608477049cf6865480e1936eb3093e3fe5ee1f63d21d4f",
+        "unchanged": true,
+        "intentionallyChanged": false
+      },
+      {
+        "file": "website/templates/street-lighting.mjs",
+        "bytes": 6227,
+        "sha256": "e70fb8ad731d9e601fd34d4e9320c0872c0a10b89f53acb891a04ff6db51e753",
+        "currentSha256": "e70fb8ad731d9e601fd34d4e9320c0872c0a10b89f53acb891a04ff6db51e753",
+        "unchanged": true,
+        "intentionallyChanged": false
+      }
+    ],
+    "testedSources": [
+      {
+        "file": "README.md",
+        "sha256": "460082cc13fcfd239b815e100e671718846da8c6602d656d5b4a2dc6a3fdd22f",
+        "currentSha256": "460082cc13fcfd239b815e100e671718846da8c6602d656d5b4a2dc6a3fdd22f",
+        "unchanged": true
+      },
+      {
+        "file": "package-lock.json",
+        "sha256": "c245c77184bace22406c3d4f93e225c8470d0acc120035751c26ed079e3f5661",
+        "currentSha256": "c245c77184bace22406c3d4f93e225c8470d0acc120035751c26ed079e3f5661",
+        "unchanged": true
+      },
+      {
+        "file": "package.json",
+        "sha256": "44e9d1cf76953c644acd52ff73d2e5a44d06919746b1c56889314f704a014f27",
+        "currentSha256": "44e9d1cf76953c644acd52ff73d2e5a44d06919746b1c56889314f704a014f27",
+        "unchanged": true
+      },
+      {
+        "file": "website/dist/404.html",
+        "sha256": "7c0dba0133309c8ef10556158c6829aa084af3e419a78cb2d3e0086d28fab811",
+        "currentSha256": "7c0dba0133309c8ef10556158c6829aa084af3e419a78cb2d3e0086d28fab811",
+        "unchanged": true
+      },
+      {
+        "file": "website/dist/_headers",
+        "sha256": "9005d257c0e6487c469f50cf190544bbbfe98cdde7095415ffca2cd1e252de3d",
+        "currentSha256": "9005d257c0e6487c469f50cf190544bbbfe98cdde7095415ffca2cd1e252de3d",
+        "unchanged": true
+      },
+      {
+        "file": "website/dist/assets/app.js",
+        "sha256": "510bb56fba8c4a5ef8206e66a743d2abf9f100f74072fa6a8b95249b7187bbf4",
+        "currentSha256": "510bb56fba8c4a5ef8206e66a743d2abf9f100f74072fa6a8b95249b7187bbf4",
+        "unchanged": true
+      },
+      {
+        "file": "website/dist/assets/style.css",
+        "sha256": "d520a0b9dbb16afec6aee5ad63a0bd2a5069107bf6066091d992777e0fd1a69d",
+        "currentSha256": "d520a0b9dbb16afec6aee5ad63a0bd2a5069107bf6066091d992777e0fd1a69d",
+        "unchanged": true
+      },
+      {
+        "file": "website/dist/assets/works-scroll.js",
+        "sha256": "a5df00cc6222cb2aff968ce8a384b8b938ec2fb743c75fc23ad068748b31d20f",
+        "currentSha256": "a5df00cc6222cb2aff968ce8a384b8b938ec2fb743c75fc23ad068748b31d20f",
+        "unchanged": true
+      },
+      {
+        "file": "website/dist/index.html",
+        "sha256": "f7e654e3f161d44d324015845e6f76b160c528dd02216bfec1f6801b722833b5",
+        "currentSha256": "f7e654e3f161d44d324015845e6f76b160c528dd02216bfec1f6801b722833b5",
+        "unchanged": true
+      },
+      {
+        "file": "website/dist/photography/index.html",
+        "sha256": "dfd5dc3af981e988a10c4cbba6fe4cc23543cb5b39d27810d56fcdc450a3e752",
+        "currentSha256": "dfd5dc3af981e988a10c4cbba6fe4cc23543cb5b39d27810d56fcdc450a3e752",
+        "unchanged": true
+      },
+      {
+        "file": "website/dist/privacy/index.html",
+        "sha256": "68f22ee035d24e85c0133fe7afe1d2c9a15d2a23ae6b121b62af5da3889090a4",
+        "currentSha256": "68f22ee035d24e85c0133fe7afe1d2c9a15d2a23ae6b121b62af5da3889090a4",
+        "unchanged": true
+      },
+      {
+        "file": "website/dist/robots.txt",
+        "sha256": "21ae1e5f9e24c640b6e8d9bedc0d4df021553a835bd2f63d48db8f813eb982a3",
+        "currentSha256": "21ae1e5f9e24c640b6e8d9bedc0d4df021553a835bd2f63d48db8f813eb982a3",
+        "unchanged": true
+      },
+      {
+        "file": "website/dist/services/electrical-infrastructure/index.html",
+        "sha256": "0cbb5db68f11649ddd724eab3f1f2ede17d39ba93e373b50c690d791e8a32c67",
+        "currentSha256": "0cbb5db68f11649ddd724eab3f1f2ede17d39ba93e373b50c690d791e8a32c67",
+        "unchanged": true
+      },
+      {
+        "file": "website/dist/services/high-mast-area-lighting/index.html",
+        "sha256": "04c38e4a6914ddafcb0805296db170d112c49b3d37d701d1b6d213f8c31ce174",
+        "currentSha256": "04c38e4a6914ddafcb0805296db170d112c49b3d37d701d1b6d213f8c31ce174",
+        "unchanged": true
+      },
+      {
+        "file": "website/dist/services/led-solar-lighting/index.html",
+        "sha256": "545b365288934269f0a7bb607bc2bce6ef72d09480555eeddb409b742ff2df17",
+        "currentSha256": "545b365288934269f0a7bb607bc2bce6ef72d09480555eeddb409b742ff2df17",
+        "unchanged": true
+      },
+      {
+        "file": "website/dist/services/lighting-maintenance/index.html",
+        "sha256": "80c387bffac88f26af2cf1964c5b88ecb4caff71ce4de652f803705ce8bf98a5",
+        "currentSha256": "80c387bffac88f26af2cf1964c5b88ecb4caff71ce4de652f803705ce8bf98a5",
+        "unchanged": true
+      },
+      {
+        "file": "website/dist/services/street-lighting/index.html",
+        "sha256": "ea364052746249a62725abfa8dc83d89e460d7835419ede0537a02a58d084c62",
+        "currentSha256": "ea364052746249a62725abfa8dc83d89e460d7835419ede0537a02a58d084c62",
+        "unchanged": true
+      },
+      {
+        "file": "website/dist/services/underground-cabling/index.html",
+        "sha256": "7e74b55147f39cf57699833ebe022853ccc252b92683160bad86c29d53f9e511",
+        "currentSha256": "7e74b55147f39cf57699833ebe022853ccc252b92683160bad86c29d53f9e511",
+        "unchanged": true
+      },
+      {
+        "file": "website/dist/sitemap.xml",
+        "sha256": "9c217040dd940d084905b25e16df102787ae72675cbcaf13d9c20790a2c725db",
+        "currentSha256": "9c217040dd940d084905b25e16df102787ae72675cbcaf13d9c20790a2c725db",
+        "unchanged": true
+      },
+      {
+        "file": "website/hosting/nginx/rtacontractor-http.conf",
+        "sha256": "8b2d73759f751792d7000899b6d3f80b8b209e4c12b9f9854d5eec97cf835b65",
+        "currentSha256": "8b2d73759f751792d7000899b6d3f80b8b209e4c12b9f9854d5eec97cf835b65",
+        "unchanged": true
+      },
+      {
+        "file": "website/hosting/nginx/rtacontractor-server.conf",
+        "sha256": "45967791ccf6fbea545eca4c238cdbd21b6d392b22bc6f9df2742a0b1976e8e1",
+        "currentSha256": "45967791ccf6fbea545eca4c238cdbd21b6d392b22bc6f9df2742a0b1976e8e1",
+        "unchanged": true
+      },
+      {
+        "file": "website/hosting/nginx/rtacontractor-trusted-proxies.conf",
+        "sha256": "33d06f9095d66a22151f0965665da99ceea989c3367f3c1a8220c6b9831f9e42",
+        "currentSha256": "33d06f9095d66a22151f0965665da99ceea989c3367f3c1a8220c6b9831f9e42",
+        "unchanged": true
+      },
+      {
+        "file": "website/rta-works.mjs",
+        "sha256": "cb808d8d5571783ffb56c9321a6104fec07336660541cc957d34eb4a89665a70",
+        "currentSha256": "cb808d8d5571783ffb56c9321a6104fec07336660541cc957d34eb4a89665a70",
+        "unchanged": true
+      },
+      {
+        "file": "website/scripts/build.mjs",
+        "sha256": "d5d10b308b313e28c3ecaaaec60db7c08b9a69c3a5bb9a38acfbfc1f9eedd182",
+        "currentSha256": "d5d10b308b313e28c3ecaaaec60db7c08b9a69c3a5bb9a38acfbfc1f9eedd182",
+        "unchanged": true
+      },
+      {
+        "file": "website/scripts/check.mjs",
+        "sha256": "aed2588f731a2605d7f4ac393cabf5c48d58aaf65f9cfa1d01df651c50a87a07",
+        "currentSha256": "aed2588f731a2605d7f4ac393cabf5c48d58aaf65f9cfa1d01df651c50a87a07",
+        "unchanged": true
+      },
+      {
+        "file": "website/scripts/qa-discovery.mjs",
+        "sha256": "17a134b352e897ce2a0d0fc8afc2c8d8e9ec4e25aa3dbd873b454ff7c2b9db65",
+        "currentSha256": "17a134b352e897ce2a0d0fc8afc2c8d8e9ec4e25aa3dbd873b454ff7c2b9db65",
+        "unchanged": true
+      },
+      {
+        "file": "website/scripts/qa-discovery.test.mjs",
+        "sha256": "0ae22b452f10ffc898013fed0000943258af4a35c084a78bda4422357ca8edf3",
+        "currentSha256": "0ae22b452f10ffc898013fed0000943258af4a35c084a78bda4422357ca8edf3",
+        "unchanged": true
+      },
+      {
+        "file": "website/scripts/qa-http.mjs",
+        "sha256": "6d6400e5fe61d7f7baf3d604690c10ca61228f4398239c9267ee7018292008e0",
+        "currentSha256": "6d6400e5fe61d7f7baf3d604690c10ca61228f4398239c9267ee7018292008e0",
+        "unchanged": true
+      },
+      {
+        "file": "website/scripts/qa-local-safety.mjs",
+        "sha256": "27054837bf0644e0a2d143a99e79a4c0056b024c1e20fc302348c4d295e01c61",
+        "currentSha256": "27054837bf0644e0a2d143a99e79a4c0056b024c1e20fc302348c4d295e01c61",
+        "unchanged": true
+      },
+      {
+        "file": "website/scripts/qa-local-safety.test.mjs",
+        "sha256": "47cb3af3206093157e06c9b786f4b080d9044648ea062841e61a1af4347e1a66",
+        "currentSha256": "47cb3af3206093157e06c9b786f4b080d9044648ea062841e61a1af4347e1a66",
+        "unchanged": true
+      },
+      {
+        "file": "website/scripts/qa-local.mjs",
+        "sha256": "630ee60118de762a23c3657768919526c0f7e56e1dc4ab1529de9d0358b6b872",
+        "currentSha256": "630ee60118de762a23c3657768919526c0f7e56e1dc4ab1529de9d0358b6b872",
+        "unchanged": true
+      },
+      {
+        "file": "website/scripts/qa-primary.mjs",
+        "sha256": "c7fda269a314b0a4ef7f6fd7fd7a1c650dadad0ac1bfa9dfa78156e4b20c9e99",
+        "currentSha256": "c7fda269a314b0a4ef7f6fd7fd7a1c650dadad0ac1bfa9dfa78156e4b20c9e99",
+        "unchanged": true
+      },
+      {
+        "file": "website/scripts/qa-redirects.mjs",
+        "sha256": "9d9904df0d02130149f14b33a62d780dd3462dabb78483992d81b53ff3635ac3",
+        "currentSha256": "9d9904df0d02130149f14b33a62d780dd3462dabb78483992d81b53ff3635ac3",
+        "unchanged": true
+      },
+      {
+        "file": "website/scripts/qa-works-scroll.mjs",
+        "sha256": "6edd79b7c41a7eaafdb7eff1d4d9170c76729105024deb9f62e14a816d930fe9",
+        "currentSha256": "6edd79b7c41a7eaafdb7eff1d4d9170c76729105024deb9f62e14a816d930fe9",
+        "unchanged": true
+      },
+      {
+        "file": "website/scripts/qa.mjs",
+        "sha256": "caf00bf0eedc868f7ce347882c97c93ddc43acd2d966bb227abbdf1579d981b9",
+        "currentSha256": "caf00bf0eedc868f7ce347882c97c93ddc43acd2d966bb227abbdf1579d981b9",
+        "unchanged": true
+      },
+      {
+        "file": "website/scripts/serve.mjs",
+        "sha256": "3896aef61d6f2426b5aaaebc57bcfc29dadd5a8654f1e97bff99b2ed7f600d24",
+        "currentSha256": "3896aef61d6f2426b5aaaebc57bcfc29dadd5a8654f1e97bff99b2ed7f600d24",
+        "unchanged": true
+      },
+      {
+        "file": "website/scripts/static-readiness.mjs",
+        "sha256": "1251060910dd5ee327ecee4e4c16e319133611dd0082a4f32106c2c6aa73c2cd",
+        "currentSha256": "1251060910dd5ee327ecee4e4c16e319133611dd0082a4f32106c2c6aa73c2cd",
+        "unchanged": true
+      },
+      {
+        "file": "website/scripts/static-readiness.test.mjs",
+        "sha256": "e0693ea9c5ab190a56e24d3ba0c3dd2e051569f8c450b80f652f7d25b13f4cff",
+        "currentSha256": "e0693ea9c5ab190a56e24d3ba0c3dd2e051569f8c450b80f652f7d25b13f4cff",
+        "unchanged": true
+      },
+      {
+        "file": "website/services.mjs",
+        "sha256": "29fcb16b10361542a865d3487b11026a29e8a43f0d38e39522194e0e902dbbc4",
+        "currentSha256": "29fcb16b10361542a865d3487b11026a29e8a43f0d38e39522194e0e902dbbc4",
+        "unchanged": true
+      },
+      {
+        "file": "website/site.config.mjs",
+        "sha256": "b2786e03aec8cfe07dd532f44e9f6bb757d1cdce09ecfeac17c7b2d8be0a565d",
+        "currentSha256": "b2786e03aec8cfe07dd532f44e9f6bb757d1cdce09ecfeac17c7b2d8be0a565d",
+        "unchanged": true
+      },
+      {
+        "file": "website/street-lighting-content.mjs",
+        "sha256": "c5887f5bd5526c810e608477049cf6865480e1936eb3093e3fe5ee1f63d21d4f",
+        "currentSha256": "c5887f5bd5526c810e608477049cf6865480e1936eb3093e3fe5ee1f63d21d4f",
+        "unchanged": true
+      },
+      {
+        "file": "website/templates/street-lighting.mjs",
+        "sha256": "e70fb8ad731d9e601fd34d4e9320c0872c0a10b89f53acb891a04ff6db51e753",
+        "currentSha256": "e70fb8ad731d9e601fd34d4e9320c0872c0a10b89f53acb891a04ff6db51e753",
+        "unchanged": true
+      }
+    ]
+  },
+  "changedFiles": [
+    {
+      "file": "README.md",
+      "reason": "Document the full local command, network boundaries, broader coverage and latest report."
+    },
+    {
+      "file": "package.json",
+      "reason": "Add test:local, test:primary, test:safety and test:static commands; no dependency change."
+    },
+    {
+      "file": "website/scripts/check.mjs",
+      "reason": "Add unambiguous metadata, Twitter parity, local crawler policy and complete media-source checks."
+    },
+    {
+      "file": "website/scripts/static-readiness.mjs",
+      "reason": "Reusable local metadata, media and crawler-policy validators."
+    },
+    {
+      "file": "website/scripts/static-readiness.test.mjs",
+      "reason": "Nine negative/positive regressions for contradictory tags, noindex, media candidates and crawler blocks."
+    },
+    {
+      "file": "website/scripts/qa-local-safety.mjs",
+      "reason": "Enforce a literal loopback origin, confined artifacts and blocked network/redirect escape in browser QA."
+    },
+    {
+      "file": "website/scripts/qa-local-safety.test.mjs",
+      "reason": "Six safety cases, including actual API/browser requests to loopback fixture servers."
+    },
+    {
+      "file": "website/scripts/qa-primary.mjs",
+      "reason": "Make all previous 328 interaction assertions reproducible from source, plus the network guard check."
+    },
+    {
+      "file": "website/scripts/qa.mjs",
+      "reason": "Apply browser guards and extend desktop/mobile coverage to privacy and photography."
+    },
+    {
+      "file": "website/scripts/qa-works-scroll.mjs",
+      "reason": "Apply the same local-only network/output safeguards without weakening scroll assertions."
+    },
+    {
+      "file": "website/scripts/qa-redirects.mjs",
+      "reason": "Add 223 actual-Nginx assertions and distinguish the empty production trust source from the test fixture."
+    },
+    {
+      "file": "website/scripts/qa-local.mjs",
+      "reason": "Orchestrate the complete suite, isolated preview, unique evidence directory, logs and failure status."
+    },
+    {
+      "file": "website/reports/local-completion-2026-10-26.html",
+      "reason": "Dated findings, scope, measured results and administrator handoff."
+    },
+    {
+      "file": "website/reports/local-completion-validation-2026-10-26.json",
+      "reason": "Machine-readable results, source hashes, preservation checks and exact pending-file manifest."
+    }
+  ],
+  "pendingManifest": [
+    {
+      "file": "README.md",
+      "presentAtTaskStart": true,
+      "changedThisTask": true,
+      "bytes": 13569,
+      "sha256": "460082cc13fcfd239b815e100e671718846da8c6602d656d5b4a2dc6a3fdd22f"
+    },
+    {
+      "file": "package.json",
+      "presentAtTaskStart": true,
+      "changedThisTask": true,
+      "bytes": 1044,
+      "sha256": "44e9d1cf76953c644acd52ff73d2e5a44d06919746b1c56889314f704a014f27"
+    },
+    {
+      "file": "website/dist/404.html",
+      "presentAtTaskStart": true,
+      "changedThisTask": false,
+      "bytes": 10261,
+      "sha256": "7c0dba0133309c8ef10556158c6829aa084af3e419a78cb2d3e0086d28fab811"
+    },
+    {
+      "file": "website/dist/assets/style.css",
+      "presentAtTaskStart": true,
+      "changedThisTask": false,
+      "bytes": 42443,
+      "sha256": "d520a0b9dbb16afec6aee5ad63a0bd2a5069107bf6066091d992777e0fd1a69d"
+    },
+    {
+      "file": "website/dist/index.html",
+      "presentAtTaskStart": true,
+      "changedThisTask": false,
+      "bytes": 41228,
+      "sha256": "f7e654e3f161d44d324015845e6f76b160c528dd02216bfec1f6801b722833b5"
+    },
+    {
+      "file": "website/dist/photography/index.html",
+      "presentAtTaskStart": true,
+      "changedThisTask": false,
+      "bytes": 19495,
+      "sha256": "dfd5dc3af981e988a10c4cbba6fe4cc23543cb5b39d27810d56fcdc450a3e752"
+    },
+    {
+      "file": "website/dist/privacy/index.html",
+      "presentAtTaskStart": true,
+      "changedThisTask": false,
+      "bytes": 11549,
+      "sha256": "68f22ee035d24e85c0133fe7afe1d2c9a15d2a23ae6b121b62af5da3889090a4"
+    },
+    {
+      "file": "website/dist/services/electrical-infrastructure/index.html",
+      "presentAtTaskStart": true,
+      "changedThisTask": false,
+      "bytes": 18862,
+      "sha256": "0cbb5db68f11649ddd724eab3f1f2ede17d39ba93e373b50c690d791e8a32c67"
+    },
+    {
+      "file": "website/dist/services/high-mast-area-lighting/index.html",
+      "presentAtTaskStart": true,
+      "changedThisTask": false,
+      "bytes": 18194,
+      "sha256": "04c38e4a6914ddafcb0805296db170d112c49b3d37d701d1b6d213f8c31ce174"
+    },
+    {
+      "file": "website/dist/services/led-solar-lighting/index.html",
+      "presentAtTaskStart": true,
+      "changedThisTask": false,
+      "bytes": 18176,
+      "sha256": "545b365288934269f0a7bb607bc2bce6ef72d09480555eeddb409b742ff2df17"
+    },
+    {
+      "file": "website/dist/services/lighting-maintenance/index.html",
+      "presentAtTaskStart": true,
+      "changedThisTask": false,
+      "bytes": 18170,
+      "sha256": "80c387bffac88f26af2cf1964c5b88ecb4caff71ce4de652f803705ce8bf98a5"
+    },
+    {
+      "file": "website/dist/services/street-lighting/index.html",
+      "presentAtTaskStart": true,
+      "changedThisTask": false,
+      "bytes": 32901,
+      "sha256": "ea364052746249a62725abfa8dc83d89e460d7835419ede0537a02a58d084c62"
+    },
+    {
+      "file": "website/dist/services/underground-cabling/index.html",
+      "presentAtTaskStart": true,
+      "changedThisTask": false,
+      "bytes": 18666,
+      "sha256": "7e74b55147f39cf57699833ebe022853ccc252b92683160bad86c29d53f9e511"
+    },
+    {
+      "file": "website/hosting/nginx/rtacontractor-http.conf",
+      "presentAtTaskStart": true,
+      "changedThisTask": false,
+      "bytes": 1867,
+      "sha256": "8b2d73759f751792d7000899b6d3f80b8b209e4c12b9f9854d5eec97cf835b65"
+    },
+    {
+      "file": "website/hosting/nginx/rtacontractor-server.conf",
+      "presentAtTaskStart": true,
+      "changedThisTask": false,
+      "bytes": 708,
+      "sha256": "45967791ccf6fbea545eca4c238cdbd21b6d392b22bc6f9df2742a0b1976e8e1"
+    },
+    {
+      "file": "website/hosting/nginx/rtacontractor-trusted-proxies.conf",
+      "presentAtTaskStart": true,
+      "changedThisTask": false,
+      "bytes": 508,
+      "sha256": "33d06f9095d66a22151f0965665da99ceea989c3367f3c1a8220c6b9831f9e42"
+    },
+    {
+      "file": "website/reports/chatgpt-discovery-2026-10-26.html",
+      "presentAtTaskStart": true,
+      "changedThisTask": false,
+      "bytes": 22899,
+      "sha256": "b260e31e262b433325fcffa7367abce8813518744739e7c769e22ae40e0cc40d"
+    },
+    {
+      "file": "website/reports/chatgpt-discovery-validation-2026-10-26.json",
+      "presentAtTaskStart": true,
+      "changedThisTask": false,
+      "bytes": 97343,
+      "sha256": "bb73d967177f26f7cc59954842287e6079483ca594aab03c92324c77c5e48a4f"
+    },
+    {
+      "file": "website/reports/chatgpt-visibility-baseline-2026-10-26.json",
+      "presentAtTaskStart": true,
+      "changedThisTask": false,
+      "bytes": 40885,
+      "sha256": "270097b507531eaafbba4e6597f82bdddec9b8a2fa37e3faf482a2e5e87f9519"
+    },
+    {
+      "file": "website/reports/competitive-search-2026-10-26.html",
+      "presentAtTaskStart": true,
+      "changedThisTask": false,
+      "bytes": 23899,
+      "sha256": "fb4d63e80914af450a4388db3a66b797a7158c8fdabab365468dddda9c33f73c"
+    },
+    {
+      "file": "website/reports/competitive-search-validation-2026-10-26.json",
+      "presentAtTaskStart": true,
+      "changedThisTask": false,
+      "bytes": 61221,
+      "sha256": "482d22cb00acf2e01049d2b064020f7485a871d81880086be30249e63d5323ae"
+    },
+    {
+      "file": "website/reports/local-completion-2026-10-26.html",
+      "presentAtTaskStart": false,
+      "changedThisTask": true,
+      "bytes": 20260,
+      "sha256": "c3346c4e4f083f230e3caaa43977008704879b90f41a392adc0dd635b4132464"
+    },
+    {
+      "file": "website/reports/local-completion-validation-2026-10-26.json",
+      "presentAtTaskStart": false,
+      "changedThisTask": true,
+      "bytes": null,
+      "sha256": null
+    },
+    {
+      "file": "website/reports/redirect-readiness-2026-10-26.html",
+      "presentAtTaskStart": true,
+      "changedThisTask": false,
+      "bytes": 20166,
+      "sha256": "9acc14ecc293f4510ece61a99a6fd7b36a4f5c958521129ec0a0c8bf1522656d"
+    },
+    {
+      "file": "website/reports/redirect-readiness-validation-2026-10-26.json",
+      "presentAtTaskStart": true,
+      "changedThisTask": false,
+      "bytes": 549815,
+      "sha256": "5fe147ec969eaf08a8cb10f400a7f5d27e4c5c1e6b5ec7c730ebcf72e89babc9"
+    },
+    {
+      "file": "website/scripts/build.mjs",
+      "presentAtTaskStart": true,
+      "changedThisTask": false,
+      "bytes": 34710,
+      "sha256": "d5d10b308b313e28c3ecaaaec60db7c08b9a69c3a5bb9a38acfbfc1f9eedd182"
+    },
+    {
+      "file": "website/scripts/check.mjs",
+      "presentAtTaskStart": false,
+      "changedThisTask": true,
+      "bytes": 15887,
+      "sha256": "aed2588f731a2605d7f4ac393cabf5c48d58aaf65f9cfa1d01df651c50a87a07"
+    },
+    {
+      "file": "website/scripts/qa-discovery.mjs",
+      "presentAtTaskStart": true,
+      "changedThisTask": false,
+      "bytes": 14828,
+      "sha256": "17a134b352e897ce2a0d0fc8afc2c8d8e9ec4e25aa3dbd873b454ff7c2b9db65"
+    },
+    {
+      "file": "website/scripts/qa-discovery.test.mjs",
+      "presentAtTaskStart": true,
+      "changedThisTask": false,
+      "bytes": 2931,
+      "sha256": "0ae22b452f10ffc898013fed0000943258af4a35c084a78bda4422357ca8edf3"
+    },
+    {
+      "file": "website/scripts/qa-http.mjs",
+      "presentAtTaskStart": true,
+      "changedThisTask": false,
+      "bytes": 9576,
+      "sha256": "6d6400e5fe61d7f7baf3d604690c10ca61228f4398239c9267ee7018292008e0"
+    },
+    {
+      "file": "website/scripts/qa-local-safety.mjs",
+      "presentAtTaskStart": false,
+      "changedThisTask": true,
+      "bytes": 4114,
+      "sha256": "27054837bf0644e0a2d143a99e79a4c0056b024c1e20fc302348c4d295e01c61"
+    },
+    {
+      "file": "website/scripts/qa-local-safety.test.mjs",
+      "presentAtTaskStart": false,
+      "changedThisTask": true,
+      "bytes": 8459,
+      "sha256": "47cb3af3206093157e06c9b786f4b080d9044648ea062841e61a1af4347e1a66"
+    },
+    {
+      "file": "website/scripts/qa-local.mjs",
+      "presentAtTaskStart": false,
+      "changedThisTask": true,
+      "bytes": 6967,
+      "sha256": "630ee60118de762a23c3657768919526c0f7e56e1dc4ab1529de9d0358b6b872"
+    },
+    {
+      "file": "website/scripts/qa-primary.mjs",
+      "presentAtTaskStart": false,
+      "changedThisTask": true,
+      "bytes": 9478,
+      "sha256": "c7fda269a314b0a4ef7f6fd7fd7a1c650dadad0ac1bfa9dfa78156e4b20c9e99"
+    },
+    {
+      "file": "website/scripts/qa-redirects.mjs",
+      "presentAtTaskStart": true,
+      "changedThisTask": true,
+      "bytes": 23967,
+      "sha256": "9d9904df0d02130149f14b33a62d780dd3462dabb78483992d81b53ff3635ac3"
+    },
+    {
+      "file": "website/scripts/qa-works-scroll.mjs",
+      "presentAtTaskStart": true,
+      "changedThisTask": true,
+      "bytes": 22401,
+      "sha256": "6edd79b7c41a7eaafdb7eff1d4d9170c76729105024deb9f62e14a816d930fe9"
+    },
+    {
+      "file": "website/scripts/qa.mjs",
+      "presentAtTaskStart": true,
+      "changedThisTask": true,
+      "bytes": 13574,
+      "sha256": "caf00bf0eedc868f7ce347882c97c93ddc43acd2d966bb227abbdf1579d981b9"
+    },
+    {
+      "file": "website/scripts/static-readiness.mjs",
+      "presentAtTaskStart": false,
+      "changedThisTask": true,
+      "bytes": 4182,
+      "sha256": "1251060910dd5ee327ecee4e4c16e319133611dd0082a4f32106c2c6aa73c2cd"
+    },
+    {
+      "file": "website/scripts/static-readiness.test.mjs",
+      "presentAtTaskStart": false,
+      "changedThisTask": true,
+      "bytes": 3582,
+      "sha256": "e0693ea9c5ab190a56e24d3ba0c3dd2e051569f8c450b80f652f7d25b13f4cff"
+    },
+    {
+      "file": "website/street-lighting-content.mjs",
+      "presentAtTaskStart": true,
+      "changedThisTask": false,
+      "bytes": 13752,
+      "sha256": "c5887f5bd5526c810e608477049cf6865480e1936eb3093e3fe5ee1f63d21d4f"
+    },
+    {
+      "file": "website/templates/street-lighting.mjs",
+      "presentAtTaskStart": true,
+      "changedThisTask": false,
+      "bytes": 6227,
+      "sha256": "e70fb8ad731d9e601fd34d4e9320c0872c0a10b89f53acb891a04ff6db51e753"
+    }
+  ],
+  "selfHashNote": "Validation record has null size/hash to avoid circular self-hashing. Test TLS keys and other ignored artifacts are not release files.",
+  "blockers": [
+    "Active domain-specific serving configuration and emitting layer",
+    "Confirmed immediate proxy peers, protocol overwrite and public Host preservation",
+    "Existing real-IP behavior, origin reachability and edge redirect precedence",
+    "Staged integration and real-ingress testing plus separate production release authorization"
+  ],
+  "notVerified": [
+    "Current live redirects, crawlers and CDN/WAF",
+    "Current RTA portal status",
+    "Search Console/Bing ownership, indexing and rankings",
+    "Analytics/conversion tracking and qualified leads",
+    "ChatGPT recommendations/citations",
+    "Current production/field performance"
+  ]
+}

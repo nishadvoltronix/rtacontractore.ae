@@ -43,6 +43,13 @@ const approvalCoordinationSource = {
   url: 'https://voltronix.ae/rta-approved-contractor/',
 };
 
+// Public DEWA identity/category record reviewed 26 October 2026. Historical
+// project evaluations in this record do not establish current RTA approval.
+const dewaContractorSource = {
+  label: 'DEWA: VOLTRONIX electrical contractor record',
+  url: 'https://crm.dewa.gov.ae/irj/portal/anonymous/gradedet?bpnumber=17093911',
+};
+
 export const streetLightingContent = {
   slug: 'street-lighting',
   title: 'Street Lighting Contractor in Dubai | VOLTRONIX',
@@ -69,10 +76,11 @@ export const streetLightingContent = {
       heading: 'Electrical and cable works with documented experience',
       paragraphs: [
         'The company profile records electrical installation, earthing, panel works, and excavation and cable shifting projects in Dubai. This provides evidence of related electrical experience; it should not be read as a completed street lighting project record.',
+        'DEWA’s public contractor record lists VOLTRONIX CONTRACTING L.L.C. in the Contractor–Electrical category, with the company’s matching telephone number, email address and P.O. Box. This corroborates its electrical contracting identity; the separate RTA certificate defines the documented road-lighting prequalification.',
         'For a lighting package, identify cable routes, supply connections, panel interfaces and any civil work in the enquiry. Pole foundations, equipment installation, testing, commissioning and maintenance responsibilities must be confirmed in the agreed project scope.',
       ],
       bullets: [],
-      sources: [companyProfileSource],
+      sources: [companyProfileSource, dewaContractorSource],
     },
     {
       id: 'approval-coordination',
@@ -189,6 +197,7 @@ export const streetLightingContent = {
     heading: 'Discuss your Dubai street lighting project',
     text: 'Share your drawings, location and programme. Ask the team to review the required scope and provide a project quotation.',
     label: 'Talk to Our Team',
-    href: '/#contact',
+    href: '/?service=street-lighting#contact',
+    whatsappMessage: 'Hello VOLTRONIX, I would like to discuss a street lighting project in Dubai.',
   },
 };

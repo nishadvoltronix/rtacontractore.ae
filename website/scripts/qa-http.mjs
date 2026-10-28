@@ -14,10 +14,10 @@ const check = (condition, message) => { assertions++; assert.ok(condition, messa
 let stderr = '';
 server.stderr.on('data', chunk => { stderr = (stderr + chunk).slice(-2000); });
 let origin;
-const call = (pathname, method = 'GET') => new Promise((resolve, reject) => {
+const call = (pathname, method = 'GET', headers = {}) => new Promise((resolve, reject) => {
   const target = new URL(origin);
   // node:http preserves malformed and encoded paths for server-side validation.
-  const req = request({ hostname:target.hostname, port:target.port, method, path:pathname }, response => {
+  const req = request({ hostname:target.hostname, port:target.port, method, path:pathname, headers }, response => {
     const chunks = [];
     response.on('data', chunk => chunks.push(chunk));
     response.on('end', () => resolve({ status:response.statusCode, headers:response.headers, body:Buffer.concat(chunks) }));
@@ -59,6 +59,9 @@ try {
     ['/index.html', '/'],
     ['/index.html?service=street-lighting', '/?service=street-lighting'],
     ['/services/street-lighting', '/services/street-lighting/'],
+    ['/services/street-lighting?audit=discovery', '/services/street-lighting/?audit=discovery'],
+    ['/services/street-lighting/index.html', '/services/street-lighting/'],
+    ['/services/underground-cabling', '/services/underground-cabling/'],
     ['/services/street-lighting?service=underground-cabling&lang=en', '/services/street-lighting/?service=underground-cabling&lang=en'],
     ['/services/street-lighting/index.html?service=street-lighting', '/services/street-lighting/?service=street-lighting'],
     ['/%69ndex.html', '/'],
@@ -71,6 +74,22 @@ try {
     const destination = await call(to);
     check(destination.status === 200 && !destination.headers.location, `Alias resolves in one hop: ${from}`);
   }
+  // The preview deliberately uses relative redirects. It must not trust client
+  // Host/forwarded headers or become a substitute for the production edge policy.
+  for (const headers of [
+    { Host:'rtacontractor.ae:3100' },
+    { Host:'www.rtacontractor.ae', 'X-Forwarded-Proto':'https' },
+    { Host:'unrelated.example', 'X-Forwarded-Host':'attacker.example', 'X-Forwarded-Port':'3100' },
+    { Forwarded:'host=attacker.example;proto=http', 'X-Forwarded-Proto':'http, https' },
+  ]) {
+    const result = await call('/services/street-lighting?audit=discovery', 'GET', headers);
+    check(result.status === 308 && result.headers.location === '/services/street-lighting/?audit=discovery', 'Preview redirect ignores request authority and forwarded headers');
+    const canonical = await call('/services/street-lighting/', 'GET', headers);
+    check(canonical.status === 200 && !canonical.headers.location, 'Forwarded headers cannot cause a preview canonical loop');
+  }
+  const nextQuery = '?next=https%3A%2F%2Fattacker.example%2F&value=%0D%0ALocation%3Aevil';
+  const opaqueQuery = await call('/index.html' + nextQuery);
+  check(opaqueQuery.status === 308 && opaqueQuery.headers.location === '/' + nextQuery, 'Redirect preserves encoded query data without interpreting it as a destination or header');
   const query = await call('/?service=street-lighting');
   check(query.status === 200 && !query.headers.location, 'Valid enquiry selection query is preserved without redirect');
   check(query.body.equals(home.body), 'Query route retains the canonical home content');

@@ -22,7 +22,7 @@ Open http://127.0.0.1:4173. Build output is in `website/dist/`; it can be served
 - `website/rta-works.mjs`: the eight RTA-related work categories in the “What We Do” photo grid before Our Expertise.
 - `website/scripts/build.mjs`: shared layout, home, service, privacy and photography pages; sitemap, robots and JSON-LD.
 - `website/dist/assets/style.css`: responsive visual system.
-- `website/dist/assets/app.js`: accessible mobile navigation and enquiry preparation.
+- `website/dist/assets/app.js`: accessible mobile navigation and section interactions.
 - `website/photo-sources.json`: image origins, photographer credits and license references.
 
 CSS, JavaScript, logos, fonts and photographs in `dist/assets` are source assets retained by the build. Do not delete `dist` before building.
@@ -33,11 +33,11 @@ The “What We Do” section opens with a large title, then reveals its eight RT
 
 ## Enquiries
 
-The form validates and prepares an enquiry locally. Visitors review it and choose an email or WhatsApp link; they press send in their own application. It does not claim to submit a lead to a server, store personal details or send messages automatically. Direct telephone, email and WhatsApp links are also available. Without JavaScript, direct contact links remain available and the form's submit action stays disabled.
+The contact section embeds Zoho CRM form `5653678000076526082` using the supplied WebFormServeServlet script. Visitors submit their contact details directly to Zoho CRM for VOLTRONIX. Keep the embed script synchronous and inside the contact section so Zoho inserts the form at the correct position. Edit its fields in Zoho CRM. Direct telephone, email and WhatsApp links remain available if JavaScript is disabled or the form cannot load.
 
 ## SEO and public launch
 
-The local build now defaults to the verified public origin **https://rtacontractor.ae**. The 24 October 2026 audit found that this public site's existing metadata and sitemap still point to the private Sites preview. This local correction has NOT been deployed. Publishing, GitHub pushes, DNS changes and account submissions require explicit authorization.
+The local build defaults to the verified public origin **https://rtacontractor.ae**. The 24 October 2026 audit found private-preview canonicals on the public site. Read-only checks on 26 October found the corrected canonicals on all nine public pages and matching public sitemap/robots output. That observation does not establish the hosting deployment process. The same checks found missing-slash redirects to an HTTP URL on port 3100; production routing still needs correction at the actual host. Publishing, GitHub pushes, DNS changes and account submissions require explicit authorization.
 
 Nine static pages have unique metadata, canonicals, social previews and a connected GeneralContractor / WebSite / WebPage graph. Service entities are limited to the three evidence-backed categories (street lighting, cabling and electrical infrastructure). All six service/enquiry pages have breadcrumbs. High-mast, LED/solar and street-lighting maintenance remain enquiry topics pending specific capability evidence. Useful visible FAQs are included without obsolete FAQ rich-result promises.
 
@@ -60,6 +60,15 @@ Reports (local project files; excluded from dist):
 - [Baseline audit](website/reports/seo-baseline-2026-10-24.html)
 - [Implementation and validation](website/reports/seo-implementation-2026-10-24.html)
 - [Content strategy, indexing, measurement and 30-day plan](website/reports/seo-strategy-2026-10-24.html)
+- [ChatGPT discovery audit and 30-day plan](website/reports/chatgpt-discovery-2026-10-26.html)
+- [Five-query visibility baseline](website/reports/chatgpt-visibility-baseline-2026-10-26.json)
+- [Competitive search review, local improvements and release priorities](website/reports/competitive-search-2026-10-26.html)
+- [Redirect candidate, actual Nginx tests and manual release gates](website/reports/redirect-readiness-2026-10-26.html)
+- [Completed local readiness work and full-suite evidence](website/reports/local-completion-2026-10-26.html)
+
+The October 24 reports describe that dated implementation. Current Git state, later photographs, public responses and fresh tests are recorded separately in the October 26 discovery report. The new DEWA source on the street-lighting page corroborates company identity and electrical contracting only; it does not establish RTA approval or a current DEWA grade.
+
+The later competitive review preserves that pending work and adds native page shortcuts plus street-lighting context for the primary page's header and floating WhatsApp actions. Its validation JSON records the latest file hashes and tests; older reports remain historical snapshots. The shared stylesheet version is regenerated on every HTML page, while the new navigation styles apply only to the primary page.
 
 Existing generic robots rules already allow search crawlers. No AI training-policy change, security bypass, analytics token, verification token, llms.txt, indexing submission or production action was added. Search visibility and AI citations are not guaranteed.
 
@@ -70,9 +79,43 @@ npm run check
 npm run test:browser
 npm run test:works
 npm run test:http
+npm run test:discovery
+npm run test:static
+npm run test:safety
+npm run test:primary
 ```
 
-The browser check expects the local preview to be running at port 4173 and installed Chrome on Windows. It checks desktop/mobile layouts, links, accessibility, images, metadata, the navigation, FAQ accordions and enquiry preparation. Screenshots and reports go to ignored `artifacts/`. It does not send an enquiry.
+The browser check expects the local preview to be running at port 4173 and installed Chrome on Windows. It checks all nine pages on desktop/mobile, links, accessibility, images, metadata, navigation, FAQ accordions and the Zoho embed installation. Local QA stubs the Zoho script to avoid external requests; live rendering must be checked separately without sending a CRM lead. The primary-page suite also covers keyboard navigation, narrow screens, JavaScript-disabled content and street-lighting enquiry context. Screenshots and reports go to ignored `artifacts/`. No enquiry is sent.
+
+`QA_BASE_URL` can select an isolated local preview using literal `127.0.0.1` or `[::1]`. Browser runners reject remote origins and block external requests, WebSockets, service workers and redirect responses before following them. Actual redirects are tested separately by the Node/Nginx suites. All three browser runners accept `QA_ARTIFACTS_DIR` inside ignored `artifacts/` to preserve earlier evidence; they reject symlink/junction output paths. These are test-process settings, not production configuration.
+
+Run the complete local verification with existing Nginx, OpenSSL and Chrome executables:
+
+```sh
+npm run test:local -- --nginx /absolute/path/to/nginx --openssl /absolute/path/to/openssl --chrome /absolute/path/to/chrome --output artifacts/local-verification-new-run
+```
+
+The output directory must be new. This command builds the site, validates SEO and assets, checks JavaScript syntax, discovers every `website/scripts/*.test.mjs` unit suite, runs HTTP checks, starts its own ephemeral loopback preview for browser/scroll/interaction tests, and runs actual Nginx HTTP/TLS integration tests. It stops its preview and Nginx processes afterward. Each step records its command, timestamps, exit code and log in a local JSON summary. A failing step makes the run fail; it never substitutes an older passing result. No dependency is downloaded or installed, and the public `audit:discovery` command is excluded. There is no configured lint or TypeScript check; syntax and runtime checks are reported separately.
+
+The static checker rejects duplicate/conflicting metadata, checks crawler-specific indexing directives and local robots policy for Googlebot, Bingbot and OAI-SearchBot, and verifies lazy video, poster and responsive image sources. Local robots allowance does not verify a live crawler, CDN policy or indexing.
+
+To record read-only public HTTP discovery checks:
+
+```sh
+npm run audit:discovery -- --origin https://rtacontractor.ae --output artifacts/discovery-current.json
+```
+
+This command makes public GET requests and writes the specified local report. It exits nonzero for observed failures or blocks, including incorrect production redirects. An OAI-labelled request from this machine is a diagnostic, not verified OpenAI crawler traffic. The script records published IP-manifest metadata without installing an allowlist. Real crawler verification needs authorized edge/origin logs and configuration review; search-result samples do not establish ChatGPT answer citations.
+
+The domain-scoped Nginx candidate is under `website/hosting/nginx/`, outside the published static directory. It has not been installed on any host. **Do not deploy it behind TLS termination with the empty trust file:** the actual immediate proxy peers, forwarded-scheme overwrite, public Host preservation and existing edge redirect order must first be verified. The linked release report provides integration and verification steps.
+
+Run its isolated actual-engine regression suite with existing local Nginx/OpenSSL executables (no automatic download or installation):
+
+```sh
+npm run test:redirects -- --nginx /absolute/path/to/nginx --openssl /absolute/path/to/openssl --output artifacts/redirect-test-new-run
+```
+
+The suite binds loopback ports, creates temporary test TLS material in ignored artifacts and tests the production snippets with a test-only loopback trust entry. It does not change production or follow redirects onto the public network. Its six local passes do not mean the six live defects have been deployed or resolved.
 
 ## Sources and ownership
 

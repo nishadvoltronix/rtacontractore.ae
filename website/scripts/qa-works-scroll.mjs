@@ -2,14 +2,16 @@ import { chromium } from '@playwright/test';
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { localQAOrigin, localArtifacts, createLocalContext } from './qa-local-safety.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const artifacts = path.join(root, 'artifacts/works-scroll');
-const baseURL = process.env.QA_BASE_URL || 'http://127.0.0.1:4173';
+const artifacts = await localArtifacts(root, process.env.QA_ARTIFACTS_DIR, 'artifacts/works-scroll');
+const baseURL = localQAOrigin(process.env.QA_BASE_URL || 'http://127.0.0.1:4173').href;
 const executablePath = process.env.QA_CHROME_PATH || 'C:/Program Files/Google/Chrome/Application/chrome.exe';
 const expectedNames = ['Road Maintenance', 'Road Works', 'Earth Works', 'Footpath Works', 'Signboards', 'Infrastructure Works', 'Hardscape & Softscape', 'Bollards & Fencing'];
 const results = [];
 const errors = [];
+const blockedRequests = [];
 const scriptDisabledPages = new WeakSet();
 let browser;
 
@@ -72,7 +74,7 @@ async function inspect(page) {
 }
 
 async function open(viewport, options = {}) {
-  const context = await browser.newContext({ viewport, ...options });
+  const context = await createLocalContext(browser, baseURL, { viewport, ...options }, blockedRequests);
   const page = await context.newPage();
   if (options.javaScriptEnabled === false) scriptDisabledPages.add(page);
   page.on('pageerror', error => errors.push(String(error)));
@@ -341,11 +343,12 @@ try {
   await fastReturn();
   await flowAndFallbacks();
   check(errors.length === 0, 'No browser JavaScript errors', errors);
+  check(blockedRequests.length === 0, 'No external requests, unexpected redirects or WebSockets', blockedRequests);
 } catch (error) {
   check(false, 'Focused scroll review completed', String(error?.stack || error));
 } finally {
   await browser?.close();
-  await writeFile(path.join(artifacts, 'qa-report.json'), JSON.stringify({ results, errors }, null, 2));
+  await writeFile(path.join(artifacts, 'qa-report.json'), JSON.stringify({ baseURL, checkedAt: new Date().toISOString(), results, errors, blockedRequests }, null, 2));
   const failed = results.filter(result => result.status === 'fail');
   console.log(`\n${results.length - failed.length} passed; ${failed.length} failed`);
   if (failed.length) process.exitCode = 1;

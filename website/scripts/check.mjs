@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { site } from '../site.config.mjs';
 import { services } from '../services.mjs';
 import { streetLightingContent } from '../street-lighting-content.mjs';
+import { headMetadataIssues, mediaAssetReferences, crawlerPolicyResults } from './static-readiness.mjs';
 
 const dist = path.resolve(fileURLToPath(new URL('../dist/', import.meta.url)));
 const origin = new URL(site.url).origin;
@@ -65,6 +66,8 @@ try {
     const robots = meta.find(item => item.name === 'robots')?.content || '';
     const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
     const expectedCanonical = new URL(route, site.url).href;
+    const metadataIssues = headMetadataIssues(html, { indexable: route !== '/404.html' });
+    check(metadataIssues.length === 0, `${route}: ambiguous or blocking head metadata: ${metadataIssues.join(' ')}`);
     check(/^<!doctype html>/i.test(html.trimStart()), `${route}: missing HTML5 doctype.`);
     check(/<html\b[^>]*\blang="en(?:-[A-Z]{2})?"/i.test(html), `${route}: missing English language declaration.`);
     check(meta.some(item => item.charset?.toLowerCase() === 'utf-8'), `${route}: missing UTF-8 charset.`);
@@ -82,6 +85,9 @@ try {
     const socialImage = meta.find(item => item.property === 'og:image')?.content;
     check(Boolean(socialImage && localURL(socialImage)), `${route}: social image must resolve to the configured site.`);
     if (socialImage) assetReferences.add(socialImage);
+    for (const [name, expected] of [['twitter:title', title], ['twitter:description', description], ['twitter:image', socialImage]]) {
+      check(meta.some(item => item.name === name && item.content === expected), `${route}: ${name} does not match page metadata.`);
+    }
     const schemaBlocks = [...html.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi)];
     check(schemaBlocks.length > 0, `${route}: missing structured data.`);
     const schemaTypes = new Set();
@@ -153,6 +159,13 @@ try {
         if (attrs.src?.startsWith('/assets/images/')) check(Boolean(responsiveSet), `${route}: editorial photo is missing responsive image candidates.`);
       }
     }
+    const media = mediaAssetReferences(html);
+    check(media.issues.length === 0, `${route}: invalid media references: ${media.issues.join(' ')}`);
+    for (const reference of media.references) {
+      const url = localURL(reference.url, route);
+      check(Boolean(url), `${route}: ${reference.tag} ${reference.attribute} must be hosted locally: ${reference.url}`);
+      if (url) assetReferences.add(url.href);
+    }
     pageData.set(route, { title, description, ids: new Set(ids) });
     console.log(`Checked ${route}: metadata, HTML, structured data, and image attributes.`);
   }
@@ -177,6 +190,9 @@ try {
   check(/User-agent:\s*\*/i.test(robots), 'robots.txt is missing the general crawler group.');
   check(!/^Disallow:\s*\/\s*$/im.test(robots), 'robots.txt blocks the entire website.');
   check(robots.includes(`Sitemap: ${new URL('/sitemap.xml', site.url).href}`), 'robots.txt does not point to the configured sitemap.');
+  for (const result of crawlerPolicyResults(robots, [...routes, '/assets/style.css', '/assets/app.js'])) {
+    check(result.status === 'PASS', `Local robots policy for ${result.agent} at ${result.path}: ${result.status} (${result.reason}).`);
+  }
   const css = await readFile(path.join(dist, 'assets/style.css'), 'utf8');
   for (const match of css.matchAll(/url\(['"]?([^)'"\s]+)['"]?\)/g)) {
     if (localURL(match[1], '/assets/style.css')) assetReferences.add(new URL(match[1], new URL('/assets/style.css', site.url)).href);

@@ -1,0 +1,2802 @@
+{
+  "schemaVersion": 1,
+  "measuredAt": "2026-10-26T06:33:04.432Z",
+  "timezone": "Asia/Dubai",
+  "baseCommit": "f8ddd327f072e4e577140196d08c1fdc8492330a",
+  "state": "Local uncommitted changes; no deployment, commit, push, DNS or account modification",
+  "tests": {
+    "buildStaticHttpBrowserScroll": [
+      {
+        "label": "build",
+        "command": "node website/scripts/build.mjs",
+        "startedAt": "2026-10-26T06:22:08.696Z",
+        "finishedAt": "2026-10-26T06:22:08.846Z",
+        "exitCode": 0,
+        "summary": "Built 9 pages + 404, sitemap and robots for https://rtacontractor.ae"
+      },
+      {
+        "label": "static",
+        "command": "node website/scripts/check.mjs",
+        "startedAt": "2026-10-26T06:22:08.847Z",
+        "finishedAt": "2026-10-26T06:22:09.104Z",
+        "exitCode": 0,
+        "summary": " Static checks: 1029/1029 passed across 9 pages + 404. 71 local asset references verified."
+      },
+      {
+        "label": "http",
+        "command": "node website/scripts/qa-http.mjs",
+        "startedAt": "2026-10-26T06:22:09.104Z",
+        "finishedAt": "2026-10-26T06:22:09.518Z",
+        "exitCode": 0,
+        "summary": "HTTP checks: 77/77 passed against isolated preview http://127.0.0.1:56582."
+      },
+      {
+        "label": "browser",
+        "command": "node website/scripts/qa.mjs",
+        "startedAt": "2026-10-26T06:22:09.654Z",
+        "finishedAt": "2026-10-26T06:22:45.628Z",
+        "exitCode": 0,
+        "summary": " QA complete: 202 passed, 0 failed. Report and screenshots: G:\\rtacontroctore.ae\\artifacts\\chatgpt-discovery-2026-10-26\\browser"
+      },
+      {
+        "label": "scroll",
+        "command": "node website/scripts/qa-works-scroll.mjs",
+        "startedAt": "2026-10-26T06:22:45.628Z",
+        "finishedAt": "2026-10-26T06:23:14.659Z",
+        "exitCode": 0,
+        "summary": " 94 passed; 0 failed"
+      }
+    ],
+    "browser": {
+      "passed": 202,
+      "failed": 0,
+      "checkedAt": "2026-10-26T06:22:45.573Z"
+    },
+    "scroll": {
+      "passed": 94,
+      "failed": 0,
+      "errors": []
+    },
+    "noJavaScript": {
+      "measuredAt": "2026-10-26T06:29:18.698Z",
+      "browserVersion": "155.0.8059.85",
+      "javaScriptEnabled": false,
+      "baseURL": "http://127.0.0.1:4173",
+      "checks": [
+        {
+          "name": "Primary page returns200 without JavaScript",
+          "pass": true
+        },
+        {
+          "name": "Static content: Street Lighting Contractor in Dubai",
+          "pass": true
+        },
+        {
+          "name": "Static content: Conditionally Prequalified",
+          "pass": true
+        },
+        {
+          "name": "Static content: A025-6513466",
+          "pass": true
+        },
+        {
+          "name": "Static content: AED 5,000,000",
+          "pass": true
+        },
+        {
+          "name": "Static content: 20 October 2029",
+          "pass": true
+        },
+        {
+          "name": "Static content: tunnel lighting is excluded",
+          "pass": true
+        },
+        {
+          "name": "Static content: DEWA’s public contractor record",
+          "pass": true
+        },
+        {
+          "name": "Official DEWA source link present",
+          "pass": true
+        },
+        {
+          "name": "Eight FAQs present without JavaScript",
+          "pass": true
+        },
+        {
+          "name": "No horizontal overflow at 390",
+          "pass": true
+        },
+        {
+          "name": "No horizontal overflow at 1440",
+          "pass": true
+        },
+        {
+          "name": "No JavaScript page errors",
+          "pass": true
+        }
+      ],
+      "passed": 13,
+      "failed": 0,
+      "errors": [],
+      "priorRun": "no-js.json",
+      "correction": "Initial PowerShell stdin encoding replaced the curly apostrophe in the expected string with a question mark. Repeated the check using a Unicode escape; no website change."
+    },
+    "discoveryUnit": {
+      "status": "PASS",
+      "passed": 6,
+      "failed": 0,
+      "command": "node --test website/scripts/qa-discovery.test.mjs",
+      "evidence": "Actual runner stdout captured in the task conversation; meaningful robots/content parsing regression cases."
+    }
+  },
+  "runtime": {
+    "node": "v24.19.0",
+    "chrome": "155.0.8059.85"
+  },
+  "performance": {
+    "measuredAt": "2026-10-26T06:27:37.530Z",
+    "protocol": {
+      "environment": "Local static preview on Windows; installed Google Chrome; simulated mobile, not a physical phone or field measurement",
+      "baseURL": "http://127.0.0.1:4173",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "deviceScaleFactor": 1,
+      "isMobile": true,
+      "hasTouch": true,
+      "runsPerRoute": 3,
+      "cache": "Fresh isolated browser context per run; CDP cache disabled; service workers blocked",
+      "cpuSlowdownMultiplier": 4,
+      "network": {
+        "latencyMs": 150,
+        "downloadBitsPerSecond": 1600000,
+        "uploadBitsPerSecond": 750000,
+        "connectionType": "cellular3g"
+      },
+      "settleAfterLoadMs": 10000,
+      "navigationTimeoutMs": 90000,
+      "motion": "no-preference",
+      "interaction": "No scroll, clicks or taps; initial viewport only",
+      "lcp": "PerformanceObserver largest-contentful-paint, milliseconds from navigation start, sampled after load + 10 seconds",
+      "cls": "Maximum cumulative layout-shift session window excluding recent input; max 5 second window with 1 second gap",
+      "loadedBytes": "CDP Network.loadingFinished encodedDataLength, including encoded HTTP responses; local preview serves uncompressed content",
+      "limitations": "Local lab observation only. No Lighthouse score, field Core Web Vitals verdict, INP measurement, production CDN or real-user claim."
+    },
+    "summary": [
+      {
+        "route": "/",
+        "successfulRuns": 3,
+        "medianLcpMs": 1968,
+        "medianCls": 0,
+        "medianLoadedBytes": 1082748,
+        "totalJsErrors": 0,
+        "totalFailedRequests": 0
+      },
+      {
+        "route": "/services/street-lighting/",
+        "successfulRuns": 3,
+        "medianLcpMs": 1632,
+        "medianCls": 0,
+        "medianLoadedBytes": 217895,
+        "totalJsErrors": 0,
+        "totalFailedRequests": 0
+      }
+    ],
+    "runs": [
+      {
+        "route": "/",
+        "run": 1,
+        "startedAt": "2026-10-26T06:26:13.848Z",
+        "status": 200,
+        "lcpMs": 1824,
+        "lcpElement": "p.hero-copy",
+        "lcpResource": "",
+        "cls": 0,
+        "layoutShifts": [],
+        "domContentLoadedMs": 1787.5,
+        "loadMs": 5602.0999999940395,
+        "sampleAtMs": 15642.09999999404,
+        "heading": "RTA Approvals & Street Lighting",
+        "imageLoaded": true,
+        "imageWidth": 2295,
+        "resourceTiming": [
+          {
+            "url": "http://127.0.0.1:4173/assets/fonts/manrope-latin.woff2",
+            "durationMs": 759.3000000119209,
+            "transferSize": 25136,
+            "encodedBodySize": 24836,
+            "initiatorType": "link"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/dubai-roadwork-hero.webp",
+            "durationMs": 4972.699999988079,
+            "transferSize": 301390,
+            "encodedBodySize": 301090,
+            "initiatorType": "link"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/style.css?v=631fecd74a18",
+            "durationMs": 974.9000000059605,
+            "transferSize": 42299,
+            "encodedBodySize": 41999,
+            "initiatorType": "link"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/app.js?v=510bb56fba8c",
+            "durationMs": 688.7999999821186,
+            "transferSize": 13812,
+            "encodedBodySize": 13512,
+            "initiatorType": "script"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/voltronix-logo-white.png",
+            "durationMs": 505.7999999821186,
+            "transferSize": 13399,
+            "encodedBodySize": 13099,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/voltronix-logo.png",
+            "durationMs": 433.39999997615814,
+            "transferSize": 10045,
+            "encodedBodySize": 9745,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/works-scroll.js?v=a5df00cc6222",
+            "durationMs": 782.6999999880791,
+            "transferSize": 10116,
+            "encodedBodySize": 9816,
+            "initiatorType": "script"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-road-maintenance-640.webp",
+            "durationMs": 3027.800000011921,
+            "transferSize": 99394,
+            "encodedBodySize": 99094,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-road-works-640.webp",
+            "durationMs": 1628.199999988079,
+            "transferSize": 49864,
+            "encodedBodySize": 49564,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-earth-works-640.webp",
+            "durationMs": 808.5999999940395,
+            "transferSize": 22130,
+            "encodedBodySize": 21830,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-footpath-works-640.webp",
+            "durationMs": 3805.0999999940395,
+            "transferSize": 150518,
+            "encodedBodySize": 150218,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-signboards-640.webp",
+            "durationMs": 2072.7999999821186,
+            "transferSize": 65014,
+            "encodedBodySize": 64714,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/dubai-skyline-640.webp",
+            "durationMs": 2920.4000000059605,
+            "transferSize": 67040,
+            "encodedBodySize": 66740,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-landscaping-640.webp",
+            "durationMs": 3875.800000011921,
+            "transferSize": 108252,
+            "encodedBodySize": 107952,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-bollards-fencing-640.webp",
+            "durationMs": 3569.800000011921,
+            "transferSize": 55554,
+            "encodedBodySize": 55254,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/favicon.png?v=58843b09d2c3",
+            "durationMs": 209.30000001192093,
+            "transferSize": 8973,
+            "encodedBodySize": 8673,
+            "initiatorType": "other"
+          }
+        ],
+        "loadedBytes": 1082748,
+        "completeRequests": 17,
+        "networkResponses": [
+          {
+            "url": "http://127.0.0.1:4173/",
+            "status": 200,
+            "mimeType": "text/html",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 41437
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/dubai-roadwork-hero.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 301286
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/style.css?v=631fecd74a18",
+            "status": 200,
+            "mimeType": "text/css",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 42207
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/voltronix-logo-white.png",
+            "status": 200,
+            "mimeType": "image/png",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 13293
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/voltronix-logo.png",
+            "status": 200,
+            "mimeType": "image/png",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 9939
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/app.js?v=510bb56fba8c",
+            "status": 200,
+            "mimeType": "text/javascript",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 13727
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/fonts/manrope-latin.woff2",
+            "status": 200,
+            "mimeType": "font/woff2",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 25031
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/works-scroll.js?v=a5df00cc6222",
+            "status": 200,
+            "mimeType": "text/javascript",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 10031
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-road-maintenance-640.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 99290
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-road-works-640.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 49759
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-earth-works-640.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 22025
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-footpath-works-640.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 150414
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-signboards-640.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 64909
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/dubai-skyline-640.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 66936
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-landscaping-640.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 108148
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-bollards-fencing-640.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 55449
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/favicon.png?v=58843b09d2c3",
+            "status": 200,
+            "mimeType": "image/png",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 8867
+          }
+        ],
+        "jsErrors": [],
+        "failedRequests": []
+      },
+      {
+        "route": "/",
+        "run": 2,
+        "startedAt": "2026-10-26T06:26:29.694Z",
+        "status": 200,
+        "lcpMs": 1968,
+        "lcpElement": "p.hero-copy",
+        "lcpResource": "",
+        "cls": 0,
+        "layoutShifts": [],
+        "domContentLoadedMs": 1998,
+        "loadMs": 5605.299999982119,
+        "sampleAtMs": 15647.199999988079,
+        "heading": "RTA Approvals & Street Lighting",
+        "imageLoaded": true,
+        "imageWidth": 2295,
+        "resourceTiming": [
+          {
+            "url": "http://127.0.0.1:4173/assets/fonts/manrope-latin.woff2",
+            "durationMs": 740.1999999880791,
+            "transferSize": 25136,
+            "encodedBodySize": 24836,
+            "initiatorType": "link"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/dubai-roadwork-hero.webp",
+            "durationMs": 4191.5,
+            "transferSize": 301390,
+            "encodedBodySize": 301090,
+            "initiatorType": "link"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/style.css?v=631fecd74a18",
+            "durationMs": 968,
+            "transferSize": 42299,
+            "encodedBodySize": 41999,
+            "initiatorType": "link"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/app.js?v=510bb56fba8c",
+            "durationMs": 685.3000000119209,
+            "transferSize": 13812,
+            "encodedBodySize": 13512,
+            "initiatorType": "script"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/voltronix-logo-white.png",
+            "durationMs": 502.90000000596046,
+            "transferSize": 13399,
+            "encodedBodySize": 13099,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/voltronix-logo.png",
+            "durationMs": 451.80000001192093,
+            "transferSize": 10045,
+            "encodedBodySize": 9745,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/works-scroll.js?v=a5df00cc6222",
+            "durationMs": 792.5999999940395,
+            "transferSize": 10116,
+            "encodedBodySize": 9816,
+            "initiatorType": "script"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-road-maintenance-640.webp",
+            "durationMs": 2950,
+            "transferSize": 99394,
+            "encodedBodySize": 99094,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-road-works-640.webp",
+            "durationMs": 1633.2999999821186,
+            "transferSize": 49864,
+            "encodedBodySize": 49564,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-earth-works-640.webp",
+            "durationMs": 817.3000000119209,
+            "transferSize": 22130,
+            "encodedBodySize": 21830,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-footpath-works-640.webp",
+            "durationMs": 3598.300000011921,
+            "transferSize": 150518,
+            "encodedBodySize": 150218,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-signboards-640.webp",
+            "durationMs": 2080.800000011921,
+            "transferSize": 65014,
+            "encodedBodySize": 64714,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/dubai-skyline-640.webp",
+            "durationMs": 2863.4000000059605,
+            "transferSize": 67040,
+            "encodedBodySize": 66740,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-landscaping-640.webp",
+            "durationMs": 3678.5999999940395,
+            "transferSize": 108252,
+            "encodedBodySize": 107952,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-bollards-fencing-640.webp",
+            "durationMs": 3362,
+            "transferSize": 55554,
+            "encodedBodySize": 55254,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/favicon.png?v=58843b09d2c3",
+            "durationMs": 201.80000001192093,
+            "transferSize": 8973,
+            "encodedBodySize": 8673,
+            "initiatorType": "other"
+          }
+        ],
+        "loadedBytes": 1082748,
+        "completeRequests": 17,
+        "networkResponses": [
+          {
+            "url": "http://127.0.0.1:4173/",
+            "status": 200,
+            "mimeType": "text/html",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 41437
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/dubai-roadwork-hero.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 301286
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/style.css?v=631fecd74a18",
+            "status": 200,
+            "mimeType": "text/css",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 42207
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/voltronix-logo-white.png",
+            "status": 200,
+            "mimeType": "image/png",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 13293
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/voltronix-logo.png",
+            "status": 200,
+            "mimeType": "image/png",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 9939
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/app.js?v=510bb56fba8c",
+            "status": 200,
+            "mimeType": "text/javascript",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 13727
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/fonts/manrope-latin.woff2",
+            "status": 200,
+            "mimeType": "font/woff2",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 25031
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/works-scroll.js?v=a5df00cc6222",
+            "status": 200,
+            "mimeType": "text/javascript",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 10031
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-road-maintenance-640.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 99290
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-road-works-640.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 49759
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-earth-works-640.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 22025
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-footpath-works-640.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 150414
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-signboards-640.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 64909
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/dubai-skyline-640.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 66936
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-landscaping-640.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 108148
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-bollards-fencing-640.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 55449
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/favicon.png?v=58843b09d2c3",
+            "status": 200,
+            "mimeType": "image/png",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 8867
+          }
+        ],
+        "jsErrors": [],
+        "failedRequests": []
+      },
+      {
+        "route": "/",
+        "run": 3,
+        "startedAt": "2026-10-26T06:26:45.540Z",
+        "status": 200,
+        "lcpMs": 2020,
+        "lcpElement": "p.hero-copy",
+        "lcpResource": "",
+        "cls": 0,
+        "layoutShifts": [],
+        "domContentLoadedMs": 2066.7999999821186,
+        "loadMs": 5658.299999982119,
+        "sampleAtMs": 15707.199999988079,
+        "heading": "RTA Approvals & Street Lighting",
+        "imageLoaded": true,
+        "imageWidth": 2295,
+        "resourceTiming": [
+          {
+            "url": "http://127.0.0.1:4173/assets/fonts/manrope-latin.woff2",
+            "durationMs": 750.0999999940395,
+            "transferSize": 25136,
+            "encodedBodySize": 24836,
+            "initiatorType": "link"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/dubai-roadwork-hero.webp",
+            "durationMs": 4047.2999999821186,
+            "transferSize": 301390,
+            "encodedBodySize": 301090,
+            "initiatorType": "link"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/style.css?v=631fecd74a18",
+            "durationMs": 979.8000000119209,
+            "transferSize": 42299,
+            "encodedBodySize": 41999,
+            "initiatorType": "link"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/app.js?v=510bb56fba8c",
+            "durationMs": 663.1000000238419,
+            "transferSize": 13812,
+            "encodedBodySize": 13512,
+            "initiatorType": "script"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/voltronix-logo-white.png",
+            "durationMs": 528.4000000059605,
+            "transferSize": 13399,
+            "encodedBodySize": 13099,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/voltronix-logo.png",
+            "durationMs": 461.2000000178814,
+            "transferSize": 10045,
+            "encodedBodySize": 9745,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/works-scroll.js?v=a5df00cc6222",
+            "durationMs": 825.0999999940395,
+            "transferSize": 10116,
+            "encodedBodySize": 9816,
+            "initiatorType": "script"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-road-maintenance-640.webp",
+            "durationMs": 2916.5999999940395,
+            "transferSize": 99394,
+            "encodedBodySize": 99094,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-road-works-640.webp",
+            "durationMs": 1632.7000000178814,
+            "transferSize": 49864,
+            "encodedBodySize": 49564,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-earth-works-640.webp",
+            "durationMs": 814.9000000059605,
+            "transferSize": 22130,
+            "encodedBodySize": 21830,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-footpath-works-640.webp",
+            "durationMs": 3580.5999999940395,
+            "transferSize": 150518,
+            "encodedBodySize": 150218,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-signboards-640.webp",
+            "durationMs": 2079.7000000178814,
+            "transferSize": 65014,
+            "encodedBodySize": 64714,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/dubai-skyline-640.webp",
+            "durationMs": 2829,
+            "transferSize": 67040,
+            "encodedBodySize": 66740,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-landscaping-640.webp",
+            "durationMs": 3660.5999999940395,
+            "transferSize": 108252,
+            "encodedBodySize": 107952,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-bollards-fencing-640.webp",
+            "durationMs": 3342.4000000059605,
+            "transferSize": 55554,
+            "encodedBodySize": 55254,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/favicon.png?v=58843b09d2c3",
+            "durationMs": 207.5,
+            "transferSize": 8973,
+            "encodedBodySize": 8673,
+            "initiatorType": "other"
+          }
+        ],
+        "loadedBytes": 1082748,
+        "completeRequests": 17,
+        "networkResponses": [
+          {
+            "url": "http://127.0.0.1:4173/",
+            "status": 200,
+            "mimeType": "text/html",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 41437
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/dubai-roadwork-hero.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 301286
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/style.css?v=631fecd74a18",
+            "status": 200,
+            "mimeType": "text/css",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 42207
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/voltronix-logo-white.png",
+            "status": 200,
+            "mimeType": "image/png",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 13293
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/voltronix-logo.png",
+            "status": 200,
+            "mimeType": "image/png",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 9939
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/app.js?v=510bb56fba8c",
+            "status": 200,
+            "mimeType": "text/javascript",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 13727
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/fonts/manrope-latin.woff2",
+            "status": 200,
+            "mimeType": "font/woff2",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 25031
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/works-scroll.js?v=a5df00cc6222",
+            "status": 200,
+            "mimeType": "text/javascript",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 10031
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-road-maintenance-640.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 99290
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-road-works-640.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 49759
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-earth-works-640.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 22025
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-footpath-works-640.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 150414
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-signboards-640.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 64909
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/dubai-skyline-640.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 66936
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-landscaping-640.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 108148
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/rta-bollards-fencing-640.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 55449
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/favicon.png?v=58843b09d2c3",
+            "status": 200,
+            "mimeType": "image/png",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 8867
+          }
+        ],
+        "jsErrors": [],
+        "failedRequests": []
+      },
+      {
+        "route": "/services/street-lighting/",
+        "run": 1,
+        "startedAt": "2026-10-26T06:27:01.486Z",
+        "status": 200,
+        "lcpMs": 2076,
+        "lcpElement": "p.service-answer",
+        "lcpResource": "",
+        "cls": 0,
+        "layoutShifts": [],
+        "domContentLoadedMs": 2054.800000011921,
+        "loadMs": 2074.7000000178814,
+        "sampleAtMs": 12130,
+        "heading": "Street Lighting Contractor in Dubai",
+        "imageLoaded": true,
+        "imageWidth": 346,
+        "resourceTiming": [
+          {
+            "url": "http://127.0.0.1:4173/assets/fonts/manrope-latin.woff2",
+            "durationMs": 722.0999999940395,
+            "transferSize": 25136,
+            "encodedBodySize": 24836,
+            "initiatorType": "link"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/style.css?v=631fecd74a18",
+            "durationMs": 903.6000000238419,
+            "transferSize": 42299,
+            "encodedBodySize": 41999,
+            "initiatorType": "link"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/app.js?v=510bb56fba8c",
+            "durationMs": 604.4000000059605,
+            "transferSize": 13812,
+            "encodedBodySize": 13512,
+            "initiatorType": "script"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/voltronix-logo-white.png",
+            "durationMs": 516.5,
+            "transferSize": 13399,
+            "encodedBodySize": 13099,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/voltronix-logo.png",
+            "durationMs": 431.40000000596046,
+            "transferSize": 10045,
+            "encodedBodySize": 9745,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/dubai-road-light-trails-640.webp",
+            "durationMs": 1051.300000011921,
+            "transferSize": 72430,
+            "encodedBodySize": 72130,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/favicon.png?v=58843b09d2c3",
+            "durationMs": 208.80000001192093,
+            "transferSize": 8973,
+            "encodedBodySize": 8673,
+            "initiatorType": "other"
+          }
+        ],
+        "loadedBytes": 217895,
+        "completeRequests": 8,
+        "networkResponses": [
+          {
+            "url": "http://127.0.0.1:4173/services/street-lighting/",
+            "status": 200,
+            "mimeType": "text/html",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 32505
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/style.css?v=631fecd74a18",
+            "status": 200,
+            "mimeType": "text/css",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 42207
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/voltronix-logo-white.png",
+            "status": 200,
+            "mimeType": "image/png",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 13293
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/voltronix-logo.png",
+            "status": 200,
+            "mimeType": "image/png",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 9939
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/dubai-road-light-trails-640.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 72326
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/app.js?v=510bb56fba8c",
+            "status": 200,
+            "mimeType": "text/javascript",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 13727
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/fonts/manrope-latin.woff2",
+            "status": 200,
+            "mimeType": "font/woff2",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 25031
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/favicon.png?v=58843b09d2c3",
+            "status": 200,
+            "mimeType": "image/png",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 8867
+          }
+        ],
+        "jsErrors": [],
+        "failedRequests": []
+      },
+      {
+        "route": "/services/street-lighting/",
+        "run": 2,
+        "startedAt": "2026-10-26T06:27:13.812Z",
+        "status": 200,
+        "lcpMs": 1632,
+        "lcpElement": "p.service-answer",
+        "lcpResource": "",
+        "cls": 0,
+        "layoutShifts": [],
+        "domContentLoadedMs": 1608.9000000059605,
+        "loadMs": 1624.800000011921,
+        "sampleAtMs": 11666.200000017881,
+        "heading": "Street Lighting Contractor in Dubai",
+        "imageLoaded": true,
+        "imageWidth": 346,
+        "resourceTiming": [
+          {
+            "url": "http://127.0.0.1:4173/assets/fonts/manrope-latin.woff2",
+            "durationMs": 702.2000000178814,
+            "transferSize": 25136,
+            "encodedBodySize": 24836,
+            "initiatorType": "link"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/style.css?v=631fecd74a18",
+            "durationMs": 901.5,
+            "transferSize": 42299,
+            "encodedBodySize": 41999,
+            "initiatorType": "link"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/app.js?v=510bb56fba8c",
+            "durationMs": 617.7999999821186,
+            "transferSize": 13812,
+            "encodedBodySize": 13512,
+            "initiatorType": "script"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/voltronix-logo-white.png",
+            "durationMs": 516.4000000059605,
+            "transferSize": 13399,
+            "encodedBodySize": 13099,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/voltronix-logo.png",
+            "durationMs": 448.09999999403954,
+            "transferSize": 10045,
+            "encodedBodySize": 9745,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/dubai-road-light-trails-640.webp",
+            "durationMs": 1056.800000011921,
+            "transferSize": 72430,
+            "encodedBodySize": 72130,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/favicon.png?v=58843b09d2c3",
+            "durationMs": 215.40000000596046,
+            "transferSize": 8973,
+            "encodedBodySize": 8673,
+            "initiatorType": "other"
+          }
+        ],
+        "loadedBytes": 217895,
+        "completeRequests": 8,
+        "networkResponses": [
+          {
+            "url": "http://127.0.0.1:4173/services/street-lighting/",
+            "status": 200,
+            "mimeType": "text/html",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 32505
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/style.css?v=631fecd74a18",
+            "status": 200,
+            "mimeType": "text/css",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 42207
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/voltronix-logo-white.png",
+            "status": 200,
+            "mimeType": "image/png",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 13293
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/voltronix-logo.png",
+            "status": 200,
+            "mimeType": "image/png",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 9939
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/dubai-road-light-trails-640.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 72326
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/app.js?v=510bb56fba8c",
+            "status": 200,
+            "mimeType": "text/javascript",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 13727
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/fonts/manrope-latin.woff2",
+            "status": 200,
+            "mimeType": "font/woff2",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 25031
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/favicon.png?v=58843b09d2c3",
+            "status": 200,
+            "mimeType": "image/png",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 8867
+          }
+        ],
+        "jsErrors": [],
+        "failedRequests": []
+      },
+      {
+        "route": "/services/street-lighting/",
+        "run": 3,
+        "startedAt": "2026-10-26T06:27:25.687Z",
+        "status": 200,
+        "lcpMs": 1540,
+        "lcpElement": "p.service-answer",
+        "lcpResource": "",
+        "cls": 0,
+        "layoutShifts": [],
+        "domContentLoadedMs": 1508.4000000059605,
+        "loadMs": 1535.300000011921,
+        "sampleAtMs": 11575.700000017881,
+        "heading": "Street Lighting Contractor in Dubai",
+        "imageLoaded": true,
+        "imageWidth": 346,
+        "resourceTiming": [
+          {
+            "url": "http://127.0.0.1:4173/assets/fonts/manrope-latin.woff2",
+            "durationMs": 711.2000000178814,
+            "transferSize": 25136,
+            "encodedBodySize": 24836,
+            "initiatorType": "link"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/style.css?v=631fecd74a18",
+            "durationMs": 893.9000000059605,
+            "transferSize": 42299,
+            "encodedBodySize": 41999,
+            "initiatorType": "link"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/app.js?v=510bb56fba8c",
+            "durationMs": 560.3000000119209,
+            "transferSize": 13812,
+            "encodedBodySize": 13512,
+            "initiatorType": "script"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/voltronix-logo-white.png",
+            "durationMs": 517,
+            "transferSize": 13399,
+            "encodedBodySize": 13099,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/voltronix-logo.png",
+            "durationMs": 441.59999999403954,
+            "transferSize": 10045,
+            "encodedBodySize": 9745,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/dubai-road-light-trails-640.webp",
+            "durationMs": 1058.2000000178814,
+            "transferSize": 72430,
+            "encodedBodySize": 72130,
+            "initiatorType": "img"
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/favicon.png?v=58843b09d2c3",
+            "durationMs": 212.90000000596046,
+            "transferSize": 8973,
+            "encodedBodySize": 8673,
+            "initiatorType": "other"
+          }
+        ],
+        "loadedBytes": 217895,
+        "completeRequests": 8,
+        "networkResponses": [
+          {
+            "url": "http://127.0.0.1:4173/services/street-lighting/",
+            "status": 200,
+            "mimeType": "text/html",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 32505
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/style.css?v=631fecd74a18",
+            "status": 200,
+            "mimeType": "text/css",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 42207
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/voltronix-logo-white.png",
+            "status": 200,
+            "mimeType": "image/png",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 13293
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/voltronix-logo.png",
+            "status": 200,
+            "mimeType": "image/png",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 9939
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/images/dubai-road-light-trails-640.webp",
+            "status": 200,
+            "mimeType": "image/webp",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 72326
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/app.js?v=510bb56fba8c",
+            "status": 200,
+            "mimeType": "text/javascript",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 13727
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/fonts/manrope-latin.woff2",
+            "status": 200,
+            "mimeType": "font/woff2",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 25031
+          },
+          {
+            "url": "http://127.0.0.1:4173/assets/favicon.png?v=58843b09d2c3",
+            "status": 200,
+            "mimeType": "image/png",
+            "fromDiskCache": false,
+            "fromServiceWorker": false,
+            "encodedBytes": 8867
+          }
+        ],
+        "jsErrors": [],
+        "failedRequests": []
+      }
+    ]
+  },
+  "production": {
+    "startedAt": "2026-10-26T06:28:01.831Z",
+    "origin": "https://rtacontractor.ae",
+    "scope": "Read-only HTTP GETs from this local machine. OAI-labelled UA probes are NOT genuine OpenAI egress, crawler authentication, WAF/log verification, index coverage, or recommendation/citation evidence. No spoofed forwarded-IP headers. Redirects are recorded, never followed. Public headers/body signatures can differ by requester.",
+    "agents": {
+      "ordinary": "VOLTRONIX-Discovery-Audit/1.0 (local diagnostic; not a search crawler)",
+      "oaiLabelled": "Mozilla/5.0 (compatible; OAI-SearchBot/1.4; +https://openai.com/searchbot) VOLTRONIX-Discovery-Diagnostic/1.0 (not verified OpenAI egress)"
+    },
+    "checks": [
+      {
+        "status": "PASS",
+        "check": "ordinary robots: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary: robots MIME",
+        "evidence": "text/plain"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary: OAI-SearchBot policy /",
+        "evidence": {
+          "status": "PASS",
+          "reason": "allow: /",
+          "group": "*"
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary: OAI-SearchBot policy /services/street-lighting/",
+        "evidence": {
+          "status": "PASS",
+          "reason": "allow: /",
+          "group": "*"
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary: robots sitemap reference",
+        "evidence": "Expected public /sitemap.xml"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary sitemap: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary: sitemap canonical set",
+        "evidence": [
+          "https://rtacontractor.ae/",
+          "https://rtacontractor.ae/services/street-lighting/",
+          "https://rtacontractor.ae/services/underground-cabling/",
+          "https://rtacontractor.ae/services/high-mast-area-lighting/",
+          "https://rtacontractor.ae/services/led-solar-lighting/",
+          "https://rtacontractor.ae/services/lighting-maintenance/",
+          "https://rtacontractor.ae/services/electrical-infrastructure/",
+          "https://rtacontractor.ae/privacy/",
+          "https://rtacontractor.ae/photography/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/street-lighting/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/street-lighting/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/street-lighting/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/services/street-lighting/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/street-lighting/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/street-lighting/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage",
+            "Service",
+            "BreadcrumbList"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/street-lighting/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/street-lighting/: documented qualification facts present",
+        "evidence": {
+          "facts": [
+            "Conditionally Prequalified",
+            "A025-6513466",
+            "5,000,000",
+            "20 October 2029",
+            "road lighting",
+            "tunnel lighting"
+          ],
+          "note": "Presence check, not certificate authentication or a comprehensive claim review."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/street-lighting/: static FAQ presence",
+        "evidence": {
+          "faqCount": 8,
+          "expected": 8,
+          "scope": "Actual faq-list disclosures with static summary and answer; navigation excluded"
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/street-lighting/: static direct answer and company",
+        "evidence": {
+          "answerWords": 56,
+          "faqCount": 8,
+          "staticCompanyName": true
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/underground-cabling/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/underground-cabling/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/underground-cabling/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/services/underground-cabling/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/underground-cabling/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/underground-cabling/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage",
+            "Service",
+            "BreadcrumbList"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/underground-cabling/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/electrical-infrastructure/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/electrical-infrastructure/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/electrical-infrastructure/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/services/electrical-infrastructure/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/electrical-infrastructure/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/electrical-infrastructure/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage",
+            "Service",
+            "BreadcrumbList"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/electrical-infrastructure/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/high-mast-area-lighting/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/high-mast-area-lighting/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/high-mast-area-lighting/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/services/high-mast-area-lighting/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/high-mast-area-lighting/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/high-mast-area-lighting/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage",
+            "BreadcrumbList"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/high-mast-area-lighting/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/led-solar-lighting/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/led-solar-lighting/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/led-solar-lighting/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/services/led-solar-lighting/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/led-solar-lighting/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/led-solar-lighting/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage",
+            "BreadcrumbList"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/led-solar-lighting/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/lighting-maintenance/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/lighting-maintenance/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/lighting-maintenance/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/services/lighting-maintenance/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/lighting-maintenance/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/lighting-maintenance/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage",
+            "BreadcrumbList"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /services/lighting-maintenance/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /privacy/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /privacy/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /privacy/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/privacy/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /privacy/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /privacy/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /privacy/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /photography/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /photography/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /photography/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/photography/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /photography/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /photography/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "ordinary /photography/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "NOT VERIFIED",
+        "check": "ordinary: Cloudflare email rewrite",
+        "evidence": {
+          "pages": 9,
+          "path": "/cdn-cgi/l/email-protection",
+          "note": "Observed edge-injected contact target; contact behavior requires a browser test. Not classified as an unknown content page."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled robots: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled: robots MIME",
+        "evidence": "text/plain"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled: OAI-SearchBot policy /",
+        "evidence": {
+          "status": "PASS",
+          "reason": "allow: /",
+          "group": "*"
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled: OAI-SearchBot policy /services/street-lighting/",
+        "evidence": {
+          "status": "PASS",
+          "reason": "allow: /",
+          "group": "*"
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled: robots sitemap reference",
+        "evidence": "Expected public /sitemap.xml"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled sitemap: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled: sitemap canonical set",
+        "evidence": [
+          "https://rtacontractor.ae/",
+          "https://rtacontractor.ae/services/street-lighting/",
+          "https://rtacontractor.ae/services/underground-cabling/",
+          "https://rtacontractor.ae/services/high-mast-area-lighting/",
+          "https://rtacontractor.ae/services/led-solar-lighting/",
+          "https://rtacontractor.ae/services/lighting-maintenance/",
+          "https://rtacontractor.ae/services/electrical-infrastructure/",
+          "https://rtacontractor.ae/privacy/",
+          "https://rtacontractor.ae/photography/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/street-lighting/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/street-lighting/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/street-lighting/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/services/street-lighting/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/street-lighting/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/street-lighting/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage",
+            "Service",
+            "BreadcrumbList"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/street-lighting/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/street-lighting/: documented qualification facts present",
+        "evidence": {
+          "facts": [
+            "Conditionally Prequalified",
+            "A025-6513466",
+            "5,000,000",
+            "20 October 2029",
+            "road lighting",
+            "tunnel lighting"
+          ],
+          "note": "Presence check, not certificate authentication or a comprehensive claim review."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/street-lighting/: static FAQ presence",
+        "evidence": {
+          "faqCount": 8,
+          "expected": 8,
+          "scope": "Actual faq-list disclosures with static summary and answer; navigation excluded"
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/street-lighting/: static direct answer and company",
+        "evidence": {
+          "answerWords": 56,
+          "faqCount": 8,
+          "staticCompanyName": true
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/underground-cabling/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/underground-cabling/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/underground-cabling/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/services/underground-cabling/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/underground-cabling/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/underground-cabling/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage",
+            "Service",
+            "BreadcrumbList"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/underground-cabling/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/electrical-infrastructure/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/electrical-infrastructure/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/electrical-infrastructure/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/services/electrical-infrastructure/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/electrical-infrastructure/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/electrical-infrastructure/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage",
+            "Service",
+            "BreadcrumbList"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/electrical-infrastructure/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/high-mast-area-lighting/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/high-mast-area-lighting/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/high-mast-area-lighting/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/services/high-mast-area-lighting/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/high-mast-area-lighting/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/high-mast-area-lighting/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage",
+            "BreadcrumbList"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/high-mast-area-lighting/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/led-solar-lighting/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/led-solar-lighting/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/led-solar-lighting/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/services/led-solar-lighting/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/led-solar-lighting/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/led-solar-lighting/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage",
+            "BreadcrumbList"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/led-solar-lighting/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/lighting-maintenance/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/lighting-maintenance/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/lighting-maintenance/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/services/lighting-maintenance/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/lighting-maintenance/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/lighting-maintenance/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage",
+            "BreadcrumbList"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /services/lighting-maintenance/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /privacy/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /privacy/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /privacy/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/privacy/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /privacy/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /privacy/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /privacy/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /photography/: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /photography/: no explicit indexing block",
+        "evidence": ",index,follow,max-image-preview:large"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /photography/: canonical",
+        "evidence": [
+          "https://rtacontractor.ae/photography/"
+        ]
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /photography/: static metadata and heading",
+        "evidence": "HTML MIME, title, one H1, description"
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /photography/: JSON-LD graph basics",
+        "evidence": {
+          "types": [
+            "GeneralContractor",
+            "WebSite",
+            "WebPage"
+          ],
+          "note": "Syntax and page/entity presence only; not external schema eligibility validation."
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "oaiLabelled /photography/: internal page targets",
+        "evidence": "All internal non-asset targets belong to the nine inspected routes; fragment targets not checked here."
+      },
+      {
+        "status": "NOT VERIFIED",
+        "check": "oaiLabelled: Cloudflare email rewrite",
+        "evidence": {
+          "pages": 9,
+          "path": "/cdn-cgi/l/email-protection",
+          "note": "Observed edge-injected contact target; contact behavior requires a browser test. Not classified as an unknown content page."
+        }
+      },
+      {
+        "status": "FAIL",
+        "check": "Canonical redirect /index.html",
+        "evidence": {
+          "status": 200,
+          "location": null,
+          "expected": "https://rtacontractor.ae/"
+        }
+      },
+      {
+        "status": "FAIL",
+        "check": "Canonical redirect /services/street-lighting",
+        "evidence": {
+          "status": 301,
+          "location": "http://rtacontractor.ae:3100/services/street-lighting/",
+          "expected": "https://rtacontractor.ae/services/street-lighting/"
+        }
+      },
+      {
+        "status": "FAIL",
+        "check": "Canonical redirect /services/street-lighting?audit=discovery",
+        "evidence": {
+          "status": 301,
+          "location": "http://rtacontractor.ae:3100/services/street-lighting/?audit=discovery",
+          "expected": "https://rtacontractor.ae/services/street-lighting/?audit=discovery"
+        }
+      },
+      {
+        "status": "FAIL",
+        "check": "Canonical redirect /services/street-lighting/index.html",
+        "evidence": {
+          "status": 200,
+          "location": null,
+          "expected": "https://rtacontractor.ae/services/street-lighting/"
+        }
+      },
+      {
+        "status": "FAIL",
+        "check": "Canonical redirect /services/underground-cabling",
+        "evidence": {
+          "status": 301,
+          "location": "http://rtacontractor.ae:3100/services/underground-cabling/",
+          "expected": "https://rtacontractor.ae/services/underground-cabling/"
+        }
+      },
+      {
+        "status": "FAIL",
+        "check": "Canonical redirect https://www.rtacontractor.ae/",
+        "evidence": {
+          "status": 200,
+          "location": null,
+          "expected": "https://rtacontractor.ae/"
+        }
+      },
+      {
+        "status": "PASS",
+        "check": "OpenAI published searchbot IP manifest: HTTP access",
+        "evidence": "HTTP 200"
+      },
+      {
+        "status": "PASS",
+        "check": "Published crawler IP manifest available",
+        "evidence": {
+          "creationTime": "2026-01-02T11:00:00.000000",
+          "prefixCount": 39,
+          "sha256": "81806b1665e9bbbc5e0f307b847ad34f7027abc19e0d2d5d3eca1864bf361be6",
+          "source": "https://openai.com/searchbot.json",
+          "note": "Fetched for review only; no addresses used or installed as an allowlist."
+        }
+      },
+      {
+        "status": "NOT VERIFIED",
+        "check": "Genuine OpenAI crawler access and WAF/origin access logs",
+        "evidence": "Outside unauthenticated local-origin HTTP probing"
+      },
+      {
+        "status": "NOT VERIFIED",
+        "check": "Production firewall/CDN configuration",
+        "evidence": "Outside unauthenticated local-origin HTTP probing"
+      },
+      {
+        "status": "NOT VERIFIED",
+        "check": "Search Console/Bing account ownership and index coverage",
+        "evidence": "Outside unauthenticated local-origin HTTP probing"
+      },
+      {
+        "status": "NOT VERIFIED",
+        "check": "ChatGPT recommendation or citation inclusion",
+        "evidence": "Outside unauthenticated local-origin HTTP probing"
+      },
+      {
+        "status": "NOT VERIFIED",
+        "check": "Current RTA portal qualification status",
+        "evidence": "Outside unauthenticated local-origin HTTP probing"
+      }
+    ],
+    "responses": [
+      {
+        "label": "ordinary robots",
+        "url": "https://rtacontractor.ae/robots.txt",
+        "status": 200,
+        "contentType": "text/plain",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 70,
+        "sha256": "21ae1e5f9e24c640b6e8d9bedc0d4df021553a835bd2f63d48db8f813eb982a3"
+      },
+      {
+        "label": "ordinary sitemap",
+        "url": "https://rtacontractor.ae/sitemap.xml",
+        "status": 200,
+        "contentType": "text/xml",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 732,
+        "sha256": "9c217040dd940d084905b25e16df102787ae72675cbcaf13d9c20790a2c725db"
+      },
+      {
+        "label": "ordinary /",
+        "url": "https://rtacontractor.ae/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 41965,
+        "sha256": "e51177e5908011de20d1f3ef96ab86d18ba0dfc0b70471ab63aeb5f8f13ae294"
+      },
+      {
+        "label": "ordinary /services/street-lighting/",
+        "url": "https://rtacontractor.ae/services/street-lighting/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 32528,
+        "sha256": "67907e026fcf321093f927baac926c84d073eff0b55ad6f174f30d4bce65e6c5"
+      },
+      {
+        "label": "ordinary /services/underground-cabling/",
+        "url": "https://rtacontractor.ae/services/underground-cabling/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 19272,
+        "sha256": "c1fe406eec89793d04ae5991f983548dccd1c44b91e071901194b73bafada337"
+      },
+      {
+        "label": "ordinary /services/electrical-infrastructure/",
+        "url": "https://rtacontractor.ae/services/electrical-infrastructure/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 19468,
+        "sha256": "dd1f1543ffe19ce971db179840a8ec45ca44c9878dce710b5b1581287202e012"
+      },
+      {
+        "label": "ordinary /services/high-mast-area-lighting/",
+        "url": "https://rtacontractor.ae/services/high-mast-area-lighting/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 18800,
+        "sha256": "5d1f43287c9630f0ab495bed05b983738ea13a05851f7aaeda994a140e082145"
+      },
+      {
+        "label": "ordinary /services/led-solar-lighting/",
+        "url": "https://rtacontractor.ae/services/led-solar-lighting/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 18782,
+        "sha256": "5b9382a847d9d90a0e85828e88af05c616b5a1daffbdd0ed5607f7a78fe75515"
+      },
+      {
+        "label": "ordinary /services/lighting-maintenance/",
+        "url": "https://rtacontractor.ae/services/lighting-maintenance/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 18776,
+        "sha256": "22b11d0b2101a1f95ac65697313c7dba4c34f70db67f5b216a66109da5f0861c"
+      },
+      {
+        "label": "ordinary /privacy/",
+        "url": "https://rtacontractor.ae/privacy/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 12417,
+        "sha256": "4b745798efe1552829eeffe8dfd62817ddadc5cb128b08abe604d90f75dac804"
+      },
+      {
+        "label": "ordinary /photography/",
+        "url": "https://rtacontractor.ae/photography/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 20101,
+        "sha256": "4753f44bbfdd2372ea125a74ed5e80d0091cdc9abbda140b558748b883e255a8"
+      },
+      {
+        "label": "oaiLabelled robots",
+        "url": "https://rtacontractor.ae/robots.txt",
+        "status": 200,
+        "contentType": "text/plain",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 70,
+        "sha256": "21ae1e5f9e24c640b6e8d9bedc0d4df021553a835bd2f63d48db8f813eb982a3"
+      },
+      {
+        "label": "oaiLabelled sitemap",
+        "url": "https://rtacontractor.ae/sitemap.xml",
+        "status": 200,
+        "contentType": "text/xml",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 732,
+        "sha256": "9c217040dd940d084905b25e16df102787ae72675cbcaf13d9c20790a2c725db"
+      },
+      {
+        "label": "oaiLabelled /",
+        "url": "https://rtacontractor.ae/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 41965,
+        "sha256": "9c9bc74f1bf0d0f5e3de8c802f14a8dc09ab1e46572df7cdaa0873e766b4684e"
+      },
+      {
+        "label": "oaiLabelled /services/street-lighting/",
+        "url": "https://rtacontractor.ae/services/street-lighting/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 32528,
+        "sha256": "1ca376b3ad2d15caa9f4618cebd164458d7463d83462e555c6a4d2f1949748e7"
+      },
+      {
+        "label": "oaiLabelled /services/underground-cabling/",
+        "url": "https://rtacontractor.ae/services/underground-cabling/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 19272,
+        "sha256": "5a21f5eb80cd962900f081518a9614e787e9d9e775e70abaa75e7528cf43842d"
+      },
+      {
+        "label": "oaiLabelled /services/electrical-infrastructure/",
+        "url": "https://rtacontractor.ae/services/electrical-infrastructure/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 19468,
+        "sha256": "4e4161ac7ca8cd64ebc26bba2a7abb44f18d711372dfff48dcdf81f807a78e57"
+      },
+      {
+        "label": "oaiLabelled /services/high-mast-area-lighting/",
+        "url": "https://rtacontractor.ae/services/high-mast-area-lighting/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 18800,
+        "sha256": "4768193dac4d2c4aaf843d3f46d4c77dc736e5a2518b85c504482572d1a98a31"
+      },
+      {
+        "label": "oaiLabelled /services/led-solar-lighting/",
+        "url": "https://rtacontractor.ae/services/led-solar-lighting/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 18782,
+        "sha256": "7f7ce317a9c3a2ba033033f484d32f56e01b245a9babfcbb2c8b1137afe3d7ba"
+      },
+      {
+        "label": "oaiLabelled /services/lighting-maintenance/",
+        "url": "https://rtacontractor.ae/services/lighting-maintenance/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 18776,
+        "sha256": "2433d199ade15ecdcf0c850815f898a57006011bc415a1ecf7b1f51a2da882e4"
+      },
+      {
+        "label": "oaiLabelled /privacy/",
+        "url": "https://rtacontractor.ae/privacy/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 12417,
+        "sha256": "aff763ca2c703870e45ae37e5cb14132baade2089968feb15c2cb5c58e0281b7"
+      },
+      {
+        "label": "oaiLabelled /photography/",
+        "url": "https://rtacontractor.ae/photography/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 20101,
+        "sha256": "c41a77bc3a0bdf1cf1d87c66766ee91de34d0da408c20daa8afe48634102ef61"
+      },
+      {
+        "label": "redirect",
+        "url": "https://rtacontractor.ae/index.html",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null
+      },
+      {
+        "label": "redirect",
+        "url": "https://rtacontractor.ae/services/street-lighting",
+        "status": 301,
+        "contentType": "text/html",
+        "location": "http://rtacontractor.ae:3100/services/street-lighting/",
+        "robotsHeader": null
+      },
+      {
+        "label": "redirect",
+        "url": "https://rtacontractor.ae/services/street-lighting?audit=discovery",
+        "status": 301,
+        "contentType": "text/html",
+        "location": "http://rtacontractor.ae:3100/services/street-lighting/?audit=discovery",
+        "robotsHeader": null
+      },
+      {
+        "label": "redirect",
+        "url": "https://rtacontractor.ae/services/street-lighting/index.html",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null
+      },
+      {
+        "label": "redirect",
+        "url": "https://rtacontractor.ae/services/underground-cabling",
+        "status": 301,
+        "contentType": "text/html",
+        "location": "http://rtacontractor.ae:3100/services/underground-cabling/",
+        "robotsHeader": null
+      },
+      {
+        "label": "redirect",
+        "url": "https://www.rtacontractor.ae/",
+        "status": 200,
+        "contentType": "text/html",
+        "location": null,
+        "robotsHeader": null
+      },
+      {
+        "label": "OpenAI published searchbot IP manifest",
+        "url": "https://openai.com/searchbot.json",
+        "status": 200,
+        "contentType": "application/json; charset=utf-8",
+        "location": null,
+        "robotsHeader": null,
+        "bytes": 2080,
+        "sha256": "81806b1665e9bbbc5e0f307b847ad34f7027abc19e0d2d5d3eca1864bf361be6"
+      }
+    ],
+    "finishedAt": "2026-10-26T06:28:14.703Z",
+    "counts": {
+      "PASS": 130,
+      "FAIL": 6,
+      "BLOCKED": 0,
+      "NOT VERIFIED": 7
+    }
+  },
+  "externalEvidence": {
+    "sourcesFile": "artifacts/chatgpt-discovery-2026-10-26/corroboration.json",
+    "officialDewaRecord": "https://crm.dewa.gov.ae/irj/portal/anonymous/gradedet?bpnumber=17093911",
+    "officialDewaPdf": "https://www.dewa.gov.ae/-/media/Files/Builder/Enrolled-Electricity-Fit-Out-Consultants-Contractors.ashx",
+    "limitations": "Independent identity evidence, not current RTA qualification or a current DEWA grade. Detailed public-source notes retained locally."
+  },
+  "accountAccess": {
+    "status": "NOT VERIFIED",
+    "attempt": "Read-only Cloudflare/Google Analytics/Search Console connector discovery",
+    "result": "App connection requires reauthentication. No account state or logs were read, and no connection was modified."
+  },
+  "searchBaseline": "chatgpt-visibility-baseline-2026-10-26.json",
+  "initialFailures": {
+    "noJavaScript": "First targeted harness12/13; PowerShell stdin changed expected curly apostrophe to a question mark. Unicode-escaped expectation passed13/13 without site change; original no-js.json retained.",
+    "production": "Initial probe included a12s queryalias timeout. Supplemental retry and final full probe confirmed HTTP301 to HTTP port3100. Six productionredirect failures remain."
+  },
+  "limits": [
+    "Diagnostic user agents are not genuine OpenAI egress or crawler authentication.",
+    "No observed HTTPblock is not proof of an unrestricted production WAF or future rate limits.",
+    "Consumer ChatGPT Search answers/citations were not tested; web search tool results are a separate limited sample.",
+    "No GSC/Bing index coverage, actual referral analytics, fieldCWV/INP or current RTA portal verification.",
+    "Old preview process was not restarted. Fresh browser/scroll/HTTP tests used isolated current Node servers; performance/noJS consumed current generated files via existing4173.",
+    "Raw screenshots and historical performance runner reside in ignored workspace artifacts; portable summaries and measurements are in this report."
+  ],
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 9998,
+      "sha256": "cc7c537a9ef74f467ca9e6ac6cdccf01d0d75a977e0d84accbdddbe22556be97"
+    },
+    {
+      "file": "package.json",
+      "bytes": 716,
+      "sha256": "efd4bf3fcfc8ecd3982d37ea2261c78b908af5c879146852dffb2bb21385a714"
+    },
+    {
+      "file": "website/dist/services/street-lighting/index.html",
+      "bytes": 32296,
+      "sha256": "46f881429168fbe019fc295024e8752e4fea71c54eca7dd85170cf73ff3e74ca"
+    },
+    {
+      "file": "website/scripts/qa-works-scroll.mjs",
+      "bytes": 22042,
+      "sha256": "038ecf9bfb2c137c59e6d7a9facca677641b6f041e6f2d51cc02081895554f9b"
+    },
+    {
+      "file": "website/scripts/qa.mjs",
+      "bytes": 13105,
+      "sha256": "31e6f94ea0bcc27df81fe43fff60106d1849a6798f3560209617bb47e8bc82c5"
+    },
+    {
+      "file": "website/street-lighting-content.mjs",
+      "bytes": 13627,
+      "sha256": "20cad459cc75ce3ad5cbfd5858b57caf69f925fd6f5e286e4f7535e3d322fe73"
+    },
+    {
+      "file": "website/reports/chatgpt-discovery-2026-10-26.html",
+      "bytes": 22899,
+      "sha256": "b260e31e262b433325fcffa7367abce8813518744739e7c769e22ae40e0cc40d"
+    },
+    {
+      "file": "website/reports/chatgpt-visibility-baseline-2026-10-26.json",
+      "bytes": 40885,
+      "sha256": "270097b507531eaafbba4e6597f82bdddec9b8a2fa37e3faf482a2e5e87f9519"
+    },
+    {
+      "file": "website/scripts/qa-discovery.mjs",
+      "bytes": 14828,
+      "sha256": "17a134b352e897ce2a0d0fc8afc2c8d8e9ec4e25aa3dbd873b454ff7c2b9db65"
+    },
+    {
+      "file": "website/scripts/qa-discovery.test.mjs",
+      "bytes": 2931,
+      "sha256": "0ae22b452f10ffc898013fed0000943258af4a35c084a78bda4422357ca8edf3"
+    }
+  ]
+}
