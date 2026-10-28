@@ -1,4 +1,48 @@
 (() => {
+  // Delay floating contact controls so visitors see the page before the assistant.
+  const whatsappContact = document.querySelector('.floating-contact');
+  const assistantContact = document.querySelector('.assistant-contact');
+  const assistantEmbed = document.getElementById('ai-assistant-embed');
+  if (whatsappContact || assistantContact) {
+    window.setTimeout(() => {
+      if (whatsappContact) whatsappContact.hidden = false;
+      if (assistantContact) assistantContact.hidden = false;
+      const source = assistantEmbed?.content.querySelector('script');
+      if (!source) return;
+      const script = document.createElement('script');
+      for (const { name, value } of source.attributes) script.setAttribute(name, value);
+      script.addEventListener('load', () => {
+        const widget = document.getElementById('talk2maries-widget');
+        const api = window.Talk2MariesWidget;
+        if (!widget?.shadowRoot || !api?.open) return;
+        widget.hidden = true;
+        // v1 auto-anchors beside WhatsApp even with bottom-right configured.
+        // Keep its panel and label on the right while retaining its viewport sizing.
+        const alignment = document.createElement('style');
+        alignment.textContent = `
+          :host { left: auto !important; right: 20px !important; }
+          .panel { left: auto !important; right: 20px !important; max-width: calc(100vw - 40px); }
+          .launcher-label { left: auto !important; right: 69px !important; }
+          @media (max-width: 540px) {
+            .panel { right: 8px !important; max-width: calc(100vw - 16px); }
+          }
+        `;
+        widget.shadowRoot.append(alignment);
+        const openAssistant = () => {
+          widget.hidden = false;
+          if (assistantContact) assistantContact.hidden = true;
+          api.open();
+        };
+        // Focusing an unstyled panel can scroll the page down to its footer.
+        // Keep the fallback link until the provider's fixed layout is ready.
+        const stylesheet = widget.shadowRoot.querySelector('link[rel="stylesheet"]');
+        if (stylesheet && !stylesheet.sheet) stylesheet.addEventListener('load', openAssistant, { once: true });
+        else openAssistant();
+      }, { once: true });
+      // The direct assistant link remains available if the provider script fails.
+      document.body.append(script);
+    }, 4000);
+  }
   const toggle = document.querySelector('[data-menu-toggle]');
   const nav = document.querySelector('[data-nav]');
   const pqMenu = nav?.querySelector('[data-pq-menu]');

@@ -207,3 +207,5 @@ section[id]{scroll-margin-top:0}
 .zoho-form-embed #crmWebToEntityForm .formsubmit{background:var(--red);border-color:var(--red)}
 .zoho-form-embed #crmWebToEntityForm .zcwf_row{margin:18px 0}
 .contact-form .form-note a{text-decoration:underline}
+.assistant-contact{position:fixed;right:20px;bottom:96px;z-index:35;display:inline-flex;align-items:center;gap:10px;min-height:58px;padding:12px 18px;border:1px solid #b62d39;border-radius:999px;background:var(--red);color:#fff;font-size:13px;font-weight:700;box-shadow:0 5px 18px #751c2730}
+.assistant-contact:hover{background:#be1d23}
