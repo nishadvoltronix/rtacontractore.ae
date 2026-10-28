@@ -28,16 +28,15 @@
           }
         `;
         widget.shadowRoot.append(alignment);
-        const openAssistant = () => {
+        const showAssistant = () => {
           widget.hidden = false;
           if (assistantContact) assistantContact.hidden = true;
-          api.open();
         };
-        // Focusing an unstyled panel can scroll the page down to its footer.
+        // Reveal the styled launcher only; the visitor opens the popup by clicking it.
         // Keep the fallback link until the provider's fixed layout is ready.
         const stylesheet = widget.shadowRoot.querySelector('link[rel="stylesheet"]');
-        if (stylesheet && !stylesheet.sheet) stylesheet.addEventListener('load', openAssistant, { once: true });
-        else openAssistant();
+        if (stylesheet && !stylesheet.sheet) stylesheet.addEventListener('load', showAssistant, { once: true });
+        else showAssistant();
       }, { once: true });
       // The direct assistant link remains available if the provider script fails.
       document.body.append(script);
@@ -78,9 +77,9 @@
       else if (!event.shiftKey && document.activeElement === toggle) { event.preventDefault(); links[0].focus(); }
     }
   });
-  window.matchMedia('(min-width: 1281px)').addEventListener('change', () => setMenu(false));
+  window.matchMedia('(min-width: 768px)').addEventListener('change', () => setMenu(false));
   if (pqMenu) {
-    const hoverMenu = matchMedia('(min-width: 1281px) and (hover: hover) and (pointer: fine)');
+    const hoverMenu = matchMedia('(min-width: 768px) and (hover: hover) and (pointer: fine)');
     pqMenu.addEventListener('pointerenter', event => {
       if (event.pointerType !== 'mouse' || !hoverMenu.matches) return;
       clearTimeout(pqCloseTimer);
