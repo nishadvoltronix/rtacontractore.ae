@@ -18,7 +18,8 @@
     "test:http": "node website/scripts/qa-http.mjs",
     "test:redirects": "node website/scripts/qa-redirects.mjs",
     "test:discovery": "node --test website/scripts/qa-discovery.test.mjs",
-    "audit:discovery": "node website/scripts/qa-discovery.mjs"
+    "audit:discovery": "node website/scripts/qa-discovery.mjs",
+    "test:tracking": "node --test website/scripts/tracking.test.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.0",

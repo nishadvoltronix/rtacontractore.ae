@@ -3,6 +3,7 @@ import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { site } from '../site.config.mjs';
+import { trackingConfig } from '../tracking.config.mjs';
 import { services } from '../services.mjs';
 import { streetLightingContent } from '../street-lighting-content.mjs';
 import { headMetadataIssues, mediaAssetReferences, crawlerPolicyResults } from './static-readiness.mjs';
@@ -10,6 +11,7 @@ import { headMetadataIssues, mediaAssetReferences, crawlerPolicyResults } from '
 const dist = path.resolve(fileURLToPath(new URL('../dist/', import.meta.url)));
 const origin = new URL(site.url).origin;
 const routes = ['/', ...services.map(service => `/services/${service.slug}/`), '/privacy/', '/photography/'];
+const verificationFile = 'google8cca622d0ce845f8.html';
 const failures = [];
 let assertions = 0;
 const assetReferences = new Set();
@@ -55,7 +57,9 @@ async function htmlFiles(directory) {
 try {
   check(new URL(site.url).protocol === 'https:', 'Site URL must use HTTPS.');
   const files = await htmlFiles(dist);
-  check(files.length === routes.length + 1, `Expected ${routes.length} indexable HTML pages plus 404; found ${files.length}.`);
+  const pages = files.filter(file => file !== path.join(dist, verificationFile));
+  check(pages.length === routes.length + 1, `Expected ${routes.length} indexable HTML pages plus 404; found ${pages.length}.`);
+  check(await readFile(path.join(dist, verificationFile), 'utf8') === `google-site-verification: ${verificationFile}`, 'Google Search Console verification file must preserve its exact existing content.');
   for (const route of [...routes, '/404.html']) {
     const html = await readFile(localPath(new URL(route, site.url)), 'utf8');
     const title = decode(html.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1]?.trim());
@@ -78,6 +82,22 @@ try {
     check(canonical === expectedCanonical, `${route}: canonical does not match configured site URL.`);
     check(route === '/404.html' ? /\bnoindex\b/.test(robots) : /\bindex\b/.test(robots) && !/\bnoindex\b/.test(robots), `${route}: incorrect indexing directive.`);
     check(new Set(ids).size === ids.length, `${route}: duplicate HTML IDs.`);
+    const expectedGtm = trackingConfig.enabled && trackingConfig.manager?.type === 'gtm' ? 1 : 0;
+    check((html.match(/googletagmanager\.com\/gtm\.js/g) || []).length === expectedGtm, `${route}: expected exactly ${expectedGtm} GTM head loader.`);
+    check((html.match(/googletagmanager\.com\/ns\.html/g) || []).length === expectedGtm, `${route}: expected exactly ${expectedGtm} GTM noscript iframe.`);
+    const trackingNodes = [...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)];
+    const configNodes = trackingNodes.filter(node => attributes(node[1]).id === 'rta-tracking-config');
+    const trackingModules = trackingNodes.filter(node => attributes(node[1]).src?.startsWith('/assets/tracking.js?'));
+    check(configNodes.length === (trackingConfig.enabled ? 1 : 0), `${route}: tracking configuration must appear exactly once when enabled.`);
+    check(trackingModules.length === (trackingConfig.enabled ? 1 : 0), `${route}: tracking module must appear exactly once when enabled.`);
+    if (trackingConfig.enabled && configNodes.length === 1 && trackingModules.length === 1) {
+      try {
+        check(attributes(configNodes[0][1]).type === 'application/json' && JSON.stringify(JSON.parse(configNodes[0][2])) === JSON.stringify(trackingConfig), `${route}: embedded public tracking configuration differs from source.`);
+      } catch { check(false, `${route}: invalid embedded tracking configuration JSON.`); }
+      const module = trackingModules[0];
+      check(attributes(module[1]).type === 'module' && !/\basync(?:\s|=|$)/i.test(module[1]) && configNodes[0].index < module.index && module.index < html.indexOf('</head>'), `${route}: tracking module must follow its JSON in HEAD without async.`);
+    }
+    check(!/<script\b[^>]*src=["'][^"']*(?:gtag\/js|clarity\.ms\/tag|googleadservices\.com)/i.test(html), `${route}: direct vendor loader duplicates GTM ownership.`);
     for (const [property, expected] of [['og:title', title], ['og:description', description], ['og:url', expectedCanonical]]) {
       check(meta.some(item => item.property === property && item.content === expected), `${route}: ${property} does not match page metadata.`);
     }

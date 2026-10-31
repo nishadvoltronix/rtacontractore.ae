@@ -227,7 +227,10 @@ await mkdir(output, { recursive: true });
 let browser;
 try {
   await check('Every generated page includes the exact SalesIQ embed once', async () => {
-    const files = await htmlFiles(path.join(root, 'website/dist'));
+    const verificationFile = 'google8cca622d0ce845f8.html';
+    const verificationPath = path.join(root, 'website/dist', verificationFile);
+    expect(await readFile(verificationPath, 'utf8'), 'verification response retains its literal payload').toBe(`google-site-verification: ${verificationFile}`);
+    const files = (await htmlFiles(path.join(root, 'website/dist'))).filter(file => file !== verificationPath);
     expect(files.length).toBeGreaterThan(1);
     for (const file of files) {
       const html = await readFile(file, 'utf8');

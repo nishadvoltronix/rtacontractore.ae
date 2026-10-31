@@ -1,5 +1,10 @@
 import { lstat } from 'node:fs/promises';
 import path from 'node:path';
+import { trackingConfig } from '../tracking.config.mjs';
+
+export const gtmScriptURL = trackingConfig.enabled && trackingConfig.manager?.type === 'gtm'
+  ? `https://www.googletagmanager.com/gtm.js?id=${trackingConfig.manager.containerId}` : null;
+export const gtmNoScriptURL = gtmScriptURL?.replace('/gtm.js?', '/ns.html?') || null;
 
 export const zohoFormScriptURL = 'https://crm.zoho.com/crm/WebFormServeServlet?rid=4a995d1dee720c5b6831db70b39b0a532c0dfc50bc1af0df096e4a0bb393b1700dc07123d2c4b2bbd7afcb451e94fffagid8975efd73106954c9ab7e9dd572d0dd16b145d6266d7b3f5fc81726240eb8ef4&script=$sYG';
 export const mariesWidgetScriptURL = 'https://talk2maries.com/widget/v1/voice-widget.js?v=1.0.1';
@@ -61,6 +66,16 @@ export async function createLocalContext(browser, baseURL, options, blockedReque
   await context.route('**/*', async route => {
     const request = route.request();
     const record = reason => blockedRequests.push({ url: safeRequestLabel(request.url()), reason });
+    // Exercise the site's one GTM loader without fetching production tags or
+    // sending analytics. Unknown containers, methods and resource types remain blocked.
+    if (gtmScriptURL && request.url() === gtmScriptURL && request.method() === 'GET' && request.resourceType() === 'script') {
+      await route.fulfill({ status: 200, contentType: 'application/javascript', body: '/* GTM intentionally stubbed for local QA. */' });
+      return;
+    }
+    if (gtmNoScriptURL && request.url() === gtmNoScriptURL && request.method() === 'GET' && request.resourceType() === 'document') {
+      await route.fulfill({ status: 200, contentType: 'text/html', body: '<!doctype html><title>Local GTM QA stub</title>' });
+      return;
+    }
     // Stub this exact embed locally without connecting to Zoho. These suites
     // verify placement and fallback links, not live CRM rendering or delivery.
     if (request.url() === zohoFormScriptURL && request.method() === 'GET' && request.resourceType() === 'script') {
