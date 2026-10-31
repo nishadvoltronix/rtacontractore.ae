@@ -19,7 +19,10 @@
     "test:redirects": "node website/scripts/qa-redirects.mjs",
     "test:discovery": "node --test website/scripts/qa-discovery.test.mjs",
     "audit:discovery": "node website/scripts/qa-discovery.mjs",
-    "test:tracking": "node --test website/scripts/tracking.test.mjs"
+    "test:tracking": "node --test website/scripts/tracking.test.mjs",
+    "test:marketing": "node --test website/scripts/marketing.test.mjs website/scripts/marketing-build-policy.test.mjs",
+    "test:leads": "node --test server/lead-service/lead-service.test.mjs",
+    "test:website": "node website/scripts/qa-website.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.11.0",

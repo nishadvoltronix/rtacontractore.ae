@@ -1,0 +1,231 @@
+{
+  "version": 1,
+  "reviewedOn": "2026-11-01",
+  "website": "https://rtacontractor.ae",
+  "status": "review-draft",
+  "publicationApproved": false,
+  "liveCampaignChangesApplied": false,
+  "existingCampaign": {
+    "name": "Dubai | RTA Street Lighting | Search",
+    "dailyBudgetAED": null,
+    "bidding": "Maximize clicks",
+    "instruction": "Preserve these settings. Review bidding after reliable qualified-lead measurement is established."
+  },
+  "launchGates": [
+    "Owner approval for campaign publication or any budget change",
+    "Verified campaign targeting and keyword demand in the advertising account",
+    "Landing pages deployed and checked on HTTPS with correct redirects",
+    "Accepted form conversions verified; bidding goal selection reviewed",
+    "Consent and audience eligibility verified before any remarketing",
+    "Microsoft advertiser identity verification and saved conversion goal before a Microsoft launch"
+  ],
+  "suggestedTargeting": {
+    "location": "Dubai, UAE",
+    "locationIntent": "People in or regularly in the targeted location",
+    "language": "English; review language coverage against the available landing pages",
+    "networks": "Review Google Search first; assess partner traffic separately after usable evidence exists",
+    "automaticExpansion": false
+  },
+  "adGroups": [
+    {
+      "name": "Dubai Road Lighting",
+      "landingPage": "/services/street-lighting/",
+      "keywords": [
+        [
+          "street light contractor dubai",
+          "Exact"
+        ],
+        [
+          "street lighting contractor dubai",
+          "Exact"
+        ],
+        [
+          "road lighting contractor dubai",
+          "Exact"
+        ],
+        [
+          "street lighting installation dubai",
+          "Exact"
+        ],
+        [
+          "street light installation dubai",
+          "Phrase"
+        ],
+        [
+          "road lighting contractor",
+          "Phrase"
+        ],
+        [
+          "street lighting company dubai",
+          "Phrase"
+        ],
+        [
+          "street lighting works dubai",
+          "Phrase"
+        ]
+      ]
+    },
+    {
+      "name": "RTA Road Lighting Enquiries",
+      "landingPage": "/services/street-lighting/",
+      "keywords": [
+        [
+          "rta street lighting contractor",
+          "Exact"
+        ],
+        [
+          "rta road lighting contractor",
+          "Exact"
+        ],
+        [
+          "rta street lighting works",
+          "Phrase"
+        ],
+        [
+          "rta approved street lighting contractor",
+          "Phrase"
+        ]
+      ],
+      "note": "Search wording reflects buyer intent. Advertisements must retain the documented conditional qualification and independent-company identity."
+    }
+  ],
+  "searchAds": [
+    {
+      "name": "Dubai road lighting scope review",
+      "finalUrl": "https://rtacontractor.ae/services/street-lighting/",
+      "path1": "street-lighting",
+      "path2": "dubai",
+      "headlines": [
+        "Street Lighting in Dubai",
+        "Dubai Street Light Contractor",
+        "Road Lighting Scope Review",
+        "VOLTRONIX Contracting LLC",
+        "Street Lighting Enquiries",
+        "Share Your Project Drawings",
+        "Request a Project Quotation",
+        "Discuss Your Lighting Package",
+        "Road & Cable Work Interfaces",
+        "Define Your Project Scope",
+        "Dubai Contracting Enquiries",
+        "Speak With VOLTRONIX",
+        "Project-Specific Coordination",
+        "Review Contractor Credentials",
+        "Plan the Next Project Step"
+      ],
+      "descriptions": [
+        "Discuss Dubai street lighting with VOLTRONIX. Share drawings for a scope review.",
+        "Conditional RTA prequalification for road lighting. Scope and value limits apply.",
+        "Electrical and cable work interfaces assessed for your project. Request a quotation.",
+        "Independent contractor. Confirm the scope, responsibilities and required approvals."
+      ]
+    }
+  ],
+  "sitelinks": [
+    {
+      "text": "Request a Quotation",
+      "path": "/request-a-quote/",
+      "line1": "Share your project brief",
+      "line2": "Scope confirmed after review"
+    },
+    {
+      "text": "Street Lighting Works",
+      "path": "/services/street-lighting/",
+      "line1": "Review the documented scope",
+      "line2": "Qualification and exclusions"
+    },
+    {
+      "text": "Project Brief Checklist",
+      "path": "/knowledge/street-lighting-quotation-checklist/",
+      "line1": "Prepare drawings and quantities",
+      "line2": "Clarify contractor interfaces"
+    },
+    {
+      "text": "Contact VOLTRONIX",
+      "path": "/contact/",
+      "line1": "Speak with our Dubai team",
+      "line2": "Discuss your project requirements"
+    }
+  ],
+  "callouts": [
+    "Dubai Project Enquiries",
+    "Documented Scope",
+    "Project Brief Review",
+    "Independent Contractor"
+  ],
+  "negativeKeywordReview": [
+    "job",
+    "jobs",
+    "vacancy",
+    "vacancies",
+    "career",
+    "careers",
+    "salary",
+    "salaries",
+    "internship",
+    "internships",
+    "resume",
+    "cv",
+    "interview questions",
+    "training course",
+    "diy",
+    "street light drawing tutorial",
+    "used light bulbs",
+    "table lamp",
+    "bedside lamp"
+  ],
+  "keywordEvidence": {
+    "demandValidated": false,
+    "volumes": null,
+    "observedSearchTerms": null,
+    "note": "These are scope-based planning themes. Validate demand, actual queries and policy in the account before applying.",
+    "deferredThemes": [
+      "General road/civil infrastructure",
+      "Standalone RTA NOC assistance",
+      "Lighting maintenance"
+    ],
+    "deferredReason": "Confirm service responsibility, landing-page fit and demand before broadening the campaign.",
+    "commercialTermsToPreserve": [
+      "quotation",
+      "cost",
+      "price",
+      "project",
+      "contractor",
+      "maintenance",
+      "RTA",
+      "approval"
+    ]
+  },
+  "platformPlans": [
+    {
+      "platform": "Google Search",
+      "priority": 1,
+      "action": "Review this draft against the existing campaign; preserve the current budget."
+    },
+    {
+      "platform": "Microsoft Search",
+      "priority": 2,
+      "action": "Reuse verified search intent after identity, UET goal and billing decisions; no launch approval supplied."
+    },
+    {
+      "platform": "LinkedIn",
+      "priority": 3,
+      "action": "Prepare contractor/developer procurement content; verify company-page and Campaign Manager ownership first."
+    },
+    {
+      "platform": "Meta retargeting",
+      "priority": 4,
+      "action": "Hold audiences until account ownership, consent, pixel ID and sufficient eligible visitors are verified."
+    },
+    {
+      "platform": "YouTube",
+      "priority": 5,
+      "action": "Use verified technical/process content and genuine approved project material; prepare awareness drafts."
+    }
+  ],
+  "sources": [
+    "https://support.google.com/google-ads/answer/7684791",
+    "https://developers.google.com/google-ads/api/docs/responsive-search-ads/overview",
+    "https://learn.microsoft.com/en-us/advertising/campaign-management-service/eventgoal",
+    "https://rtacontractor.ae/services/street-lighting/"
+  ]
+}

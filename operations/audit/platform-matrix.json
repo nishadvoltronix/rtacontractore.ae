@@ -1,0 +1,2908 @@
+{
+  "audit_id": "RTA_MASTER_REPOSITORY_AUDIT_20261101",
+  "schema_version": 1,
+  "checked_date_dubai": "2026-11-01",
+  "generated_at_utc": "2026-10-31T22:15:26.541195+00:00",
+  "scope": "Public research plus operator-verified native actions; sanitized repository snapshot. No performance data.",
+  "input_master_sha256": "4ac5ad3cdca9ad9df539b2a955a9ef76cfd0f0208d291c814bab5079d73a1574",
+  "public_evidence_file": "public-evidence.json",
+  "coverage": {
+    "rows": 100,
+    "by_category": {
+      "search": 10,
+      "ai_search": 14,
+      "analytics_crm": 22,
+      "advertising": 15,
+      "social": 16,
+      "directories_procurement": 23
+    },
+    "all_explicit_master_platform_names_covered": true
+  },
+  "limits": [
+    "Unverified does not mean absent; public links do not prove administrator ownership.",
+    "100 platform-role rows are not 100 authenticated account audits.",
+    "Relevance is strategic assessment, not measured return; numeric performance is unavailable.",
+    "Native configuration/SDK delivery is not processed attribution or verified lifecycle outcome.",
+    "No master campaign publication, budget increase, billing, paid subscription or binding registration.",
+    "Expanded source and new disabled integrations await a new release plan and explicit approval.",
+    "Private server/account locators, credentials, bindings and customer/test identities omitted."
+  ],
+  "corporate_identity": {
+    "legal_name": "Voltronix Contracting LLC",
+    "brand": "VOLTRONIX; RTA service domain is not verified as a separate legal entity",
+    "address": "Shed 06, Aber Warehouse, Dubai Investment Park 02, Dubai, UAE",
+    "po_box": "414345",
+    "landline_e164": "+97148240002",
+    "published_mobile_e164": "+971502420957",
+    "business_email": "info@voltronix.ae",
+    "basis": "RTA HTML/GeneralContractor JSON-LD and corporate contact agree; matching Yellow Pages name/address is corroborative, not authority proof.",
+    "history": "Sites publish since2009; incorporation/history not independently verified.",
+    "scope": "Street lighting, cabling and electrical infrastructure are represented. Conditional RTA qualification stays qualified. High-mast/LED-solar/maintenance pages invite enquiries and scope confirmation.",
+    "enquiry_topics_not_verified_capabilities": [
+      "Road Maintenance",
+      "Road Works",
+      "Earth Works",
+      "Footpath Works",
+      "Signboards",
+      "Infrastructure Works",
+      "Hardscape & Softscape",
+      "Bollards & Fencing"
+    ],
+    "affiliation": "RTA site explicitly disclaims affiliation with Dubai Roads and Transport Authority.",
+    "certificate_review": "Corporate About displays22September2026 validity for three ISO certificates. Obtain renewal/current issuer evidence before current-certification claims; stale display does not prove no renewal.",
+    "whatsapp_review": "RTA uses published mobile; corporate header also exposes a landline WhatsApp link. Verify intended destination; link alone does not prove Business App/API.",
+    "separate_corporate_tracking": "Corporate HTML shows existing site container/separate advertising destination; RTA HTML shows existing site container. Do not copy corporate tracking destinations into RTA."
+  },
+  "platforms": [
+    {
+      "id": "search-google",
+      "category": "search",
+      "platform": "Google",
+      "existing_status": "Existing HTTPS property reused; correct GA4 and Ads associations accepted/read back. Actual current index coverage still requires property reports.",
+      "classification": "available_with_remaining_gates",
+      "suitability": "priority_1",
+      "issues": "See current status, tracking-verification.md and accounts-and-owner-actions.md for remaining gates; processed reporting and paid attribution are separate.",
+      "action_taken": "See the current status and repository account/tracking reports for executed versus prepared actions.",
+      "owner_requirements": "Use the existing verified HTTPS property; inspect deployed sitemap, URL Inspection, actual index/report coverage and association status without creating a duplicate.",
+      "pending_approval": "Use the existing verified HTTPS property; inspect deployed sitemap, URL Inspection, actual index/report coverage and association status without creating a duplicate.",
+      "official_entry_point": "https://search.google.com/search-console/",
+      "check_scope": "Public evidence plus operator-verified native actions; private locators omitted.",
+      "evidence_source_ids": [
+        "google_ai",
+        "sitemap"
+      ],
+      "source_urls": [
+        "https://developers.google.com/search/docs/appearance/ai-features",
+        "https://rtacontractor.ae/sitemap.xml"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "public_assessment_existing_status": "Public HTML, permissive robots and sitemap fetched; per-engine index/ownership and actual crawler/CDN access unverified.",
+      "native_context_date_dubai": "2026-11-01",
+      "authenticated_configuration_verified": true,
+      "ownership_note": "Authenticated configuration/access evidence does not independently establish legal ownership."
+    },
+    {
+      "id": "search-bing",
+      "category": "search",
+      "platform": "Bing",
+      "existing_status": "Owner sign-in pending; no completed new ownership or submission claimed.",
+      "classification": "available_with_remaining_gates",
+      "suitability": "priority_2",
+      "issues": "See current status, tracking-verification.md and accounts-and-owner-actions.md for remaining gates; processed reporting and paid attribution are separate.",
+      "action_taken": "See the current status and repository account/tracking reports for executed versus prepared actions.",
+      "owner_requirements": "Owner/root to verify existing webmaster access and real index/sitemap status. No duplicate properties or guaranteed downstream indexing.",
+      "pending_approval": "Owner/root to verify existing webmaster access and real index/sitemap status. No duplicate properties or guaranteed downstream indexing.",
+      "official_entry_point": "https://www.bing.com/webmasters/",
+      "check_scope": "Public evidence plus operator-verified native actions; private locators omitted.",
+      "evidence_source_ids": [
+        "bing_ai",
+        "indexnow"
+      ],
+      "source_urls": [
+        "https://blogs.bing.com/webmaster/2026/2/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview/",
+        "https://www.indexnow.org/documentation"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "public_assessment_existing_status": "Public HTML, permissive robots and sitemap fetched; per-engine index/ownership and actual crawler/CDN access unverified.",
+      "native_context_date_dubai": "2026-11-01",
+      "authenticated_configuration_verified": false,
+      "ownership_note": "Authenticated configuration/access evidence does not independently establish legal ownership."
+    },
+    {
+      "id": "search-yahoo",
+      "category": "search",
+      "platform": "Yahoo",
+      "existing_status": "Public HTML, permissive robots and sitemap fetched; per-engine index/ownership and actual crawler/CDN access unverified.",
+      "classification": "requires_owner_verification",
+      "suitability": "secondary",
+      "issues": "Official submission route is Bing; do not duplicate infrastructure.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Owner/root to verify existing webmaster access and real index/sitemap status. No duplicate properties or guaranteed downstream indexing.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://help.yahoo.com/kb/SLN2217.html",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "yahoo"
+      ],
+      "source_urls": [
+        "https://help.yahoo.com/kb/SLN2217.html"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "search-duckduckgo",
+      "category": "search",
+      "platform": "DuckDuckGo",
+      "existing_status": "Public HTML, permissive robots and sitemap fetched; per-engine index/ownership and actual crawler/CDN access unverified.",
+      "classification": "requires_owner_verification",
+      "suitability": "secondary",
+      "issues": "Traditional links largely use Bing plus other sources; no guaranteed distribution.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Owner/root to verify existing webmaster access and real index/sitemap status. No duplicate properties or guaranteed downstream indexing.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://duckduckgo.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "ddg"
+      ],
+      "source_urls": [
+        "https://duckduckgo.com/duckduckgo-help-pages/results/sources"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "search-brave-search",
+      "category": "search",
+      "platform": "Brave Search",
+      "existing_status": "Public HTML, permissive robots and sitemap fetched; per-engine index/ownership and actual crawler/CDN access unverified.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "Do not invent a dedicated Brave robots agent; keep ordinary crawlability.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Owner/root to verify existing webmaster access and real index/sitemap status. No duplicate properties or guaranteed downstream indexing.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://search.brave.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "brave"
+      ],
+      "source_urls": [
+        "https://search.brave.com/help/brave-search-crawler"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "search-yandex",
+      "category": "search",
+      "platform": "Yandex",
+      "existing_status": "Public HTML, permissive robots and sitemap fetched; per-engine index/ownership and actual crawler/CDN access unverified.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "Only prioritize with verified Russian-language buyer demand.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Owner/root to verify existing webmaster access and real index/sitemap status. No duplicate properties or guaranteed downstream indexing.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://webmaster.yandex.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "search-baidu",
+      "category": "search",
+      "platform": "Baidu",
+      "existing_status": "Public HTML, permissive robots and sitemap fetched; per-engine index/ownership and actual crawler/CDN access unverified.",
+      "classification": "requires_owner_verification",
+      "suitability": "not_priority",
+      "issues": "China-focused localization needs a real buyer/language case.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Owner/root to verify existing webmaster access and real index/sitemap status. No duplicate properties or guaranteed downstream indexing.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://ziyuan.baidu.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "search-ecosia",
+      "category": "search",
+      "platform": "Ecosia",
+      "existing_status": "Public HTML, permissive robots and sitemap fetched; per-engine index/ownership and actual crawler/CDN access unverified.",
+      "classification": "requires_owner_verification",
+      "suitability": "secondary",
+      "issues": "Providers vary among Bing/Google/EUSP; not simply Bing-only.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Owner/root to verify existing webmaster access and real index/sitemap status. No duplicate properties or guaranteed downstream indexing.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.ecosia.org/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "ecosia"
+      ],
+      "source_urls": [
+        "https://support.ecosia.org/article/579-search-results-providers"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "search-naver",
+      "category": "search",
+      "platform": "Naver",
+      "existing_status": "Public HTML, permissive robots and sitemap fetched; per-engine index/ownership and actual crawler/CDN access unverified.",
+      "classification": "requires_owner_verification",
+      "suitability": "not_priority",
+      "issues": "Korean-market work needs an evidenced buyer/language requirement.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Owner/root to verify existing webmaster access and real index/sitemap status. No duplicate properties or guaranteed downstream indexing.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://searchadvisor.naver.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "search-indexnow",
+      "category": "search",
+      "platform": "IndexNow",
+      "existing_status": "Dry-run and explicit-gated submission CLI prepared/tested locally; no live submission claimed.",
+      "classification": "available_with_remaining_gates",
+      "suitability": "suitable_technical",
+      "issues": "See current status, tracking-verification.md and accounts-and-owner-actions.md for remaining gates; processed reporting and paid attribution are separate.",
+      "action_taken": "See the current status and repository account/tracking reports for executed versus prepared actions.",
+      "owner_requirements": "Deploy a matching same-host proof file in approved release, then explicitly submit; HTTP receipt never guarantees indexing.",
+      "pending_approval": "Deploy a matching same-host proof file in approved release, then explicitly submit; HTTP receipt never guarantees indexing.",
+      "official_entry_point": "https://www.indexnow.org/documentation",
+      "check_scope": "Public evidence plus operator-verified native actions; private locators omitted.",
+      "evidence_source_ids": [
+        "indexnow",
+        "indexnow_faq"
+      ],
+      "source_urls": [
+        "https://www.indexnow.org/documentation",
+        "https://www.indexnow.org/faq"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "public_assessment_existing_status": "No key, ownership validation or URL submission performed; current implementation state unverified.",
+      "native_context_date_dubai": "2026-11-01",
+      "authenticated_configuration_verified": false,
+      "ownership_note": "Authenticated configuration/access evidence does not independently establish legal ownership."
+    },
+    {
+      "id": "ai_search-chatgpt-search",
+      "category": "ai_search",
+      "platform": "ChatGPT Search",
+      "existing_status": "RTA-specific inclusion/citations not measured; no visibility claim. Website readiness assessed only.",
+      "classification": "requires_owner_verification",
+      "suitability": "priority_1",
+      "issues": "OAI-SearchBot search controls and GPTBot training policy are independent.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Owner chooses search/training policy; no consumer account is proposed merely to make the public website discoverable.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://chatgpt.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "openai"
+      ],
+      "source_urls": [
+        "https://developers.openai.com/api/docs/bots"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "ai_search-google-gemini",
+      "category": "ai_search",
+      "platform": "Google Gemini",
+      "existing_status": "RTA-specific inclusion/citations not measured; no visibility claim. Website readiness assessed only.",
+      "classification": "requires_owner_verification",
+      "suitability": "secondary",
+      "issues": "Separate Search eligibility from other Google training/grounding controls.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Owner chooses search/training policy; no consumer account is proposed merely to make the public website discoverable.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://gemini.google.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "google_ai"
+      ],
+      "source_urls": [
+        "https://developers.google.com/search/docs/appearance/ai-features"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "ai_search-google-ai-overviews",
+      "category": "ai_search",
+      "platform": "Google AI Overviews",
+      "existing_status": "RTA-specific inclusion/citations not measured; no visibility claim. Website readiness assessed only.",
+      "classification": "requires_owner_verification",
+      "suitability": "priority_1",
+      "issues": "Ordinary Search eligibility; no special AI schema or guaranteed citations.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Owner chooses search/training policy; no consumer account is proposed merely to make the public website discoverable.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://developers.google.com/search/docs/appearance/ai-features",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "google_ai",
+        "google_geo"
+      ],
+      "source_urls": [
+        "https://developers.google.com/search/docs/appearance/ai-features",
+        "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "ai_search-google-ai-mode",
+      "category": "ai_search",
+      "platform": "Google AI Mode",
+      "existing_status": "RTA-specific inclusion/citations not measured; no visibility claim. Website readiness assessed only.",
+      "classification": "requires_owner_verification",
+      "suitability": "priority_1",
+      "issues": "No special registration; verify actual report availability.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Owner chooses search/training policy; no consumer account is proposed merely to make the public website discoverable.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://developers.google.com/search/docs/appearance/ai-features",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "google_ai",
+        "google_report"
+      ],
+      "source_urls": [
+        "https://developers.google.com/search/docs/appearance/ai-features",
+        "https://support.google.com/webmasters/answer/16984139"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "ai_search-microsoft-copilot",
+      "category": "ai_search",
+      "platform": "Microsoft Copilot",
+      "existing_status": "RTA-specific inclusion/citations not measured; no visibility claim. Website readiness assessed only.",
+      "classification": "requires_owner_verification",
+      "suitability": "priority_2",
+      "issues": "Bing readiness/reporting useful; no RTA citations or results measured.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Owner chooses search/training policy; no consumer account is proposed merely to make the public website discoverable.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://copilot.microsoft.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "bing_ai",
+        "bing_topics"
+      ],
+      "source_urls": [
+        "https://blogs.bing.com/webmaster/2026/2/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview/",
+        "https://blogs.bing.com/webmaster/2026/10/introducing-topics-portfolio-beta-in-ai-performance/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "ai_search-perplexity",
+      "category": "ai_search",
+      "platform": "Perplexity",
+      "existing_status": "RTA-specific inclusion/citations not measured; no visibility claim. Website readiness assessed only.",
+      "classification": "requires_owner_verification",
+      "suitability": "secondary",
+      "issues": "Documented search crawler is distinct from foundation-model training.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Owner chooses search/training policy; no consumer account is proposed merely to make the public website discoverable.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.perplexity.ai/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "perplexity"
+      ],
+      "source_urls": [
+        "https://docs.perplexity.ai/docs/resources/perplexity-crawlers"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "ai_search-claude",
+      "category": "ai_search",
+      "platform": "Claude",
+      "existing_status": "RTA-specific inclusion/citations not measured; no visibility claim. Website readiness assessed only.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "Current crawler documentation retrieval failed; no guessed bot rules.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Owner chooses search/training policy; no consumer account is proposed merely to make the public website discoverable.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://claude.ai/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "ai_search-grok",
+      "category": "ai_search",
+      "platform": "Grok",
+      "existing_status": "RTA-specific inclusion/citations not measured; no visibility claim. Website readiness assessed only.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "No RTA visibility or supported site-submission mechanism established here.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Owner chooses search/training policy; no consumer account is proposed merely to make the public website discoverable.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://grok.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "ai_search-deepseek",
+      "category": "ai_search",
+      "platform": "DeepSeek",
+      "existing_status": "RTA-specific inclusion/citations not measured; no visibility claim. Website readiness assessed only.",
+      "classification": "requires_owner_verification",
+      "suitability": "not_priority",
+      "issues": "No RTA citation, ingestion control or Dubai buyer-demand evidence established.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Owner chooses search/training policy; no consumer account is proposed merely to make the public website discoverable.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.deepseek.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "ai_search-meta-ai",
+      "category": "ai_search",
+      "platform": "Meta AI",
+      "existing_status": "RTA-specific inclusion/citations not measured; no visibility claim. Website readiness assessed only.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "AI visibility and Facebook/Instagram ownership are separate checks.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Owner chooses search/training policy; no consumer account is proposed merely to make the public website discoverable.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.meta.ai/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "ai_search-mistral",
+      "category": "ai_search",
+      "platform": "Mistral",
+      "existing_status": "RTA-specific inclusion/citations not measured; no visibility claim. Website readiness assessed only.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "No RTA citation or current site-registration mechanism established.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Owner chooses search/training policy; no consumer account is proposed merely to make the public website discoverable.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://mistral.ai/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "ai_search-you-com",
+      "category": "ai_search",
+      "platform": "You.com",
+      "existing_status": "RTA-specific inclusion/citations not measured; no visibility claim. Website readiness assessed only.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "No RTA visibility or current submission mechanism verified.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Owner chooses search/training policy; no consumer account is proposed merely to make the public website discoverable.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://you.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "ai_search-qwen",
+      "category": "ai_search",
+      "platform": "Qwen",
+      "existing_status": "RTA-specific inclusion/citations not measured; no visibility claim. Website readiness assessed only.",
+      "classification": "requires_owner_verification",
+      "suitability": "not_priority",
+      "issues": "No current buyer/citation evidence; do not invent an integration.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Owner chooses search/training policy; no consumer account is proposed merely to make the public website discoverable.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://qwen.ai/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "ai_search-kimi",
+      "category": "ai_search",
+      "platform": "Kimi",
+      "existing_status": "RTA-specific inclusion/citations not measured; no visibility claim. Website readiness assessed only.",
+      "classification": "requires_owner_verification",
+      "suitability": "not_priority",
+      "issues": "No current buyer/citation evidence; no new consumer account proposed.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Owner chooses search/training policy; no consumer account is proposed merely to make the public website discoverable.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.kimi.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "analytics_crm-google-tag-manager",
+      "category": "analytics_crm",
+      "platform": "Google Tag Manager",
+      "existing_status": "Existing RTA container retained; version 3 live unchanged; native version-4 15-tag draft audited, not published or automatically bundled with master release.",
+      "classification": "available_with_remaining_gates",
+      "suitability": "priority_1",
+      "issues": "See current status, tracking-verification.md and accounts-and-owner-actions.md for remaining gates; processed reporting and paid attribution are separate.",
+      "action_taken": "See the current status and repository account/tracking reports for executed versus prepared actions.",
+      "owner_requirements": "Keep live version3; version4 is unpublished. Reconcile fresh source/container and all purpose/URL/event ownership gates before separate approval.",
+      "pending_approval": "Keep live version3; version4 is unpublished. Reconcile fresh source/container and all purpose/URL/event ownership gates before separate approval.",
+      "official_entry_point": "https://tagmanager.google.com/",
+      "check_scope": "Public evidence plus operator-verified native actions; private locators omitted.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "public_assessment_existing_status": "Public RTA HTML contains existing site container; source tracking module/config markers were not observed in these HTML responses. Runtime state requires root verification.",
+      "native_context_date_dubai": "2026-11-01",
+      "authenticated_configuration_verified": true,
+      "ownership_note": "Authenticated configuration/access evidence does not independently establish legal ownership."
+    },
+    {
+      "id": "analytics_crm-google-analytics-4",
+      "category": "analytics_crm",
+      "platform": "Google Analytics 4",
+      "existing_status": "New RTA property/stream created, correct Ads/GSC links accepted, lead key event and AI dimension saved. One observed GA4 lead collection204; processed paid attribution unproved.",
+      "classification": "available_with_remaining_gates",
+      "suitability": "priority_1",
+      "issues": "See current status, tracking-verification.md and accounts-and-owner-actions.md for remaining gates; processed reporting and paid attribution are separate.",
+      "action_taken": "See the current status and repository account/tracking reports for executed versus prepared actions.",
+      "owner_requirements": "Use the created RTA property; verify processed reports, attribution, purpose settings and least-privilege reporting access; do not create another property.",
+      "pending_approval": "Use the created RTA property; verify processed reports, attribution, purpose settings and least-privilege reporting access; do not create another property.",
+      "official_entry_point": "https://analytics.google.com/",
+      "check_scope": "Public evidence plus operator-verified native actions; private locators omitted.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "public_assessment_existing_status": "Earlier setup exists in session context; this public audit does not establish current ownership, live receipt or reporting.",
+      "native_context_date_dubai": "2026-11-01",
+      "authenticated_configuration_verified": true,
+      "ownership_note": "Authenticated configuration/access evidence does not independently establish legal ownership."
+    },
+    {
+      "id": "analytics_crm-google-search-console",
+      "category": "analytics_crm",
+      "platform": "Google Search Console",
+      "existing_status": "Existing HTTPS property reused; correct GA4 and Ads associations accepted/read back. Actual deployed sitemap/indexing/report coverage still requires verification.",
+      "classification": "available_with_remaining_gates",
+      "suitability": "priority_1",
+      "issues": "See current status, tracking-verification.md and accounts-and-owner-actions.md for remaining gates; processed reporting and paid attribution are separate.",
+      "action_taken": "See the current status and repository account/tracking reports for executed versus prepared actions.",
+      "owner_requirements": "Use the existing verified HTTPS property; inspect deployed sitemap, URL Inspection, actual index/report coverage and association status without creating a duplicate.",
+      "pending_approval": "Use the existing verified HTTPS property; inspect deployed sitemap, URL Inspection, actual index/report coverage and association status without creating a duplicate.",
+      "official_entry_point": "https://search.google.com/search-console/",
+      "check_scope": "Public evidence plus operator-verified native actions; private locators omitted.",
+      "evidence_source_ids": [
+        "sitemap",
+        "google_report"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/sitemap.xml",
+        "https://support.google.com/webmasters/answer/16984139"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "public_assessment_existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "native_context_date_dubai": "2026-11-01",
+      "authenticated_configuration_verified": true,
+      "ownership_note": "Authenticated configuration/access evidence does not independently establish legal ownership."
+    },
+    {
+      "id": "analytics_crm-bing-webmaster-tools",
+      "category": "analytics_crm",
+      "platform": "Bing Webmaster Tools",
+      "existing_status": "Normal owner sign-in pending; no completed ownership/submission claimed.",
+      "classification": "available_with_remaining_gates",
+      "suitability": "priority_2",
+      "issues": "See current status, tracking-verification.md and accounts-and-owner-actions.md for remaining gates; processed reporting and paid attribution are separate.",
+      "action_taken": "See the current status and repository account/tracking reports for executed versus prepared actions.",
+      "owner_requirements": "Root verifies existing organization/IDs, permissions, consent, actual receipts and duplicates. No guessed IDs, client secrets or fabricated metrics.",
+      "pending_approval": "Root verifies existing organization/IDs, permissions, consent, actual receipts and duplicates. No guessed IDs, client secrets or fabricated metrics.",
+      "official_entry_point": "https://www.bing.com/webmasters/",
+      "check_scope": "Public evidence plus operator-verified native actions; private locators omitted.",
+      "evidence_source_ids": [
+        "bing_ai",
+        "indexnow"
+      ],
+      "source_urls": [
+        "https://blogs.bing.com/webmaster/2026/2/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview/",
+        "https://www.indexnow.org/documentation"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "public_assessment_existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "native_context_date_dubai": "2026-11-01",
+      "authenticated_configuration_verified": false,
+      "ownership_note": "Authenticated configuration/access evidence does not independently establish legal ownership."
+    },
+    {
+      "id": "analytics_crm-microsoft-clarity",
+      "category": "analytics_crm",
+      "platform": "Microsoft Clarity",
+      "existing_status": "RTA project created; correct Ads and GA4 links accepted/read back, GA4 Active. Setup does not prove processed attribution.",
+      "classification": "available_with_remaining_gates",
+      "suitability": "priority_1",
+      "issues": "See current status, tracking-verification.md and accounts-and-owner-actions.md for remaining gates; processed reporting and paid attribution are separate.",
+      "action_taken": "See the current status and repository account/tracking reports for executed versus prepared actions.",
+      "owner_requirements": "Use the RTA project; inspect real recordings, purpose/cookie settings and active link behavior; do not infer paid attribution from an account link.",
+      "pending_approval": "Use the RTA project; inspect real recordings, purpose/cookie settings and active link behavior; do not infer paid attribution from an account link.",
+      "official_entry_point": "https://clarity.microsoft.com/",
+      "check_scope": "Public evidence plus operator-verified native actions; private locators omitted.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "public_assessment_existing_status": "Earlier setup exists in session context; this public audit does not establish current ownership, live receipt or reporting.",
+      "native_context_date_dubai": "2026-11-01",
+      "authenticated_configuration_verified": true,
+      "ownership_note": "Authenticated configuration/access evidence does not independently establish legal ownership."
+    },
+    {
+      "id": "analytics_crm-google-ads-conversion-tracking",
+      "category": "analytics_crm",
+      "platform": "Google Ads Conversion Tracking",
+      "existing_status": "Expected browser native destination/label signals observed, but current form action remains Misconfigured, secondary, count One, no value. Paid attribution unproved.",
+      "classification": "available_with_remaining_gates",
+      "suitability": "priority_1",
+      "issues": "See current status, tracking-verification.md and accounts-and-owner-actions.md for remaining gates; processed reporting and paid attribution are separate.",
+      "action_taken": "See the current status and repository account/tracking reports for executed versus prepared actions.",
+      "owner_requirements": "Root verifies existing organization/IDs, permissions, consent, actual receipts and duplicates. No guessed IDs, client secrets or fabricated metrics.",
+      "pending_approval": "Root verifies existing organization/IDs, permissions, consent, actual receipts and duplicates. No guessed IDs, client secrets or fabricated metrics.",
+      "official_entry_point": "https://ads.google.com/",
+      "check_scope": "Public evidence plus operator-verified native actions; private locators omitted.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "public_assessment_existing_status": "Earlier setup exists in session context; this public audit does not establish current ownership, live receipt or reporting.",
+      "native_context_date_dubai": "2026-11-01",
+      "authenticated_configuration_verified": true,
+      "ownership_note": "Authenticated configuration/access evidence does not independently establish legal ownership."
+    },
+    {
+      "id": "analytics_crm-meta-pixel",
+      "category": "analytics_crm",
+      "platform": "Meta Pixel",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "Owner dataset/pixel ID and existing GTM/server implementation must be checked.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Root verifies existing organization/IDs, permissions, consent, actual receipts and duplicates. No guessed IDs, client secrets or fabricated metrics.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.facebook.com/business/tools/meta-pixel",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "analytics_crm-meta-conversions-api",
+      "category": "analytics_crm",
+      "platform": "Meta Conversions API",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "Secure server integration, consent and browser/server deduplication required.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Root verifies existing organization/IDs, permissions, consent, actual receipts and duplicates. No guessed IDs, client secrets or fabricated metrics.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://developers.facebook.com/docs/marketing-api/conversions-api/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "analytics_crm-linkedin-insight-tag",
+      "category": "analytics_crm",
+      "platform": "LinkedIn Insight Tag",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "Use only verified partner ID and consent; no guessed or duplicate loader.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Root verifies existing organization/IDs, permissions, consent, actual receipts and duplicates. No guessed IDs, client secrets or fabricated metrics.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://business.linkedin.com/advertise/ads/insight-tag",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "analytics_crm-tiktok-pixel",
+      "category": "analytics_crm",
+      "platform": "TikTok Pixel",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "not_priority",
+      "issues": "Only after a justified TikTok plan, owned ID and consent.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Root verifies existing organization/IDs, permissions, consent, actual receipts and duplicates. No guessed IDs, client secrets or fabricated metrics.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://ads.tiktok.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "analytics_crm-google-looker-studio",
+      "category": "analytics_crm",
+      "platform": "Google Looker Studio",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "suitable_reporting",
+      "issues": "Evaluate existing reporting/root dashboard; no duplicate disconnected report.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Root verifies existing organization/IDs, permissions, consent, actual receipts and duplicates. No guessed IDs, client secrets or fabricated metrics.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://lookerstudio.google.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "analytics_crm-zoho-analytics",
+      "category": "analytics_crm",
+      "platform": "Zoho Analytics",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "Check existing organization/license and real CRM reporting needs.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Root verifies existing organization/IDs, permissions, consent, actual receipts and duplicates. No guessed IDs, client secrets or fabricated metrics.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.zoho.com/analytics/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "analytics_crm-zoho-salesiq",
+      "category": "analytics_crm",
+      "platform": "Zoho SalesIQ",
+      "existing_status": "Existing website embed retained; admin/purpose and accepted-lead contract not newly verified.",
+      "classification": "available_with_remaining_gates",
+      "suitability": "conditional",
+      "issues": "See current status, tracking-verification.md and accounts-and-owner-actions.md for remaining gates; processed reporting and paid attribution are separate.",
+      "action_taken": "See the current status and repository account/tracking reports for executed versus prepared actions.",
+      "owner_requirements": "Root verifies existing organization/IDs, permissions, consent, actual receipts and duplicates. No guessed IDs, client secrets or fabricated metrics.",
+      "pending_approval": "Root verifies existing organization/IDs, permissions, consent, actual receipts and duplicates. No guessed IDs, client secrets or fabricated metrics.",
+      "official_entry_point": "https://www.zoho.com/salesiq/",
+      "check_scope": "Public evidence plus operator-verified native actions; private locators omitted.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "public_assessment_existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "native_context_date_dubai": "2026-11-01",
+      "authenticated_configuration_verified": false,
+      "ownership_note": "Authenticated configuration/access evidence does not independently establish legal ownership."
+    },
+    {
+      "id": "analytics_crm-zoho-pagesense",
+      "category": "analytics_crm",
+      "platform": "Zoho PageSense",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "not_priority",
+      "issues": "Experimentation needs traffic/decision evidence and consent.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Root verifies existing organization/IDs, permissions, consent, actual receipts and duplicates. No guessed IDs, client secrets or fabricated metrics.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.zoho.com/pagesense/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "analytics_crm-cloudflare-web-analytics",
+      "category": "analytics_crm",
+      "platform": "Cloudflare Web Analytics",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "CDN headers do not prove Analytics, DNS ownership or WAF configuration.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Root verifies existing organization/IDs, permissions, consent, actual receipts and duplicates. No guessed IDs, client secrets or fabricated metrics.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.cloudflare.com/web-analytics/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "analytics_crm-matomo",
+      "category": "analytics_crm",
+      "platform": "Matomo",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "not_recommended_current_plan",
+      "suitability": "not_recommended_now",
+      "issues": "Only a documented data-control/consolidation requirement justifies another stack.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Root verifies existing organization/IDs, permissions, consent, actual receipts and duplicates. No guessed IDs, client secrets or fabricated metrics.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://matomo.org/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "analytics_crm-hotjar",
+      "category": "analytics_crm",
+      "platform": "Hotjar",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "not_recommended_current_plan",
+      "suitability": "not_recommended_now",
+      "issues": "Overlaps Clarity; no justified duplicate recording platform.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Root verifies existing organization/IDs, permissions, consent, actual receipts and duplicates. No guessed IDs, client secrets or fabricated metrics.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.hotjar.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "analytics_crm-mixpanel",
+      "category": "analytics_crm",
+      "platform": "Mixpanel",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "not_recommended_current_plan",
+      "suitability": "not_recommended_now",
+      "issues": "Product analytics is not currently justified for this contracting site.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Root verifies existing organization/IDs, permissions, consent, actual receipts and duplicates. No guessed IDs, client secrets or fabricated metrics.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://mixpanel.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "analytics_crm-posthog",
+      "category": "analytics_crm",
+      "platform": "PostHog",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "not_recommended_current_plan",
+      "suitability": "not_recommended_now",
+      "issues": "No second product/recording platform without a specific need and consent.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Root verifies existing organization/IDs, permissions, consent, actual receipts and duplicates. No guessed IDs, client secrets or fabricated metrics.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://posthog.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "analytics_crm-zoho-crm",
+      "category": "analytics_crm",
+      "platform": "Zoho CRM",
+      "existing_status": "19 additive RTA fields created/read back: 97 to 116, unique submission key and writable consented click-ID fields verified. No records changed by field setup; global status preserved; new server API integration disabled.",
+      "classification": "available_with_remaining_gates",
+      "suitability": "priority_1",
+      "issues": "See current status, tracking-verification.md and accounts-and-owner-actions.md for remaining gates; processed reporting and paid attribution are separate.",
+      "action_taken": "See the current status and repository account/tracking reports for executed versus prepared actions.",
+      "owner_requirements": "Preserve the 19 created fields and global status; verify scoped OAuth, API region, automation, encrypted storage and one-provider switch before enabling.",
+      "pending_approval": "Preserve the 19 created fields and global status; verify scoped OAuth, API region, automation, encrypted storage and one-provider switch before enabling.",
+      "official_entry_point": "https://www.zoho.com/crm/",
+      "check_scope": "Public evidence plus operator-verified native actions; private locators omitted.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "public_assessment_existing_status": "Public RTA page loads a Zoho webform. Private organization, receipt and pipeline ownership are outside this audit.",
+      "native_context_date_dubai": "2026-11-01",
+      "authenticated_configuration_verified": true,
+      "ownership_note": "Authenticated configuration/access evidence does not independently establish legal ownership."
+    },
+    {
+      "id": "analytics_crm-voltronix-hub",
+      "category": "analytics_crm",
+      "platform": "VOLTRONIX HUB",
+      "existing_status": "Actual authenticated endpoint/schema, accepted receipt, deduplication and replay contract unverified; integration disabled.",
+      "classification": "available_with_remaining_gates",
+      "suitability": "conditional",
+      "issues": "See current status, tracking-verification.md and accounts-and-owner-actions.md for remaining gates; processed reporting and paid attribution are separate.",
+      "action_taken": "See the current status and repository account/tracking reports for executed versus prepared actions.",
+      "owner_requirements": "Root verifies existing organization/IDs, permissions, consent, actual receipts and duplicates. No guessed IDs, client secrets or fabricated metrics.",
+      "pending_approval": "Root verifies existing organization/IDs, permissions, consent, actual receipts and duplicates. No guessed IDs, client secrets or fabricated metrics.",
+      "official_entry_point": "https://voltronix.ae/",
+      "check_scope": "Public evidence plus operator-verified native actions; private locators omitted.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "public_assessment_existing_status": "Named in master request; private endpoints, organization and capabilities not established.",
+      "native_context_date_dubai": "2026-11-01",
+      "authenticated_configuration_verified": false,
+      "ownership_note": "Authenticated configuration/access evidence does not independently establish legal ownership."
+    },
+    {
+      "id": "analytics_crm-talk2maries-ai-voice-chatbot",
+      "category": "analytics_crm",
+      "platform": "Talk2Maries AI voice chatbot",
+      "existing_status": "Existing assistant retained; bounded engagement only, no accepted-lead callback contract established.",
+      "classification": "available_with_remaining_gates",
+      "suitability": "suitable_existing_review",
+      "issues": "See current status, tracking-verification.md and accounts-and-owner-actions.md for remaining gates; processed reporting and paid attribution are separate.",
+      "action_taken": "See the current status and repository account/tracking reports for executed versus prepared actions.",
+      "owner_requirements": "Root verifies existing organization/IDs, permissions, consent, actual receipts and duplicates. No guessed IDs, client secrets or fabricated metrics.",
+      "pending_approval": "Root verifies existing organization/IDs, permissions, consent, actual receipts and duplicates. No guessed IDs, client secrets or fabricated metrics.",
+      "official_entry_point": "https://rtacontractor.ae/",
+      "check_scope": "Public evidence plus operator-verified native actions; private locators omitted.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "public_assessment_existing_status": "Public RTA page exposes Talk2Maries assistant entry; provider/CRM outcomes not verified here.",
+      "native_context_date_dubai": "2026-11-01",
+      "authenticated_configuration_verified": false,
+      "ownership_note": "Authenticated configuration/access evidence does not independently establish legal ownership."
+    },
+    {
+      "id": "advertising-google-ads",
+      "category": "advertising",
+      "platform": "Google Ads",
+      "existing_status": "Existing campaign Enabled, Eligible(Limited); original missing-ad blocker cleared. Bid-strategy/learning diagnostics remain. No master campaign/budget/billing change.",
+      "classification": "available_with_remaining_gates",
+      "suitability": "priority_1",
+      "issues": "See current status, tracking-verification.md and accounts-and-owner-actions.md for remaining gates; processed reporting and paid attribution are separate.",
+      "action_taken": "See the current status and repository account/tracking reports for executed versus prepared actions.",
+      "owner_requirements": "Verify existing account/Page/channel and billing/geo/goals. Publishing campaigns, raising budgets or incurring charges requires explicit approval.",
+      "pending_approval": "Verify existing account/Page/channel and billing/geo/goals. Publishing campaigns, raising budgets or incurring charges requires explicit approval.",
+      "official_entry_point": "https://ads.google.com/home/",
+      "check_scope": "Public evidence plus operator-verified native actions; private locators omitted.",
+      "evidence_source_ids": [
+        "street"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/services/street-lighting/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "public_assessment_existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "native_context_date_dubai": "2026-11-01",
+      "authenticated_configuration_verified": true,
+      "ownership_note": "Authenticated configuration/access evidence does not independently establish legal ownership."
+    },
+    {
+      "id": "advertising-microsoft-advertising",
+      "category": "advertising",
+      "platform": "Microsoft Advertising",
+      "existing_status": "UET tag created natively and previewed; goal unsaved awaiting user No-enhanced-conversions choice; no paid campaign launched.",
+      "classification": "available_with_remaining_gates",
+      "suitability": "priority_2",
+      "issues": "See current status, tracking-verification.md and accounts-and-owner-actions.md for remaining gates; processed reporting and paid attribution are separate.",
+      "action_taken": "See the current status and repository account/tracking reports for executed versus prepared actions.",
+      "owner_requirements": "Complete user No-enhanced-conversions selection, save/read back exact goal; verify identity/consent and separately approve spend/publication.",
+      "pending_approval": "Complete user No-enhanced-conversions selection, save/read back exact goal; verify identity/consent and separately approve spend/publication.",
+      "official_entry_point": "https://ads.microsoft.com/",
+      "check_scope": "Public evidence plus operator-verified native actions; private locators omitted.",
+      "evidence_source_ids": [
+        "street"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/services/street-lighting/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "public_assessment_existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "native_context_date_dubai": "2026-11-01",
+      "authenticated_configuration_verified": true,
+      "ownership_note": "Authenticated configuration/access evidence does not independently establish legal ownership."
+    },
+    {
+      "id": "advertising-meta-ads",
+      "category": "advertising",
+      "platform": "Meta Ads",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "priority_4",
+      "issues": "Conditional Facebook/Instagram retargeting after ownership, consent and real leads.",
+      "action_taken": "Suitability assessed; review-only platform plan prepared. No account creation, publication or spend.",
+      "owner_requirements": "Verify existing account/Page/channel and billing/geo/goals. Publishing campaigns, raising budgets or incurring charges requires explicit approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.facebook.com/business/ads",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "street"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/services/street-lighting/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "advertising-linkedin-ads",
+      "category": "advertising",
+      "platform": "LinkedIn Ads",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "priority_3",
+      "issues": "B2B buyer targeting relevant; Page/billing/lead-routing need verification.",
+      "action_taken": "Suitability assessed; review-only platform plan prepared. No account creation, publication or spend.",
+      "owner_requirements": "Verify existing account/Page/channel and billing/geo/goals. Publishing campaigns, raising budgets or incurring charges requires explicit approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://business.linkedin.com/advertise",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "linkedin"
+      ],
+      "source_urls": [
+        "https://business.linkedin.com/advertise/resources/lead-generation"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "advertising-youtube-ads",
+      "category": "advertising",
+      "platform": "YouTube Ads",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "priority_5",
+      "issues": "Verified technical/project footage and channel rights; use existing Google Ads where appropriate.",
+      "action_taken": "Suitability assessed; review-only platform plan prepared. No account creation, publication or spend.",
+      "owner_requirements": "Verify existing account/Page/channel and billing/geo/goals. Publishing campaigns, raising budgets or incurring charges requires explicit approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.youtube.com/ads/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "street"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/services/street-lighting/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "advertising-tiktok-ads",
+      "category": "advertising",
+      "platform": "TikTok Ads",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "not_priority",
+      "issues": "Later audience test only; no present qualified-lead evidence justifies spend.",
+      "action_taken": "Suitability assessed; review-only platform plan prepared. No account creation, publication or spend.",
+      "owner_requirements": "Verify existing account/Page/channel and billing/geo/goals. Publishing campaigns, raising budgets or incurring charges requires explicit approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://ads.tiktok.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "street"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/services/street-lighting/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "advertising-snapchat-ads",
+      "category": "advertising",
+      "platform": "Snapchat Ads",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "not_priority",
+      "issues": "No present procurement-intent case; avoid scattering limited budget.",
+      "action_taken": "Suitability assessed; review-only platform plan prepared. No account creation, publication or spend.",
+      "owner_requirements": "Verify existing account/Page/channel and billing/geo/goals. Publishing campaigns, raising budgets or incurring charges requires explicit approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://forbusiness.snapchat.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "street"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/services/street-lighting/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "advertising-x-ads",
+      "category": "advertising",
+      "platform": "X Ads",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "Legacy corporate identity needs review; paid use requires a measured audience case.",
+      "action_taken": "Suitability assessed; review-only platform plan prepared. No account creation, publication or spend.",
+      "owner_requirements": "Verify existing account/Page/channel and billing/geo/goals. Publishing campaigns, raising budgets or incurring charges requires explicit approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://business.x.com/en/advertising",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "street"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/services/street-lighting/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "advertising-pinterest-ads",
+      "category": "advertising",
+      "platform": "Pinterest Ads",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "not_priority",
+      "issues": "A linked profile does not establish infrastructure-advertising fit.",
+      "action_taken": "Suitability assessed; review-only platform plan prepared. No account creation, publication or spend.",
+      "owner_requirements": "Verify existing account/Page/channel and billing/geo/goals. Publishing campaigns, raising budgets or incurring charges requires explicit approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://ads.pinterest.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "street"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/services/street-lighting/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "advertising-reddit-ads",
+      "category": "advertising",
+      "platform": "Reddit Ads",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "Researched professional communities only; no spam or automated promotion.",
+      "action_taken": "Suitability assessed; review-only platform plan prepared. No account creation, publication or spend.",
+      "owner_requirements": "Verify existing account/Page/channel and billing/geo/goals. Publishing campaigns, raising budgets or incurring charges requires explicit approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.business.reddit.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "street"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/services/street-lighting/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "advertising-quora-ads",
+      "category": "advertising",
+      "platform": "Quora Ads",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "Technical question intent may be tested later; demand/performance unverified.",
+      "action_taken": "Suitability assessed; review-only platform plan prepared. No account creation, publication or spend.",
+      "owner_requirements": "Verify existing account/Page/channel and billing/geo/goals. Publishing campaigns, raising budgets or incurring charges requires explicit approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://business.quora.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "street"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/services/street-lighting/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "advertising-taboola",
+      "category": "advertising",
+      "platform": "Taboola",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "not_priority",
+      "issues": "Native awareness lower priority than qualified search and owned B2B audiences.",
+      "action_taken": "Suitability assessed; review-only platform plan prepared. No account creation, publication or spend.",
+      "owner_requirements": "Verify existing account/Page/channel and billing/geo/goals. Publishing campaigns, raising budgets or incurring charges requires explicit approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.taboola.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "street"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/services/street-lighting/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "advertising-outbrain",
+      "category": "advertising",
+      "platform": "Outbrain",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "not_priority",
+      "issues": "Verify current vendor/brand/account route before registration; native awareness lower priority.",
+      "action_taken": "Suitability assessed; review-only platform plan prepared. No account creation, publication or spend.",
+      "owner_requirements": "Verify existing account/Page/channel and billing/geo/goals. Publishing campaigns, raising budgets or incurring charges requires explicit approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.outbrain.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "street"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/services/street-lighting/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "advertising-amazon-ads",
+      "category": "advertising",
+      "platform": "Amazon Ads",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "not_recommended_current_plan",
+      "suitability": "not_recommended_now",
+      "issues": "No RTA-service commerce/buyer case established; do not assume switchgear-product scope.",
+      "action_taken": "Suitability assessed; review-only platform plan prepared. No account creation, publication or spend.",
+      "owner_requirements": "Verify existing account/Page/channel and billing/geo/goals. Publishing campaigns, raising budgets or incurring charges requires explicit approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://advertising.amazon.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "street"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/services/street-lighting/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "advertising-yandex-direct",
+      "category": "advertising",
+      "platform": "Yandex Direct",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "Only after Russian-language buyer demand, localization and eligibility checks.",
+      "action_taken": "Suitability assessed; review-only platform plan prepared. No account creation, publication or spend.",
+      "owner_requirements": "Verify existing account/Page/channel and billing/geo/goals. Publishing campaigns, raising budgets or incurring charges requires explicit approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://direct.yandex.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "street"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/services/street-lighting/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "social-linkedin",
+      "category": "social",
+      "platform": "LinkedIn",
+      "existing_status": "Official RTA site links this corporate profile; signed-in ownership/freshness and a separate RTA identity unverified.",
+      "classification": "requires_owner_verification",
+      "suitability": "priority_1",
+      "issues": "Reuse verified corporate identity; do not create a duplicate RTA-government-like Page.",
+      "action_taken": "Public links assessed; bios, five graphics and 12-post calendar prepared. No posting or ownership change.",
+      "owner_requirements": "Owner verifies existing brand account/Page/channel, naming/NAP and content rights before edits or publishing. No duplicate identity or outreach.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.linkedin.com/company/voltronix-uae/",
+      "check_scope": "First-party outbound link, not authenticated ownership.",
+      "evidence_source_ids": [
+        "rta",
+        "corp"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/",
+        "https://voltronix.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "public_profile_url": "https://www.linkedin.com/company/voltronix-uae/"
+    },
+    {
+      "id": "social-facebook",
+      "category": "social",
+      "platform": "Facebook",
+      "existing_status": "Official RTA site links this corporate profile; signed-in ownership/freshness and a separate RTA identity unverified.",
+      "classification": "requires_owner_verification",
+      "suitability": "suitable_existing_review",
+      "issues": "Verify existing Page rights, brand, NAP and lead routing.",
+      "action_taken": "Public links assessed; bios, five graphics and 12-post calendar prepared. No posting or ownership change.",
+      "owner_requirements": "Owner verifies existing brand account/Page/channel, naming/NAP and content rights before edits or publishing. No duplicate identity or outreach.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.facebook.com/voltronixuae",
+      "check_scope": "First-party outbound link, not authenticated ownership.",
+      "evidence_source_ids": [
+        "rta",
+        "corp"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/",
+        "https://voltronix.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "public_profile_url": "https://www.facebook.com/voltronixuae"
+    },
+    {
+      "id": "social-instagram",
+      "category": "social",
+      "platform": "Instagram",
+      "existing_status": "Official RTA site links this corporate profile; signed-in ownership/freshness and a separate RTA identity unverified.",
+      "classification": "requires_owner_verification",
+      "suitability": "suitable_existing_review",
+      "issues": "Verify existing account rights and professional project-content permissions.",
+      "action_taken": "Public links assessed; bios, five graphics and 12-post calendar prepared. No posting or ownership change.",
+      "owner_requirements": "Owner verifies existing brand account/Page/channel, naming/NAP and content rights before edits or publishing. No duplicate identity or outreach.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.instagram.com/vtnxllc",
+      "check_scope": "First-party outbound link, not authenticated ownership.",
+      "evidence_source_ids": [
+        "rta",
+        "corp"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/",
+        "https://voltronix.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "public_profile_url": "https://www.instagram.com/vtnxllc"
+    },
+    {
+      "id": "social-whatsapp-business",
+      "category": "social",
+      "platform": "WhatsApp Business",
+      "existing_status": "Official RTA site links this corporate profile; signed-in ownership/freshness and a separate RTA identity unverified.",
+      "classification": "requires_owner_verification",
+      "suitability": "priority_1",
+      "issues": "A wa.me link does not prove Business App/API ownership; confirm intended number.",
+      "action_taken": "Public links assessed; bios, five graphics and 12-post calendar prepared. No posting or ownership change.",
+      "owner_requirements": "Owner verifies existing brand account/Page/channel, naming/NAP and content rights before edits or publishing. No duplicate identity or outreach.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://wa.me/971502420957",
+      "check_scope": "First-party outbound link, not authenticated ownership.",
+      "evidence_source_ids": [
+        "rta",
+        "corp"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/",
+        "https://voltronix.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "public_profile_url": "https://wa.me/971502420957"
+    },
+    {
+      "id": "social-youtube",
+      "category": "social",
+      "platform": "YouTube",
+      "existing_status": "No official linked profile established in inspected site anchors/public checks; not proof no account exists.",
+      "classification": "requires_owner_verification",
+      "suitability": "priority_5",
+      "issues": "Official channel not established by site anchors; check existing brand accounts first.",
+      "action_taken": "Public links assessed; bios, five graphics and 12-post calendar prepared. No posting or ownership change.",
+      "owner_requirements": "Owner verifies existing brand account/Page/channel, naming/NAP and content rights before edits or publishing. No duplicate identity or outreach.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.youtube.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta",
+        "corp"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/",
+        "https://voltronix.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "social-tiktok",
+      "category": "social",
+      "platform": "TikTok",
+      "existing_status": "No official linked profile established in inspected site anchors/public checks; not proof no account exists.",
+      "classification": "requires_owner_verification",
+      "suitability": "not_priority",
+      "issues": "Optional technical shorts later; no new account required now.",
+      "action_taken": "Public links assessed; bios, five graphics and 12-post calendar prepared. No posting or ownership change.",
+      "owner_requirements": "Owner verifies existing brand account/Page/channel, naming/NAP and content rights before edits or publishing. No duplicate identity or outreach.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.tiktok.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta",
+        "corp"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/",
+        "https://voltronix.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "social-x",
+      "category": "social",
+      "platform": "X",
+      "existing_status": "Official RTA site links this corporate profile; signed-in ownership/freshness and a separate RTA identity unverified.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "Linked nstsllc handle appears legacy; confirm entity continuity and branding.",
+      "action_taken": "Public links assessed; bios, five graphics and 12-post calendar prepared. No posting or ownership change.",
+      "owner_requirements": "Owner verifies existing brand account/Page/channel, naming/NAP and content rights before edits or publishing. No duplicate identity or outreach.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://x.com/nstsllc",
+      "check_scope": "First-party outbound link, not authenticated ownership.",
+      "evidence_source_ids": [
+        "rta",
+        "corp"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/",
+        "https://voltronix.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "public_profile_url": "https://x.com/nstsllc"
+    },
+    {
+      "id": "social-threads",
+      "category": "social",
+      "platform": "Threads",
+      "existing_status": "No official linked profile established in inspected site anchors/public checks; not proof no account exists.",
+      "classification": "requires_owner_verification",
+      "suitability": "not_priority",
+      "issues": "No official linked profile established; not evidence of absence.",
+      "action_taken": "Public links assessed; bios, five graphics and 12-post calendar prepared. No posting or ownership change.",
+      "owner_requirements": "Owner verifies existing brand account/Page/channel, naming/NAP and content rights before edits or publishing. No duplicate identity or outreach.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.threads.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta",
+        "corp"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/",
+        "https://voltronix.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "social-snapchat",
+      "category": "social",
+      "platform": "Snapchat",
+      "existing_status": "No official linked profile established in inspected site anchors/public checks; not proof no account exists.",
+      "classification": "requires_owner_verification",
+      "suitability": "not_priority",
+      "issues": "No verified procurement audience or official linked profile established.",
+      "action_taken": "Public links assessed; bios, five graphics and 12-post calendar prepared. No posting or ownership change.",
+      "owner_requirements": "Owner verifies existing brand account/Page/channel, naming/NAP and content rights before edits or publishing. No duplicate identity or outreach.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.snapchat.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta",
+        "corp"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/",
+        "https://voltronix.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "social-pinterest",
+      "category": "social",
+      "platform": "Pinterest",
+      "existing_status": "Official RTA site links this corporate profile; signed-in ownership/freshness and a separate RTA identity unverified.",
+      "classification": "requires_owner_verification",
+      "suitability": "not_priority",
+      "issues": "RTA links a profile; ownership and B2B priority still require review.",
+      "action_taken": "Public links assessed; bios, five graphics and 12-post calendar prepared. No posting or ownership change.",
+      "owner_requirements": "Owner verifies existing brand account/Page/channel, naming/NAP and content rights before edits or publishing. No duplicate identity or outreach.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.pinterest.com/voltronixs/",
+      "check_scope": "First-party outbound link, not authenticated ownership.",
+      "evidence_source_ids": [
+        "rta",
+        "corp"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/",
+        "https://voltronix.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "public_profile_url": "https://www.pinterest.com/voltronixs/"
+    },
+    {
+      "id": "social-reddit",
+      "category": "social",
+      "platform": "Reddit",
+      "existing_status": "No official linked profile established in inspected site anchors/public checks; not proof no account exists.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "Expert contributions only where relevant; no bulk posting or unsolicited outreach.",
+      "action_taken": "Public links assessed; bios, five graphics and 12-post calendar prepared. No posting or ownership change.",
+      "owner_requirements": "Owner verifies existing brand account/Page/channel, naming/NAP and content rights before edits or publishing. No duplicate identity or outreach.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.reddit.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta",
+        "corp"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/",
+        "https://voltronix.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "social-quora",
+      "category": "social",
+      "platform": "Quora",
+      "existing_status": "No official linked profile established in inspected site anchors/public checks; not proof no account exists.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "Original accurate technical answers; no spam or unverified approvals.",
+      "action_taken": "Public links assessed; bios, five graphics and 12-post calendar prepared. No posting or ownership change.",
+      "owner_requirements": "Owner verifies existing brand account/Page/channel, naming/NAP and content rights before edits or publishing. No duplicate identity or outreach.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.quora.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta",
+        "corp"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/",
+        "https://voltronix.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "social-telegram",
+      "category": "social",
+      "platform": "Telegram",
+      "existing_status": "No official linked profile established in inspected site anchors/public checks; not proof no account exists.",
+      "classification": "requires_owner_verification",
+      "suitability": "not_priority",
+      "issues": "Only an evidenced opted-in communications requirement; no new broad channel.",
+      "action_taken": "Public links assessed; bios, five graphics and 12-post calendar prepared. No posting or ownership change.",
+      "owner_requirements": "Owner verifies existing brand account/Page/channel, naming/NAP and content rights before edits or publishing. No duplicate identity or outreach.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://telegram.org/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta",
+        "corp"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/",
+        "https://voltronix.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "social-vimeo",
+      "category": "social",
+      "platform": "Vimeo",
+      "existing_status": "No official linked profile established in inspected site anchors/public checks; not proof no account exists.",
+      "classification": "requires_owner_verification",
+      "suitability": "not_priority",
+      "issues": "Optional hosting; avoid duplicating the prioritized YouTube/content stack.",
+      "action_taken": "Public links assessed; bios, five graphics and 12-post calendar prepared. No posting or ownership change.",
+      "owner_requirements": "Owner verifies existing brand account/Page/channel, naming/NAP and content rights before edits or publishing. No duplicate identity or outreach.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://vimeo.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta",
+        "corp"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/",
+        "https://voltronix.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "social-medium",
+      "category": "social",
+      "platform": "Medium",
+      "existing_status": "No official linked profile established in inspected site anchors/public checks; not proof no account exists.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "Original technical content and source attribution; no invented projects or credentials.",
+      "action_taken": "Public links assessed; bios, five graphics and 12-post calendar prepared. No posting or ownership change.",
+      "owner_requirements": "Owner verifies existing brand account/Page/channel, naming/NAP and content rights before edits or publishing. No duplicate identity or outreach.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://medium.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta",
+        "corp"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/",
+        "https://voltronix.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "social-behance",
+      "category": "social",
+      "platform": "Behance",
+      "existing_status": "No official linked profile established in inspected site anchors/public checks; not proof no account exists.",
+      "classification": "requires_owner_verification",
+      "suitability": "not_priority",
+      "issues": "Search surfaced related Switchgear material, not verified RTA-contracting ownership.",
+      "action_taken": "Public links assessed; bios, five graphics and 12-post calendar prepared. No posting or ownership change.",
+      "owner_requirements": "Owner verifies existing brand account/Page/channel, naming/NAP and content rights before edits or publishing. No duplicate identity or outreach.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.behance.net/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta",
+        "corp"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/",
+        "https://voltronix.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false
+    },
+    {
+      "id": "directories_procurement-google-business-profile",
+      "category": "directories_procurement",
+      "platform": "Google Business Profile",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "priority_1",
+      "issues": "One eligible real VOLTRONIX business; service domain does not justify a duplicate entity.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Authorized company representative checks existing claim/registration and true license/category/documents. No binding declaration, bid, payment or subscription without approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.google.com/business/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "gbp",
+        "gbp_owner"
+      ],
+      "source_urls": [
+        "https://support.google.com/business/answer/3038177?hl=en",
+        "https://support.google.com/business/answer/13763036?hl=en"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "listing_type": "local business listing"
+    },
+    {
+      "id": "directories_procurement-bing-places",
+      "category": "directories_procurement",
+      "platform": "Bing Places",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "priority_2",
+      "issues": "Check existing listing/import before new profile; current experience under Bing.com.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Authorized company representative checks existing claim/registration and true license/category/documents. No binding declaration, bid, payment or subscription without approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.bing.com/forbusiness",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "places"
+      ],
+      "source_urls": [
+        "https://blogs.bing.com/search/2025/10/Introducing-the-New-Bing-Places-for-Business-Built-for-Business-Owners%2C-Powered-by-Research/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "listing_type": "local business listing"
+    },
+    {
+      "id": "directories_procurement-apple-business-connect",
+      "category": "directories_procurement",
+      "platform": "Apple Business Connect",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "secondary",
+      "issues": "Check migrated Apple Business locations before duplicates; UAE local-ad availability unverified.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Authorized company representative checks existing claim/registration and true license/category/documents. No binding declaration, bid, payment or subscription without approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://business.apple.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "apple"
+      ],
+      "source_urls": [
+        "https://www.apple.com/newsroom/2026/03/introducing-apple-business-a-new-all-in-one-platform-for-businesses-of-all-sizes/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "listing_type": "local business listing"
+    },
+    {
+      "id": "directories_procurement-yellow-pages-uae",
+      "category": "directories_procurement",
+      "platform": "Yellow Pages UAE",
+      "existing_status": "Public matching legal name and full Shed06/AberWarehouse/DIP02/POBox414345 address; description names Nathan Star Technical Services LLC.",
+      "classification": "available_needs_review",
+      "suitability": "suitable_existing_review",
+      "issues": "Name/address match but description says NSTS; verify legal continuity and claim before editing.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Authorized company representative checks existing claim/registration and true license/category/documents. No binding declaration, bid, payment or subscription without approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.yellowpages-uae.com/voltronix-169323",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "yellow",
+        "contact"
+      ],
+      "source_urls": [
+        "https://www.yellowpages-uae.com/voltronix-169323",
+        "https://voltronix.ae/contact-us/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "listing_type": "local business listing"
+    },
+    {
+      "id": "directories_procurement-connect-ae",
+      "category": "directories_procurement",
+      "platform": "Connect.ae",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "secondary",
+      "issues": "Exact company record/claim not established; match legal name/address/phone first.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Authorized company representative checks existing claim/registration and true license/category/documents. No binding declaration, bid, payment or subscription without approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://connect.ae/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "listing_type": "local business listing"
+    },
+    {
+      "id": "directories_procurement-atn-info",
+      "category": "directories_procurement",
+      "platform": "ATN Info",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "secondary",
+      "issues": "Existing record/ownership not established; no account absence claim.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Authorized company representative checks existing claim/registration and true license/category/documents. No binding declaration, bid, payment or subscription without approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.atninfo.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "listing_type": "local business listing"
+    },
+    {
+      "id": "directories_procurement-2gis",
+      "category": "directories_procurement",
+      "platform": "2GIS",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "secondary",
+      "issues": "Verify exact branch, map pin, NAP and owner rights before changes.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Authorized company representative checks existing claim/registration and true license/category/documents. No binding declaration, bid, payment or subscription without approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://2gis.ae/dubai",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "listing_type": "local business listing"
+    },
+    {
+      "id": "directories_procurement-kompass",
+      "category": "directories_procurement",
+      "platform": "Kompass",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "Distinguish contracting company from same-name/switchgear entities.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Authorized company representative checks existing claim/registration and true license/category/documents. No binding declaration, bid, payment or subscription without approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.kompass.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "listing_type": "B2B business directory"
+    },
+    {
+      "id": "directories_procurement-europages",
+      "category": "directories_procurement",
+      "platform": "Europages",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "International supplier discovery secondary to Dubai buyers; ownership unverified.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Authorized company representative checks existing claim/registration and true license/category/documents. No binding declaration, bid, payment or subscription without approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.europages.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "listing_type": "B2B business directory"
+    },
+    {
+      "id": "directories_procurement-alibaba",
+      "category": "directories_procurement",
+      "platform": "Alibaba",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "not_recommended_current_plan",
+      "suitability": "not_recommended_now",
+      "issues": "No product-export marketplace case established for RTA contracting services.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Authorized company representative checks existing claim/registration and true license/category/documents. No binding declaration, bid, payment or subscription without approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.alibaba.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "listing_type": "product trade marketplace"
+    },
+    {
+      "id": "directories_procurement-tradekey",
+      "category": "directories_procurement",
+      "platform": "TradeKey",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "not_recommended_current_plan",
+      "suitability": "not_recommended_now",
+      "issues": "No verified trade/export requirement; do not reuse a related business identity.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Authorized company representative checks existing claim/registration and true license/category/documents. No binding declaration, bid, payment or subscription without approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.tradekey.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "rta"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "listing_type": "product trade marketplace"
+    },
+    {
+      "id": "directories_procurement-dubai-chambers",
+      "category": "directories_procurement",
+      "platform": "Dubai Chambers",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "suitable_existing_review",
+      "issues": "Verify current membership/license; membership is not contractor authority approval.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Authorized company representative checks existing claim/registration and true license/category/documents. No binding declaration, bid, payment or subscription without approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.dubaichambers.com/en/new-membership",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "chambers"
+      ],
+      "source_urls": [
+        "https://www.dubaichambers.com/en/new-membership"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "listing_type": "membership / corporate registration"
+    },
+    {
+      "id": "directories_procurement-dubai-trade",
+      "category": "directories_procurement",
+      "platform": "Dubai Trade",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "Not a general construction-lead directory; only actual customs/logistics need.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Authorized company representative checks existing claim/registration and true license/category/documents. No binding declaration, bid, payment or subscription without approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.dubaitrade.ae/en/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "trade"
+      ],
+      "source_urls": [
+        "https://www.dubaitrade.ae/en/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "listing_type": "trade / logistics registration"
+    },
+    {
+      "id": "directories_procurement-dubai-esupply",
+      "category": "directories_procurement",
+      "platform": "Dubai eSupply",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "suitable_procurement",
+      "issues": "Dubai Government route; qualification and declarations require owner review.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Authorized company representative checks existing claim/registration and true license/category/documents. No binding declaration, bid, payment or subscription without approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://esupply.dubai.gov.ae/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "esupply"
+      ],
+      "source_urls": [
+        "https://esupply.dubai.gov.ae/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "listing_type": "government procurement / supplier registration"
+    },
+    {
+      "id": "directories_procurement-dewa",
+      "category": "directories_procurement",
+      "platform": "DEWA",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "suitable_procurement",
+      "issues": "Electrical enrolment differs from supplier procurement; validate current activity/class/documents.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Authorized company representative checks existing claim/registration and true license/category/documents. No binding declaration, bid, payment or subscription without approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://dewa.gov.ae/en/about-us/service-guide/general-information/enrollment-of-consultants-contractors",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "dewa"
+      ],
+      "source_urls": [
+        "https://dewa.gov.ae/en/about-us/service-guide/general-information/enrollment-of-consultants-contractors"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "listing_type": "contractor / supplier registration"
+    },
+    {
+      "id": "directories_procurement-dp-world",
+      "category": "directories_procurement",
+      "platform": "DP World",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "Use UAE buyer process/invitations and Oracle SCM; another country portal is not a substitute.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Authorized company representative checks existing claim/registration and true license/category/documents. No binding declaration, bid, payment or subscription without approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.dpworld.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "dpworld"
+      ],
+      "source_urls": [
+        "https://www.dpworld.com/uae/-/media/project/dpwg/dpwg-tenant/mea/uae/media-files/publications/newmediafiles/supplier-handbook_rev09.pdf?rev=9120d7605fa5488d8667393ee0364104"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "listing_type": "buyer supplier registration"
+    },
+    {
+      "id": "directories_procurement-protenders",
+      "category": "directories_procurement",
+      "platform": "ProTenders",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "Potential company visibility/project research; matching account and tier unverified.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Authorized company representative checks existing claim/registration and true license/category/documents. No binding declaration, bid, payment or subscription without approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.protenders.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "protenders"
+      ],
+      "source_urls": [
+        "https://www.protenders.com/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "listing_type": "construction directory / intelligence / procurement"
+    },
+    {
+      "id": "directories_procurement-bnc-network",
+      "category": "directories_procurement",
+      "platform": "BNC Network",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "Detailed public text/account/tier unreadable or unverified in this audit.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Authorized company representative checks existing claim/registration and true license/category/documents. No binding declaration, bid, payment or subscription without approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.bncnetwork.net/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "bnc"
+      ],
+      "source_urls": [
+        "https://www.bncnetwork.net/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "listing_type": "construction project intelligence"
+    },
+    {
+      "id": "directories_procurement-ventures-onsite",
+      "category": "directories_procurement",
+      "platform": "Ventures Onsite",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "Public terms prohibit automated subscription-platform access/extraction; none accessed.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Authorized company representative checks existing claim/registration and true license/category/documents. No binding declaration, bid, payment or subscription without approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.venturesonsite.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "ventures",
+        "ventures_terms"
+      ],
+      "source_urls": [
+        "https://www.venturesonsite.com/construction-tenders/",
+        "https://www.venturesonsite.com/terms-conditions/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "listing_type": "paid tender / project intelligence"
+    },
+    {
+      "id": "directories_procurement-meed-projects",
+      "category": "directories_procurement",
+      "platform": "MEED Projects",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "Subscription research is not official supplier registration; owner approval for costs/access.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Authorized company representative checks existing claim/registration and true license/category/documents. No binding declaration, bid, payment or subscription without approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.meedprojects.com/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "meed"
+      ],
+      "source_urls": [
+        "https://www.meedprojects.com/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "listing_type": "paid project intelligence"
+    },
+    {
+      "id": "directories_procurement-uae-federal-procurement",
+      "category": "directories_procurement",
+      "platform": "UAE Federal Procurement",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "suitable_procurement",
+      "issues": "Federal Supplier Register/DPP differs from Dubai eSupply; authorized documents only.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Authorized company representative checks existing claim/registration and true license/category/documents. No binding declaration, bid, payment or subscription without approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://mof.gov.ae/en/services/register-suppliers-in-the-federal-supplier-register/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "federal",
+        "dpp"
+      ],
+      "source_urls": [
+        "https://mof.gov.ae/en/services/register-suppliers-in-the-federal-supplier-register/",
+        "https://mof.gov.ae/en/public-finance/government-procurement/digital-procurement-platform/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "listing_type": "government procurement / supplier registration"
+    },
+    {
+      "id": "directories_procurement-sap-business-network",
+      "category": "directories_procurement",
+      "platform": "SAP Business Network",
+      "existing_status": "Private account/profile ownership and configuration not established by this public audit; this does not mean absent.",
+      "classification": "requires_owner_verification",
+      "suitability": "conditional",
+      "issues": "Check existing supplier organization/invitations and standard/enterprise terms before commitments.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Authorized company representative checks existing claim/registration and true license/category/documents. No binding declaration, bid, payment or subscription without approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.sap.com/products/business-network/suppliers/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "sap"
+      ],
+      "source_urls": [
+        "https://www.sap.com/uk/products/business-network/suppliers/overview.html"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "listing_type": "supplier registration / sourcing network"
+    },
+    {
+      "id": "directories_procurement-rta-contractor-prequalification",
+      "category": "directories_procurement",
+      "platform": "RTA contractor prequalification",
+      "existing_status": "RTA site publishes conditional prequalification context and certificate link; issuer/current registry verification outside this public audit.",
+      "classification": "available_needs_review",
+      "suitability": "suitable_existing_review",
+      "issues": "Published conditional context is not blanket approval; verify current scope, limits and validity.",
+      "action_taken": "Read-only public/documentation assessment; no external changes.",
+      "owner_requirements": "Authorized company representative checks existing claim/registration and true license/category/documents. No binding declaration, bid, payment or subscription without approval.",
+      "pending_approval": "Owner access/verification and relevant publication, spend or binding-registration approval.",
+      "official_entry_point": "https://www.rta.ae/",
+      "check_scope": "Public evidence/documentation only; official entrypoint supplied for owner navigation, not proof an account exists.",
+      "evidence_source_ids": [
+        "street"
+      ],
+      "source_urls": [
+        "https://rtacontractor.ae/services/street-lighting/"
+      ],
+      "checked_date_dubai": "2026-11-01",
+      "account_absence_claimed": false,
+      "private_ownership_verified": false,
+      "listing_type": "authority prequalification"
+    }
+  ],
+  "technical_decisions": [
+    {
+      "id": "indexnow",
+      "finding": "No key or submission created/tested.",
+      "recommendation": "Use a dedicated permitted8–128-character key (hex64 fits), same-host UTF8text keyfile and canonical changed/deleted public URLs. Verify200/plain-text, not HTML fallback. POST accepts up to10000URLs. HTTP200means receipt, not indexing or AI citation.",
+      "sources": [
+        "indexnow",
+        "indexnow_faq"
+      ]
+    },
+    {
+      "id": "openai",
+      "finding": "OAI-SearchBot search access and GPTBot training control are independent; ChatGPT-User is user initiated, not automatic search crawling.",
+      "recommendation": "Owner chooses training separately from search discovery. Verify documented bot IPs/CDN behavior; no citation guarantee.",
+      "sources": [
+        "openai"
+      ]
+    },
+    {
+      "id": "crawl_policy",
+      "finding": "Live robots permits all user agents; generic-client200does not prove crawler/WAF access.",
+      "recommendation": "Preserve security controls and verify legitimate bot logs/IPs. Perplexity documents its search crawler separately from foundation-model training. Current Claude crawler documentation did not retrieve; do not invent unsupported bot rules.",
+      "sources": [
+        "robots",
+        "perplexity"
+      ]
+    },
+    {
+      "id": "google_ai",
+      "finding": "Ordinary Search eligibility and useful public content apply; no special AI schema or llms.txt required.",
+      "recommendation": "Use original technical answers, accurate service proof and consistent entities; never promise citations or manufacture RTA approval/projects/reviews.",
+      "sources": [
+        "google_ai",
+        "google_geo"
+      ]
+    },
+    {
+      "id": "ai_reporting",
+      "finding": "One current Google guide links a GenerativeAIperformance report while AI-features guidance still describes aggregateWebdata; detailed public report methodology did not render. Bing documents AI Performance and Topics beta.",
+      "recommendation": "Root verifies actual property/report availability. Keep unavailable traffic/citation metrics null, distinct from identifiable referrals.",
+      "sources": [
+        "google_report",
+        "google_geo",
+        "google_ai",
+        "bing_ai",
+        "bing_topics"
+      ]
+    },
+    {
+      "id": "bing_future_policy",
+      "finding": "Microsoft announced independent training/grounding preferences30October2026; new preferences begin1February2027 with2027transition dates.",
+      "recommendation": "Treat as a future owner-policy decision, not a completed/currently enforced integration; do not block grounding merely to opt out of training.",
+      "sources": [
+        "bing_policy"
+      ]
+    },
+    {
+      "id": "distribution",
+      "finding": "Yahoo routes submissions to Bing; DuckDuckGo largely uses Bing for traditional links; Ecosia varies among Bing/Google/EUSP.",
+      "recommendation": "Prioritize Google/Bing, canonical sitemap and actual qualified referrals; no guaranteed downstream indexing.",
+      "sources": [
+        "yahoo",
+        "ddg",
+        "ecosia"
+      ]
+    },
+    {
+      "id": "schema_sitemap",
+      "finding": "Public GeneralContractor JSON-LD has consistent contact/address/corporate-social sameAs. Robots and nine-URL sitemap returned200.",
+      "recommendation": "Keep schema aligned with visible verified facts; reconcile sitemap with new code and authenticated index reports. No fabricated ratings/certifications/projects.",
+      "sources": [
+        "rta",
+        "robots",
+        "sitemap",
+        "google_ai"
+      ]
+    },
+    {
+      "id": "procurement",
+      "finding": "Local listings, buyer registration and paid project intelligence are different workflows.",
+      "recommendation": "Verify existing organizations/qualification and owner-approved documents. No binding declarations, paid subscriptions, bid submission or automated paid-portal extraction/outreach.",
+      "sources": [
+        "esupply",
+        "dewa",
+        "federal",
+        "dpworld",
+        "sap",
+        "ventures_terms"
+      ]
+    }
+  ],
+  "pending_owner_actions": [
+    "Confirm legal identity, history, precise RTA scope/conditions and ISO renewal evidence before certification/approval claims.",
+    "Root verifies existing Google/Bing properties and Ads/GA4/GTM/Clarity ownership, live receipt, goals and linking; do not duplicate.",
+    "Verify Yellow Pages control/legal continuity before fixing the Voltronix/NSTS description.",
+    "Verify existing VOLTRONIX local listings and serving model; check Apple Business migrated locations before duplicates.",
+    "Verify social ownership, legacy X/Pinterest branding, content rights and intended WhatsApp number.",
+    "Approve independent search/training policy and any IndexNow key/deployment/submission; verify actual WAF behavior.",
+    "Verify supplier licenses/categories/documents and existing registrations; owner approves commitments and subscriptions.",
+    "Explicit approval before campaign publication, billing/budget changes or charges; optimize for real qualified enquiries and projects."
+  ],
+  "sources": [
+    {
+      "id": "rta",
+      "title": "RTA public website",
+      "url": "https://rtacontractor.ae/",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "First-party HTTP200 HTML; links/schema inspected, no JavaScript."
+    },
+    {
+      "id": "street",
+      "title": "RTA service scope",
+      "url": "https://rtacontractor.ae/services/street-lighting/",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "First-party HTTP200; conditional prequalification and project-specific scope."
+    },
+    {
+      "id": "cabling",
+      "title": "Cabling service",
+      "url": "https://rtacontractor.ae/services/underground-cabling/",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "First-party HTTP200."
+    },
+    {
+      "id": "electrical",
+      "title": "Electrical infrastructure",
+      "url": "https://rtacontractor.ae/services/electrical-infrastructure/",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "First-party HTTP200."
+    },
+    {
+      "id": "corp",
+      "title": "Corporate website",
+      "url": "https://voltronix.ae/",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "First-party HTTP200; identity context only."
+    },
+    {
+      "id": "contact",
+      "title": "Corporate contact",
+      "url": "https://voltronix.ae/contact-us/",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "First-party HTTP200; name/address/phone match."
+    },
+    {
+      "id": "about",
+      "title": "Corporate certification display",
+      "url": "https://voltronix.ae/about/",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "First-party HTTP200; published ISO validity22September2026; renewal not verified."
+    },
+    {
+      "id": "robots",
+      "title": "Live robots",
+      "url": "https://rtacontractor.ae/robots.txt",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "HTTP200; User-agent:* Allow:/ and sitemap."
+    },
+    {
+      "id": "sitemap",
+      "title": "Live sitemap",
+      "url": "https://rtacontractor.ae/sitemap.xml",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "HTTP200; nine URLs."
+    },
+    {
+      "id": "yellow",
+      "title": "Matching Yellow Pages listing",
+      "url": "https://www.yellowpages-uae.com/voltronix-169323",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Public search/page excerpt matches name/address but description names NSTS; ownership/approval unverified."
+    },
+    {
+      "id": "google_ai",
+      "title": "Google AI features",
+      "url": "https://developers.google.com/search/docs/appearance/ai-features",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Official documentation read."
+    },
+    {
+      "id": "google_geo",
+      "title": "Google generative AI guidance",
+      "url": "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Official documentation read."
+    },
+    {
+      "id": "google_report",
+      "title": "Search Console AI report entry",
+      "url": "https://support.google.com/webmasters/answer/16984139",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Linked from official guide; detailed methodology/availability did not render publicly."
+    },
+    {
+      "id": "openai",
+      "title": "Official OpenAI crawlers",
+      "url": "https://developers.openai.com/api/docs/bots",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Official page fetched after official-domain search."
+    },
+    {
+      "id": "perplexity",
+      "title": "Perplexity crawlers",
+      "url": "https://docs.perplexity.ai/docs/resources/perplexity-crawlers",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Official documentation read."
+    },
+    {
+      "id": "bing_ai",
+      "title": "Bing AI Performance",
+      "url": "https://blogs.bing.com/webmaster/2026/2/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview/",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Official February2026 announcement."
+    },
+    {
+      "id": "bing_topics",
+      "title": "Bing Topics Portfolio beta",
+      "url": "https://blogs.bing.com/webmaster/2026/10/introducing-topics-portfolio-beta-in-ai-performance/",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Official October2026 announcement."
+    },
+    {
+      "id": "bing_policy",
+      "title": "Bing training/grounding transition",
+      "url": "https://blogs.bing.com/search/2026/10/your-content-your-choice-clearer-preferences-for-training-and-grounding/",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Announced30October2026; new preferences begin1February2027, not a completed current integration."
+    },
+    {
+      "id": "indexnow",
+      "title": "IndexNow protocol",
+      "url": "https://www.indexnow.org/documentation",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Official protocol read."
+    },
+    {
+      "id": "indexnow_faq",
+      "title": "IndexNow FAQ",
+      "url": "https://www.indexnow.org/faq",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Official FAQ read."
+    },
+    {
+      "id": "ddg",
+      "title": "DuckDuckGo sources",
+      "url": "https://duckduckgo.com/duckduckgo-help-pages/results/sources",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Official result-source guidance."
+    },
+    {
+      "id": "yahoo",
+      "title": "Yahoo submission route",
+      "url": "https://help.yahoo.com/kb/SLN2217.html",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Official guidance routes submissions to Bing."
+    },
+    {
+      "id": "brave",
+      "title": "Brave crawler",
+      "url": "https://search.brave.com/help/brave-search-crawler",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Official crawler guidance."
+    },
+    {
+      "id": "ecosia",
+      "title": "Ecosia providers",
+      "url": "https://support.ecosia.org/article/579-search-results-providers",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Official guidance includes Bing, Google and EUSP."
+    },
+    {
+      "id": "gbp",
+      "title": "Google business guidelines",
+      "url": "https://support.google.com/business/answer/3038177?hl=en",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Official eligibility/one-profile/service-area guidance."
+    },
+    {
+      "id": "gbp_owner",
+      "title": "Google ownership eligibility",
+      "url": "https://support.google.com/business/answer/13763036?hl=en",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Only owners/authorized representatives may verify/manage."
+    },
+    {
+      "id": "places",
+      "title": "New Bing Places",
+      "url": "https://blogs.bing.com/search/2025/10/Introducing-the-New-Bing-Places-for-Business-Built-for-Business-Owners%2C-Powered-by-Research/",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Official migration/new experience under Bing.com."
+    },
+    {
+      "id": "apple",
+      "title": "Apple Business replaces Business Connect",
+      "url": "https://www.apple.com/newsroom/2026/03/introducing-apple-business-a-new-all-in-one-platform-for-businesses-of-all-sizes/",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Official March2026 announcement; do not duplicate migrated locations."
+    },
+    {
+      "id": "linkedin",
+      "title": "LinkedIn B2B leads",
+      "url": "https://business.linkedin.com/advertise/resources/lead-generation",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Official targeting/lead-generation guidance; no RTA ROI inference."
+    },
+    {
+      "id": "dewa",
+      "title": "DEWA contractor enrolment",
+      "url": "https://dewa.gov.ae/en/about-us/service-guide/general-information/enrollment-of-consultants-contractors",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Official enrolment requirements; separate from supplier procurement."
+    },
+    {
+      "id": "esupply",
+      "title": "Dubai Government eSupply",
+      "url": "https://esupply.dubai.gov.ae/",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Official government procurement entry."
+    },
+    {
+      "id": "federal",
+      "title": "Federal Supplier Register",
+      "url": "https://mof.gov.ae/en/services/register-suppliers-in-the-federal-supplier-register/",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Official Ministry of Finance service."
+    },
+    {
+      "id": "dpp",
+      "title": "Federal Digital Procurement Platform",
+      "url": "https://mof.gov.ae/en/public-finance/government-procurement/digital-procurement-platform/",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Official platform description."
+    },
+    {
+      "id": "chambers",
+      "title": "Dubai Chambers membership",
+      "url": "https://www.dubaichambers.com/en/new-membership",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Official membership service; no company membership verified."
+    },
+    {
+      "id": "trade",
+      "title": "Dubai Trade services",
+      "url": "https://www.dubaitrade.ae/en/",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Official trade/logistics services, not a general tender listing."
+    },
+    {
+      "id": "dpworld",
+      "title": "DP World UAE supplier handbook",
+      "url": "https://www.dpworld.com/uae/-/media/project/dpwg/dpwg-tenant/mea/uae/media-files/publications/newmediafiles/supplier-handbook_rev09.pdf?rev=9120d7605fa5488d8667393ee0364104",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Official UAE handbook search content describes Oracle SCM/invitation-based sourcing; not another country process."
+    },
+    {
+      "id": "sap",
+      "title": "SAP supplier accounts",
+      "url": "https://www.sap.com/uk/products/business-network/suppliers/overview.html",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Official standard/enterprise account guidance."
+    },
+    {
+      "id": "protenders",
+      "title": "ProTenders",
+      "url": "https://www.protenders.com/",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Official construction profile/intelligence/procurement description."
+    },
+    {
+      "id": "bnc",
+      "title": "BNC Network",
+      "url": "https://www.bncnetwork.net/",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Official page title only; detailed text unreadable; account/tier unverified."
+    },
+    {
+      "id": "ventures",
+      "title": "Ventures tenders",
+      "url": "https://www.venturesonsite.com/construction-tenders/",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Official subscription product description."
+    },
+    {
+      "id": "ventures_terms",
+      "title": "Ventures terms",
+      "url": "https://www.venturesonsite.com/terms-conditions/",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Public terms prohibit automated subscription-platform access/extraction; no private platform accessed."
+    },
+    {
+      "id": "meed",
+      "title": "MEED Projects",
+      "url": "https://www.meedprojects.com/",
+      "checked_date_dubai": "2026-11-01",
+      "evidence_note": "Official subscription project-intelligence description."
+    }
+  ],
+  "metrics": {
+    "visitors": null,
+    "qualified_leads": null,
+    "cost_per_lead": null,
+    "ai_citations": null,
+    "reason": null
+  },
+  "upstream_public_matrix_sha256": "a2a1a0bdfee04e2c8dfa72d1145dbaee946c7299f41e0fe18f55353d1023bf4c"
+}

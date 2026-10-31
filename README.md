@@ -2,12 +2,14 @@
 
 A responsive, photography-led website for VOLTRONIX's street lighting and electrical infrastructure enquiries in Dubai. Built with static HTML, CSS and small progressive JavaScript; no production framework or runtime dependencies.
 
+The 1 November local modernization expands the site to 19 indexable pages and a recoverable 404. See [the website review](website/WEBSITE-REVIEW-20261101.txt) for scope, evidence, screenshots and publication limits. The new marketing controller and lead service remain disabled; this branch has not been deployed.
+
 ## Run locally
 
 Requires Node.js 22 or later.
 
 ```sh
-npm install
+npm ci --ignore-scripts
 npm run build
 npm run dev
 ```
@@ -19,8 +21,13 @@ Open http://127.0.0.1:4173. Build output is in `website/dist/`; it can be served
 - `website/site.config.mjs`: business name, published contact details and canonical origin.
 - `website/services.mjs`: six service/enquiry topics with evidence flags and scope FAQs.
 - `website/street-lighting-content.mjs` and `website/templates/street-lighting.mjs`: sourced primary landing-page copy and shared-style template.
-- `website/rta-works.mjs`: the eight RTA-related work categories in the “What We Do” photo grid before Our Expertise.
-- `website/scripts/build.mjs`: shared layout, home, service, privacy and photography pages; sitemap, robots and JSON-LD.
+- `website/page-content.mjs`: service index, About, contact, quotation, FAQ, cookie information, knowledge index and three buyer guides.
+- `website/rta-works.mjs`: retained historical topic data; its eight-category reveal is no longer published.
+- `website/scripts/build.mjs`: shared layout, all 19 indexable pages, 404, project brief, sitemap, robots and JSON-LD.
+- `website/scripts/marketing-build-policy.mjs`: fail-closed build gate for future coordinated consent ownership of GTM.
+- `website/tracking.config.mjs` and `website/dist/assets/tracking.js`: preserved form-receipt and PII-free event bridge.
+- `website/marketing.config.mjs` and `website/dist/assets/consent.js`: disabled prepared consent/attribution/lead-client integration.
+- `server/lead-service/`: disabled server-side intake/delivery adapters and isolated tests; no automatic replacement of the Zoho form.
 - `website/dist/assets/style.css`: responsive visual system.
 - `website/dist/assets/app.js`: accessible mobile navigation and section interactions.
 - `website/dist/assets/contact-widgets.js`: immediate AI launcher, embedded popup loading/retry and WhatsApp timing.
@@ -28,11 +35,9 @@ Open http://127.0.0.1:4173. Build output is in `website/dist/`; it can be served
 
 CSS, JavaScript, logos, fonts and photographs in `dist/assets` are source assets retained by the build. Do not delete `dist` before building.
 
-The navbar uses a phone menu below 768px. Tablets and larger screens keep the full navigation, with logo size, text and spacing scaling between 768px and 1280px. Resizing out of the phone layout closes its menu and releases the page scroll lock.
+The navbar uses a mobile menu below 960px, with keyboard-accessible native Services and Resources disclosures. Escape closes open menus and restores focus. Without JavaScript, narrow-screen navigation stays in normal flow so it cannot obscure anchor headings.
 
-The About section pins as the sectors and following content scroll over it. Taller mobile layouts scroll through all About content before pinning. Short viewports and reduced-motion preferences use normal scrolling, and keyboard focus reveals any covered About link.
-
-The “What We Do” section opens with a large title, then reveals its eight RTA-related work categories as the visitor scrolls. When the full grid fits below the header, it stays in place while the cards appear one at a time. Smaller screens use a natural scrolling reveal. Reduced-motion preferences, short viewports, and JavaScript-disabled browsers show the complete static grid. Keyboard focus reveals each card, and the desktop sequence includes a direct link to Our Expertise. Each card links to the project enquiry section. The controller is `website/dist/assets/works-scroll.js`; photograph sources and licenses are recorded in `website/photo-sources.json` and credited on `/photography/`.
+Homepage sections use normal document flow. Three buyer starting points link to street lighting, underground cabling and quotation planning. Background video is opt-in, with no media source loaded until playback is requested. Photograph sources and licences remain recorded in `website/photo-sources.json` and credited on `/photography/`; representative imagery does not establish a completed project.
 
 ## Enquiries
 
@@ -84,6 +89,7 @@ Existing generic robots rules already allow search crawlers. No AI training-poli
 ```sh
 npm run check
 npm run test:browser
+npm run test:website
 npm run test:contacts
 npm run test:works
 npm run test:http
@@ -91,11 +97,14 @@ npm run test:discovery
 npm run test:static
 npm run test:safety
 npm run test:primary
+npm run test:tracking
+npm run test:marketing
+npm run test:leads
 ```
 
-The browser check expects the local preview to be running at port 4173 and installed Chrome on Windows. It checks all nine pages on desktop/mobile, links, accessibility, images, metadata, navigation, FAQ accordions and the Zoho embed installation. Local QA stubs the Zoho script to avoid external requests; live rendering must be checked separately without sending a CRM lead. The primary-page suite also covers keyboard navigation, narrow screens, JavaScript-disabled content and street-lighting enquiry context. Screenshots and reports go to ignored `artifacts/`. No enquiry is sent.
+The browser checks expect the local preview at port 4173 and installed Chrome on Windows. `test:browser` retains the original nine-page regressions; `test:website` covers all 19 indexable pages at desktop/mobile/narrow widths, accessibility, navigation, FAQ filtering and quotation context. Local QA mocks provider scripts; its synthetic form is a layout fixture. Live provider rendering requires a separate approved check. The primary suite also covers keyboard navigation, JavaScript-disabled content and street-lighting enquiry context. `test:works` checks the supported buyer paths and 404 recovery. Screenshots/reports go to ignored `artifacts/`. No enquiry is sent.
 
-`QA_BASE_URL` can select an isolated local preview using literal `127.0.0.1` or `[::1]`. Browser runners reject remote origins and block external requests, WebSockets, service workers and redirect responses before following them. Actual redirects are tested separately by the Node/Nginx suites. All three browser runners accept `QA_ARTIFACTS_DIR` inside ignored `artifacts/` to preserve earlier evidence; they reject symlink/junction output paths. These are test-process settings, not production configuration.
+`QA_BASE_URL` can select an isolated local preview using literal `127.0.0.1` or `[::1]`. Browser runners reject remote origins and block external requests, WebSockets, service workers and redirect responses before following them. Actual redirects are tested separately by the Node/Nginx suites. Browser runners accept `QA_ARTIFACTS_DIR` inside ignored `artifacts/` to preserve earlier evidence; they reject symlink/junction output paths. These are test-process settings, not production configuration.
 
 Run the complete local verification with existing Nginx, OpenSSL and Chrome executables:
 
@@ -103,7 +112,7 @@ Run the complete local verification with existing Nginx, OpenSSL and Chrome exec
 npm run test:local -- --nginx /absolute/path/to/nginx --openssl /absolute/path/to/openssl --chrome /absolute/path/to/chrome --output artifacts/local-verification-new-run
 ```
 
-The output directory must be new. This command builds the site, validates SEO and assets, checks JavaScript syntax, discovers every `website/scripts/*.test.mjs` unit suite, runs HTTP checks, starts its own ephemeral loopback preview for browser/scroll/interaction tests, and runs actual Nginx HTTP/TLS integration tests. It stops its preview and Nginx processes afterward. Each step records its command, timestamps, exit code and log in a local JSON summary. A failing step makes the run fail; it never substitutes an older passing result. No dependency is downloaded or installed, and the public `audit:discovery` command is excluded. There is no configured lint or TypeScript check; syntax and runtime checks are reported separately.
+The output directory must be new. This command builds the site, validates SEO/assets, checks website/server JavaScript syntax and discovers their unit tests. It runs HTTP checks, starts its own ephemeral loopback preview for browser/website/buyer-path/interaction/contact-widget suites, and runs actual Nginx HTTP/TLS integration tests. It stops its preview and Nginx processes afterward. Each step records its command, timestamps, exit code and log in a local JSON summary. A failing step makes the run fail; it never substitutes an older passing result. No dependency is downloaded or installed, and the public `audit:discovery` command is excluded. There is no configured lint or TypeScript check; syntax and runtime checks are reported separately.
 
 The static checker rejects duplicate/conflicting metadata, checks crawler-specific indexing directives and local robots policy for Googlebot, Bingbot and OAI-SearchBot, and verifies lazy video, poster and responsive image sources. Local robots allowance does not verify a live crawler, CDN policy or indexing.
 

@@ -197,7 +197,7 @@ export const streetLightingContent = {
     heading: 'Discuss your Dubai street lighting project',
     text: 'Share your drawings, location and programme. Ask the team to review the required scope and provide a project quotation.',
     label: 'Talk to Our Team',
-    href: '/?service=street-lighting#contact',
+    href: '/request-a-quote/?service=street-lighting#contact',
     whatsappMessage: 'Hello VOLTRONIX, I would like to discuss a street lighting project in Dubai.',
   },
 };

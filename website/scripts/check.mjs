@@ -1,16 +1,21 @@
 import { readFile, readdir, stat } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { site } from '../site.config.mjs';
 import { trackingConfig } from '../tracking.config.mjs';
+import { marketingConfig } from '../marketing.config.mjs';
+import { marketingOwnsContainer } from './marketing-build-policy.mjs';
+import { indexableRoutes } from '../page-content.mjs';
 import { services } from '../services.mjs';
 import { streetLightingContent } from '../street-lighting-content.mjs';
 import { headMetadataIssues, mediaAssetReferences, crawlerPolicyResults } from './static-readiness.mjs';
 
 const dist = path.resolve(fileURLToPath(new URL('../dist/', import.meta.url)));
 const origin = new URL(site.url).origin;
-const routes = ['/', ...services.map(service => `/services/${service.slug}/`), '/privacy/', '/photography/'];
+const routes = indexableRoutes;
+const typeIs = (node, type) => [].concat(node?.['@type'] || []).includes(type);
 const verificationFile = 'google8cca622d0ce845f8.html';
 const failures = [];
 let assertions = 0;
@@ -56,6 +61,12 @@ async function htmlFiles(directory) {
 
 try {
   check(new URL(site.url).protocol === 'https:', 'Site URL must use HTTPS.');
+  const consentOwnsGtm = marketingOwnsContainer(marketingConfig, trackingConfig, site.url);
+  const publicLandingPaths = marketingConfig.attribution?.allowedLandingPaths;
+  check(Array.isArray(publicLandingPaths) && new Set(publicLandingPaths).size === publicLandingPaths.length
+    && JSON.stringify([...publicLandingPaths].sort()) === JSON.stringify([...routes, '/404.html'].sort()),
+  'Marketing landing-path privacy allowlist must exactly match authored indexable routes plus the literal 404 page.');
+  const marketingEntryHash = createHash('sha256').update(await readFile(path.join(dist,'assets/consent.js'))).digest('hex').slice(0,12);
   const files = await htmlFiles(dist);
   const pages = files.filter(file => file !== path.join(dist, verificationFile));
   check(pages.length === routes.length + 1, `Expected ${routes.length} indexable HTML pages plus 404; found ${pages.length}.`);
@@ -82,10 +93,20 @@ try {
     check(canonical === expectedCanonical, `${route}: canonical does not match configured site URL.`);
     check(route === '/404.html' ? /\bnoindex\b/.test(robots) : /\bindex\b/.test(robots) && !/\bnoindex\b/.test(robots), `${route}: incorrect indexing directive.`);
     check(new Set(ids).size === ids.length, `${route}: duplicate HTML IDs.`);
-    const expectedGtm = trackingConfig.enabled && trackingConfig.manager?.type === 'gtm' ? 1 : 0;
+    const expectedGtm = trackingConfig.enabled && trackingConfig.manager?.type === 'gtm' && !consentOwnsGtm ? 1 : 0;
     check((html.match(/googletagmanager\.com\/gtm\.js/g) || []).length === expectedGtm, `${route}: expected exactly ${expectedGtm} GTM head loader.`);
     check((html.match(/googletagmanager\.com\/ns\.html/g) || []).length === expectedGtm, `${route}: expected exactly ${expectedGtm} GTM noscript iframe.`);
     const trackingNodes = [...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/gi)];
+    const marketingNodes = trackingNodes.filter(node => attributes(node[1]).id === 'rta-marketing-config');
+    const marketingModules = trackingNodes.filter(node => attributes(node[1]).src?.startsWith('/assets/consent.js?'));
+    check(marketingNodes.length === 1 && marketingModules.length === 1, `${route}: expected one public marketing config and one controller module.`);
+    if (marketingNodes.length === 1 && marketingModules.length === 1) {
+      try { check(JSON.stringify(JSON.parse(marketingNodes[0][2])) === JSON.stringify(marketingConfig), `${route}: public marketing config differs from its source.`); }
+      catch { check(false, `${route}: invalid marketing configuration JSON.`); }
+      check(attributes(marketingNodes[0][1]).type === 'application/json' && attributes(marketingModules[0][1]).type === 'module' && !/\basync(?:\s|=|$)/i.test(marketingModules[0][1]), `${route}: marketing configuration and deferred module types must be explicit.`);
+      check(attributes(marketingModules[0][1]).src === `/assets/consent.js?v=${marketingEntryHash}`, `${route}: marketing entry must use its current content hash.`);
+      check(marketingNodes[0].index < marketingModules[0].index && marketingModules[0].index < html.indexOf('id="rta-tracking-config"'), `${route}: marketing controller must follow its JSON and precede the preserved tracking adapter.`);
+    }
     const configNodes = trackingNodes.filter(node => attributes(node[1]).id === 'rta-tracking-config');
     const trackingModules = trackingNodes.filter(node => attributes(node[1]).src?.startsWith('/assets/tracking.js?'));
     check(configNodes.length === (trackingConfig.enabled ? 1 : 0), `${route}: tracking configuration must appear exactly once when enabled.`);
@@ -118,7 +139,7 @@ try {
         const nodes = schema['@graph'] || [schema];
         const ids = nodes.map(node => node['@id']);
         check(ids.every(Boolean) && new Set(ids).size === ids.length, `${route}: graph nodes need unique entity IDs.`);
-        const webPage = nodes.find(node => node['@type'] === 'WebPage');
+        const webPage = nodes.find(node => typeIs(node, 'WebPage'));
         check(webPage?.url === expectedCanonical && webPage?.name === title && webPage?.description === description, `${route}: WebPage must match visible page metadata.`);
         const references = value => {
           if (!value || typeof value !== 'object') return;
@@ -149,7 +170,7 @@ try {
     if (route.startsWith('/services/')) {
       const service = services.find(service => route === `/services/${service.slug}/`);
       check(schemaTypes.has('BreadcrumbList'), `${route}: missing breadcrumb structured data.`);
-      check(schemaTypes.has('Service') === service.verifiedService, `${route}: Service schema must be limited to evidence-backed categories.`);
+      check(schemaTypes.has('Service') === Boolean(service?.verifiedService), `${route}: Service schema must be limited to evidence-backed categories.`);
     }
     for (const match of html.matchAll(/<(img|script|link|a)\b[^>]*>/gi)) {
       const tag = match[1].toLowerCase();
@@ -190,6 +211,13 @@ try {
     console.log(`Checked ${route}: metadata, HTML, structured data, and image attributes.`);
   }
   const indexable = routes.map(route => pageData.get(route));
+  const consentEntry = await readFile(path.join(dist,'assets/consent.js'),'utf8');
+  for (const dependency of ['attribution.js','lead-client.js']) {
+    const source = await readFile(path.join(dist,'assets',dependency));
+    const hash = createHash('sha256').update(source).digest('hex').slice(0,12);
+    check(consentEntry.includes(`./${dependency}?v=${hash}`), `Marketing dependency ${dependency} must use its current content hash.`);
+    assetReferences.add(new URL(`/assets/${dependency}`, site.url).href);
+  }
   const primary = await readFile(path.join(dist, 'services/street-lighting/index.html'), 'utf8');
   const answer = decode(primary.match(/class="service-answer">([^<]+)/)?.[1] || '');
   check(answer.split(/\s+/).length >= 40 && answer.split(/\s+/).length <= 70, 'Primary service answer must contain 40–70 words of static HTML.');

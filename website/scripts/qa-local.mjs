@@ -26,7 +26,7 @@ await mkdir(path.dirname(output), { recursive: true });
 await mkdir(output);
 const summary = {
   startedAt: new Date().toISOString(), status: 'RUNNING', steps: [],
-  scope: 'Local build, syntax, unit, static, HTTP, browser, scroll, interaction and real Nginx tests. No public diagnostic or production connection.',
+  scope: 'Local website/lead-service syntax and unit tests, build, static, HTTP, browser, buyer-path, interaction, contact-widget and real Nginx tests. No public diagnostic or production connection.',
   unavailableChecks: { lint: 'NOT CONFIGURED: no lint command or configuration', types: 'NOT CONFIGURED: plain JavaScript project, no TypeScript configuration' },
 };
 let preview;
@@ -92,17 +92,17 @@ async function startPreview() {
 try {
   await run('build', ['website/scripts/build.mjs']);
   await run('static', ['website/scripts/check.mjs']);
-  const sourceModules = await modules(path.join(root, 'website'));
+  const sourceModules = [...await modules(path.join(root, 'website')), ...await modules(path.join(root, 'server'))];
   const clients = (await readdir(path.join(root, 'website/dist/assets'))).filter(file => file.endsWith('.js')).map(file => path.join(root, 'website/dist/assets', file));
   for (const [index, file] of [...sourceModules, ...clients].entries()) await run(`syntax-${index + 1}`, ['--check', path.relative(root, file)]);
   summary.syntaxModules = [...sourceModules, ...clients].map(file => path.relative(root, file));
-  const unitTests = (await readdir(path.join(root, 'website/scripts'))).filter(file => file.endsWith('.test.mjs')).sort().map(file => `website/scripts/${file}`);
+  const unitTests = sourceModules.filter(file => file.endsWith('.test.mjs')).map(file => path.relative(root, file));
   if (!unitTests.length) throw Error('No unit tests discovered');
   await run('unit', ['--test', ...unitTests], { QA_CHROME_PATH: chrome });
   await run('http', ['website/scripts/qa-http.mjs']);
   const baseURL = await startPreview();
   summary.previewOrigin = baseURL;
-  for (const [name, file] of [['browser', 'qa.mjs'], ['scroll', 'qa-works-scroll.mjs'], ['interaction', 'qa-primary.mjs']]) {
+  for (const [name, file] of [['browser', 'qa.mjs'], ['website', 'qa-website.mjs'], ['buyer-paths', 'qa-works-scroll.mjs'], ['interaction', 'qa-primary.mjs'], ['contacts', 'qa-contact-widgets.mjs']]) {
     await run(name, [`website/scripts/${file}`], { QA_BASE_URL: baseURL, QA_CHROME_PATH: chrome, QA_ARTIFACTS_DIR: path.join(output, name) });
   }
   await run('nginx', ['website/scripts/qa-redirects.mjs', '--nginx', nginx, '--openssl', openssl, '--output', path.join(output, 'nginx')]);

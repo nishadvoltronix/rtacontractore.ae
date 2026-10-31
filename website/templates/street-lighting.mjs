@@ -19,7 +19,7 @@ export function streetLightingPage({ esc, photo, arrow, icon, faqs, serviceCard,
   const enquiry = content.cta.href;
   return `<main id="main">
     <section class="service-hero"><div class="container">
-      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Street lighting</span></nav>
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/services/">Services</a><span aria-hidden="true">/</span><span aria-current="page">Street lighting</span></nav>
       <div class="service-hero-grid"><div><div class="eyebrow">ROAD LIGHTING / DUBAI</div>
         <h1>${esc(content.h1)}</h1><p class="service-answer">${esc(content.directAnswer)}</p>
         <a class="btn btn-primary" href="${enquiry}">${esc(content.cta.label)} ${arrow}</a>
