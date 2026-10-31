@@ -22,7 +22,7 @@ export const trackingConfig = {
   // Placeholders are disabled. Adding an ID here never installs a vendor tag.
   // Any future destination requires a separately reviewed GTM integration.
   optionalDestinations: {
-    microsoftUet: { enabled: false, tagId: null },
+    microsoftUet: { enabled: false, tagId: '187284886' },
     meta: { enabled: false, pixelId: null },
     linkedIn: { enabled: false, partnerId: null },
   },
