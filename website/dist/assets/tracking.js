@@ -16,22 +16,48 @@ const ACTIVE_AI_STATES = new Set(['Listening', 'Thinking', 'Speaking', 'Respondi
 const ACCEPTED_ZOHO_ACTIONS = new Set(['Splash Message', 'redirect_url', 'parent_redirect', 'thankyou_page']);
 const ERROR_FIELDS = ['invalidCaptcha', 'error', 'errors', 'errorCode', 'error_code', 'errorMsg', 'error_msg'];
 const MAX_ATTEMPTS = 256;
+const RTA_FORM_ID = 'webform5653678000076526082';
+const ZOHO_ENDPOINT = 'https://crm.zoho.com/crm/WebToLeadForm';
+const RTA_ACK_PROFILE = 'rta-zoho-splash-ack-v1';
+const RTA_ACK_MESSAGE = 'Thank you for your response.';
 
 const result = (accepted, reason) => Object.freeze({ accepted, reason });
 const plainObject = value => value !== null && typeof value === 'object'
   && !Array.isArray(value) && [Object.prototype, null].includes(Object.getPrototypeOf(value));
 const falseFlag = value => value === undefined || value === null || value === false
   || value === '' || value === 0 || value === 'false' || value === '0';
+const exactKeys = (object, keys) => {
+  const actual = Reflect.ownKeys(object);
+  return actual.length === keys.length && keys.every(key => actual.includes(key)
+    && Object.hasOwn(Object.getOwnPropertyDescriptor(object, key), 'value'));
+};
+
+function acceptanceProfileStatus(formId, endpoint, profile) {
+  if (profile === undefined) {
+    return { name: 'strict-success-boolean', ready: true, reason: 'explicit_success_required', boundary: 'provider_acceptance' };
+  }
+  if (!plainObject(profile) || profile.name !== RTA_ACK_PROFILE) {
+    return { name: 'unsupported', ready: false, reason: 'unsupported_acceptance_profile', boundary: 'none' };
+  }
+  const ready = formId === RTA_FORM_ID && endpoint === ZOHO_ENDPOINT
+    && exactKeys(profile, ['name', 'actionsubmit', 'actionvalue'])
+    && profile.actionsubmit === 'Splash Message' && profile.actionvalue === RTA_ACK_MESSAGE;
+  return { name: RTA_ACK_PROFILE, ready, reason: ready ? 'verified_exact_ack_required' : 'invalid_acceptance_profile',
+    boundary: ready ? 'provider_acknowledgment' : 'none' };
+}
 
 // This is intentionally stricter than the vendor's UI code. A displayed splash,
 // redirect, wfa_post_submit callback or HTTP 200 does not establish acceptance.
-// Missing/unknown success contracts fail closed. This does not prove CRM storage,
-// qualification, double opt-in completion or human follow-up.
-export async function validateZohoWebformResponse(response, endpoint) {
+// A configured exact acknowledgment is limited to the verified RTA form receipt;
+// without a profile the generic strict-success-boolean rule applies. Neither
+// contract promises future CRM storage, qualification or human follow-up.
+export async function validateZohoWebformResponse(response, endpoint, options = {}) {
   try {
+    const acceptance = acceptanceProfileStatus(options.formId, endpoint, options.acceptanceProfile);
+    if (!acceptance.ready) return result(false, acceptance.reason);
     const actual = new URL(response?.url);
     const expected = new URL(endpoint);
-    if (actual.origin !== expected.origin || actual.pathname !== expected.pathname
+    if (actual.href !== expected.href
       || actual.username || actual.password || expected.protocol !== 'https:') {
       return result(false, 'unexpected_response_endpoint');
     }
@@ -40,12 +66,21 @@ export async function validateZohoWebformResponse(response, endpoint) {
       return result(false, 'http_not_accepted');
     }
     const contentType = response.headers?.get('content-type') || '';
-    if (!/^application\/(?:[\w.+-]+\+)?json(?:\s*;|\s*$)/i.test(contentType)) {
+    const jsonContentType = acceptance.name === RTA_ACK_PROFILE
+      ? /^application\/json(?:\s*;|\s*$)/i : /^application\/(?:[\w.+-]+\+)?json(?:\s*;|\s*$)/i;
+    if (!jsonContentType.test(contentType)) {
       return result(false, 'json_response_required');
     }
     // Never consume or replace the application's Response/body.
     const body = await response.clone().json();
     if (!plainObject(body)) return result(false, 'object_response_required');
+    if (acceptance.name === RTA_ACK_PROFILE) {
+      if (!exactKeys(body, ['actionsubmit', 'actionvalue'])) return result(false, 'unexpected_acknowledgment_schema');
+      // The verified values cannot change while clone().json() is pending.
+      if (body.actionsubmit !== 'Splash Message'
+        || body.actionvalue !== RTA_ACK_MESSAGE) return result(false, 'unexpected_acknowledgment_value');
+      return result(true, 'provider_acknowledged');
+    }
     if (body.success !== true) return result(false, 'explicit_acceptance_missing');
     if (!ACCEPTED_ZOHO_ACTIONS.has(body.actionsubmit)) return result(false, 'unknown_response_action');
     if (ERROR_FIELDS.some(key => !falseFlag(body[key]))) return result(false, 'provider_error');
@@ -81,13 +116,22 @@ export function installTracking(config, windowObject = globalThis.window) {
   if (typeof windowObject.dataLayer?.push !== 'function') return { installed: false, reason: 'invalid_data_layer' };
 
   const attempts = new Map();
+  const formAcceptance = Object.freeze(acceptanceProfileStatus(config.form?.formId, config.form?.endpoint, config.form?.acceptanceProfile));
+  // Snapshot the reviewed form binding. Later caller mutations cannot downgrade
+  // a configured exact-ack profile to the generic default or change its scope.
+  const form = Object.freeze({
+    provider: config.form?.provider, formId: config.form?.formId, endpoint: config.form?.endpoint,
+    mode: config.form?.mode, observeFetch: config.form?.observeFetch, submitTtlMs: config.form?.submitTtlMs,
+    acceptanceProfile: config.form?.acceptanceProfile === undefined ? undefined
+      : formAcceptance.ready ? Object.freeze({ name: RTA_ACK_PROFILE, actionsubmit: 'Splash Message', actionvalue: RTA_ACK_MESSAGE }) : null,
+  });
   let sequence = 0;
   let aiStarted = false;
   let aiEnded = false;
   let aiErrored = false;
   let lastDuration = 0;
   let armedAttempt = null;
-  let observerStatus = { enabled: config.form?.observeFetch === true, installed: false, reason: 'disabled' };
+  let observerStatus = { enabled: form.observeFetch === true, installed: false, reason: 'disabled' };
   const push = payload => {
     try { windowObject.dataLayer.push(payload); return true; }
     catch { return false; } // Measurement must never break the enquiry UI.
@@ -109,8 +153,8 @@ export function installTracking(config, windowObject = globalThis.window) {
   }
 
   function beginFormAttempt(formId) {
-    if (config.form?.provider !== 'zoho_webform' || config.form.mode !== 'explicit-response-only'
-      || typeof formId !== 'string' || formId !== config.form.formId) return null;
+    if (form.provider !== 'zoho_webform' || form.mode !== 'explicit-response-only'
+      || !formAcceptance.ready || typeof formId !== 'string' || formId !== form.formId) return null;
     const random = windowObject.crypto?.randomUUID?.() || String(++sequence);
     const attemptId = `rta-${++sequence}-${random}`;
     attempts.set(attemptId, 'pending');
@@ -127,7 +171,9 @@ export function installTracking(config, windowObject = globalThis.window) {
     }
     // Claim before awaiting to prevent simultaneous callbacks double-counting.
     attempts.set(receipt.attemptId, 'verifying');
-    const verdict = await validateZohoWebformResponse(receipt.response, config.form.endpoint);
+    const verdict = await validateZohoWebformResponse(receipt.response, form.endpoint, {
+      formId: form.formId, acceptanceProfile: form.acceptanceProfile,
+    });
     if (!verdict.accepted) {
       attempts.set(receipt.attemptId, 'rejected');
       return { ...verdict, emitted: false };
@@ -139,17 +185,18 @@ export function installTracking(config, windowObject = globalThis.window) {
   }
 
   function installFormResponseObserver() {
-    if (config.form?.observeFetch !== true) return;
-    const ttl = config.form.submitTtlMs;
+    if (form.observeFetch !== true) return;
+    const ttl = form.submitTtlMs;
     const setUnavailable = reason => { observerStatus = { enabled: true, installed: false, reason }; };
-    if (config.form.provider !== 'zoho_webform' || config.form.mode !== 'explicit-response-only'
-      || typeof config.form.formId !== 'string' || !Number.isInteger(ttl) || ttl < 1 || ttl > 30000) {
+    if (form.provider !== 'zoho_webform' || form.mode !== 'explicit-response-only'
+      || typeof form.formId !== 'string' || !Number.isInteger(ttl) || ttl < 1 || ttl > 30000) {
       setUnavailable('invalid_form_observer_config'); return;
     }
+    if (!formAcceptance.ready) { setUnavailable(formAcceptance.reason); return; }
     let endpoint;
     try {
-      endpoint = new URL(config.form.endpoint);
-      if (endpoint.href !== 'https://crm.zoho.com/crm/WebToLeadForm') throw new Error('Unsupported endpoint');
+      endpoint = new URL(form.endpoint);
+      if (endpoint.href !== ZOHO_ENDPOINT) throw new Error('Unsupported endpoint');
     } catch { setUnavailable('unsupported_form_endpoint'); return; }
     let originalFetch;
     try { originalFetch = windowObject.fetch; }
@@ -184,10 +231,10 @@ export function installTracking(config, windowObject = globalThis.window) {
     const submit = event => {
       try {
         if (!observerStatus.installed) return;
-        const form = event.target;
-        if (form?.id !== config.form.formId || String(form.tagName || '').toLowerCase() !== 'form') return;
+        const target = event.target;
+        if (target?.id !== form.formId || String(target.tagName || '').toLowerCase() !== 'form') return;
         if (armedAttempt) attempts.set(armedAttempt.id, 'superseded');
-        const id = beginFormAttempt(form.id);
+        const id = beginFormAttempt(target.id);
         if (id) armedAttempt = { id, expiresAt: now() + ttl };
       } catch { /* An observer cannot interfere with native form handling. */ }
     };
@@ -279,6 +326,7 @@ export function installTracking(config, windowObject = globalThis.window) {
       owner: OWNER,
       installed: true,
       formMode: 'explicit-response-only',
+      formAcceptanceProfile: Object.freeze({ ...formAcceptance }),
       automaticFormResponseObservation: observerStatus.installed,
       formResponseObserver: Object.freeze({ ...observerStatus }),
       vendorLoading: 'gtm-only',

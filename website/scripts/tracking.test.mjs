@@ -34,8 +34,11 @@ function response(body, overrides = {}) {
     ...overrides,
   };
 }
-const accepted = () => ({ success: true, actionsubmit: 'Splash Message', actionvalue: 'Thank you' });
+// Sanitized literal captured from the authorized 2026-11-01 provider/CRM test.
+const accepted = () => ({ actionvalue: 'Thank you for your response.', actionsubmit: 'Splash Message' });
+const strictAccepted = () => ({ success: true, actionsubmit: 'Splash Message', actionvalue: 'Thank you' });
 const config = () => structuredClone(trackingConfig);
+const profileOptions = () => ({ formId: trackingConfig.form.formId, acceptanceProfile: structuredClone(trackingConfig.form.acceptanceProfile) });
 function click(win, href, button = 0) {
   const anchor = { getAttribute: () => href };
   win.document.dispatch('click', { button, target: { nodeType: 1, closest: () => anchor } });
@@ -122,36 +125,142 @@ test('AI state updates are engagement only, sanitized and not repeated each seco
   assert.doesNotMatch(JSON.stringify(win.dataLayer), /PRIVATE|private@/);
 });
 
-test('provider validation rejects UI success, unknown contracts, errors and wrong endpoints', async () => {
+test('default strict boolean validator rejects UI success, unknown contracts, errors and wrong endpoints', async () => {
   const cases = [
-    [response({ actionsubmit: 'Splash Message', actionvalue: 'Thank you' }), 'explicit_acceptance_missing'],
-    [response({ ...accepted(), success: 'true' }), 'explicit_acceptance_missing'],
-    [response({ ...accepted(), success: false }), 'explicit_acceptance_missing'],
-    [response({ ...accepted(), invalidCaptcha: 'true' }), 'provider_error'],
-    [response({ ...accepted(), errors: ['rejected'] }), 'provider_error'],
-    [response({ ...accepted(), actionsubmit: 'error_msg' }), 'unknown_response_action'],
-    [response({ ...accepted(), actionsubmit: 'unknown' }), 'unknown_response_action'],
-    [response({ ...accepted(), status: 'failed' }), 'provider_status_not_accepted'],
-    [response(accepted(), { status: 500, ok: false }), 'http_not_accepted'],
-    [response(accepted(), { type: 'opaque' }), 'http_not_accepted'],
-    [response(accepted(), { url: 'https://crm.zoho.com/other-endpoint' }), 'unexpected_response_endpoint'],
-    [response(accepted(), { url: 'https://crm.zoho.com.evil.example/crm/WebToLeadForm' }), 'unexpected_response_endpoint'],
-    [response(accepted(), { headers: { get: () => 'text/html' } }), 'json_response_required'],
-    [response([accepted()]), 'object_response_required'],
-    [response(accepted(), { clone: () => { throw new Error('body consumed'); } }), 'unreadable_provider_response'],
+    [response(accepted()), 'explicit_acceptance_missing'],
+    [response({ ...strictAccepted(), success: 'true' }), 'explicit_acceptance_missing'],
+    [response({ ...strictAccepted(), success: false }), 'explicit_acceptance_missing'],
+    [response({ ...strictAccepted(), invalidCaptcha: 'true' }), 'provider_error'],
+    [response({ ...strictAccepted(), errors: ['rejected'] }), 'provider_error'],
+    [response({ ...strictAccepted(), actionsubmit: 'error_msg' }), 'unknown_response_action'],
+    [response({ ...strictAccepted(), actionsubmit: 'unknown' }), 'unknown_response_action'],
+    [response({ ...strictAccepted(), status: 'failed' }), 'provider_status_not_accepted'],
+    [response(strictAccepted(), { status: 500, ok: false }), 'http_not_accepted'],
+    [response(strictAccepted(), { type: 'opaque' }), 'http_not_accepted'],
+    [response(strictAccepted(), { url: 'https://crm.zoho.com/other-endpoint' }), 'unexpected_response_endpoint'],
+    [response(strictAccepted(), { url: 'https://crm.zoho.com.evil.example/crm/WebToLeadForm' }), 'unexpected_response_endpoint'],
+    [response(strictAccepted(), { headers: { get: () => 'text/html' } }), 'json_response_required'],
+    [response([strictAccepted()]), 'object_response_required'],
+    [response(strictAccepted(), { clone: () => { throw new Error('body consumed'); } }), 'unreadable_provider_response'],
   ];
   for (const [candidate, reason] of cases) {
     assert.deepEqual(await validateZohoWebformResponse(candidate, trackingConfig.form.endpoint), { accepted: false, reason });
   }
+  assert.deepEqual(await validateZohoWebformResponse(response(strictAccepted()), trackingConfig.form.endpoint),
+    { accepted: true, reason: 'provider_accepted' });
 });
 
-test('only a correlated explicit provider acceptance emits once; no receipt/PII leaks', async () => {
+test('verified RTA acknowledgment accepts only the observed exact two-key receipt', async () => {
+  const endpoint = trackingConfig.form.endpoint;
+  const validate = candidate => validateZohoWebformResponse(candidate, endpoint, profileOptions());
+  assert.deepEqual(await validate(response(accepted())), { accepted: true, reason: 'provider_acknowledged' });
+  // JSON member order does not change the two-key schema.
+  assert.equal((await validate(response({ actionsubmit: 'Splash Message', actionvalue: 'Thank you for your response.' }))).accepted, true);
+  for (const body of [
+    { ...accepted(), success: true }, strictAccepted(),
+    { ...accepted(), invalidCaptcha: false }, { ...accepted(), invalidCaptcha: 'true' },
+    { ...accepted(), error: '' }, { ...accepted(), errors: [] }, { ...accepted(), status: 'success' },
+    { ...accepted(), email: 'PRIVATE@example.com' },
+    { actionvalue: 'Thank you for your response.' }, { actionsubmit: 'Splash Message' }, {},
+  ]) assert.equal((await validate(response(body))).reason, 'unexpected_acknowledgment_schema');
+  for (const body of [
+    { ...accepted(), actionvalue: 'Thank you' }, { ...accepted(), actionvalue: 'Thank you for your response. ' },
+    { ...accepted(), actionvalue: '<p>Thank you for your response.</p>' },
+    { ...accepted(), actionvalue: 'Unable to submit' }, { ...accepted(), actionvalue: null },
+    { ...accepted(), actionsubmit: 'redirect_url' }, { ...accepted(), actionsubmit: 'splash message' },
+  ]) assert.equal((await validate(response(body))).reason, 'unexpected_acknowledgment_value');
+  for (const body of [null, 'Thank you for your response.', [accepted()], 1]) {
+    assert.equal((await validate(response(body))).reason, 'object_response_required');
+  }
+  const inherited = Object.create({ actionvalue: accepted().actionvalue }); inherited.actionsubmit = 'Splash Message';
+  assert.equal((await validate(response(inherited, { clone: () => ({ json: async () => inherited }) }))).accepted, false);
+  const hiddenExtra = { ...accepted() }; Object.defineProperty(hiddenExtra, 'error', { value: 'rejected' });
+  const symbolExtra = { ...accepted(), [Symbol('extra')]: 'PRIVATE' };
+  const accessor = { actionsubmit: 'Splash Message' }; let valueReads = 0;
+  Object.defineProperty(accessor, 'actionvalue', { get() { valueReads++; return accepted().actionvalue; } });
+  for (const body of [hiddenExtra, symbolExtra, accessor]) {
+    assert.equal((await validate(response(body, { clone: () => ({ json: async () => body }) }))).accepted, false);
+  }
+  assert.equal(valueReads, 0);
+  for (const overrides of [
+    { status: 400, ok: false }, { status: 500, ok: false }, { status: 200, ok: false },
+    { status: 0, type: 'opaque' }, { headers: { get: () => 'text/html' } },
+    { headers: { get: () => 'application/problem+json' } },
+    { headers: { get: () => '' } }, { url: endpoint + '?unexpected=1' }, { url: endpoint + '#unexpected' },
+    { url: endpoint.replace('https:', 'http:') }, { url: endpoint.replace('/crm/', '/other/') },
+  ]) assert.equal((await validate(response(accepted(), overrides))).accepted, false);
+  assert.equal((await validate(response(accepted(), { clone: () => ({ json: async () => { throw new SyntaxError('Invalid JSON'); } }) }))).accepted, false);
+});
+
+test('acknowledgment profile is pinned to the RTA form and endpoint; unknown profiles fail closed', async () => {
+  for (const profile of [null, false, {}, 'rta-zoho-splash-ack-v1',
+    { ...profileOptions().acceptanceProfile, name: 'unknown' },
+    { ...profileOptions().acceptanceProfile, actionvalue: 'Another message' },
+    { ...profileOptions().acceptanceProfile, extra: true },
+  ]) {
+    const cfg = config(); cfg.form.acceptanceProfile = profile;
+    const win = environment(); const native = () => Promise.resolve(response(accepted())); win.fetch = native;
+    const { api } = installTracking(cfg, win);
+    assert.equal(api.beginFormAttempt(cfg.form.formId), null);
+    assert.equal(api.getStatus().formAcceptanceProfile.ready, false);
+    assert.equal(api.getStatus().automaticFormResponseObservation, false);
+    assert.equal(win.fetch, native);
+    assert.equal((await validateZohoWebformResponse(response(accepted()), cfg.form.endpoint,
+      { formId: cfg.form.formId, acceptanceProfile: profile })).accepted, false);
+  }
+  for (const options of [{ ...profileOptions(), formId: 'another-form' },
+    { acceptanceProfile: profileOptions().acceptanceProfile }]) {
+    assert.equal((await validateZohoWebformResponse(response(accepted()), trackingConfig.form.endpoint, options)).accepted, false);
+  }
+  assert.equal((await validateZohoWebformResponse(response(accepted()), trackingConfig.form.endpoint + '?changed=1', profileOptions())).accepted, false);
+  for (const field of ['formId', 'endpoint']) {
+    const cfg = config(); cfg.form[field] += '-changed'; const win = environment();
+    win.fetch = () => Promise.resolve(response(accepted()));
+    const { api } = installTracking(cfg, win);
+    assert.equal(api.beginFormAttempt(cfg.form.formId), null);
+    assert.equal(api.getStatus().formAcceptanceProfile.ready, false);
+    assert.equal(api.getStatus().automaticFormResponseObservation, false);
+  }
+  const cfg = config(); delete cfg.form.acceptanceProfile;
+  const { api } = installTracking(cfg, environment());
+  assert.equal(api.getStatus().formAcceptanceProfile.name, 'strict-success-boolean');
+  const attemptId = api.beginFormAttempt(cfg.form.formId);
+  assert.equal((await api.confirmProviderReceipt({ provider: 'zoho_webform', attemptId, response: response(strictAccepted()) })).emitted, true);
+});
+
+test('verified values remain pinned while response JSON or caller configuration changes', async () => {
+  const options = profileOptions(); const json = deferred();
+  const verdict = validateZohoWebformResponse(response(null, { clone: () => ({ json: () => json.promise }) }),
+    trackingConfig.form.endpoint, options);
+  options.acceptanceProfile.actionvalue = 'Changed unverified message';
+  options.acceptanceProfile.actionsubmit = 'redirect_url';
+  json.resolve({ actionvalue: options.acceptanceProfile.actionvalue, actionsubmit: options.acceptanceProfile.actionsubmit });
+  assert.equal((await verdict).accepted, false);
+
+  const cfg = config(); const win = environment(); let nextBody = strictAccepted();
+  win.fetch = () => Promise.resolve(response(nextBody));
+  const { api } = installTracking(cfg, win);
+  delete cfg.form.acceptanceProfile;
+  cfg.form.formId = 'another-form'; cfg.form.endpoint += '?changed=1';
+  cfg.form.mode = 'disabled'; cfg.form.observeFetch = false;
+  assert.equal(api.beginFormAttempt('another-form'), null);
+  submit(win); await win.fetch(trackingConfig.form.endpoint, { method: 'POST' }); await drain();
+  assert.equal(win.dataLayer.length, 1); // No downgrade to strict success:true.
+  nextBody = accepted();
+  submit(win); await win.fetch(trackingConfig.form.endpoint, { method: 'POST' }); await drain();
+  assert.deepEqual(win.dataLayer.slice(1), [{ event: 'contact_form_success' }]);
+  assert.equal(api.getStatus().formAcceptanceProfile.name, 'rta-zoho-splash-ack-v1');
+});
+
+test('only a correlated exact provider acknowledgment emits once; no receipt/PII leaks', async () => {
   const win = environment(); const { api } = installTracking(config(), win);
+  assert.deepEqual(api.getStatus().formAcceptanceProfile, { name: 'rta-zoho-splash-ack-v1', ready: true,
+    reason: 'verified_exact_ack_required', boundary: 'provider_acknowledgment' });
   assert.equal(api.beginFormAttempt('another-form'), null);
   const attemptId = api.beginFormAttempt(trackingConfig.form.formId);
-  const original = accepted(); original.email = 'PRIVATE@example.com'; original.record_id = 'PRIVATE-RECORD';
+  const original = accepted();
   const candidate = response(original);
-  const receipt = { provider: 'zoho_webform', attemptId, response: candidate };
+  const receipt = { provider: 'zoho_webform', attemptId, response: candidate, email: 'PRIVATE@example.com', record_id: 'PRIVATE-RECORD' };
   const outcomes = await Promise.all([api.confirmProviderReceipt(receipt), api.confirmProviderReceipt(receipt)]);
   assert.equal(outcomes.filter(x => x.emitted).length, 1);
   assert.deepEqual(win.dataLayer.slice(1), [{ event: 'contact_form_success' }]);
@@ -159,7 +268,7 @@ test('only a correlated explicit provider acceptance emits once; no receipt/PII 
   assert.equal((await api.confirmProviderReceipt({ ...receipt, provider: 'unverified' })).emitted, false);
   assert.equal((await api.confirmProviderReceipt({ ...receipt, attemptId: 'unknown' })).emitted, false);
   assert.doesNotMatch(JSON.stringify(win.dataLayer), /PRIVATE|record_id|rta-/);
-  assert.deepEqual(original, { ...accepted(), email: 'PRIVATE@example.com', record_id: 'PRIVATE-RECORD' });
+  assert.deepEqual(original, accepted());
 });
 
 test('a failed response cannot be reclassified; a genuine new retry gets a new attempt', async () => {
@@ -198,7 +307,7 @@ test('automatic observer correlates exact form POST and preserves promise, this 
   assert.equal(calls[0].receiver, receiver);
   assert.equal(calls[0].args[0], trackingConfig.form.endpoint);
   assert.equal(calls[0].args[1], init);
-  // A local acceptance fixture verifies the predicate, not Zoho's real schema.
+  // Exact sanitized receipt from the authorized native test; no request PII.
   const actualResponse = new Response(JSON.stringify(accepted()), { headers: { 'Content-Type': 'application/json' } });
   Object.defineProperty(actualResponse, 'url', { value: trackingConfig.form.endpoint });
   pending.resolve(actualResponse);

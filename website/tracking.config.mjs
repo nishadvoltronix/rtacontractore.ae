@@ -15,6 +15,13 @@ export const trackingConfig = {
     formId: 'webform5653678000076526082',
     endpoint: 'https://crm.zoho.com/crm/WebToLeadForm',
     mode: 'explicit-response-only',
+    // Exact server acknowledgment verified against one authorized CRM test.
+    // Changes to this receipt require a new provider/CRM verification.
+    acceptanceProfile: {
+      name: 'rta-zoho-splash-ack-v1',
+      actionsubmit: 'Splash Message',
+      actionvalue: 'Thank you for your response.',
+    },
     observeFetch: true,
     submitTtlMs: 10000,
   },

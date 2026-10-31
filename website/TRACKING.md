@@ -45,7 +45,7 @@ and `validateZohoWebformResponse` for direct integration and local testing.
 | `telephone_click` | Telephone-link intent, not a completed call |
 | `email_click` | Email-link intent, not a sent enquiry |
 | `whatsapp_click` | WhatsApp-link intent, not a conversation |
-| `contact_form_success` | Explicit accepted provider response for one correlated attempt |
+| `contact_form_success` | Verified provider acknowledgment for one correlated attempt |
 | `ai_engagement` | Assistant interaction, never a confirmed lead |
 
 Core contact events retain the exact existing payload `{event: eventName}`.
@@ -67,34 +67,70 @@ Only the next exact `https://crm.zoho.com/crm/WebToLeadForm` POST within that wi
 claims it. Other requests, validation failures that make no POST, expired attempts
 and unsupported request shapes cannot emit a lead. The observer reads URL/method
 metadata only; it does not read the request body, form values, headers or tokens.
+This correlation is temporal: it does not inspect a provider form token or prove
+which CRM record a future request creates.
 It delegates fetch's original arguments and `this` unchanged, returns the identical
 promise, and inspects the response clone in a swallowed sidechain. Application
 response/error handling is not replaced or delayed by waiting for measurement.
 
 The observer passes the correlated response to `confirmProviderReceipt` before
-later promise handlers consume the original body. The acceptance predicate
-requires the configured response origin/path, HTTP 2xx, JSON object,
-`success === true`, a recognized positive `actionsubmit`, and no error/CAPTCHA flags.
-Missing or changed response contracts fail closed. The attempt is consumed once,
-including concurrent callbacks; a retry request needs a new attempt token.
+later promise handlers consume the original body. The configured
+`rta-zoho-splash-ack-v1` acceptance profile is limited to the exact RTA form ID and
+endpoint above. It requires HTTP 2xx, an `application/json` response, and a plain
+JSON object with exactly these two own keys and configured values:
+
+```json
+{"actionvalue":"Thank you for your response.","actionsubmit":"Splash Message"}
+```
+
+Member order is immaterial. Extra keys (including success, error, CAPTCHA or
+status fields), missing keys, changed message/action, other shapes, changed
+endpoint, non-JSON content or unsuccessful HTTP status all fail closed. There is
+no fallback to the generic success-flag validator for this configured profile.
+Unknown or invalid profiles disable form observation and attempt creation.
+The reviewed form binding/profile is snapshotted when installed, and the verified
+positive values remain pinned while response JSON is read. Mutating a caller's
+configuration after setup cannot downgrade the profile or change its form scope.
+The attempt is consumed once, including concurrent callbacks; a retry request
+needs a new attempt token.
+
+This exact server receipt was observed in an authorized production enquiry on
+31 October 2026 at 20:37:45 UTC (1 November in Dubai): the exact endpoint returned HTTP 200 with
+`Content-Type: application/json;charset=UTF-8`. Independent read-only CRM
+verification found exactly one matching test record created at 20:37:47 UTC,
+with all approved test fields matching. No contact values or record identifiers
+are included here. This evidence supports this specific acknowledgment profile;
+it is not a published universal Zoho response schema.
 
 An application-owned integration can instead set `form.observeFetch: false` and
 call `beginFormAttempt`/`confirmProviderReceipt` directly around its actual request.
 Do not run both integration paths for the same request. `getStatus()` exposes
 whether automatic observation installed, including `fetch_unavailable`,
-`fetch_not_replaceable`, or `unsupported_fetch_result` failures.
+`fetch_not_replaceable`, or `unsupported_fetch_result` failures. Its
+`formAcceptanceProfile` status gives the active profile, readiness, reason and
+`provider_acknowledgment` boundary. Contact intent and assistant engagement remain
+independent of form receipt acceptance.
 
-**Deployment remains gated on an authorized real enquiry.** Splash-based lead
-tracking is deliberately removed. If the actual Zoho response omits strict
-`success: true`, it fails closed and no form conversion fires. Contact intent and
-assistant engagement continue. Do not loosen the predicate based only on splash
-text, redirects, HTTP 200 or a synthetic test fixture.
+Without `form.acceptanceProfile` (strictly `undefined`), the reusable validator
+keeps its generic default: `success === true`, a recognized positive
+`actionsubmit`, and no error/CAPTCHA or unsuccessful status flags. A configured
+unknown profile never selects that default. The exported validator accepts
+`validateZohoWebformResponse(response, endpoint, {formId, acceptanceProfile})`;
+its two-argument form uses only the generic strict-boolean default.
+
+Any change to the configured acknowledgment, form or endpoint requires a new
+authorized provider-response/CRM verification before accepting a new profile.
+Do not loosen the predicate based on DOM splash text, redirects, HTTP 200 alone,
+an internal callback or a synthetic test fixture. The updated source integration
+still requires reviewed build/test results and explicit deployment authorization.
 
 An accepted webform response is not proof of CRM persistence or a qualified lead:
 Zoho approval, spam filtering and double opt-in can affect subsequent processing.
 See [Zoho's webform setup guidance](https://help.zoho.com/portal/en/kb/crm/connect-with-customers/webforms/articles/set-up-web-forms).
-The strict boolean predicate is a conservative implementation rule inferred from
-the public embed handler, not a published guarantee of this endpoint's schema.
+The generic strict-boolean predicate is a conservative implementation rule
+inferred from the public embed handler, not a published guarantee of this
+endpoint's schema. The configured RTA profile establishes a server acknowledgment,
+not a promise that future submissions will persist, qualify or receive follow-up.
 
 ## Assistant boundary
 
