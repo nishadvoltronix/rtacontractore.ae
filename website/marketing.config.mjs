@@ -6,6 +6,8 @@ export const marketingConfig = {
   consent: {
     enabled: false,
     integrationReady: false,
+    // Separate visitor opt-in; advertising measurement alone never grants this.
+    microsoftEnhancedConversionsEnabled: false,
     policyVersion: 1,
     maxAgeDays: 180,
     storageKey: 'rta-consent-v1',

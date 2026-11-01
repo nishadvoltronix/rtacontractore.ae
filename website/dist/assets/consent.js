@@ -11,13 +11,21 @@ export function installMarketing(config, win = globalThis.window) {
   if (win.RTAMarketing?.owner === 'rta-marketing-v1') return win.RTAMarketing;
   config = structuredClone(config);
   const cfg = config?.consent || {};
+  const enhancedEnabled = cfg.microsoftEnhancedConversionsEnabled === true;
+  const deniedChoice = () => ({ ...denied(), ...(enhancedEnabled ? { microsoftEnhancedConversions: false } : {}) });
+  const validPurposeChoice = choice => enhancedEnabled
+    ? choice && typeof choice === 'object' && !Array.isArray(choice)
+      && Object.keys(choice).length === 3
+      && ['analytics', 'advertising', 'microsoftEnhancedConversions'].every(key => Object.hasOwn(choice, key) && typeof choice[key] === 'boolean')
+      && (!choice.microsoftEnhancedConversions || choice.advertising)
+    : validChoice(choice);
   const active = config?.schemaVersion === 1 && config.enabled === true && cfg.enabled === true
     && cfg.integrationReady === true && cfg.granularTagGatesVerified === true
     && cfg.urlAndReferrerPolicyVerified === true
     && Number.isInteger(cfg.coordinatedContainerVersion) && cfg.coordinatedContainerVersion > 0
     && config.allowedHosts?.includes(win.location.hostname) && /^GTM-[A-Z0-9]+$/.test(cfg.containerId || '')
     && Number.isInteger(cfg.policyVersion) && cfg.policyVersion > 0 && Number.isInteger(cfg.maxAgeDays) && cfg.maxAgeDays > 0 && cfg.maxAgeDays <= 365;
-  let state = denied(); let known = false; let choiceAt = null; let loaded = false; let reloadRequired = false; let panel;
+  let state = deniedChoice(); let known = false; let choiceAt = null; let loaded = false; let reloadRequired = false; let panel;
   const grantedThisPage = new Set();
   const listeners = new Set();
   const getState = () => ({ ...state, policyVersion: cfg.policyVersion || 1, known, recordedAt: known ? new Date(choiceAt).toISOString() : null, managed: active, reloadRequired });
@@ -61,14 +69,17 @@ export function installMarketing(config, win = globalThis.window) {
   }
   function notify() { for (const callback of listeners) { try { callback(getState()); } catch { /* An observer cannot block privacy changes. */ } } }
   function apply(choice, timestamp = Date.now()) {
-    const withdrawal = loaded && ((state.analytics && !choice.analytics) || (state.advertising && !choice.advertising));
+    const enhancedWithdrawal = enhancedEnabled && state.microsoftEnhancedConversions && !choice.microsoftEnhancedConversions;
+    const withdrawal = loaded && ((state.analytics && !choice.analytics) || (state.advertising && !choice.advertising) || enhancedWithdrawal);
     state = { ...choice }; known = true; choiceAt = timestamp;
+    // Purge any in-memory matching payload before calling vendor commands.
+    if (enhancedWithdrawal) notify();
     let commandsApplied = true;
     try { commands('update', state); } catch { reason = 'consent_commands_failed'; commandsApplied = false; }
     try { if (!state.analytics && !state.advertising) attribution.clear(); else attribution.refresh(); } catch { /* Optional attribution cannot block withdrawal. */ }
     if (withdrawal) {
       reloadRequired = true;
-      notify();
+      if (!enhancedWithdrawal) notify();
       // Commands cannot universally unload running vendors. Persisted denial
       // plus document reset restores the gate; do not promise retroactive erasure.
       try { win.location.reload(); } catch { reason = 'reload_required'; } return getState();
@@ -77,20 +88,20 @@ export function installMarketing(config, win = globalThis.window) {
     for (const purpose of ['analytics', 'advertising']) if (state[purpose] && !grantedThisPage.has(purpose)) {
       grantedThisPage.add(purpose); win.dataLayer.push({ event: CONSENT_EVENTS[purpose] });
     }
-    notify();
+    if (!enhancedWithdrawal) notify();
     if (panel) panel.hidden = true;
     return getState();
   }
   function setPreferences(choice) {
     if (!managed) return { ...getState(), managed: false, reason };
-    if (!validChoice(choice)) throw new TypeError('Explicit boolean analytics and advertising choices required');
-    const copy = { analytics: choice.analytics, advertising: choice.advertising };
+    if (!validPurposeChoice(choice)) throw new TypeError('Explicit boolean purpose choices required; Microsoft conversion matching also requires advertising');
+    const copy = { analytics: choice.analytics, advertising: choice.advertising, ...(enhancedEnabled ? { microsoftEnhancedConversions: choice.microsoftEnhancedConversions } : {}) };
     const timestamp = Date.now();
     try { win.localStorage.setItem(cfg.storageKey, JSON.stringify({ version: cfg.policyVersion, at: timestamp, ...copy })); }
     catch {
       // Granting without a durable choice is refused. Withdrawal still applies
       // and reloads to a fresh denied default if storage is unavailable.
-      if (state.analytics || state.advertising) return apply(denied());
+      if (state.analytics || state.advertising) return apply(deniedChoice());
       return { ...getState(), reason: 'choice_storage_unavailable' };
     }
     return apply(copy, timestamp);
@@ -100,22 +111,29 @@ export function installMarketing(config, win = globalThis.window) {
     if (!panel) return;
     panel.replaceChildren(); panel.setAttribute('role', 'region'); panel.setAttribute('aria-label', 'Privacy preferences');
     const heading = win.document.createElement('h2'); heading.textContent = 'Your privacy choices';
-    const explanation = win.document.createElement('p'); explanation.textContent = 'Choose optional analytics and advertising measurement separately. Both start off. Advertising user-data sharing and personalisation remain off. Changing an active choice reloads this page; unsent form entries may be lost.';
+    const explanation = win.document.createElement('p'); explanation.textContent = enhancedEnabled
+      ? 'Choose optional analytics and advertising measurement separately. Both start off. Microsoft conversion matching is a separate opt-in to share hashed email and phone numbers. Google advertising user-data sharing and personalisation remain off. Changing an active choice reloads this page; unsent form entries may be lost.'
+      : 'Choose optional analytics and advertising measurement separately. Both start off. Advertising user-data sharing and personalisation remain off. Changing an active choice reloads this page; unsent form entries may be lost.';
     panel.append(heading, explanation);
     const inputs = {};
-    for (const [purpose, label] of [['analytics', 'Analytics, including session insights'], ['advertising', 'Advertising measurement']]) {
+    const purposes = [['analytics', 'Analytics, including session insights'], ['advertising', 'Advertising measurement'], ...(enhancedEnabled ? [['microsoftEnhancedConversions', 'Share hashed email and phone numbers with Microsoft for conversion matching (requires advertising measurement)']] : [])];
+    for (const [purpose, label] of purposes) {
       const row = win.document.createElement('label'); const input = win.document.createElement('input'); input.type = 'checkbox'; input.checked = state[purpose]; row.append(input, win.document.createTextNode(label)); panel.append(row); inputs[purpose] = input;
     }
-    for (const [label, action] of [['Save choices', () => setPreferences({ analytics: inputs.analytics.checked, advertising: inputs.advertising.checked })], ['Reject optional tracking', () => setPreferences(denied())], ['Accept both purposes', () => setPreferences({ analytics: true, advertising: true })]]) {
+    if (enhancedEnabled) {
+      const syncMatchingChoice = () => { inputs.microsoftEnhancedConversions.disabled = !inputs.advertising.checked; if (!inputs.advertising.checked) inputs.microsoftEnhancedConversions.checked = false; };
+      inputs.advertising.addEventListener('change', syncMatchingChoice); syncMatchingChoice();
+    }
+    for (const [label, action] of [['Save choices', () => setPreferences(Object.fromEntries(purposes.map(([purpose]) => [purpose, inputs[purpose].checked])))], ['Reject optional tracking', () => setPreferences(deniedChoice())], [enhancedEnabled ? 'Accept analytics and advertising' : 'Accept both purposes', () => setPreferences({ analytics: true, advertising: true, ...(enhancedEnabled ? { microsoftEnhancedConversions: false } : {}) })]]) {
       const button = win.document.createElement('button'); button.type = 'button'; button.textContent = label; button.addEventListener('click', action); panel.append(button);
     }
     panel.hidden = known;
-    for (const button of win.document.querySelectorAll('[data-rta-consent-open]')) { button.hidden = false; button.addEventListener('click', () => { panel.hidden = false; inputs.analytics.checked = state.analytics; inputs.advertising.checked = state.advertising; inputs.analytics.focus(); }); }
+    for (const button of win.document.querySelectorAll('[data-rta-consent-open]')) { button.hidden = false; button.addEventListener('click', () => { panel.hidden = false; for (const [purpose] of purposes) inputs[purpose].checked = state[purpose]; if (enhancedEnabled) inputs.microsoftEnhancedConversions.disabled = !state.advertising; inputs.analytics.focus(); }); }
   }
   const api = {
     owner: 'rta-marketing-v1',
     getStatus: () => ({ managed, reason, loaded, reloadRequired, consentIntegrationReady: cfg.integrationReady === true }),
-    consent: { getState: () => ({ ...getState(), managed }), setPreferences, rejectAll: () => setPreferences(denied()), openPreferences: () => { if (panel) panel.hidden = false; }, onChange: callback => { if (typeof callback !== 'function') throw new TypeError('Callback required'); listeners.add(callback); return () => listeners.delete(callback); } },
+    consent: { getState: () => ({ ...getState(), managed }), setPreferences, rejectAll: () => setPreferences(deniedChoice()), openPreferences: () => { if (panel) panel.hidden = false; }, onChange: callback => { if (typeof callback !== 'function') throw new TypeError('Callback required'); listeners.add(callback); return () => listeners.delete(callback); } },
     attribution,
   };
   api.leads = createLeadClient({ ...config?.leadCapture, enabled: config?.enabled === true && config?.leadCapture?.enabled === true }, win, {
@@ -124,10 +142,10 @@ export function installMarketing(config, win = globalThis.window) {
   });
   win.RTAMarketing = api;
   if (managed) {
-    try { commands('default', denied()); } catch { reason = 'consent_commands_failed'; return api; }
+    try { commands('default', deniedChoice()); } catch { reason = 'consent_commands_failed'; return api; }
     let saved; try { saved = JSON.parse(win.localStorage.getItem(cfg.storageKey)); } catch { /* Defaults remain denied. */ }
-    const choice = saved && { analytics: saved.analytics, advertising: saved.advertising };
-    if (validChoice(choice) && saved.version === cfg.policyVersion && Number.isFinite(saved.at) && saved.at <= Date.now() && Date.now() - saved.at <= cfg.maxAgeDays * 86_400_000) apply(choice, saved.at);
+    const choice = saved && { analytics: saved.analytics, advertising: saved.advertising, ...(enhancedEnabled ? { microsoftEnhancedConversions: saved.microsoftEnhancedConversions === undefined ? false : saved.microsoftEnhancedConversions } : {}) };
+    if (validPurposeChoice(choice) && saved.version === cfg.policyVersion && Number.isFinite(saved.at) && saved.at <= Date.now() && Date.now() - saved.at <= cfg.maxAgeDays * 86_400_000) apply(choice, saved.at);
     const actions = new Set(['request_quote', 'service_enquiry', 'company_profile_download']);
     win.document.addEventListener?.('click', event => {
       if ((!state.analytics && !state.advertising) || (event.button != null && event.button !== 0)) return;

@@ -140,3 +140,99 @@ test('accepted server duplicate aliases do not count another browser conversion'
   const client = createLeadClient({ ...marketingConfig.leadCapture, enabled: true, providerSwitchVerified: true, emitClientSuccess: true }, win, { onAccepted: event => emitted.push(event) });
   await client.prepare(); assert.equal((await client.submit({ lastName: 'Fixture' })).accepted, true); await client.status(); assert.deepEqual(emitted, []);
 });
+
+function enhancedConsentConfig() {
+  const config = activeConfig();
+  config.consent.microsoftEnhancedConversionsEnabled = true;
+  return config;
+}
+
+test('Microsoft matching is disabled by default and cannot be granted through the two-purpose contract', () => {
+  assert.equal(marketingConfig.consent.microsoftEnhancedConversionsEnabled, false);
+  const { win } = environment(); const api = installMarketing(activeConfig(), win);
+  assert.equal(Object.hasOwn(api.consent.getState(), 'microsoftEnhancedConversions'), false);
+  api.consent.setPreferences({ analytics: true, advertising: true });
+  assert.equal(Object.hasOwn(api.consent.getState(), 'microsoftEnhancedConversions'), false);
+  assert.throws(() => api.consent.setPreferences({ analytics: true, advertising: true, microsoftEnhancedConversions: true }));
+});
+
+test('legacy consent restores measurement choices without opting into Microsoft matching', () => {
+  const { win, calls } = environment({ stored: { version: 1, at: Date.now(), analytics: true, advertising: true } });
+  const api = installMarketing(enhancedConsentConfig(), win);
+  assert.equal(api.consent.getState().known, true);
+  assert.equal(api.consent.getState().advertising, true);
+  assert.equal(api.consent.getState().microsoftEnhancedConversions, false);
+  assert.equal(calls.scripts.length, 1);
+});
+
+test('Microsoft matching requires its own explicit boolean choice and advertising permission', () => {
+  const { win, memory } = environment(); const api = installMarketing(enhancedConsentConfig(), win);
+  assert.equal(api.consent.getState().known, false);
+  assert.equal(api.consent.getState().microsoftEnhancedConversions, false);
+  for (const choice of [
+    { analytics: false, advertising: true },
+    { analytics: false, advertising: true, microsoftEnhancedConversions: 'true' },
+    { analytics: true, advertising: false, microsoftEnhancedConversions: true },
+    { analytics: false, advertising: true, microsoftEnhancedConversions: true, extra: true },
+  ]) assert.throws(() => api.consent.setPreferences(choice));
+  const result = api.consent.setPreferences({ analytics: false, advertising: true, microsoftEnhancedConversions: true });
+  assert.equal(result.microsoftEnhancedConversions, true);
+  const saved = JSON.parse(memory.get(marketingConfig.consent.storageKey));
+  assert.equal(saved.microsoftEnhancedConversions, true);
+  const next = environment({ stored: saved });
+  assert.equal(installMarketing(enhancedConsentConfig(), next.win).consent.getState().microsoftEnhancedConversions, true);
+  const commands = win.dataLayer.filter(item => item?.[0] === 'consent');
+  assert(commands.every(item => item[2].ad_user_data === 'denied' && item[2].ad_personalization === 'denied'));
+  assert.doesNotMatch(JSON.stringify(win.dataLayer), /\bpid\b|\bem\b|\bph\b/);
+});
+
+test('Microsoft matching withdrawal immediately notifies before vendor commands and reload', () => {
+  const { win, calls, memory } = environment(); const api = installMarketing(enhancedConsentConfig(), win);
+  api.consent.setPreferences({ analytics: true, advertising: true, microsoftEnhancedConversions: true });
+  const order = [];
+  api.consent.onChange(state => order.push(['notify', state.microsoftEnhancedConversions]));
+  win.uetq.push = () => { order.push(['vendor']); throw new Error('Mock vendor failure'); };
+  win.location.reload = () => { order.push(['reload']); calls.reloads++; };
+  const result = api.consent.setPreferences({ analytics: true, advertising: true, microsoftEnhancedConversions: false });
+  assert.equal(result.microsoftEnhancedConversions, false); assert.equal(result.reloadRequired, true);
+  assert.deepEqual(order, [['notify', false], ['vendor'], ['reload']]);
+  assert.equal(calls.reloads, 1);
+  assert.equal(JSON.parse(memory.get(marketingConfig.consent.storageKey)).microsoftEnhancedConversions, false);
+});
+
+test('reject, expired choices and invalid saved advertising combinations never retain Microsoft matching', () => {
+  for (const stored of [
+    { version: 1, at: 0, analytics: true, advertising: true, microsoftEnhancedConversions: true },
+    { version: 1, at: Date.now(), analytics: true, advertising: false, microsoftEnhancedConversions: true },
+    { version: 1, at: Date.now(), analytics: true, advertising: true, microsoftEnhancedConversions: 'true' },
+  ]) {
+    const { win } = environment({ stored }); const api = installMarketing(enhancedConsentConfig(), win);
+    assert.equal(api.consent.getState().known, false);
+    assert.equal(api.consent.getState().microsoftEnhancedConversions, false);
+  }
+  const { win } = environment(); const api = installMarketing(enhancedConsentConfig(), win);
+  api.consent.setPreferences({ analytics: false, advertising: true, microsoftEnhancedConversions: true });
+  const result = api.consent.rejectAll();
+  assert.equal(result.analytics, false); assert.equal(result.advertising, false);
+  assert.equal(result.microsoftEnhancedConversions, false);
+});
+
+test('consent panel offers Microsoft matching separately and its two-measurement shortcut does not grant it', () => {
+  const { win } = environment();
+  const elements = [];
+  const element = tag => ({ tagName: tag, children: [], handlers: {}, append(...children) { this.children.push(...children); }, replaceChildren() { this.children = []; }, setAttribute() {}, addEventListener(event, fn) { this.handlers[event] = fn; }, focus() {} });
+  const panel = element('section');
+  win.document.querySelector = selector => selector === '[data-rta-consent-ui]' ? panel : null;
+  win.document.createElement = tag => { const node = element(tag); elements.push(node); return node; };
+  win.document.createTextNode = text => ({ textContent: text });
+  const api = installMarketing(enhancedConsentConfig(), win);
+  const labels = elements.filter(node => node.tagName === 'label');
+  assert.equal(labels.length, 3);
+  assert.match(labels[2].children[1].textContent, /hashed email and phone numbers with Microsoft/);
+  const matching = labels[2].children[0];
+  assert.equal(matching.checked, false); assert.equal(matching.disabled, true);
+  const acceptMeasurement = elements.find(node => node.textContent === 'Accept analytics and advertising');
+  acceptMeasurement.handlers.click();
+  assert.equal(api.consent.getState().advertising, true);
+  assert.equal(api.consent.getState().microsoftEnhancedConversions, false);
+});

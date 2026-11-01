@@ -1,4 +1,5 @@
 // Application events only. GTM remains the sole Google/Clarity vendor loader.
+import { createMicrosoftEnhancedConversions } from './uet-enhanced-conversions.js?v=02c6b949dd6a';
 export const EVENTS = Object.freeze({
   telephone: 'telephone_click',
   email: 'email_click',
@@ -116,6 +117,7 @@ export function installTracking(config, windowObject = globalThis.window) {
   if (typeof windowObject.dataLayer?.push !== 'function') return { installed: false, reason: 'invalid_data_layer' };
 
   const attempts = new Map();
+  const microsoftEnhanced = createMicrosoftEnhancedConversions(config.optionalDestinations?.microsoftUet, windowObject);
   const formAcceptance = Object.freeze(acceptanceProfileStatus(config.form?.formId, config.form?.endpoint, config.form?.acceptanceProfile));
   // Snapshot the reviewed form binding. Later caller mutations cannot downgrade
   // a configured exact-ack profile to the generic default or change its scope.
@@ -158,7 +160,10 @@ export function installTracking(config, windowObject = globalThis.window) {
     const random = windowObject.crypto?.randomUUID?.() || String(++sequence);
     const attemptId = `rta-${++sequence}-${random}`;
     attempts.set(attemptId, 'pending');
-    if (attempts.size > MAX_ATTEMPTS) attempts.delete(attempts.keys().next().value);
+    if (attempts.size > MAX_ATTEMPTS) {
+      const oldest = attempts.keys().next().value;
+      microsoftEnhanced.forget(oldest); attempts.delete(oldest);
+    }
     return attemptId;
   }
 
@@ -175,11 +180,19 @@ export function installTracking(config, windowObject = globalThis.window) {
       formId: form.formId, acceptanceProfile: form.acceptanceProfile,
     });
     if (!verdict.accepted) {
+      microsoftEnhanced.forget(receipt.attemptId);
       attempts.set(receipt.attemptId, 'rejected');
       return { ...verdict, emitted: false };
     }
     // Attempt tokens and provider response data remain in memory, never analytics.
-    const emitted = push({ event: EVENTS.lead });
+    // Optional PID is hashed and purpose-gated; it never enters dataLayer. Await
+    // before the existing GTM event, without changing the application's fetch.
+    let emitted = false;
+    let dispatched = false;
+    const emitLead = () => { if (!dispatched) { dispatched = true; emitted = push({ event: EVENTS.lead }); } };
+    try { await microsoftEnhanced.confirm(receipt.attemptId, emitLead); }
+    catch { microsoftEnhanced.clearAssigned(); }
+    emitLead(); // Optional PID failures cannot suppress the regular lead event.
     attempts.set(receipt.attemptId, emitted ? 'accepted' : 'rejected');
     return { ...verdict, emitted };
   }
@@ -233,9 +246,12 @@ export function installTracking(config, windowObject = globalThis.window) {
         if (!observerStatus.installed) return;
         const target = event.target;
         if (target?.id !== form.formId || String(target.tagName || '').toLowerCase() !== 'form') return;
-        if (armedAttempt) attempts.set(armedAttempt.id, 'superseded');
+        if (armedAttempt) { microsoftEnhanced.forget(armedAttempt.id); attempts.set(armedAttempt.id, 'superseded'); }
         const id = beginFormAttempt(target.id);
-        if (id) armedAttempt = { id, expiresAt: now() + ttl };
+        if (id) {
+          microsoftEnhanced.capture(id, target, ttl);
+          armedAttempt = { id, expiresAt: now() + ttl };
+        }
       } catch { /* An observer cannot interfere with native form handling. */ }
     };
 
@@ -245,12 +261,14 @@ export function installTracking(config, windowObject = globalThis.window) {
       try {
         if (!armedAttempt) return promise;
         if (now() > armedAttempt.expiresAt) {
+          microsoftEnhanced.forget(armedAttempt.id);
           attempts.set(armedAttempt.id, 'expired'); armedAttempt = null; return promise;
         }
         if (!matchesRequest(args[0], args[1])) return promise;
         const attemptId = armedAttempt.id;
         armedAttempt = null; // At most one request claims each captured submit.
         if (typeof promise?.then !== 'function') {
+          microsoftEnhanced.forget(attemptId);
           attempts.set(attemptId, 'unsupported_fetch_result');
           observerStatus = { enabled: true, installed: false, reason: 'unsupported_fetch_result', submitTtlMs: ttl };
           return promise;
@@ -261,7 +279,7 @@ export function installTracking(config, windowObject = globalThis.window) {
           try {
             void confirmProviderReceipt({ provider: 'zoho_webform', attemptId, response }).catch(() => {});
           } catch { /* Observer failures cannot change application behavior. */ }
-        }, () => { attempts.set(attemptId, 'network_rejected'); });
+        }, () => { microsoftEnhanced.forget(attemptId); attempts.set(attemptId, 'network_rejected'); });
         sidechain?.catch?.(() => {});
       } catch { /* Metadata/observation failures leave native fetch unchanged. */ }
       return promise;

@@ -67,6 +67,9 @@ try {
     && JSON.stringify([...publicLandingPaths].sort()) === JSON.stringify([...routes, '/404.html'].sort()),
   'Marketing landing-path privacy allowlist must exactly match authored indexable routes plus the literal 404 page.');
   const marketingEntryHash = createHash('sha256').update(await readFile(path.join(dist,'assets/consent.js'))).digest('hex').slice(0,12);
+  const enhancedEntryHash = createHash('sha256').update(await readFile(path.join(dist,'assets/uet-enhanced-conversions.js'))).digest('hex').slice(0,12);
+  const trackingEntrySource = await readFile(path.join(dist,'assets/tracking.js'),'utf8');
+  check(trackingEntrySource.includes(`'./uet-enhanced-conversions.js?v=${enhancedEntryHash}'`), 'Tracking must pin the current UET PID dependency for cache-safe deployment.');
   const files = await htmlFiles(dist);
   const pages = files.filter(file => file !== path.join(dist, verificationFile));
   check(pages.length === routes.length + 1, `Expected ${routes.length} indexable HTML pages plus 404; found ${pages.length}.`);

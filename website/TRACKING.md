@@ -2,9 +2,64 @@
 
 This source asset emits application events into the existing data layer. It does not
 load Google, Clarity, Microsoft UET, Meta or LinkedIn scripts, change consent state,
-submit or rewrite requests, inspect form values or start voice calls.
+submit or rewrite requests or start voice calls. With the default configuration
+it does not inspect form values. The separately gated Microsoft PID helper below
+can read only the verified Email and Mobile fields after a specific visitor opt-in.
 Google and Clarity remain managed by `GTM-PRV2VCLK`. Destination IDs in
 `tracking.config.mjs` are public metadata; optional destinations are disabled.
+
+## Optional Microsoft enhanced conversions
+
+The supplied Microsoft `pid` example is implemented without its sample contact
+values. `assets/uet-enhanced-conversions.js` remains disabled by default. It uses
+Microsoft's documented `set` command before the existing GTM conversion event;
+it emits no second conversion and loads no vendor SDK. The generated tracking
+entry pins the helper's content hash for the site's static cache policy.
+
+The public Zoho form script was read without submitting an enquiry on
+1 November 2026: the exact form exposes `Email` and `Mobile`, not `Phone`.
+Only those two fields are read at the correlated submit, while a managed, known
+advertising choice and separate `microsoftEnhancedConversions: true` are present.
+Advertising measurement alone and old saved choices never grant matching.
+
+Values are normalized using Microsoft's documented email rules, the phone must
+carry an explicit international prefix, and each valid value is SHA-256 hashed
+with Web Crypto. No contact value or hash enters dataLayer, local/session storage,
+URLs, logs, or a new application request. Missing/invalid fields are empty; known
+Microsoft/example placeholders are rejected. Hashes are still personal data.
+
+The private submission payload expires after the configured 10-second submit
+window, or sooner on failure, supersession or consent change. The exact Zoho
+response validator remains the success boundary. Successful PID assignment
+precedes the single existing `contact_form_success` event. A crypto failure or
+250-ms confirmation timeout cannot prevent the regular event. Assigned PID is
+cleared when a new submission starts or the visitor withdraws matching; the
+consent controller reloads an already active document after withdrawal. Microsoft
+receives PID for subsequent events on that page under its documented `set`
+semantics. Withdrawal cannot erase data previously received by a vendor.
+
+Activation is a coordinated release, not a flag to toggle in isolation:
+
+1. Create/save or verify an enhanced-conversion goal in Microsoft Advertising
+   for verified UET `187284886`; the last native review left that flow unsaved.
+2. Re-export/review GTM and establish granular purpose gates and safe URLs. The
+   old version-4 draft is not sufficient proof of a consent-ready release.
+   Retain exactly one UET base and the existing accepted-form event tag.
+3. Approve the source/GTM/consent release and paired rollback, then set the
+   reviewed marketing readiness gates and `microsoftEnhancedConversionsEnabled`.
+   Set the UET destination and enhanced conversion `enabled`, `baseTagVerified`,
+   and `goalVerified` only after their evidence is available. No activation flag
+   or production setting was changed during this implementation.
+4. Verify the loaded UET instance, separate opt-in, rejection/withdrawal, hash-only
+   PID before the single event, and Microsoft goal processing using the vendor
+   tools. Use mocked data until a separate real enquiry test is authorized.
+
+Rollback restores the matching pre-release website and GTM versions together.
+The currently deployed frontend remains commit `dae940bcd87b`; this preparation
+does not deploy code or publish GTM. Google `ad_user_data` and personalization
+remain denied even if the Microsoft-only matching purpose is later enabled.
+
+Reference: [Microsoft enhanced conversions](https://learn.microsoft.com/en-us/advertising/msa-help/hlp_ba_conc_uet_enhancedconversions).
 
 ## Layout integration
 

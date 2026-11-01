@@ -29,7 +29,11 @@ export const trackingConfig = {
   // Placeholders are disabled. Adding an ID here never installs a vendor tag.
   // Any future destination requires a separately reviewed GTM integration.
   optionalDestinations: {
-    microsoftUet: { enabled: false, tagId: '187284886' },
+    microsoftUet: {
+      enabled: false, tagId: '187284886',
+      // Coordinated source/GTM/goal/visitor-consent activation is still pending.
+      enhancedConversions: { enabled: false, baseTagVerified: false, goalVerified: false },
+    },
     meta: { enabled: false, pixelId: null },
     linkedIn: { enabled: false, partnerId: null },
   },
