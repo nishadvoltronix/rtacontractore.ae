@@ -64,23 +64,21 @@ try {
     await nav.scrollIntoViewIfNeeded();
     await nav.screenshot({path:path.join(output,`page-nav-${width}-${javaScriptEnabled?'js':'no-js'}.png`)});
     await page.screenshot({path:path.join(output,`nav-context-${width}-${javaScriptEnabled?'js':'no-js'}.png`),animations:'disabled'});
-    for(const selector of ['.header-cta','#primary-nav > a:last-child','.service-hero .btn-primary','.service-closing .btn-primary']) check(await page.locator(selector).getAttribute('href') === '/?service=street-lighting#contact',`${label}: ${selector} retains street-lighting context`);
+    for(const selector of ['.header-cta','.service-hero .btn-primary','.service-closing .btn-primary']) check(await page.locator(selector).getAttribute('href') === '/request-a-quote/?service=street-lighting#contact',`${label}: ${selector} retains street-lighting context`);
+    check(await page.locator('#primary-nav > a:last-child').getAttribute('href') === '/contact/',`${label}: global Contact opens the dedicated contact page`);
     const wa = new URL(await page.locator('.floating-contact').getAttribute('href'));
     check(/street lighting/i.test(wa.searchParams.get('text') || ''),`${label}: floating WhatsApp includes street lighting`,wa.searchParams.get('text'));
     if(javaScriptEnabled) {
       await page.goto(base+route,{waitUntil:'networkidle'});
       if(width===1440) await page.locator('.header-cta').click();
-      else if(width===390) {
-        await page.locator('[data-menu-toggle]').click();
-        await page.locator('#primary-nav > a:last-child').click();
-      } else await page.locator('.service-hero .btn-primary').click();
-      await page.waitForURL(url=>url.pathname==='/' && url.searchParams.get('service')==='street-lighting' && url.hash==='#contact');
+      else await page.locator('.service-hero .btn-primary').click();
+      await page.waitForURL(url=>url.pathname==='/request-a-quote/' && url.searchParams.get('service')==='street-lighting' && url.hash==='#contact');
       check(await page.locator('#contact .contact-form').isVisible(),`${label}: actual CTA reaches contact section`);
     }
     for(const fallbackRoute of ['/','/services/underground-cabling/']) {
       await page.goto(base+fallbackRoute,{waitUntil:'networkidle'});
-      check(await page.locator('.header-cta').getAttribute('href') === '/#contact',`${label}: ${fallbackRoute} generic header retained`);
-      check(await page.locator('#primary-nav > a:last-child').getAttribute('href') === '/#contact',`${label}: ${fallbackRoute} generic Contact retained`);
+      check(await page.locator('.header-cta').getAttribute('href') === '/request-a-quote/',`${label}: ${fallbackRoute} generic quotation route`);
+      check(await page.locator('#primary-nav > a:last-child').getAttribute('href') === '/contact/',`${label}: ${fallbackRoute} dedicated Contact route`);
       check(new URL(await page.locator('.floating-contact').getAttribute('href')).searchParams.get('text') === 'Hello VOLTRONIX, I would like to discuss a lighting or infrastructure project.',`${label}: ${fallbackRoute} generic WhatsApp retained`);
       if(fallbackRoute === '/') {
         const script = page.locator('#contact .zoho-form-embed script#formScript5653678000076526082');

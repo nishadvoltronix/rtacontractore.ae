@@ -1,0 +1,1894 @@
+{
+  "audit": "Master RTA public evidence only",
+  "checked_date_dubai": "2026-11-01",
+  "scope": "rtacontractor.ae and corporate identity context from voltronix.ae; no authenticated account checks or mutations",
+  "limits": [
+    "Public-site assertions are not independent proof of license/certification or profile ownership.",
+    "No crawler identity, actual engine indexing, AI citation or private-account ownership is proven by a generic GET.",
+    "Observed live pages may differ from the f04 local source snapshot."
+  ],
+  "sanitization": "Public subset only. Raw external scripts, query-bearing links, vendor IDs and claim excerpts omitted. Response hashes refer to original fetched bytes.",
+  "pages": [
+    {
+      "url": "https://rtacontractor.ae/",
+      "checked_at_utc": "2026-10-31T22:07:41.979171+00:00",
+      "method": "unauthenticated HTTPS GET; no browser/JavaScript/form execution",
+      "final_url": "https://rtacontractor.ae/",
+      "http_status": 200,
+      "content_type": "text/html",
+      "server": "cloudflare",
+      "bytes": 42576,
+      "sha256": "b169ae03b400d876d88edadf6ee13ef22cada4bc4243447e475f9d0791392563",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "Talk2Maries"
+        },
+        {
+          "level": "h1",
+          "text": "RTA"
+        },
+        {
+          "level": "h1",
+          "text": "Approvals & Street Lighting"
+        },
+        {
+          "level": "h2",
+          "text": "What We Do"
+        },
+        {
+          "level": "h3",
+          "text": "Road Maintenance"
+        },
+        {
+          "level": "h3",
+          "text": "Road Works"
+        },
+        {
+          "level": "h3",
+          "text": "Earth Works"
+        },
+        {
+          "level": "h3",
+          "text": "Footpath Works"
+        },
+        {
+          "level": "h3",
+          "text": "Signboards"
+        },
+        {
+          "level": "h3",
+          "text": "Infrastructure Works"
+        },
+        {
+          "level": "h3",
+          "text": "Hardscape & Softscape"
+        },
+        {
+          "level": "h3",
+          "text": "Bollards & Fencing"
+        },
+        {
+          "level": "h2",
+          "text": "Every connection."
+        },
+        {
+          "level": "h2",
+          "text": "Considered."
+        },
+        {
+          "level": "h3",
+          "text": "Street lighting"
+        },
+        {
+          "level": "h3",
+          "text": "Underground cabling"
+        },
+        {
+          "level": "h3",
+          "text": "High-mast & area lighting"
+        },
+        {
+          "level": "h3",
+          "text": "LED & solar lighting"
+        },
+        {
+          "level": "h3",
+          "text": "Lighting maintenance"
+        },
+        {
+          "level": "h3",
+          "text": "Electrical infrastructure"
+        },
+        {
+          "level": "h2",
+          "text": "Behind a growing city."
+        },
+        {
+          "level": "h2",
+          "text": "A connected team."
+        },
+        {
+          "level": "h2",
+          "text": "Built for places that"
+        },
+        {
+          "level": "h2",
+          "text": "never stand still."
+        },
+        {
+          "level": "h3",
+          "text": "Keeping the"
+        },
+        {
+          "level": "h3",
+          "text": "city connected."
+        },
+        {
+          "level": "h3",
+          "text": "Bringing places"
+        },
+        {
+          "level": "h3",
+          "text": "to life after dark."
+        },
+        {
+          "level": "h3",
+          "text": "Powering what"
+        },
+        {
+          "level": "h3",
+          "text": "comes next."
+        },
+        {
+          "level": "h2",
+          "text": "Clarity at every stage."
+        },
+        {
+          "level": "h3",
+          "text": "Understand & define"
+        },
+        {
+          "level": "h3",
+          "text": "Plan & coordinate"
+        },
+        {
+          "level": "h3",
+          "text": "Install & integrate"
+        },
+        {
+          "level": "h3",
+          "text": "Test & hand over"
+        },
+        {
+          "level": "h2",
+          "text": "Authority coordination"
+        },
+        {
+          "level": "h2",
+          "text": "Good projects start"
+        },
+        {
+          "level": "h2",
+          "text": "with good questions."
+        },
+        {
+          "level": "h2",
+          "text": "Your next project."
+        },
+        {
+          "level": "h2",
+          "text": "Our next"
+        },
+        {
+          "level": "h2",
+          "text": "connection"
+        },
+        {
+          "level": "h2",
+          "text": "."
+        },
+        {
+          "level": "h3",
+          "text": "Let’s get your project moving."
+        },
+        {
+          "level": "h3",
+          "text": "Explore"
+        },
+        {
+          "level": "h3",
+          "text": "Our expertise"
+        },
+        {
+          "level": "h3",
+          "text": "Connect"
+        },
+        {
+          "level": "h2",
+          "text": "Part of Voltronix Group"
+        }
+      ],
+      "metadata": [
+        {
+          "name": "description",
+          "content": "Discuss street lighting, electrical cabling and RTA approval coordination in Dubai with Voltronix Contracting LLC. Review qualifications and request a quotation."
+        },
+        {
+          "name": "robots",
+          "content": "index,follow,max-image-preview:large"
+        },
+        {
+          "property": "og:title",
+          "content": "RTA Coordination & Street Lighting Dubai | VOLTRONIX"
+        },
+        {
+          "property": "og:url",
+          "content": "https://rtacontractor.ae/"
+        }
+      ],
+      "canonical": "https://rtacontractor.ae/",
+      "social_links": [
+        "https://wa.me/971502420957",
+        "https://wa.me/971502420957?text=Hello%20VOLTRONIX%2C%20I%20would%20like%20to%20discuss%20a%20lighting%20or%20infrastructure%20project.",
+        "https://www.facebook.com/voltronixuae",
+        "https://www.instagram.com/vtnxllc",
+        "https://www.linkedin.com/company/voltronix-uae/",
+        "https://www.pinterest.com/voltronixs/",
+        "https://x.com/nstsllc"
+      ],
+      "structured_entities": [
+        {
+          "@type": "GeneralContractor",
+          "@id": "https://rtacontractor.ae/#business",
+          "name": "Voltronix Contracting LLC",
+          "legalName": "Voltronix Contracting LLC",
+          "url": "https://rtacontractor.ae",
+          "telephone": "+97148240002",
+          "email": "info@voltronix.ae",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Shed 06, Aber Warehouse, Dubai Investment Park 02",
+            "addressLocality": "Dubai",
+            "addressCountry": "AE",
+            "postOfficeBoxNumber": "414345"
+          },
+          "sameAs": [
+            "https://voltronix.ae/",
+            "https://www.facebook.com/voltronixuae",
+            "https://www.linkedin.com/company/voltronix-uae/",
+            "https://www.instagram.com/vtnxllc",
+            "https://x.com/nstsllc"
+          ],
+          "foundingDate": "2009",
+          "areaServed": {
+            "@type": "City",
+            "name": "Dubai"
+          }
+        }
+      ],
+      "has_source_tracking_config": false,
+      "has_source_tracking_module": false,
+      "tracking_provider_observed": {
+        "gtm": true,
+        "ga4_explicit_id": false,
+        "ads_explicit_destination": false
+      }
+    },
+    {
+      "url": "https://rtacontractor.ae/robots.txt",
+      "checked_at_utc": "2026-10-31T22:07:41.981305+00:00",
+      "method": "unauthenticated HTTPS GET; no browser/JavaScript/form execution",
+      "final_url": "https://rtacontractor.ae/robots.txt",
+      "http_status": 200,
+      "content_type": "text/plain",
+      "server": "cloudflare",
+      "bytes": 70,
+      "sha256": "21ae1e5f9e24c640b6e8d9bedc0d4df021553a835bd2f63d48db8f813eb982a3",
+      "robots_content": "User-agent: *\nAllow: /\n\nSitemap: https://rtacontractor.ae/sitemap.xml\n",
+      "tracking_provider_observed": {
+        "gtm": false,
+        "ga4_explicit_id": false,
+        "ads_explicit_destination": false
+      }
+    },
+    {
+      "url": "https://rtacontractor.ae/sitemap.xml",
+      "checked_at_utc": "2026-10-31T22:07:41.982693+00:00",
+      "method": "unauthenticated HTTPS GET; no browser/JavaScript/form execution",
+      "final_url": "https://rtacontractor.ae/sitemap.xml",
+      "http_status": 200,
+      "content_type": "text/xml",
+      "server": "cloudflare",
+      "bytes": 732,
+      "sha256": "9c217040dd940d084905b25e16df102787ae72675cbcaf13d9c20790a2c725db",
+      "sitemap_urls": [
+        "https://rtacontractor.ae/",
+        "https://rtacontractor.ae/services/street-lighting/",
+        "https://rtacontractor.ae/services/underground-cabling/",
+        "https://rtacontractor.ae/services/high-mast-area-lighting/",
+        "https://rtacontractor.ae/services/led-solar-lighting/",
+        "https://rtacontractor.ae/services/lighting-maintenance/",
+        "https://rtacontractor.ae/services/electrical-infrastructure/",
+        "https://rtacontractor.ae/privacy/",
+        "https://rtacontractor.ae/photography/"
+      ],
+      "tracking_provider_observed": {
+        "gtm": false,
+        "ga4_explicit_id": false,
+        "ads_explicit_destination": false
+      }
+    },
+    {
+      "url": "https://rtacontractor.ae/services/street-lighting/",
+      "checked_at_utc": "2026-10-31T22:07:41.983885+00:00",
+      "method": "unauthenticated HTTPS GET; no browser/JavaScript/form execution",
+      "final_url": "https://rtacontractor.ae/services/street-lighting/",
+      "http_status": 200,
+      "content_type": "text/html",
+      "server": "cloudflare",
+      "bytes": 36391,
+      "sha256": "c73ed7f68dd48d826eaa1da62159a75bd1e86e4a20da0836ea21e3333dbfe361",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "Talk2Maries"
+        },
+        {
+          "level": "h1",
+          "text": "Street Lighting Contractor in Dubai"
+        },
+        {
+          "level": "h2",
+          "text": "Define your road lighting package"
+        },
+        {
+          "level": "h2",
+          "text": "Electrical and cable works with documented experience"
+        },
+        {
+          "level": "h2",
+          "text": "RTA approval and NOC coordination"
+        },
+        {
+          "level": "h2",
+          "text": "Review the RTA prequalification"
+        },
+        {
+          "level": "h2",
+          "text": "Prepare a useful street lighting enquiry"
+        },
+        {
+          "level": "h3",
+          "text": "Describe the site and work"
+        },
+        {
+          "level": "h3",
+          "text": "Share the available design information"
+        },
+        {
+          "level": "h3",
+          "text": "Check qualifications and responsibilities"
+        },
+        {
+          "level": "h3",
+          "text": "Agree the quotation and handover scope"
+        },
+        {
+          "level": "h2",
+          "text": "Related electrical project experience"
+        },
+        {
+          "level": "h3",
+          "text": "A Dubai-based team"
+        },
+        {
+          "level": "h2",
+          "text": "Dubai street lighting questions."
+        },
+        {
+          "level": "h2",
+          "text": "The wider picture."
+        },
+        {
+          "level": "h3",
+          "text": "Underground cabling"
+        },
+        {
+          "level": "h3",
+          "text": "Lighting maintenance"
+        },
+        {
+          "level": "h3",
+          "text": "Electrical infrastructure"
+        },
+        {
+          "level": "h2",
+          "text": "Discuss your Dubai street lighting project"
+        },
+        {
+          "level": "h3",
+          "text": "Explore"
+        },
+        {
+          "level": "h3",
+          "text": "Our expertise"
+        },
+        {
+          "level": "h3",
+          "text": "Connect"
+        },
+        {
+          "level": "h2",
+          "text": "Part of Voltronix Group"
+        }
+      ],
+      "metadata": [
+        {
+          "name": "description",
+          "content": "Discuss Dubai street lighting, electrical cabling and RTA coordination with VOLTRONIX. Review conditional RTA prequalification and request a project quotation."
+        },
+        {
+          "name": "robots",
+          "content": "index,follow,max-image-preview:large"
+        },
+        {
+          "property": "og:title",
+          "content": "Street Lighting Contractor in Dubai | VOLTRONIX"
+        },
+        {
+          "property": "og:url",
+          "content": "https://rtacontractor.ae/services/street-lighting/"
+        }
+      ],
+      "canonical": "https://rtacontractor.ae/services/street-lighting/",
+      "social_links": [
+        "https://wa.me/971502420957",
+        "https://wa.me/971502420957?text=Hello%20VOLTRONIX%2C%20I%20would%20like%20to%20discuss%20a%20street%20lighting%20project%20in%20Dubai.",
+        "https://www.facebook.com/voltronixuae",
+        "https://www.instagram.com/vtnxllc",
+        "https://www.linkedin.com/company/voltronix-uae/",
+        "https://www.pinterest.com/voltronixs/",
+        "https://x.com/nstsllc"
+      ],
+      "structured_entities": [
+        {
+          "@type": "GeneralContractor",
+          "@id": "https://rtacontractor.ae/#business",
+          "name": "Voltronix Contracting LLC",
+          "legalName": "Voltronix Contracting LLC",
+          "url": "https://rtacontractor.ae",
+          "telephone": "+97148240002",
+          "email": "info@voltronix.ae",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Shed 06, Aber Warehouse, Dubai Investment Park 02",
+            "addressLocality": "Dubai",
+            "addressCountry": "AE",
+            "postOfficeBoxNumber": "414345"
+          },
+          "sameAs": [
+            "https://voltronix.ae/",
+            "https://www.facebook.com/voltronixuae",
+            "https://www.linkedin.com/company/voltronix-uae/",
+            "https://www.instagram.com/vtnxllc",
+            "https://x.com/nstsllc"
+          ],
+          "foundingDate": "2009",
+          "areaServed": {
+            "@type": "City",
+            "name": "Dubai"
+          }
+        }
+      ],
+      "has_source_tracking_config": false,
+      "has_source_tracking_module": false,
+      "tracking_provider_observed": {
+        "gtm": true,
+        "ga4_explicit_id": false,
+        "ads_explicit_destination": false
+      }
+    },
+    {
+      "url": "https://rtacontractor.ae/services/underground-cabling/",
+      "checked_at_utc": "2026-10-31T22:07:41.985200+00:00",
+      "method": "unauthenticated HTTPS GET; no browser/JavaScript/form execution",
+      "final_url": "https://rtacontractor.ae/services/underground-cabling/",
+      "http_status": 200,
+      "content_type": "text/html",
+      "server": "cloudflare",
+      "bytes": 22025,
+      "sha256": "a3425d24d09d4bd980dca49908dfaaeb79485b7d00b0ad8447d33963e1b2b63d",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "Talk2Maries"
+        },
+        {
+          "level": "h1",
+          "text": "Underground cabling"
+        },
+        {
+          "level": "h1",
+          "text": "in Dubai."
+        },
+        {
+          "level": "h2",
+          "text": "Start with the right details."
+        },
+        {
+          "level": "h3",
+          "text": "Plan for the"
+        },
+        {
+          "level": "h3",
+          "text": "whole picture."
+        },
+        {
+          "level": "h2",
+          "text": "Your questions."
+        },
+        {
+          "level": "h2",
+          "text": "Considered."
+        },
+        {
+          "level": "h2",
+          "text": "The wider picture."
+        },
+        {
+          "level": "h3",
+          "text": "Street lighting"
+        },
+        {
+          "level": "h3",
+          "text": "High-mast & area lighting"
+        },
+        {
+          "level": "h3",
+          "text": "LED & solar lighting"
+        },
+        {
+          "level": "h3",
+          "text": "Explore"
+        },
+        {
+          "level": "h3",
+          "text": "Our expertise"
+        },
+        {
+          "level": "h3",
+          "text": "Connect"
+        },
+        {
+          "level": "h2",
+          "text": "Part of Voltronix Group"
+        }
+      ],
+      "metadata": [
+        {
+          "name": "description",
+          "content": "Underground electrical cabling and LV network installation for Dubai infrastructure, including cable routes, ducts, terminations and testing."
+        },
+        {
+          "name": "robots",
+          "content": "index,follow,max-image-preview:large"
+        },
+        {
+          "property": "og:title",
+          "content": "Underground cabling in Dubai | VOLTRONIX"
+        },
+        {
+          "property": "og:url",
+          "content": "https://rtacontractor.ae/services/underground-cabling/"
+        }
+      ],
+      "canonical": "https://rtacontractor.ae/services/underground-cabling/",
+      "social_links": [
+        "https://wa.me/971502420957",
+        "https://wa.me/971502420957?text=Hello%20VOLTRONIX%2C%20I%20would%20like%20to%20discuss%20a%20lighting%20or%20infrastructure%20project.",
+        "https://www.facebook.com/voltronixuae",
+        "https://www.instagram.com/vtnxllc",
+        "https://www.linkedin.com/company/voltronix-uae/",
+        "https://www.pinterest.com/voltronixs/",
+        "https://x.com/nstsllc"
+      ],
+      "structured_entities": [
+        {
+          "@type": "GeneralContractor",
+          "@id": "https://rtacontractor.ae/#business",
+          "name": "Voltronix Contracting LLC",
+          "legalName": "Voltronix Contracting LLC",
+          "url": "https://rtacontractor.ae",
+          "telephone": "+97148240002",
+          "email": "info@voltronix.ae",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Shed 06, Aber Warehouse, Dubai Investment Park 02",
+            "addressLocality": "Dubai",
+            "addressCountry": "AE",
+            "postOfficeBoxNumber": "414345"
+          },
+          "sameAs": [
+            "https://voltronix.ae/",
+            "https://www.facebook.com/voltronixuae",
+            "https://www.linkedin.com/company/voltronix-uae/",
+            "https://www.instagram.com/vtnxllc",
+            "https://x.com/nstsllc"
+          ],
+          "foundingDate": "2009",
+          "areaServed": {
+            "@type": "City",
+            "name": "Dubai"
+          }
+        }
+      ],
+      "has_source_tracking_config": false,
+      "has_source_tracking_module": false,
+      "tracking_provider_observed": {
+        "gtm": true,
+        "ga4_explicit_id": false,
+        "ads_explicit_destination": false
+      }
+    },
+    {
+      "url": "https://rtacontractor.ae/services/high-mast-area-lighting/",
+      "checked_at_utc": "2026-10-31T22:07:41.986540+00:00",
+      "method": "unauthenticated HTTPS GET; no browser/JavaScript/form execution",
+      "final_url": "https://rtacontractor.ae/services/high-mast-area-lighting/",
+      "http_status": 200,
+      "content_type": "text/html",
+      "server": "cloudflare",
+      "bytes": 21553,
+      "sha256": "b101625e730c15534d39b3e1e0483d04104184b50c24df95233c29e1621acee6",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "Talk2Maries"
+        },
+        {
+          "level": "h1",
+          "text": "High-mast & area lighting enquiries"
+        },
+        {
+          "level": "h1",
+          "text": "in Dubai."
+        },
+        {
+          "level": "h2",
+          "text": "Start with the right details."
+        },
+        {
+          "level": "h3",
+          "text": "Plan for the"
+        },
+        {
+          "level": "h3",
+          "text": "whole picture."
+        },
+        {
+          "level": "h2",
+          "text": "Your questions."
+        },
+        {
+          "level": "h2",
+          "text": "Considered."
+        },
+        {
+          "level": "h2",
+          "text": "The wider picture."
+        },
+        {
+          "level": "h3",
+          "text": "Street lighting"
+        },
+        {
+          "level": "h3",
+          "text": "Underground cabling"
+        },
+        {
+          "level": "h3",
+          "text": "LED & solar lighting"
+        },
+        {
+          "level": "h3",
+          "text": "Explore"
+        },
+        {
+          "level": "h3",
+          "text": "Our expertise"
+        },
+        {
+          "level": "h3",
+          "text": "Connect"
+        },
+        {
+          "level": "h2",
+          "text": "Part of Voltronix Group"
+        }
+      ],
+      "metadata": [
+        {
+          "name": "description",
+          "content": "Prepare a high-mast or area lighting enquiry for a Dubai site. Discuss design, access and equipment requirements, and confirm specialist scope with VOLTRONIX."
+        },
+        {
+          "name": "robots",
+          "content": "index,follow,max-image-preview:large"
+        },
+        {
+          "property": "og:title",
+          "content": "High-mast & area lighting Enquiries in Dubai | VOLTRONIX"
+        },
+        {
+          "property": "og:url",
+          "content": "https://rtacontractor.ae/services/high-mast-area-lighting/"
+        }
+      ],
+      "canonical": "https://rtacontractor.ae/services/high-mast-area-lighting/",
+      "social_links": [
+        "https://wa.me/971502420957",
+        "https://wa.me/971502420957?text=Hello%20VOLTRONIX%2C%20I%20would%20like%20to%20discuss%20a%20lighting%20or%20infrastructure%20project.",
+        "https://www.facebook.com/voltronixuae",
+        "https://www.instagram.com/vtnxllc",
+        "https://www.linkedin.com/company/voltronix-uae/",
+        "https://www.pinterest.com/voltronixs/",
+        "https://x.com/nstsllc"
+      ],
+      "structured_entities": [
+        {
+          "@type": "GeneralContractor",
+          "@id": "https://rtacontractor.ae/#business",
+          "name": "Voltronix Contracting LLC",
+          "legalName": "Voltronix Contracting LLC",
+          "url": "https://rtacontractor.ae",
+          "telephone": "+97148240002",
+          "email": "info@voltronix.ae",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Shed 06, Aber Warehouse, Dubai Investment Park 02",
+            "addressLocality": "Dubai",
+            "addressCountry": "AE",
+            "postOfficeBoxNumber": "414345"
+          },
+          "sameAs": [
+            "https://voltronix.ae/",
+            "https://www.facebook.com/voltronixuae",
+            "https://www.linkedin.com/company/voltronix-uae/",
+            "https://www.instagram.com/vtnxllc",
+            "https://x.com/nstsllc"
+          ],
+          "foundingDate": "2009",
+          "areaServed": {
+            "@type": "City",
+            "name": "Dubai"
+          }
+        }
+      ],
+      "has_source_tracking_config": false,
+      "has_source_tracking_module": false,
+      "tracking_provider_observed": {
+        "gtm": true,
+        "ga4_explicit_id": false,
+        "ads_explicit_destination": false
+      }
+    },
+    {
+      "url": "https://rtacontractor.ae/services/led-solar-lighting/",
+      "checked_at_utc": "2026-10-31T22:07:43.073417+00:00",
+      "method": "unauthenticated HTTPS GET; no browser/JavaScript/form execution",
+      "final_url": "https://rtacontractor.ae/services/led-solar-lighting/",
+      "http_status": 200,
+      "content_type": "text/html",
+      "server": "cloudflare",
+      "bytes": 21535,
+      "sha256": "b2f489615db56f70bb9670e5f1d4952abcdaa015c967a740cf42b07ece874dd1",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "Talk2Maries"
+        },
+        {
+          "level": "h1",
+          "text": "LED & solar lighting enquiries"
+        },
+        {
+          "level": "h1",
+          "text": "in Dubai."
+        },
+        {
+          "level": "h2",
+          "text": "Start with the right details."
+        },
+        {
+          "level": "h3",
+          "text": "Plan for the"
+        },
+        {
+          "level": "h3",
+          "text": "whole picture."
+        },
+        {
+          "level": "h2",
+          "text": "Your questions."
+        },
+        {
+          "level": "h2",
+          "text": "Considered."
+        },
+        {
+          "level": "h2",
+          "text": "The wider picture."
+        },
+        {
+          "level": "h3",
+          "text": "Street lighting"
+        },
+        {
+          "level": "h3",
+          "text": "Underground cabling"
+        },
+        {
+          "level": "h3",
+          "text": "High-mast & area lighting"
+        },
+        {
+          "level": "h3",
+          "text": "Explore"
+        },
+        {
+          "level": "h3",
+          "text": "Our expertise"
+        },
+        {
+          "level": "h3",
+          "text": "Connect"
+        },
+        {
+          "level": "h2",
+          "text": "Part of Voltronix Group"
+        }
+      ],
+      "metadata": [
+        {
+          "name": "description",
+          "content": "Prepare an LED upgrade or solar lighting enquiry in Dubai. Review site conditions, controls and maintenance needs, then confirm the available project scope."
+        },
+        {
+          "name": "robots",
+          "content": "index,follow,max-image-preview:large"
+        },
+        {
+          "property": "og:title",
+          "content": "LED & solar lighting Enquiries in Dubai | VOLTRONIX"
+        },
+        {
+          "property": "og:url",
+          "content": "https://rtacontractor.ae/services/led-solar-lighting/"
+        }
+      ],
+      "canonical": "https://rtacontractor.ae/services/led-solar-lighting/",
+      "social_links": [
+        "https://wa.me/971502420957",
+        "https://wa.me/971502420957?text=Hello%20VOLTRONIX%2C%20I%20would%20like%20to%20discuss%20a%20lighting%20or%20infrastructure%20project.",
+        "https://www.facebook.com/voltronixuae",
+        "https://www.instagram.com/vtnxllc",
+        "https://www.linkedin.com/company/voltronix-uae/",
+        "https://www.pinterest.com/voltronixs/",
+        "https://x.com/nstsllc"
+      ],
+      "structured_entities": [
+        {
+          "@type": "GeneralContractor",
+          "@id": "https://rtacontractor.ae/#business",
+          "name": "Voltronix Contracting LLC",
+          "legalName": "Voltronix Contracting LLC",
+          "url": "https://rtacontractor.ae",
+          "telephone": "+97148240002",
+          "email": "info@voltronix.ae",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Shed 06, Aber Warehouse, Dubai Investment Park 02",
+            "addressLocality": "Dubai",
+            "addressCountry": "AE",
+            "postOfficeBoxNumber": "414345"
+          },
+          "sameAs": [
+            "https://voltronix.ae/",
+            "https://www.facebook.com/voltronixuae",
+            "https://www.linkedin.com/company/voltronix-uae/",
+            "https://www.instagram.com/vtnxllc",
+            "https://x.com/nstsllc"
+          ],
+          "foundingDate": "2009",
+          "areaServed": {
+            "@type": "City",
+            "name": "Dubai"
+          }
+        }
+      ],
+      "has_source_tracking_config": false,
+      "has_source_tracking_module": false,
+      "tracking_provider_observed": {
+        "gtm": true,
+        "ga4_explicit_id": false,
+        "ads_explicit_destination": false
+      }
+    },
+    {
+      "url": "https://rtacontractor.ae/services/lighting-maintenance/",
+      "checked_at_utc": "2026-10-31T22:07:43.259100+00:00",
+      "method": "unauthenticated HTTPS GET; no browser/JavaScript/form execution",
+      "final_url": "https://rtacontractor.ae/services/lighting-maintenance/",
+      "http_status": 200,
+      "content_type": "text/html",
+      "server": "cloudflare",
+      "bytes": 21529,
+      "sha256": "9337439ef77283904a2963eca12858de791df600c0ddd41cf473745a385ecbf6",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "Talk2Maries"
+        },
+        {
+          "level": "h1",
+          "text": "Lighting maintenance enquiries"
+        },
+        {
+          "level": "h1",
+          "text": "in Dubai."
+        },
+        {
+          "level": "h2",
+          "text": "Start with the right details."
+        },
+        {
+          "level": "h3",
+          "text": "Plan for the"
+        },
+        {
+          "level": "h3",
+          "text": "whole picture."
+        },
+        {
+          "level": "h2",
+          "text": "Your questions."
+        },
+        {
+          "level": "h2",
+          "text": "Considered."
+        },
+        {
+          "level": "h2",
+          "text": "The wider picture."
+        },
+        {
+          "level": "h3",
+          "text": "Street lighting"
+        },
+        {
+          "level": "h3",
+          "text": "Underground cabling"
+        },
+        {
+          "level": "h3",
+          "text": "High-mast & area lighting"
+        },
+        {
+          "level": "h3",
+          "text": "Explore"
+        },
+        {
+          "level": "h3",
+          "text": "Our expertise"
+        },
+        {
+          "level": "h3",
+          "text": "Connect"
+        },
+        {
+          "level": "h2",
+          "text": "Part of Voltronix Group"
+        }
+      ],
+      "metadata": [
+        {
+          "name": "description",
+          "content": "Discuss a lighting maintenance enquiry in Dubai with VOLTRONIX. Share asset details and faults to confirm the scope, access needs and service availability."
+        },
+        {
+          "name": "robots",
+          "content": "index,follow,max-image-preview:large"
+        },
+        {
+          "property": "og:title",
+          "content": "Lighting maintenance Enquiries in Dubai | VOLTRONIX"
+        },
+        {
+          "property": "og:url",
+          "content": "https://rtacontractor.ae/services/lighting-maintenance/"
+        }
+      ],
+      "canonical": "https://rtacontractor.ae/services/lighting-maintenance/",
+      "social_links": [
+        "https://wa.me/971502420957",
+        "https://wa.me/971502420957?text=Hello%20VOLTRONIX%2C%20I%20would%20like%20to%20discuss%20a%20lighting%20or%20infrastructure%20project.",
+        "https://www.facebook.com/voltronixuae",
+        "https://www.instagram.com/vtnxllc",
+        "https://www.linkedin.com/company/voltronix-uae/",
+        "https://www.pinterest.com/voltronixs/",
+        "https://x.com/nstsllc"
+      ],
+      "structured_entities": [
+        {
+          "@type": "GeneralContractor",
+          "@id": "https://rtacontractor.ae/#business",
+          "name": "Voltronix Contracting LLC",
+          "legalName": "Voltronix Contracting LLC",
+          "url": "https://rtacontractor.ae",
+          "telephone": "+97148240002",
+          "email": "info@voltronix.ae",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Shed 06, Aber Warehouse, Dubai Investment Park 02",
+            "addressLocality": "Dubai",
+            "addressCountry": "AE",
+            "postOfficeBoxNumber": "414345"
+          },
+          "sameAs": [
+            "https://voltronix.ae/",
+            "https://www.facebook.com/voltronixuae",
+            "https://www.linkedin.com/company/voltronix-uae/",
+            "https://www.instagram.com/vtnxllc",
+            "https://x.com/nstsllc"
+          ],
+          "foundingDate": "2009",
+          "areaServed": {
+            "@type": "City",
+            "name": "Dubai"
+          }
+        }
+      ],
+      "has_source_tracking_config": false,
+      "has_source_tracking_module": false,
+      "tracking_provider_observed": {
+        "gtm": true,
+        "ga4_explicit_id": false,
+        "ads_explicit_destination": false
+      }
+    },
+    {
+      "url": "https://rtacontractor.ae/services/electrical-infrastructure/",
+      "checked_at_utc": "2026-10-31T22:07:43.271226+00:00",
+      "method": "unauthenticated HTTPS GET; no browser/JavaScript/form execution",
+      "final_url": "https://rtacontractor.ae/services/electrical-infrastructure/",
+      "http_status": 200,
+      "content_type": "text/html",
+      "server": "cloudflare",
+      "bytes": 22221,
+      "sha256": "27b8995471a9a8a3b082eb118cd6c2059e482c6d8673ce5a3d314485ddebe631",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "Talk2Maries"
+        },
+        {
+          "level": "h1",
+          "text": "Electrical infrastructure"
+        },
+        {
+          "level": "h1",
+          "text": "in Dubai."
+        },
+        {
+          "level": "h2",
+          "text": "Start with the right details."
+        },
+        {
+          "level": "h3",
+          "text": "Plan for the"
+        },
+        {
+          "level": "h3",
+          "text": "whole picture."
+        },
+        {
+          "level": "h2",
+          "text": "Your questions."
+        },
+        {
+          "level": "h2",
+          "text": "Considered."
+        },
+        {
+          "level": "h2",
+          "text": "The wider picture."
+        },
+        {
+          "level": "h3",
+          "text": "Street lighting"
+        },
+        {
+          "level": "h3",
+          "text": "Underground cabling"
+        },
+        {
+          "level": "h3",
+          "text": "High-mast & area lighting"
+        },
+        {
+          "level": "h3",
+          "text": "Explore"
+        },
+        {
+          "level": "h3",
+          "text": "Our expertise"
+        },
+        {
+          "level": "h3",
+          "text": "Connect"
+        },
+        {
+          "level": "h2",
+          "text": "Part of Voltronix Group"
+        }
+      ],
+      "metadata": [
+        {
+          "name": "description",
+          "content": "Electrical infrastructure installation scopes for Dubai and UAE developments, including LV distribution, lighting panels, earthing and testing."
+        },
+        {
+          "name": "robots",
+          "content": "index,follow,max-image-preview:large"
+        },
+        {
+          "property": "og:title",
+          "content": "Electrical infrastructure in Dubai | VOLTRONIX"
+        },
+        {
+          "property": "og:url",
+          "content": "https://rtacontractor.ae/services/electrical-infrastructure/"
+        }
+      ],
+      "canonical": "https://rtacontractor.ae/services/electrical-infrastructure/",
+      "social_links": [
+        "https://wa.me/971502420957",
+        "https://wa.me/971502420957?text=Hello%20VOLTRONIX%2C%20I%20would%20like%20to%20discuss%20a%20lighting%20or%20infrastructure%20project.",
+        "https://www.facebook.com/voltronixuae",
+        "https://www.instagram.com/vtnxllc",
+        "https://www.linkedin.com/company/voltronix-uae/",
+        "https://www.pinterest.com/voltronixs/",
+        "https://x.com/nstsllc"
+      ],
+      "structured_entities": [
+        {
+          "@type": "GeneralContractor",
+          "@id": "https://rtacontractor.ae/#business",
+          "name": "Voltronix Contracting LLC",
+          "legalName": "Voltronix Contracting LLC",
+          "url": "https://rtacontractor.ae",
+          "telephone": "+97148240002",
+          "email": "info@voltronix.ae",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Shed 06, Aber Warehouse, Dubai Investment Park 02",
+            "addressLocality": "Dubai",
+            "addressCountry": "AE",
+            "postOfficeBoxNumber": "414345"
+          },
+          "sameAs": [
+            "https://voltronix.ae/",
+            "https://www.facebook.com/voltronixuae",
+            "https://www.linkedin.com/company/voltronix-uae/",
+            "https://www.instagram.com/vtnxllc",
+            "https://x.com/nstsllc"
+          ],
+          "foundingDate": "2009",
+          "areaServed": {
+            "@type": "City",
+            "name": "Dubai"
+          }
+        }
+      ],
+      "has_source_tracking_config": false,
+      "has_source_tracking_module": false,
+      "tracking_provider_observed": {
+        "gtm": true,
+        "ga4_explicit_id": false,
+        "ads_explicit_destination": false
+      }
+    },
+    {
+      "url": "https://voltronix.ae/",
+      "checked_at_utc": "2026-10-31T22:07:43.340783+00:00",
+      "method": "unauthenticated HTTPS GET; no browser/JavaScript/form execution",
+      "final_url": "https://voltronix.ae/",
+      "http_status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "server": "cloudflare",
+      "bytes": 387243,
+      "sha256": "2b153315a32adfa6de74697415f46000c509d4642b9b3da8a8b77052e86b69f8",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "Build. Power. Deliver."
+        },
+        {
+          "level": "h2",
+          "text": "Complete Construction & Engineering Solutions"
+        },
+        {
+          "level": "h2",
+          "text": "CIVIL"
+        },
+        {
+          "level": "h2",
+          "text": "Infrastructure"
+        },
+        {
+          "level": "h2",
+          "text": "MEP"
+        },
+        {
+          "level": "h2",
+          "text": "(mechanical, electrical, and plumbing)"
+        },
+        {
+          "level": "h2",
+          "text": "INTERIOR"
+        },
+        {
+          "level": "h2",
+          "text": "Approval"
+        },
+        {
+          "level": "h2",
+          "text": "Need Project Support?"
+        },
+        {
+          "level": "h1",
+          "text": "Electrical & MEP Contracting in Dubai"
+        },
+        {
+          "level": "h3",
+          "text": "G+4"
+        },
+        {
+          "level": "h3",
+          "text": "Interior"
+        },
+        {
+          "level": "h3",
+          "text": "MEP"
+        },
+        {
+          "level": "h3",
+          "text": "LV"
+        },
+        {
+          "level": "h3",
+          "text": "Authority"
+        },
+        {
+          "level": "h3",
+          "text": "Infrastructure"
+        },
+        {
+          "level": "h3",
+          "text": "17+"
+        },
+        {
+          "level": "h2",
+          "text": "ABOUT VOLTRONIX"
+        },
+        {
+          "level": "h2",
+          "text": "Trusted Construction Company in Dubai"
+        },
+        {
+          "level": "h2",
+          "text": "Since 2009"
+        },
+        {
+          "level": "h3",
+          "text": "200+"
+        },
+        {
+          "level": "h3",
+          "text": "100+"
+        },
+        {
+          "level": "h3",
+          "text": "17+"
+        },
+        {
+          "level": "h3",
+          "text": "100%"
+        },
+        {
+          "level": "h2",
+          "text": "OUR CORE SERVICES"
+        },
+        {
+          "level": "h2",
+          "text": "End-to-End Solutions Under One Roof"
+        },
+        {
+          "level": "h3",
+          "text": "Civil Contracting"
+        },
+        {
+          "level": "h3",
+          "text": "MEP Works"
+        },
+        {
+          "level": "h3",
+          "text": "Switchgear Solutions"
+        },
+        {
+          "level": "h3",
+          "text": "Authority Approvals"
+        },
+        {
+          "level": "h3",
+          "text": "Interior Fit-Out"
+        },
+        {
+          "level": "h3",
+          "text": "Infrastructure"
+        },
+        {
+          "level": "h2",
+          "text": "WHY CHOOSE"
+        },
+        {
+          "level": "h2",
+          "text": "Why Choose Voltronix Contracting LLC"
+        },
+        {
+          "level": "h3",
+          "text": "17+ Years Dubai Experience"
+        },
+        {
+          "level": "h3",
+          "text": "DEWA & Authority Expertise"
+        },
+        {
+          "level": "h3",
+          "text": "In-House Engineering Team"
+        },
+        {
+          "level": "h3",
+          "text": "Fast Approval Coordination"
+        },
+        {
+          "level": "h3",
+          "text": "Complete Design & Build Support"
+        },
+        {
+          "level": "h3",
+          "text": "Reliable After-Sales Support"
+        },
+        {
+          "level": "h2",
+          "text": "Industries We Serve"
+        },
+        {
+          "level": "h3",
+          "text": "Residential"
+        },
+        {
+          "level": "h3",
+          "text": "Commercial"
+        },
+        {
+          "level": "h3",
+          "text": "Industrial"
+        },
+        {
+          "level": "h3",
+          "text": "Warehouses"
+        },
+        {
+          "level": "h3",
+          "text": "Retail"
+        },
+        {
+          "level": "h3",
+          "text": "Hospitality"
+        },
+        {
+          "level": "h3",
+          "text": "Government projects"
+        },
+        {
+          "level": "h3",
+          "text": "Infrastructure developments"
+        },
+        {
+          "level": "h2",
+          "text": "Construction Services Across Dubai & UAE"
+        },
+        {
+          "level": "h2",
+          "text": "Construction Process by a Leading Construction Company in Dubai"
+        },
+        {
+          "level": "h3",
+          "text": "Consultation & Planning"
+        },
+        {
+          "level": "h3",
+          "text": "Design & Engineering"
+        },
+        {
+          "level": "h3",
+          "text": "Authority Approvals"
+        },
+        {
+          "level": "h3",
+          "text": "Construction & Execution"
+        },
+        {
+          "level": "h3",
+          "text": "Testing & Quality Assurance"
+        },
+        {
+          "level": "h3",
+          "text": "Final Handover"
+        },
+        {
+          "level": "h2",
+          "text": "PROJECT SHOWCASE"
+        },
+        {
+          "level": "h2",
+          "text": "Delivering Excellence Across Dubai"
+        },
+        {
+          "level": "h3",
+          "text": "Nedia EV Parts Trading LLC – DEWA Substation & LV Room Project"
+        },
+        {
+          "level": "h3",
+          "text": "Dreams Garden Trading LLC – Temporary Structure Facility Installation"
+        },
+        {
+          "level": "h3",
+          "text": "Galadari Arab Bandac Substation & LV Room – Electrical Infrastructure Project"
+        },
+        {
+          "level": "h3",
+          "text": "DEWA Successfully Energizes LV Panel at SONAPUR Project"
+        },
+        {
+          "level": "h3",
+          "text": "Adjan Residency-Electrical Power Upgradation"
+        },
+        {
+          "level": "h2",
+          "text": "Frequently Asked Questions"
+        },
+        {
+          "level": "h2",
+          "text": "Dubai Authority Approval Expertise"
+        },
+        {
+          "level": "h2",
+          "text": "One Team. Multiple Authorities. Faster Approvals."
+        },
+        {
+          "level": "h2",
+          "text": "Planning a Project in Dubai?"
+        },
+        {
+          "level": "h3",
+          "text": "Free Consultation"
+        },
+        {
+          "level": "h3",
+          "text": "On-Time Delivery"
+        },
+        {
+          "level": "h3",
+          "text": "Quality Assurance"
+        },
+        {
+          "level": "h3",
+          "text": "Competitive Pricing"
+        },
+        {
+          "level": "h2",
+          "text": "WANT TO JOIN US?"
+        }
+      ],
+      "metadata": [
+        {
+          "name": "robots",
+          "content": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+        },
+        {
+          "name": "description",
+          "content": "Voltronix Contracting LLC delivers electrical installations, MEP works, substations and power infrastructure for building and industrial projects in Dubai."
+        },
+        {
+          "property": "og:title",
+          "content": "Electrical & MEP Contractors in Dubai | Voltronix"
+        },
+        {
+          "property": "og:url",
+          "content": "https://voltronix.ae/"
+        }
+      ],
+      "canonical": "https://voltronix.ae/",
+      "social_links": [
+        "https://api.whatsapp.com/send?phone=+97148240002",
+        "https://twitter.com/nstsllc",
+        "https://web.whatsapp.com/send?phone=971502420957&text=Hello",
+        "https://www.facebook.com/voltronixuae",
+        "https://www.instagram.com/vtnxllc",
+        "https://www.linkedin.com/company/voltronix-uae/"
+      ],
+      "structured_entities": [
+        {
+          "@type": "Organization",
+          "@id": "https://voltronix.ae/#organization",
+          "name": "Voltronix Contracting LLC",
+          "url": "https://voltronix.ae/",
+          "sameAs": [
+            "https://www.facebook.com/voltronixuae",
+            "https://x.com/nstsllc",
+            "https://www.linkedin.com/company/voltronix-uae",
+            "https://www.instagram.com/vtnxllc"
+          ]
+        }
+      ],
+      "has_source_tracking_config": false,
+      "has_source_tracking_module": false,
+      "tracking_provider_observed": {
+        "gtm": true,
+        "ga4_explicit_id": false,
+        "ads_explicit_destination": true
+      }
+    },
+    {
+      "url": "https://voltronix.ae/contact-us/",
+      "checked_at_utc": "2026-10-31T22:07:43.408976+00:00",
+      "method": "unauthenticated HTTPS GET; no browser/JavaScript/form execution",
+      "final_url": "https://voltronix.ae/contact-us/",
+      "http_status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "server": "cloudflare",
+      "bytes": 198324,
+      "sha256": "24689c66b24c20714a9822fdea4c684635a35cb838d7b3a72c9440ababe0b76b",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "Build. Power. Deliver."
+        },
+        {
+          "level": "h2",
+          "text": "Complete Construction & Engineering Solutions"
+        },
+        {
+          "level": "h2",
+          "text": "CIVIL"
+        },
+        {
+          "level": "h2",
+          "text": "Infrastructure"
+        },
+        {
+          "level": "h2",
+          "text": "MEP"
+        },
+        {
+          "level": "h2",
+          "text": "(mechanical, electrical, and plumbing)"
+        },
+        {
+          "level": "h2",
+          "text": "INTERIOR"
+        },
+        {
+          "level": "h2",
+          "text": "Approval"
+        },
+        {
+          "level": "h2",
+          "text": "Need Project Support?"
+        },
+        {
+          "level": "h1",
+          "text": "Contact Us"
+        },
+        {
+          "level": "h2",
+          "text": "CONTACT US"
+        },
+        {
+          "level": "h2",
+          "text": "Get in Touch"
+        },
+        {
+          "level": "h2",
+          "text": "Our"
+        },
+        {
+          "level": "h2",
+          "text": "Entities"
+        },
+        {
+          "level": "h3",
+          "text": "VOLTRONIX CONTRACTING LLC"
+        },
+        {
+          "level": "h3",
+          "text": "VOLTRONIX SWITCHGEAR LLC"
+        },
+        {
+          "level": "h2",
+          "text": "Planning a Project in Dubai?"
+        },
+        {
+          "level": "h3",
+          "text": "Free Consultation"
+        },
+        {
+          "level": "h3",
+          "text": "On-Time Delivery"
+        },
+        {
+          "level": "h3",
+          "text": "Quality Assurance"
+        },
+        {
+          "level": "h3",
+          "text": "Competitive Pricing"
+        },
+        {
+          "level": "h2",
+          "text": "WANT TO JOIN US?"
+        }
+      ],
+      "metadata": [
+        {
+          "name": "robots",
+          "content": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+        },
+        {
+          "name": "description",
+          "content": "Connect with Voltronix Contracting LLC for expert solutions. Contact us today for reliable services and tailored electrical contracting expertise"
+        },
+        {
+          "property": "og:title",
+          "content": "Contact Us | Voltronix Contracting llc"
+        },
+        {
+          "property": "og:url",
+          "content": "https://voltronix.ae/contact-us/"
+        }
+      ],
+      "canonical": "https://voltronix.ae/contact-us/",
+      "social_links": [
+        "https://api.whatsapp.com/send?phone=+97148240002",
+        "https://twitter.com/nstsllc",
+        "https://web.whatsapp.com/send?phone=971502420957&text=Hello",
+        "https://www.facebook.com/voltronixuae",
+        "https://www.instagram.com/vtnxllc",
+        "https://www.linkedin.com/company/voltronix-uae/"
+      ],
+      "structured_entities": [
+        {
+          "@type": "Organization",
+          "@id": "https://voltronix.ae/#organization",
+          "name": "Voltronix Contracting LLC",
+          "url": "https://voltronix.ae/",
+          "sameAs": [
+            "https://www.facebook.com/voltronixuae",
+            "https://x.com/nstsllc",
+            "https://www.linkedin.com/company/voltronix-uae",
+            "https://www.instagram.com/vtnxllc"
+          ]
+        }
+      ],
+      "has_source_tracking_config": false,
+      "has_source_tracking_module": false,
+      "tracking_provider_observed": {
+        "gtm": true,
+        "ga4_explicit_id": false,
+        "ads_explicit_destination": true
+      }
+    },
+    {
+      "url": "https://voltronix.ae/about/",
+      "checked_at_utc": "2026-10-31T22:07:43.546610+00:00",
+      "method": "unauthenticated HTTPS GET; no browser/JavaScript/form execution",
+      "final_url": "https://voltronix.ae/about/",
+      "http_status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "server": "cloudflare",
+      "bytes": 247544,
+      "sha256": "7d2cf5b4ef32b1a59da82c2739de1625660676a97718553818a4146f02988597",
+      "headings": [
+        {
+          "level": "h2",
+          "text": "Build. Power. Deliver."
+        },
+        {
+          "level": "h2",
+          "text": "Complete Construction & Engineering Solutions"
+        },
+        {
+          "level": "h2",
+          "text": "CIVIL"
+        },
+        {
+          "level": "h2",
+          "text": "Infrastructure"
+        },
+        {
+          "level": "h2",
+          "text": "MEP"
+        },
+        {
+          "level": "h2",
+          "text": "(mechanical, electrical, and plumbing)"
+        },
+        {
+          "level": "h2",
+          "text": "INTERIOR"
+        },
+        {
+          "level": "h2",
+          "text": "Approval"
+        },
+        {
+          "level": "h2",
+          "text": "Need Project Support?"
+        },
+        {
+          "level": "h1",
+          "text": "About"
+        },
+        {
+          "level": "h2",
+          "text": "About us"
+        },
+        {
+          "level": "h2",
+          "text": "VOLTRONIX UAE"
+        },
+        {
+          "level": "h2",
+          "text": "Who We Are"
+        },
+        {
+          "level": "h2",
+          "text": "Beyond Comparison"
+        },
+        {
+          "level": "h2",
+          "text": "Built- to last"
+        },
+        {
+          "level": "h2",
+          "text": "TRUST IN US"
+        },
+        {
+          "level": "h2",
+          "text": "Build your Future Together"
+        },
+        {
+          "level": "h2",
+          "text": "About us"
+        },
+        {
+          "level": "h2",
+          "text": "VOLTRONIX UAE"
+        },
+        {
+          "level": "h2",
+          "text": "VISION"
+        },
+        {
+          "level": "h2",
+          "text": "MISSION"
+        },
+        {
+          "level": "h2",
+          "text": "VALUES"
+        },
+        {
+          "level": "h2",
+          "text": "Certified Excellence in Quality, Safety & Environment"
+        },
+        {
+          "level": "h2",
+          "text": "Finest, Farsighted, Flexible"
+        },
+        {
+          "level": "h2",
+          "text": "SERVICE ARES"
+        },
+        {
+          "level": "h2",
+          "text": "Operate Locations"
+        },
+        {
+          "level": "h2",
+          "text": "Planning a Project in Dubai?"
+        },
+        {
+          "level": "h3",
+          "text": "Free Consultation"
+        },
+        {
+          "level": "h3",
+          "text": "On-Time Delivery"
+        },
+        {
+          "level": "h3",
+          "text": "Quality Assurance"
+        },
+        {
+          "level": "h3",
+          "text": "Competitive Pricing"
+        },
+        {
+          "level": "h2",
+          "text": "WANT TO JOIN US?"
+        }
+      ],
+      "metadata": [
+        {
+          "name": "robots",
+          "content": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+        },
+        {
+          "name": "description",
+          "content": "Learn Voltronix Contracting LLC,Top MEP contractors in Dubai offering expertise, innovation, and reliable solutions for diverse projects"
+        },
+        {
+          "property": "og:title",
+          "content": "MEP Contractors in Dubai, UAE | Voltronix Contracting LLC"
+        },
+        {
+          "property": "og:url",
+          "content": "https://voltronix.ae/about/"
+        }
+      ],
+      "canonical": "https://voltronix.ae/about/",
+      "social_links": [
+        "https://api.whatsapp.com/send?phone=+97148240002",
+        "https://twitter.com/nstsllc",
+        "https://web.whatsapp.com/send?phone=971502420957&text=Hello",
+        "https://www.facebook.com/voltronixuae",
+        "https://www.instagram.com/vtnxllc",
+        "https://www.linkedin.com/company/voltronix-uae/"
+      ],
+      "structured_entities": [
+        {
+          "@type": "Organization",
+          "@id": "https://voltronix.ae/#organization",
+          "name": "Voltronix Contracting LLC",
+          "url": "https://voltronix.ae/",
+          "sameAs": [
+            "https://www.facebook.com/voltronixuae",
+            "https://x.com/nstsllc",
+            "https://www.linkedin.com/company/voltronix-uae",
+            "https://www.instagram.com/vtnxllc"
+          ]
+        }
+      ],
+      "has_source_tracking_config": false,
+      "has_source_tracking_module": false,
+      "tracking_provider_observed": {
+        "gtm": true,
+        "ga4_explicit_id": false,
+        "ads_explicit_destination": true
+      }
+    }
+  ]
+}

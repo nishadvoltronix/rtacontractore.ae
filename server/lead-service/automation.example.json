@@ -1,0 +1,9 @@
+{
+  "enabled": false,
+  "notifications": { "enabled": false, "destinations": [], "verifiedDestinationRequired": true },
+  "schedules": [
+    { "name": "technical-check", "enabled": false, "command": ["npm", "run", "check"] },
+    { "name": "lead-delivery-health", "enabled": false, "command": "node server/lead-service/monitor.mjs" },
+    { "name": "weekly-marketing-review", "enabled": false, "destination": null, "realConnectedDataRequired": true }
+  ]
+}

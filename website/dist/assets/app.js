@@ -1,83 +1,74 @@
 (() => {
+  document.documentElement.classList.replace('no-js', 'js');
   const toggle = document.querySelector('[data-menu-toggle]');
   const nav = document.querySelector('[data-nav]');
-  const pqMenu = nav?.querySelector('[data-pq-menu]');
-  const pqToggle = pqMenu?.querySelector('summary');
-  let pqCloseTimer;
-  let pqOpenedByHover = false;
-  const closePq = () => {
-    clearTimeout(pqCloseTimer);
-    pqOpenedByHover = false;
-    if (pqMenu) pqMenu.open = false;
-  };
+  const menus = [...(nav?.querySelectorAll('[data-nav-menu]') || [])];
+  const closeMenus = except => menus.forEach(menu => { if (menu !== except) menu.open = false; });
   const setMenu = open => {
     toggle?.setAttribute('aria-expanded', String(open));
     toggle?.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
     nav?.classList.toggle('is-open', open);
     document.body.classList.toggle('menu-open', open);
-    if (!open) closePq();
+    if (!open) closeMenus();
   };
   toggle?.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
   nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
+  menus.forEach(menu => {
+    const summary = menu.querySelector('summary');
+    menu.addEventListener('toggle', () => { if (menu.open) closeMenus(menu); });
+    summary?.addEventListener('keydown', event => {
+      if (!['ArrowDown', 'ArrowUp'].includes(event.key)) return;
+      event.preventDefault(); menu.open = true;
+      const links = [...menu.querySelectorAll('a')];
+      links[event.key === 'ArrowDown' ? 0 : links.length - 1]?.focus();
+    });
+    menu.addEventListener('focusout', () => {
+      setTimeout(() => { if (!menu.contains(document.activeElement)) menu.open = false; }, 0);
+    });
+  });
+  document.addEventListener('click', event => {
+    if (!event.target.closest?.('.site-header')) setMenu(false);
+  });
   document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && pqMenu?.open) {
-      closePq();
-      pqToggle.focus();
-      event.preventDefault();
-      return;
+    if (event.key === 'Escape') {
+      const menu = menus.find(item => item.open && item.contains(document.activeElement));
+      if (menu) { menu.open = false; menu.querySelector('summary').focus(); event.preventDefault(); return; }
+      if (toggle?.getAttribute('aria-expanded') === 'true') { setMenu(false); toggle.focus(); event.preventDefault(); }
+      else closeMenus();
     }
-    if (event.key === 'Escape' && toggle?.getAttribute('aria-expanded') === 'true') { setMenu(false); toggle.focus(); }
     if (event.key === 'Tab' && toggle?.getAttribute('aria-expanded') === 'true') {
       const links = [...nav.querySelectorAll('a, summary')].filter(item => item.getClientRects().length > 0);
-      links.push(toggle);
       if (event.shiftKey && document.activeElement === links[0]) { event.preventDefault(); toggle.focus(); }
-      else if (!event.shiftKey && document.activeElement === toggle) { event.preventDefault(); links[0].focus(); }
+      else if (!event.shiftKey && document.activeElement === toggle) { event.preventDefault(); links[0]?.focus(); }
     }
   });
-  window.matchMedia('(min-width: 768px)').addEventListener('change', () => setMenu(false));
-  if (pqMenu) {
-    const hoverMenu = matchMedia('(min-width: 768px) and (hover: hover) and (pointer: fine)');
-    pqMenu.addEventListener('pointerenter', event => {
-      if (event.pointerType !== 'mouse' || !hoverMenu.matches) return;
-      clearTimeout(pqCloseTimer);
-      if (!pqMenu.open) {
-        pqOpenedByHover = true;
-        pqMenu.open = true;
+  window.matchMedia('(min-width: 960px)').addEventListener('change', () => setMenu(false));
+  const search = document.querySelector('[data-faq-filter]');
+  if (search) {
+    const groups = [...document.querySelectorAll('[data-faq-group]')];
+    const status = document.querySelector('[data-faq-count]');
+    const empty = document.querySelector('[data-faq-empty]');
+    document.querySelector('[data-faq-search]').hidden = false;
+    const filter = () => {
+      const query = search.value.trim().toLocaleLowerCase(); let count = 0;
+      for (const group of groups) {
+        let visible = 0;
+        for (const question of group.querySelectorAll('[data-faq-item]')) {
+          question.hidden = !question.textContent.toLocaleLowerCase().includes(query);
+          if (!question.hidden) visible++;
+        }
+        group.hidden = visible === 0; count += visible;
       }
-    });
-    pqMenu.addEventListener('pointerleave', event => {
-      if (event.pointerType !== 'mouse' || !hoverMenu.matches) return;
-      pqCloseTimer = setTimeout(() => {
-        if (!pqMenu.matches(':hover') && !pqMenu.contains(document.activeElement)) closePq();
-      }, 180);
-    });
-    // Clicking a menu just opened by hover should keep its document links open.
-    pqToggle.addEventListener('click', event => {
-      if (event.detail > 0 && pqOpenedByHover && hoverMenu.matches) {
-        event.preventDefault();
-        pqOpenedByHover = false;
-      }
-    });
-    pqMenu.addEventListener('toggle', () => { if (!pqMenu.open) closePq(); });
-    hoverMenu.addEventListener('change', closePq);
-    document.addEventListener('click', event => {
-      if (!pqMenu.contains(event.target)) closePq();
-    });
-    pqMenu.addEventListener('focusout', event => {
-      if (event.relatedTarget) {
-        if (!pqMenu.contains(event.relatedTarget)) closePq();
-      } else {
-        // Wait for native Tab navigation to finish before inspecting focus.
-        setTimeout(() => { if (!pqMenu.contains(document.activeElement)) closePq(); }, 0);
-      }
-    });
-    pqToggle.addEventListener('keydown', event => {
-      if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return;
-      event.preventDefault();
-      pqMenu.open = true;
-      const links = pqMenu.querySelectorAll('a');
-      links[event.key === 'ArrowDown' ? 0 : links.length - 1].focus();
-    });
+      status.textContent = `${count} ${count === 1 ? 'question' : 'questions'}${query ? ' match your search' : ' available'}.`;
+      empty.hidden = count !== 0;
+    };
+    search.addEventListener('input', filter); filter();
+  }
+  const selectedService = document.querySelector('[data-enquiry-service]');
+  if (selectedService) {
+    const labels = { 'street-lighting': 'Street lighting', 'underground-cabling': 'Underground cabling', 'high-mast-area-lighting': 'High-mast & area lighting', 'led-solar-lighting': 'LED & solar lighting', 'lighting-maintenance': 'Lighting maintenance', 'electrical-infrastructure': 'Electrical infrastructure' };
+    const label = labels[new URLSearchParams(location.search).get('service')];
+    if (label) { selectedService.textContent = `Selected enquiry topic: ${label}. Include it in your project outline below.`; selectedService.hidden = false; }
   }
   const heroHeader = document.querySelector('.hero-header');
   if (heroHeader) {
@@ -107,45 +98,12 @@
       }
     });
   }
-  const aboutSection = document.querySelector('.about-shell > .about');
-  if (aboutSection) {
-    const aboutShell = aboutSection.parentElement;
-    const followingSections = aboutSection.nextElementSibling;
-    const stickyMotion = window.matchMedia('(min-height: 551px) and (prefers-reduced-motion: no-preference)');
-    let stickyTop = 0;
-    const headerBottom = () => heroHeader?.getBoundingClientRect().bottom || 0;
-    const updateAboutLayout = () => {
-      // Tall layouts scroll through all their content before the bottom edge pins.
-      stickyTop = Math.min(headerBottom(), window.innerHeight - aboutSection.offsetHeight);
-      aboutSection.style.setProperty('--about-stick-top', `${stickyTop}px`);
-      aboutSection.classList.toggle('is-sticky', stickyMotion.matches);
-    };
-    window.addEventListener('resize', updateAboutLayout);
-    window.addEventListener('pageshow', updateAboutLayout);
-    stickyMotion.addEventListener('change', updateAboutLayout);
-    if ('ResizeObserver' in window) {
-      const aboutObserver = new ResizeObserver(updateAboutLayout);
-      aboutObserver.observe(aboutSection);
-      if (heroHeader) aboutObserver.observe(heroHeader);
-    }
-    aboutSection.addEventListener('focusin', event => {
-      const target = event.target.getBoundingClientRect();
-      const visibleBottom = Math.min(window.innerHeight, followingSections.getBoundingClientRect().top);
-      if (target.top >= headerBottom() + 16 && target.bottom <= visibleBottom) return;
-      const naturalStart = window.scrollY + aboutShell.getBoundingClientRect().top;
-      const localTop = target.top - aboutSection.getBoundingClientRect().top;
-      let revealAt = naturalStart + localTop - headerBottom() - 16;
-      if (aboutSection.classList.contains('is-sticky')) revealAt = Math.min(revealAt, naturalStart - stickyTop);
-      window.scrollTo({ top: Math.max(0, revealAt), behavior: 'instant' });
-    });
-    updateAboutLayout();
-  }
   const backgroundVideo = document.querySelector('[data-sector-video]');
   if (backgroundVideo) {
     const videoToggle = document.querySelector('[data-video-toggle]');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     let inView = false;
-    let userPaused = false;
+    let userPaused = true;
     let videoFailed = false;
     backgroundVideo.muted = true;
     const updateVideoButton = () => {
@@ -186,50 +144,5 @@
       inView = true;
       updateVideo();
     }
-  }
-  const partners = document.querySelector('[data-partners]');
-  if (partners) {
-    const viewport = partners.querySelector('[data-partners-window]');
-    const track = partners.querySelector('[data-partners-track]');
-    const group = partners.querySelector('[data-partners-group]');
-    const button = partners.querySelector('[data-partners-toggle]');
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-    let userPaused = false;
-    let hovered = false;
-    let inView = false;
-    const updatePlayback = () => {
-      track.style.animationPlayState = inView && !document.hidden && !userPaused && !hovered ? 'running' : 'paused';
-      button.textContent = userPaused ? 'Play slider' : 'Pause slider';
-    };
-    const updateLayout = () => {
-      const animate = !reducedMotion.matches && group.scrollWidth > viewport.clientWidth;
-      if (animate && !partners.classList.contains('is-animated')) viewport.scrollLeft = 0;
-      partners.classList.toggle('is-animated', animate);
-      viewport.tabIndex = animate ? -1 : 0;
-      button.hidden = !animate;
-      updatePlayback();
-    };
-    button.addEventListener('click', () => {
-      userPaused = !userPaused;
-      updatePlayback();
-    });
-    viewport.addEventListener('pointerenter', event => {
-      if (event.pointerType === 'mouse') { hovered = true; updatePlayback(); }
-    });
-    viewport.addEventListener('pointerleave', () => { hovered = false; updatePlayback(); });
-    reducedMotion.addEventListener('change', updateLayout);
-    document.addEventListener('visibilitychange', updatePlayback);
-    if ('IntersectionObserver' in window) {
-      new IntersectionObserver(entries => {
-        inView = entries[0].isIntersecting;
-        updatePlayback();
-      }, { threshold: 0.1 }).observe(viewport);
-    } else inView = true;
-    if ('ResizeObserver' in window) {
-      const observer = new ResizeObserver(updateLayout);
-      observer.observe(viewport);
-      observer.observe(group);
-    } else window.addEventListener('resize', updateLayout);
-    updateLayout();
   }
 })();

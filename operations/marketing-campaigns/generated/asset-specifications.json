@@ -1,0 +1,41 @@
+{
+  "status": "review-draft",
+  "assets": [
+    {
+      "name": "company-profile",
+      "width": 400,
+      "height": 400,
+      "kind": "profile"
+    },
+    {
+      "name": "linkedin-company-cover",
+      "width": 4200,
+      "height": 700,
+      "kind": "cover"
+    },
+    {
+      "name": "youtube-banner",
+      "width": 2560,
+      "height": 1440,
+      "kind": "youtube"
+    },
+    {
+      "name": "project-brief-square",
+      "width": 1080,
+      "height": 1080,
+      "kind": "post"
+    },
+    {
+      "name": "project-brief-wide",
+      "width": 1200,
+      "height": 630,
+      "kind": "post"
+    }
+  ],
+  "sourceLogo": "Existing website VOLTRONIX white logo; unchanged",
+  "sources": [
+    "https://www.linkedin.com/help/linkedin/answer/a570368",
+    "https://support.google.com/youtube/answer/10456525"
+  ],
+  "note": "LinkedIn company cover and YouTube dimensions checked against official guidance on 2026-11-01. Square/wide post graphics are editable templates; confirm each destination crop. No social account changed."
+}

@@ -5,7 +5,7 @@ import { mkdtemp, mkdir, rm, symlink, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium, request as playwrightRequest } from '@playwright/test';
-import { localQAOrigin, localArtifacts, localRequestURL, createLocalContext, localLinkResponse } from './qa-local-safety.mjs';
+import { localQAOrigin, localArtifacts, localRequestURL, createLocalContext, localLinkResponse, gtmScriptURL, gtmNoScriptURL } from './qa-local-safety.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 
@@ -103,6 +103,32 @@ test('browser guard blocks external fetches, redirect chains and WebSockets befo
   assert.equal(websocketClosed, true);
   assert.equal(blocked.length, 3);
   assert.equal(blocked.some(item => item.url.includes('private')), false);
+});
+
+test('only the exact configured GTM script and noscript document are stubbed without a connection', { skip: !gtmScriptURL }, async () => {
+  let handler;
+  const blocked = [], calls = [];
+  const browser = { newContext: async () => ({ route: async (_pattern, callback) => { handler = callback; }, routeWebSocket: async () => {} }) };
+  await createLocalContext(browser, 'http://127.0.0.1:4173', {}, blocked);
+  const route = (url, method = 'GET', resourceType = 'script') => ({
+    request: () => ({ url: () => url, method: () => method, resourceType: () => resourceType }),
+    fetch: async () => { throw new Error('GTM QA must never connect'); },
+    fulfill: async response => calls.push(['fulfill', response]),
+    abort: async () => calls.push(['abort']),
+  });
+  await handler(route(gtmScriptURL));
+  assert.equal(calls[0][0], 'fulfill');
+  assert.equal(calls[0][1].contentType, 'application/javascript');
+  await handler(route(gtmNoScriptURL, 'GET', 'document'));
+  assert.equal(calls[1][0], 'fulfill');
+  assert.equal(calls[1][1].contentType, 'text/html');
+  assert.equal(blocked.length, 0);
+  await handler(route(gtmScriptURL, 'POST'));
+  await handler(route(gtmScriptURL, 'GET', 'fetch'));
+  await handler(route(`${gtmScriptURL}&unexpected=1`));
+  await handler(route(gtmNoScriptURL));
+  assert.deepEqual(calls.slice(2), [['abort'], ['abort'], ['abort'], ['abort']]);
+  assert.equal(blocked.length, 4);
 });
 
 test('actual browser interception prevents direct and redirected connections to another loopback origin', async () => {

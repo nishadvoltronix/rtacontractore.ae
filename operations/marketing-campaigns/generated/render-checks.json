@@ -1,0 +1,41 @@
+{
+  "assets": [
+    {
+      "name": "company-profile",
+      "width": 400,
+      "height": 400,
+      "rendered": true,
+      "externalRequests": 0
+    },
+    {
+      "name": "linkedin-company-cover",
+      "width": 4200,
+      "height": 700,
+      "rendered": true,
+      "externalRequests": 0
+    },
+    {
+      "name": "youtube-banner",
+      "width": 2560,
+      "height": 1440,
+      "rendered": true,
+      "externalRequests": 0
+    },
+    {
+      "name": "project-brief-square",
+      "width": 1080,
+      "height": 1080,
+      "rendered": true,
+      "externalRequests": 0
+    },
+    {
+      "name": "project-brief-wide",
+      "width": 1200,
+      "height": 630,
+      "rendered": true,
+      "externalRequests": 0
+    }
+  ],
+  "reviewState": "Rendered; visual review required before publishing",
+  "socialAccountsChanged": false
+}

@@ -1,0 +1,229 @@
+RTA-ONLY WEBSITE MODERNIZATION - LOCAL REVIEW
+Prepared 1 November 2026 (Dubai). No publication or production changes.
+
+Review context
+
+Worktree: rtacontractor-digital-marketing-20261101
+Branch: codex/rta-digital-marketing-20261101
+Starting commit: f04ac451f087650d1f01b6d95af2709a657bd75c
+The earlier tracking checkout, server backup and deployment artifacts are separate.
+No commit, push, advertising change, live enquiry or provider account change was
+made by this website implementation task.
+
+The retained architecture is a Node-generated static website. The entry point
+is website/scripts/build.mjs, with shared business identity in site.config.mjs,
+six service definitions in services.mjs, the detailed street-lighting content
+and template, and new editorial page data in page-content.mjs. Generated HTML
+and the existing assets remain under website/dist. No framework migration or
+new browser dependency was introduced.
+
+Visitor experience
+
+The existing VOLTRONIX red, dark neutral, cream, Manrope typography, logo and
+photographs are retained. Navigation now provides Services, About, Resources,
+Contact and a direct quotation path. Native disclosure menus work with a
+keyboard and on small screens. The footer keeps the published company contact
+details together and explains the independent relationship to RTA.
+
+The homepage introduces lighting and electrical works clearly, then offers
+three useful starting points: street lighting, underground cabling and a
+quotation brief. Eight broader work-topic cards were removed because they
+were not established completed projects or supported service evidence. The
+scroll-reveal dependency was removed from the page. Content is available in
+normal document flow. Existing background video now loads only after the
+visitor chooses to play it.
+
+Authority-logo animation was replaced by useful qualification, company-profile
+and planning-guide links. Representative images remain labelled as such;
+they are not presented as completed RTA projects or client endorsements.
+
+New authored pages
+
+  /services/
+  /about/
+  /contact/
+  /request-a-quote/
+  /faqs/
+  /knowledge/
+  /cookies/
+  /knowledge/street-lighting-quotation-checklist/
+  /knowledge/lighting-handover-checklist/
+  /knowledge/contractor-qualification-and-project-approvals/
+
+Together with the retained homepage, six service pages, privacy notice and
+photography credits, there are 19 indexable pages. The noindex 404 page offers
+service, contact, quotation and guide recovery links. The FAQ page has a local
+filter; the authored handler emits no query event or service request. The quotation
+page includes an accessible, downloadable project-brief.txt checklist.
+
+Service quotations link to the quotation page with an allowlisted service slug.
+This selects explanatory page context only. Unknown values are not reflected,
+and the provider form and its required-field contract are not rewritten.
+
+Business and content boundaries
+
+VOLTRONIX Contracting LLC is the contractor. rtacontractor.ae is its service
+channel, not a separate legal business or an RTA government service. The site
+does not promise authority decisions, approval times, pricing or project awards.
+
+The supplied certificate remains described as conditional prequalification for
+road street lighting, excluding tunnel lighting, with an AED 5,000,000 value
+limit. Registration, expiry, conditions and the absence of a fresh portal-status
+check remain visible on the detailed service page. This has not been expanded
+into blanket RTA approval. Other specialist lighting topics invite scope review;
+they do not inherit the street-lighting qualification.
+
+No new ISO, licence, award, client, testimonial, completed-project, performance
+statistic or legal-compliance claim was added. Current ISO renewal evidence is
+still required: the published corporate material displays validity to September
+2026 and should not be used as proof of current certification. New project case
+studies and testimonials were not fabricated to fill a page.
+
+The guides explain what buyers can prepare and ask about. They distinguish
+company qualification from project-specific approvals and link to official
+resources instead of stating changing procedural fees or times. These public
+resource URLs returned HTTP 200 during this review:
+
+  https://rta.ae/wps/portal/rta/ae/home/about-rta/contractors-suppliers/general-policies/
+  https://rta.ae/wps/portal/rta/ae/home/rta-services/service-details?lang=en&serviceId=315
+  https://voltronix.ae/projects/
+
+Search and machine-readable content
+
+Every indexable page has its own title, description, HTTPS apex canonical,
+visible heading and crawlable internal links. Authored public page links and
+sitemap entries use trailing slashes. The sitemap contains all 19 indexable
+routes and excludes the 404. The existing 53-byte Google verification file is
+preserved exactly. Robots rules continue to allow public pages.
+
+Organization identity, breadcrumbs and supported Service schema remain scoped
+to the documented business and service facts. New AboutPage, ContactPage,
+CollectionPage, visible FAQ Question/Answer and guide Article data describe
+the actual pages. No invented review ratings or article publication dates were
+added. Business sameAs is limited to the corporate website; existing public
+social links are not treated as independently verified business identities.
+Static HTML exposes the substantive content without requiring JavaScript.
+These are technical readiness improvements, not indexing or AI-citation claims.
+
+Enquiries and measurement integration
+
+The original synchronous Zoho embed URL/form identity, fallback phone/email
+links and chat/assistant coordination are retained. Contact and quotation
+pages reuse that provider embed once per page. No new form automatically
+intercepts or duplicates the provider's submission.
+
+The f04 assets/tracking.js, tracking.config.mjs and contact-widgets.js are
+byte-for-byte unchanged. The existing exact, form-scoped Zoho acknowledgment
+contract and PII-free bridge events remain the tracking baseline. An intention,
+assistant opening or visible splash is not promoted into a confirmed form lead.
+
+The separate marketing agent supplied the public disabled controller/config,
+attribution and lead-client modules. The build places the marketing JSON/module
+before the retained tracking adapter, versions both imported dependencies, then
+hashes the final entry module. Static checks verify those exact content hashes
+and require its public landing-path privacy allowlist to equal the authored
+routes plus the literal /404.html path.
+
+All new activation flags remain off. The current build preserves the existing
+GTM loader pair and does not display an active consent banner or preference
+button. marketing-build-policy.mjs rejects partially requested activation.
+Only a fully matching reviewed configuration, positive coordinated container
+version, granular tag gates and URL/referrer-policy gate can omit that pair
+and delegate sole GTM loading to the controller. Those flags are review gates;
+their presence is not independent proof of provider behavior or legal approval.
+
+The prepared controller concerns GTM-managed measurement. It does not block
+the independent Zoho form, SalesIQ or assistant services. The cookie information
+page does not promise that all third-party connections are prevented. The
+separate lead service remains disabled pending approved credentials, mappings,
+provider/HUB contracts and deployment review.
+
+Validation completed locally
+
+  Build: 19 indexable pages plus 404 generated successfully.
+  Repeated build: all 144 files under website/dist remained byte-identical.
+  Static checks: 2,202/2,202 passed; 47 local asset references verified.
+  Integrated Node tests: 85/85 passed; no skipped or cancelled tests.
+  Website browser suite: 338/338 assertions passed on 1440/390/320 layouts.
+  Retained nine-page browser regressions: 251/251 assertions passed.
+  Accessibility: 38 axe scans; zero serious or critical violations.
+  Primary service regressions: 353/353 passed with and without JavaScript.
+  Chat/assistant regressions: 19/19 passed, including delayed/retry/keyboard cases.
+  Buyer paths and 404: 122/122 passed at 1440/960/390/320 with/without JavaScript.
+  Final integration smoke: 25/25 page/layout checks passed after final hashing,
+  covering all 19 routes at 390 and home/service/quotation at 1024 and 1280.
+  git diff --check: clean. Preserved tracking/contact files: no baseline diff.
+
+The browser suites recorded zero page errors and zero unexpected provider,
+redirect or WebSocket connections. They used isolated local Chrome contexts,
+blocked external traffic and mocked provider scripts. A clearly labelled
+synthetic provider form was used for layout screenshots. No enquiry was sent.
+These tests establish local behavior, not a fresh live provider-rendering,
+CRM-delivery, production-consent, ranking or search-index verification.
+
+Evidence (ignored local artifacts)
+
+  artifacts/website-modernization/results.json
+  artifacts/website-modernization/node-tests.txt
+  artifacts/website-modernization/final-integration-smoke.json
+  artifacts/website-modernization/build-reproducibility.json
+  artifacts/legacy-browser-final/qa-report.json
+  artifacts/primary-interactions/results.json
+  artifacts/contact-widget-regressions/results.json
+  artifacts/project-entry-paths/results.json
+
+Twelve modernization screenshots cover homepage, service index, primary service,
+quotation, FAQ and quotation guide at desktop/mobile. Representative files:
+
+  artifacts/website-modernization/1440-home.png
+  artifacts/website-modernization/390-request-a-quote.png
+  artifacts/website-modernization/1440-services-street-lighting.png
+  artifacts/website-modernization/390-faqs.png
+
+Reproduction
+
+  npm ci --ignore-scripts
+  npm run build
+  npm run check
+  npm run test:marketing
+  npm run test:leads
+  npm run test:tracking
+  npm run test:static
+  npm run test:safety
+  npm run test:discovery
+
+For browser checks, start npm run preview on isolated loopback port 4173, then:
+
+  npm run test:website
+  npm run test:primary
+  npm run test:contacts
+  npm run test:works
+
+The existing test:works command now checks the supported buyer paths and 404
+recovery instead of the retired eight-topic scroll-reveal gallery. Browser QA
+uses installed local Chrome, never the user's native browser. Stop the preview
+after testing. Asset text is kept LF-normalized for reproducible hash output.
+The complete test:local driver now discovers the server unit/syntax checks and
+includes the new website and existing contact-widget browser suites. It still
+requires the caller's existing Nginx/OpenSSL executables for its HTTP/TLS suite.
+That complete Nginx/TLS driver was not executed in this pass because those
+executables were not present in the checkout or PATH. The individual suites
+and results listed above were executed separately.
+
+Review before publication
+
+Confirm current RTA portal standing and any renewed certificate documents;
+current ISO evidence; company legal/address/profile freshness; actual service
+scope for future civil/NOC/landscaping additions; permission and scope for any
+future project/client material; social-profile ownership; and reviewed legal
+policy/operational consent settings. No unverified extra service or legal terms
+page was invented to close those evidence gaps.
+
+The live missing-slash redirect currently exposes an HTTP :3100 destination.
+Local page links avoid it, but a separate reviewed Nginx correction is still
+needed. The site source change does not fix the live proxy/redirect behavior.
+
+Production remains unchanged. This expanded release is outside the earlier
+f04-only 22-path deployment plan. It requires a new complete diff/backup/path
+plan, build verification, concrete production approval and subsequent live
+checks. No earlier deployment command should be assumed to cover this branch.

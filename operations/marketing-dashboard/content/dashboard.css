@@ -1,0 +1,9 @@
+.rta-dashboard {padding-bottom:64px;min-width:0;}
+.rta-dashboard .rta-period-controls {display:flex;flex-wrap:wrap;align-items:center;gap:10px;width:100%;max-width:100%;min-width:0;}
+.rta-dashboard .rta-metric-note {margin:12px 0 0;font-size:12px;line-height:1.5;color:var(--secondary);max-width:40ch;}
+.rta-dashboard .rta-scope-note {font-size:13px;line-height:1.6;color:var(--secondary);margin:20px 0;max-width:100ch;}
+.rta-dashboard .rta-range {font-size:13px;color:var(--secondary);align-self:center;}
+.rta-dashboard .rta-empty {min-height:130px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:8px;max-width:70ch;}
+.rta-dashboard .rta-empty strong {font-size:17px;font-weight:500;color:var(--text);}
+.rta-dashboard .rta-empty p {font-size:13px;color:var(--secondary);line-height:1.6;margin:0;}
+@media (max-width:650px) {.rta-dashboard .rta-range {display:block;flex-basis:100%;}.rta-dashboard .rta-empty {min-height:100px;}}

@@ -1,0 +1,48 @@
+# Account creation and owner actions
+
+This report separates successful native actions from drafts, public profile evidence and pending authentication. Account locators and private bindings are omitted; use the owner entry points below and select the verified existing RTA assets. **Do not create duplicates.**
+
+## Executed native setup and current state
+
+| Platform | Created or updated | Current verified boundary |
+| --- | --- | --- |
+| Google Analytics 4 | New RTA property and web stream created; `generate_lead` starred as key event; `interaction_type` event-scoped custom dimension saved | Correct property linked to Ads and Search Console; one browser lead collection request tested; processed paid attribution unproved |
+| Google Tag Manager | Existing RTA container retained; earlier reviewed live version 3; native version-4 draft prepared/exported/audited | Version 3 remains live; version 4 not published or automatically bundled with master deployment |
+| Google Search Console | Existing verified HTTPS URL-prefix property reused; linked to correct GA4 and Ads | Associations accepted/read back; current full indexing/report coverage still requires actual property reports |
+| Microsoft Clarity | New RTA-specific project created and installed through the existing tagging work; correct GA4 and Ads integrations linked | GA4 integration Active; SDK/project setup is not proof of Ads attribution or useful recordings for every visit |
+| Google Ads | Existing account/campaign and native form conversion retained; missing-ad blocker cleared | Campaign Enabled/Eligible (Limited); form action still Misconfigured, secondary, count One, no value; no new campaign/budget/billing change |
+| Microsoft Advertising | UET tag created natively and previewed | New goal remains unsaved; no Microsoft paid campaign launched; no completed Microsoft conversion reporting claimed |
+| Zoho CRM | 19 additive RTA Lead fields created/read back, increasing 97 to 116; unique submission key and writable consented click-ID fields verified | No records changed by field setup; existing fields/global Lead Status preserved; secure server API integration disabled |
+| Bing Webmaster Tools | New authentication entry opened for the owner | Sign-in pending; no verified submission, new ownership or Bing reporting claimed |
+
+No new social account, directory listing, procurement registration, paid intelligence subscription, Meta/LinkedIn/TikTok pixel or server CAPI connection was created by this master work. Existing Zoho SalesIQ and Talk2Maries embeds remain preserved; their presence is not proof of CRM lead outcomes. A private local dashboard was built; it is not a public analytics account or a completed live data connection.
+
+## Public business/profile evidence
+
+The official website links LinkedIn, Facebook, Instagram, X and Pinterest profiles. This establishes first-party link provenance, not administrator ownership, freshness or every profile's legal identity. The X handle retains an NSTS name; the Yellow Pages record matches the public company/address but still describes Nathan Star Technical Services. Verify legal continuity and ownership before correcting either. A related “Voltronix Switchgear” result is not automatically the contracting company's profile.
+
+Company identity and published address/contact agree across [rtacontractor.ae](https://rtacontractor.ae/), [corporate contact](https://voltronix.ae/contact-us/) and the likely matching [Yellow Pages record](https://www.yellowpages-uae.com/voltronix-169323). Published “since 2009” is company-supplied history, not independent incorporation proof. Current RTA portal status and ISO renewal evidence remain owner requirements. No official government identity is implied.
+
+The full [100-role matrix](platform-matrix.md) includes existing-status evidence, relevance, issues, action taken and owner requirements for every named platform. “Unverified” means unverified, not missing.
+
+## Owner actions
+
+| Priority | Exact next action | Official navigation |
+| --- | --- | --- |
+| Release | Review the full expanded source/diff, new backup/rollback plan, live redirect correction and activation boundaries; provide explicit production approval only for the concrete plan | Repository deployment review; [scoped Nginx proposal](../deploy/rta-nginx-redirects.conf.example) |
+| Google Ads | Select the existing RTA campaign and Goals → Conversions; inspect the current misconfigured native form action, actual diagnostics/receipts and intended primary/secondary bidding role. Reconcile actual reports without counting native and imported duplicates | [Google Ads](https://ads.google.com/) |
+| Microsoft Ads | Complete the user's selected **No enhanced conversions** option in the unsaved goal flow, save and read back the exact event/goal settings. Confirm identity, consent and any billing/spend decision separately before a launch | [Microsoft Advertising](https://ads.microsoft.com/) |
+| Bing | Finish normal owner sign-in, select/reuse existing property or complete legitimate verification if needed, then inspect sitemap/indexing/AI-report availability. No bypass of MFA/CAPTCHA | [Bing Webmaster Tools](https://www.bing.com/webmasters/) |
+| Google Search | Select the existing HTTPS property; inspect submitted sitemap, Pages and URL Inspection for deployed canonical pages. Recheck linked GA4/Ads and actual AI/report availability; do not create a duplicate property | [Search Console](https://search.google.com/search-console/) |
+| Tracking consent | Reconcile fresh container/source exports, select one loader/event owner and verify every tag's purpose, consent timing and URL policy before changing activation flags. Keep version 4 draft separate until explicitly approved | [Tag Manager](https://tagmanager.google.com/), [Analytics](https://analytics.google.com/), [Clarity](https://clarity.microsoft.com/) |
+| CRM delivery | Supply a private, scoped server OAuth provider for the verified organization/region; verify field writability, automation policy, encrypted storage, retention, origin/proxy/rate policy and one-provider form switch. Do not paste credentials into repository/client files | [Zoho CRM](https://www.zoho.com/crm/), [API authorization](https://www.zoho.com/crm/developer/docs/api/v8/oauth-overview.html) |
+| HUB/lifecycle | Establish actual authenticated HUB endpoint/schema, accepted receipt, deduplication and replay contract, and verified qualification/quotation/won semantics before enabling any integration | Owner's existing HUB administration; no public endpoint invented |
+| Business proof | Confirm current RTA standing and supplied certificate conditions; provide ISO renewal, actual service scope, project/client/image permissions and approved commercial/legal terms | [RTA](https://www.rta.ae/), existing corporate records |
+| Social | Confirm admin access/legal identity for the website-linked pages, intended WhatsApp destination and content rights; then review prepared bios, covers and calendar. Reuse verified corporate assets | [LinkedIn](https://www.linkedin.com/company/voltronix-uae/), [Facebook](https://www.facebook.com/voltronixuae), [Instagram](https://www.instagram.com/vtnxllc/), [X](https://x.com/nstsllc), [Pinterest](https://www.pinterest.com/voltronixs/) |
+| Local listings | Search/reuse the eligible real company listing, confirm staffed storefront versus service-area eligibility and complete owner verification. Do not create a government-like duplicate RTA identity | [Google Business Profile](https://www.google.com/business/), [Bing Places](https://www.bing.com/forbusiness), [Apple Business](https://business.apple.com/) |
+| Directory correction | Claim/verify the matching Yellow Pages record and clarify the legacy NSTS description; then check other matrix directories for existing matching profiles before adding anything | [Likely Yellow Pages match](https://www.yellowpages-uae.com/voltronix-169323), [Connect.ae](https://connect.ae/), [ATN](https://www.atninfo.com/), [2GIS](https://2gis.ae/dubai) |
+| Procurement | Choose actual procurement needs, verify existing organizations, eligibility and documents; have an authorised representative approve all binding declarations. Contractor enrolment differs from supplier registration; paid intelligence is not registration | [eSupply](https://esupply.dubai.gov.ae/), [DEWA contractor enrolment](https://dewa.gov.ae/en/about-us/service-guide/general-information/enrollment-of-consultants-contractors), [Federal supplier register](https://mof.gov.ae/en/services/register-suppliers-in-the-federal-supplier-register/), [SAP Business Network](https://www.sap.com/products/business-network/suppliers/) |
+| Reporting | Authorize least-privilege read-only reporting or provide genuine reviewed owner exports; confirm periods/timezones/domain cutover/test exclusion before filling unavailable dashboard metrics | [GA4](https://analytics.google.com/), [Google Ads](https://ads.google.com/), [Microsoft Advertising](https://ads.microsoft.com/), [Search Console](https://search.google.com/search-console/) |
+| Operations | After an approved release, review actual monitor/report recipients and workflow permissions; deploy IndexNow proof before explicit submission. No production cron/schedule/notification is installed | [IndexNow protocol](https://www.indexnow.org/documentation), repository operations tools |
+
+Billing, budgets, campaign publication, paid subscriptions, procurement declarations, credentials, verification and production activation remain distinct decisions. A completed account link or readiness checkbox does not supply approval for those actions.

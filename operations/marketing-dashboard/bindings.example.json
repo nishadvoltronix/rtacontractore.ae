@@ -1,0 +1,7 @@
+{
+  "ga4": {"enabled":false,"ownershipVerified":false,"websiteOrigin":"https://rtacontractor.ae","finalizedThroughDate":null,"propertyId":null,"accessTokenEnv":"RTA_GA4_READONLY_ACCESS_TOKEN"},
+  "gsc": {"enabled":false,"ownershipVerified":false,"websiteOrigin":"https://rtacontractor.ae","finalizedThroughDate":null,"siteUrl":"https://rtacontractor.ae/","accessTokenEnv":"RTA_SEARCH_CONSOLE_READONLY_ACCESS_TOKEN"},
+  "googleAds": {"enabled":false,"ownershipVerified":false,"websiteOrigin":"https://rtacontractor.ae","finalizedThroughDate":null,"customerId":null,"campaignId":null,"apiVersion":null,"loginCustomerId":null,"accessTokenEnv":"RTA_GOOGLE_ADS_READONLY_ACCESS_TOKEN","developerTokenEnv":"RTA_GOOGLE_ADS_DEVELOPER_TOKEN"},
+  "microsoftAds": {"enabled":false,"reason":"Authenticated SDK binding and complete scoped report not verified; reviewed aggregate export import only."},
+  "zoho": {"enabled":false,"reason":"Exact-origin capture start, scoped reporting token and complete export coverage must be verified; reviewed aggregate import only."}
+}

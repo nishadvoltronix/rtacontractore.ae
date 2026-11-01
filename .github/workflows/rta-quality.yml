@@ -1,0 +1,44 @@
+name: RTA website quality
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: rta-quality-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: node operations/quality/syntax.mjs
+      - run: npm run build
+      - run: npm run check
+      - run: node --test website/scripts/*.test.mjs server/lead-service/*.test.mjs operations/quality/*.test.mjs operations/marketing-dashboard/test/*.test.mjs
+      - run: node operations/marketing-campaigns/generate.mjs
+      - run: npm audit --audit-level=high
+      - run: npx --no-install playwright install --with-deps chromium
+      - name: Select isolated Playwright browser
+        run: node --input-type=module -e "import { chromium } from '@playwright/test'; console.log('QA_CHROME_PATH='+chromium.executablePath());" >> "$GITHUB_ENV"
+      - name: Local website and accessibility checks
+        shell: bash
+        run: |
+          node website/scripts/serve.mjs > /tmp/rta-preview.log 2>&1 &
+          RTA_PREVIEW_PID=$!
+          trap 'kill "$RTA_PREVIEW_PID"' EXIT
+          node -e "let n=0; const check=async()=>{try {const r=await fetch('http://127.0.0.1:4173/');if(r.ok)return;}catch{}if(++n>40)process.exit(1);setTimeout(check,250)};check();"
+          npm run test:website
+          npm run test:primary
+          npm run test:contacts
+          node website/scripts/qa-project-paths.mjs

@@ -1,0 +1,16 @@
+# REVIEW SNIPPET. Merge only into the existing rtacontractor.ae server block.
+# Do not replace the full configuration or change another site's settings.
+# Relative directory redirects preserve the public HTTPS scheme and omit 3100.
+absolute_redirect off;
+port_in_redirect off;
+
+# Enable only after confirming the app server receives the original Host.
+# if ($host = www.rtacontractor.ae) {
+#     return 308 https://rtacontractor.ae$request_uri;
+# }
+
+# Existing root, listen, security headers, locations and access policy remain.
+# Before an approved change: save the exact existing file/metadata and diff,
+# run nginx -t, then perform only the approved graceful configuration reload.
+# Verify both slashless and canonical URLs externally; restore the saved file
+# and validate/reload for rollback. No configuration has been applied here.
